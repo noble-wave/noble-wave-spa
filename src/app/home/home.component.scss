@@ -1,0 +1,72 @@
+.background-video {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center; /* Adjust the object position as needed */
+}
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  max-width: 90%;
+  line-height: 2.5rem;
+  z-index: 1;
+}
+
+
+
+
+.heading {
+  font-size: 3rem !important;
+  font-weight: 800 !important;
+  line-height: 4rem !important;
+  margin-top: 1em;
+}
+
+@media (max-width: 844px) {
+  .background-video {
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 850px) {
+  video {
+    width: 100%; /* Ensure the video takes the full width at this breakpoint */
+  }
+}
+
+@media (max-width: 908px) {
+
+  .text {
+    width: 100% !important;
+    max-width: 100%; /* Ensure text takes the full width */
+    margin-right: 10px !important;
+  }
+}
+
+@media (max-width: 429px) {
+  .text {
+    font-size: 1.2rem; /* Reduce font size for smaller screens */
+    line-height: 2rem; /* Adjust line height for better readability */
+  }
+  .heading{
+    font-size: 2rem !important;
+    line-height: 2.3rem !important;
+  }
+}

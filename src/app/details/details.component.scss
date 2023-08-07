@@ -1,0 +1,220 @@
+/* General Styles */
+#page-wrapper>section {
+    margin-bottom: 0;
+}
+
+/* Intro Styles - Screen width up to 850px */
+@media screen and (max-width: 850px) {
+    #main {
+        padding-bottom: 5em;
+        text-align: center;
+        margin-top: 6em;
+        width: 100% !important;
+    }
+}
+
+/* Styles for smaller screen width up to 509px */
+@media screen and (max-width: 509px) {
+    .features li{
+        padding: 2em 2em 1em 2em !important;
+    }
+    
+    p {
+        width: 270px;
+    }
+}
+
+/* Styles for even smaller screen width up to 457px */
+@media screen and (max-width: 457px) {
+    // p {
+    //     width: 322px;
+    //     margin-left: -76px;
+    //     margin-right: -60px;
+    // }
+
+    .heading {
+        margin-left: -50px;
+        margin-right: -50px;
+    }
+}
+/* Media Queries for .features li */
+@media (max-width: 812px) {
+    .features li {
+        padding: 4em 4em 2em 6em;
+        display: block;
+        position: relative;
+        text-align: left;
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 497px) {
+    .features li {
+        // padding: 6em 6em 4em 8em;
+        padding: 1em 1em 1em 1em;
+        display: block;
+        text-align: left;
+        width: 100% !important;
+    }
+
+    h3 {
+        margin: 0 0 1em 0;
+    }
+
+    ul li {
+        padding-left: 0.1em;
+    }
+    .title {
+        width: 25em !important;
+        font-size: 0.8em !important;
+
+    }
+    .pageMargin {
+        margin: 0 1rem;
+    }
+}
+
+/* Common Styles for .wrapper and .title */
+.wrapper {
+    position: relative;
+    padding: 3em 0 2em 0;
+}
+
+.title {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    display: block;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    font-size: 0.9em;
+    width: 25em;
+    height: 3.25em;
+    top: -3.25em;
+    line-height: 3.25em;
+    margin-bottom: -3.25em;
+    margin-left: -12.5em;
+    padding-top: 0.5em;
+
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: -32px;
+        left: -35px;
+        width: 35px;
+        height: 38px;
+        background: url("/assets/noble/shadow.png");
+    }
+
+    &:after {
+        transform: scaleX(-1);
+        content: '';
+        position: absolute;
+        bottom: -32px;
+        right: -35px;
+        width: 35px;
+        height: 38px;
+        background: url("/assets/noble/shadow.png");
+    }
+}
+
+/* Styles for #main */
+#main {
+    text-align: center;
+    margin-top: -0.75em;
+    width: 100%;
+}
+
+#main.style2 {
+    background: #fff;
+
+    .title {
+        background: #fff;
+        color: #484d55;
+    }
+}
+
+.heading {
+    text-align: center;
+    font-size: 0.9em;
+    line-height: 1.75em;
+    font-weight: 800;
+    letter-spacing: 0.255em;
+    line-height: 1em;
+    margin: 0 0 1em 0;
+    text-transform: uppercase;
+    margin-top: 42px;
+}
+
+/* Styles for .features and .features li */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.features li {
+    padding: 4em 4em 2em 6em;
+    display: block;
+    position: relative;
+    text-align: left;
+    width: 30%;
+}
+
+/* Styles for .icon and ul li */
+.icon,
+ul li {
+    text-decoration: none;
+    border-bottom: none;
+    position: relative;
+}
+
+/* Styles for individual .features li */
+.features li:nth-child(1) {
+    border-top-left-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.035);
+}
+
+.features li:nth-child(2) {
+    border-top-right-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.07);
+}
+
+.features li:nth-child(3) {
+    background-color: rgba(0, 0, 0, 0.105);
+}
+
+.features li:nth-child(4) {
+    background-color: rgba(0, 0, 0, 0.14);
+}
+
+.features li:nth-last-child(2) {
+    border-bottom-left-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.175);
+}
+
+.features li:nth-last-child(1) {
+    border-bottom-right-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.21);
+}
+
+/* Styles for h3 elements */
+h3 {
+    font-size: 1.15em;
+    line-height: 1.75em;
+    font-weight: 800;
+    letter-spacing: 0.225em;
+    line-height: 1em;
+    margin: 0 0 1em 0;
+    text-transform: uppercase;
+}
+
+/* Other Styles */
+.pageMargin {
+    margin: 0 3.5rem;
+}
