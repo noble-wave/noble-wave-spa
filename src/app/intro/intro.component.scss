@@ -54,6 +54,15 @@ body {
     }
 }
 
+@media screen and (max-width: 345px) {
+    .title {
+        width: 18em !important;
+        margin-left: -9em !important;
+        font-size: 0.8em !important;
+
+    }
+}
+
 .wrapper {
     position: relative;
     padding: 6em 0 9em 0;
@@ -220,12 +229,6 @@ body {
 
     #intro p.style3 {
         font-size: 1em;
-    }
-
-    .title {
-        width: 25em !important;
-        font-size: 0.8em !important;
-
     }
 
     .pageMargin {
