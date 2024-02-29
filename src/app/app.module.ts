@@ -10,6 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
 import { IntroComponent } from './intro/intro.component';
 import { FooterComponent } from './footer/footer.component';
+import { FormsModule } from '@angular/forms';
+import { ContactComponent } from './contact/contact.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -20,12 +23,15 @@ import { FooterComponent } from './footer/footer.component';
     MainComponent,
     IntroComponent,
     FooterComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
+    FormsModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

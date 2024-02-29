@@ -15,28 +15,27 @@
 
 /* Styles for smaller screen width up to 509px */
 @media screen and (max-width: 509px) {
-    .features li{
+    .features li {
         padding: 2em 2em 1em 2em !important;
     }
-    
+
+}
+
+@media screen and (max-width: 321px) {
     p {
-        width: 270px;
+        width: 170px;
     }
 }
 
 /* Styles for even smaller screen width up to 457px */
 @media screen and (max-width: 457px) {
-    // p {
-    //     width: 322px;
-    //     margin-left: -76px;
-    //     margin-right: -60px;
-    // }
 
     .heading {
         margin-left: -50px;
         margin-right: -50px;
     }
 }
+
 /* Media Queries for .features li */
 @media (max-width: 812px) {
     .features li {
@@ -64,11 +63,13 @@
     ul li {
         padding-left: 0.1em;
     }
+
     .title {
         width: 25em !important;
         font-size: 0.8em !important;
 
     }
+
     .pageMargin {
         margin: 0 1rem;
     }
@@ -117,6 +118,14 @@
         width: 35px;
         height: 38px;
         background: url("/assets/noble/shadow.png");
+    }
+}
+
+@media screen and (max-width: 345px) {
+    .title {
+        width: 18em !important;
+        margin-left: -9em !important;
+        font-size: 0.8em !important;
     }
 }
 
