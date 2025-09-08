@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -56,14 +56,5 @@ export class HomeComponent implements OnInit, AfterViewInit {
     counters.forEach((counter) => {
       observer.observe(counter);
     });
-  }
-
-  playVideo(): void {
-    const videoElement = document.getElementById(
-      'videoElement'
-    ) as HTMLVideoElement;
-    if (videoElement) {
-      videoElement.play();
-    }
   }
 }
