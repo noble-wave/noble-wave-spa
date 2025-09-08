@@ -17,7 +17,8 @@
 }
 
 @keyframes float-geometric-1 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
@@ -26,7 +27,8 @@
 }
 
 @keyframes float-geometric-2 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
@@ -59,7 +61,8 @@
 }
 
 @keyframes float-circle-1 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) translateX(0px);
     opacity: 0.4;
   }
@@ -78,7 +81,8 @@
 }
 
 @keyframes float-circle-2 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) translateX(0px);
     opacity: 0.4;
   }
@@ -93,7 +97,8 @@
 }
 
 @keyframes float-circle-3 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) translateX(0px);
     opacity: 0.4;
   }
