@@ -13,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { ContactComponent } from './contact/contact.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { LucideAngularModule } from 'lucide-angular';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatIconModule,
     FormsModule,
     FlexLayoutModule,
+    LucideAngularModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
