@@ -13,7 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { ContactComponent } from './contact/contact.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { LucideAngularModule } from 'lucide-angular';
+import { LucideAngularModule, Code2, Globe, Server, Database, Cloud, CloudCog, Workflow, Star, Layers, HardDrive, Cpu, Smartphone, Settings, Mail, Phone, MapPin } from 'lucide-angular';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { LucideAngularModule } from 'lucide-angular';
     MatIconModule,
     FormsModule,
     FlexLayoutModule,
-    LucideAngularModule,
+    LucideAngularModule.pick({ Code2, Globe, Server, Database, Cloud, CloudCog, Workflow, Star, Layers, HardDrive, Cpu, Smartphone, Settings, Mail, Phone, MapPin }),
   ],
   providers: [],
   bootstrap: [AppComponent],
