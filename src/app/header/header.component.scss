@@ -25,7 +25,7 @@
   background: transparent;
 }
 
-/* Modern Navigation Bar - Fully Transparent */
+/* Modern Navigation Bar - Dynamic Styling Based on Section */
 nav {
   height: 80px;
   background: transparent;
@@ -37,10 +37,91 @@ nav {
   top: 0;
   box-shadow: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
 
-  &:hover {
-    background: rgba(0, 0, 0, 0.1);
-    box-shadow: none;
+  /* Default text styling for home section - white text */
+  .nav-link {
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #06b6d4;
+      text-shadow: 0 0 8px rgba(6, 182, 212, 0.6);
+    }
+  }
+
+  .company-tagline {
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .cta-btn {
+    background: linear-gradient(135deg, #06b6d4, #3b82f6);
+    color: white;
+    text-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+
+    &:hover {
+      background: linear-gradient(135deg, #0891b2, #2563eb);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+    }
+  }
+
+  /* Transparent state for home section */
+  &.transparent-header {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+
+    .nav-link {
+      color: white !important;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+
+      &:hover {
+        color: #06b6d4 !important;
+        text-shadow: 0 0 8px rgba(6, 182, 212, 0.6) !important;
+      }
+    }
+
+    .company-tagline {
+      color: rgba(255, 255, 255, 0.8) !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+    }
+  }
+
+  /* Glass-morphism styling for other sections */
+  &.glass-header {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+
+    .nav-link {
+      color: #1a1a1a !important;
+      text-shadow: none !important;
+
+      &:hover {
+        color: #06b6d4 !important;
+        text-shadow: none !important;
+      }
+    }
+
+    .company-tagline {
+      color: #6b7280 !important;
+      text-shadow: none !important;
+    }
+
+    .cta-btn {
+      background: linear-gradient(135deg, #06b6d4, #3b82f6) !important;
+      color: white !important;
+    }
   }
 }
 

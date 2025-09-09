@@ -1,15 +1,21 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   isMobileMenuOpen = false;
   isScrolled = false;
+  isInHomeSection = true;
 
   constructor() {}
+
+  ngOnInit(): void {
+    // Set initial transparent header for home section
+    this.updateHeaderStyle();
+  }
 
   // Toggle mobile menu
   toggleMobileMenu(): void {
@@ -33,19 +39,52 @@ export class HeaderComponent {
     }
   }
 
-  // Listen for scroll events to add/remove scrolled class
+  // Listen for scroll events to detect which section we're in
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(): void {
-    this.isScrolled = window.pageYOffset > 50;
+    const scrollPosition = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+
+    // Consider we're in home section if we're in the first 70% of viewport
+    this.isInHomeSection = scrollPosition < windowHeight * 0.7;
+    this.isScrolled = scrollPosition > 50;
+
+    this.updateHeaderStyle();
+  }
+
+  // Update header style based on section and scroll position
+  private updateHeaderStyle(): void {
     const nav = document.querySelector('nav') as HTMLElement;
     if (nav) {
-      if (this.isScrolled) {
-        nav.style.background = 'rgba(255, 255, 255, 0.95)';
-        nav.style.backdropFilter = 'blur(25px)';
+      if (this.isInHomeSection) {
+        // Transparent when in home section
+        this.setTransparentHeader();
       } else {
-        nav.style.background = 'rgba(255, 255, 255, 0.08)';
-        nav.style.backdropFilter = 'blur(20px)';
+        // Glass-morphism when in details/footer sections
+        this.setGlassHeader();
       }
+    }
+  }
+
+  // Set transparent header for home section
+  private setTransparentHeader(): void {
+    const nav = document.querySelector('nav') as HTMLElement;
+    if (nav) {
+      nav.style.background = 'transparent';
+      nav.style.backdropFilter = 'none';
+      nav.style.boxShadow = 'none';
+      nav.style.borderBottom = 'none';
+      nav.classList.remove('glass-header');
+      nav.classList.add('transparent-header');
+    }
+  }
+
+  // Set glass-morphism header for other sections
+  private setGlassHeader(): void {
+    const nav = document.querySelector('nav') as HTMLElement;
+    if (nav) {
+      nav.classList.remove('transparent-header');
+      nav.classList.add('glass-header');
     }
   }
 
