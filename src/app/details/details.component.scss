@@ -1,16 +1,111 @@
-// Services Page Styles - Modern Professional Design
+// Services Page Styles - Matching Home Page Blue Theme
 .services-page {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: transparent; // Let global background show through
   min-height: 100vh;
   padding-top: 80px; // Account for header
+  position: relative;
+  z-index: 1;
 }
 
-// Services Hero Section
+// Force center text class
+.force-center-text {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+// Additional override for any potential conflicts
+:host ::ng-deep p {
+  &.force-center-text {
+    text-align: center !important;
+  }
+}
+
+// Global overrides to match blue theme
+:host {
+  // Override white backgrounds with glass-morphism
+  ::ng-deep .bg-white {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
+
+  // Override gray backgrounds to be transparent
+  ::ng-deep .bg-gray-50,
+  ::ng-deep .bg-gray-100 {
+    background: transparent !important;
+  }
+
+  // Override dark text colors to white/light
+  ::ng-deep .text-gray-900 {
+    color: white !important;
+  }
+
+  ::ng-deep .text-gray-600,
+  ::ng-deep .text-gray-700 {
+    color: #d1d5db !important; // gray-300
+  }
+
+  // Override tag backgrounds with glass effect
+  ::ng-deep .bg-blue-100,
+  ::ng-deep .bg-cyan-100,
+  ::ng-deep .bg-indigo-100,
+  ::ng-deep .bg-green-100,
+  ::ng-deep .bg-purple-100,
+  ::ng-deep .bg-orange-100 {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
+
+  // Override tag text colors
+  ::ng-deep .text-blue-700,
+  ::ng-deep .text-cyan-700,
+  ::ng-deep .text-indigo-700,
+  ::ng-deep .text-green-700,
+  ::ng-deep .text-purple-700,
+  ::ng-deep .text-orange-700 {
+    color: #cbd5e1 !important; // gray-300
+  }
+
+  // Override borders
+  ::ng-deep .border-gray-100,
+  ::ng-deep .border-gray-200 {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  // Override checkmark icons to cyan
+  ::ng-deep .text-green-500 {
+    color: #06b6d4 !important; // cyan-500
+  }
+
+  // Update gradients to match blue theme
+  ::ng-deep .from-blue-600.to-purple-600 {
+    background: linear-gradient(to right, #06b6d4, #3b82f6) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+  }
+
+  ::ng-deep .from-blue-600.to-indigo-600 {
+    background: linear-gradient(to right, #06b6d4, #3b82f6) !important;
+  }
+
+  ::ng-deep .from-green-600.to-emerald-600 {
+    background: linear-gradient(to right, #10b981, #06b6d4) !important;
+  }
+
+  ::ng-deep .from-purple-600.to-pink-600 {
+    background: linear-gradient(to right, #8b5cf6, #06b6d4) !important;
+  }
+}
+
+// Services Hero Section - Matching Home Theme
 .services-hero {
   padding: 80px 20px;
   color: white;
   position: relative;
   overflow: hidden;
+  background: transparent; // Remove dark background to match home theme
 
   .hero-container {
     max-width: 1200px;
