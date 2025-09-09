@@ -56,11 +56,11 @@ export class HeaderComponent implements OnInit {
   private updateHeaderStyle(): void {
     const nav = document.querySelector('nav') as HTMLElement;
     if (nav) {
-      if (this.isInHomeSection) {
-        // Transparent when in home section
+      if (this.isInHomeSection && !this.isScrolled) {
+        // Transparent when in home section and not scrolled
         this.setTransparentHeader();
       } else {
-        // Glass-morphism when in details/footer sections
+        // Glass-morphism when scrolled or in other sections
         this.setGlassHeader();
       }
     }
