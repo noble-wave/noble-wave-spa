@@ -8,10 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { DetailsComponent } from './details/details.component';
 import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
-import { IntroComponent } from './intro/intro.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
-import { ContactComponent } from './contact/contact.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   LucideAngularModule,
@@ -42,13 +40,11 @@ import {
 @NgModule({
   declarations: [
     AppComponent,
-    IntroComponent,
-    ContactComponent,
-    FooterComponent,
-    MainComponent,
     HeaderComponent,
-    HomeComponent,
     DetailsComponent,
+    HomeComponent,
+    MainComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
