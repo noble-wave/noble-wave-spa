@@ -15,9 +15,92 @@
   margin: 0 auto !important;
 }
 
+// Fix for CTA section centering - comprehensive solution
+.mt-24.text-center {
+  width: 100% !important;
+  text-align: center !important;
+
+  .relative.inline-block {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+
+    .relative.p-12 {
+      text-align: center !important;
+
+      p {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block !important;
+        width: 100% !important;
+      }
+
+      h3 {
+        text-align: center !important;
+      }
+    }
+  }
+}
+
+// Additional specific targeting for the CTA paragraph
+div.mt-24.text-center div.relative.inline-block div.relative.p-12 p {
+  text-align: center !important;
+  margin: 0 auto !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+// Technology Stack section subtitle centering
+p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+  width: 100% !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+// Additional comprehensive targeting for "Where innovation meets execution" text
+:host ::ng-deep .text-center.mb-24 p {
+  text-align: center !important;
+  margin: 0 auto 3rem auto !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: 56rem !important;
+  justify-content: center !important;
+}
+
 // Additional override for any potential conflicts
 :host ::ng-deep p {
   &.force-center-text {
+    text-align: center !important;
+  }
+}
+
+// Comprehensive Technology Stack section centering
+:host ::ng-deep .container.mx-auto .text-center.mb-24 {
+  text-align: center !important;
+  width: 100% !important;
+
+  p {
+    text-align: center !important;
+    margin: 0 auto !important;
+    display: block !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+// Specific override for inline-block elements preventing centering ONLY in CTA section
+:host ::ng-deep .mt-24.text-center .relative.inline-block {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+
+  .relative.p-12 * {
     text-align: center !important;
   }
 }

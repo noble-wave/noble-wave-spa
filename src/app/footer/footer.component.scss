@@ -207,6 +207,59 @@
     i {
       font-size: 16px;
     }
+
+    lucide-icon {
+      color: white !important;
+      width: 20px !important;
+      height: 20px !important;
+      display: block !important;
+      visibility: visible !important;
+    }
+
+    &:hover lucide-icon {
+      color: #1f2937 !important;
+    }
+
+    // Additional targeting for nested elements
+    ::ng-deep lucide-icon {
+      color: white !important;
+      width: 20px !important;
+      height: 20px !important;
+      display: block !important;
+
+      svg {
+        color: white !important;
+        fill: white !important;
+        width: 20px !important;
+        height: 20px !important;
+      }
+    }
+
+    &:hover ::ng-deep lucide-icon {
+      color: #1f2937 !important;
+
+      svg {
+        color: #1f2937 !important;
+        fill: #1f2937 !important;
+      }
+    }
+
+    // Specific targeting for social-icon class
+    .social-icon {
+      color: white !important;
+      width: 20px !important;
+      height: 20px !important;
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      stroke: white !important;
+      fill: none !important;
+    }
+
+    &:hover .social-icon {
+      color: #1f2937 !important;
+      stroke: #1f2937 !important;
+    }
   }
 }
 

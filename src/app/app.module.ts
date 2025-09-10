@@ -34,16 +34,7 @@ import {
 } from 'lucide-angular';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    DetailsComponent,
-    HomeComponent,
-    MainComponent,
-    IntroComponent,
-    FooterComponent,
-    ContactComponent,
-  ],
+  declarations: [AppComponent, IntroComponent, ContactComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
