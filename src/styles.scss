@@ -5,6 +5,24 @@
 /* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Account for fixed header */
+}
+
+/* Enhanced scrolling for mobile */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom smooth scroll class for programmatic scrolling */
+.smooth-scroll {
+  scroll-behavior: smooth !important;
+}
+
 /* Custom CSS Variables */
 :root {
   --color-primary: #0052ff;
@@ -295,6 +313,113 @@ body {
 .animate-wave {
   animation: wave 8s linear infinite;
 }
+
+/* Custom Scroll Animations */
+/* Enhanced AOS animations */
+[data-aos="fade-up-scale"] {
+  transform: translateY(30px) scale(0.95);
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+[data-aos="fade-up-scale"].aos-animate {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+[data-aos="slide-in-left"] {
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+[data-aos="slide-in-left"].aos-animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+[data-aos="slide-in-right"] {
+  transform: translateX(100px);
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+[data-aos="slide-in-right"].aos-animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+[data-aos="zoom-in-rotate"] {
+  transform: scale(0.8) rotate(-5deg);
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+[data-aos="zoom-in-rotate"].aos-animate {
+  transform: scale(1) rotate(0deg);
+  opacity: 1;
+}
+
+/* Card hover animations with scroll reveal */
+.scroll-card {
+  transition: all 0.3s ease;
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+.scroll-card.aos-animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.scroll-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Staggered animations for grids */
+.staggered-animation > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.staggered-animation.aos-animate > *:nth-child(1) {
+  animation: staggerFadeIn 0.6s ease forwards 0.1s;
+}
+
+.staggered-animation.aos-animate > *:nth-child(2) {
+  animation: staggerFadeIn 0.6s ease forwards 0.2s;
+}
+
+.staggered-animation.aos-animate > *:nth-child(3) {
+  animation: staggerFadeIn 0.6s ease forwards 0.3s;
+}
+
+.staggered-animation.aos-animate > *:nth-child(4) {
+  animation: staggerFadeIn 0.6s ease forwards 0.4s;
+}
+
+.staggered-animation.aos-animate > *:nth-child(5) {
+  animation: staggerFadeIn 0.6s ease forwards 0.5s;
+}
+
+.staggered-animation.aos-animate > *:nth-child(6) {
+  animation: staggerFadeIn 0.6s ease forwards 0.6s;
+}
+
+@keyframes staggerFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Parallax scroll effect */
+.parallax-scroll {
+  transform: translateY(var(--scroll-offset, 0));
+}
+
 :root {
   --primary: #3a77ba;
   --secondary: #15b798;
