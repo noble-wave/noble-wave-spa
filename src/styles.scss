@@ -424,3 +424,49 @@ body {
   --primary: #3a77ba;
   --secondary: #15b798;
 }
+
+/* Counter Animation Styles */
+.counter-number {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  transition: transform 0.3s ease;
+}
+
+.counter-number:not([data-animated]) {
+  opacity: 0.7;
+}
+
+.counter-number[data-animated] {
+  opacity: 1;
+  animation: counterPulse 0.5s ease-out;
+}
+
+@keyframes counterPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Enhanced scroll animations for cards */
+.scroll-card {
+  opacity: 0;
+  transform: translateY(50px) scale(0.9);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-card.aos-animate {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Statistics section hover effects */
+.counter-number:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
