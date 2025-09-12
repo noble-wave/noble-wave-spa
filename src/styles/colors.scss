@@ -1,0 +1,256 @@
+/* ========================================
+   GLOBAL COLOR SYSTEM - CSS CUSTOM PROPERTIES
+   ======================================== */
+
+:root {
+  /* ==========================================
+     PRIMARY BRAND COLORS 
+     ========================================== */
+  --primary-blue: #667eea;
+  --primary-blue-light: #8b9def;
+  --primary-blue-dark: #4c63d2;
+  
+  --secondary-purple: #764ba2;
+  --secondary-purple-light: #9a6bc4;
+  --secondary-purple-dark: #5a3480;
+  
+  --accent-cyan: #06b6d4;
+  --accent-cyan-light: #38c2d4;
+  --accent-cyan-dark: #0891b2;
+
+  /* ==========================================
+     EXTENDED PURPLE PALETTE
+     ========================================== */
+  --purple-500: #8b5cf6;
+  --purple-600: #7c3aed;
+  --purple-700: #6d28d9;
+  --purple-400: #a855f7;
+  --purple-300: #c084fc;
+
+  /* ==========================================
+     PINK/MAGENTA PALETTE
+     ========================================== */
+  --pink-500: #ec4899;
+  --pink-600: #db2777;
+  --pink-400: #f472b6;
+
+  /* ==========================================
+     ORANGE/AMBER PALETTE
+     ========================================== */
+  --orange-500: #f59e0b;
+  --orange-400: #fbbf24;
+  --orange-600: #d97706;
+
+  /* ==========================================
+     BLUE PALETTE EXTENDED
+     ========================================== */
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+  --blue-400: #60a5fa;
+
+  /* ==========================================
+     GREEN PALETTE
+     ========================================== */
+    // Green colors
+  --green-500: #10b981;
+  --green-400: #4ade80;
+  --green-600: #059669;
+  --green-alt: #22c55e;
+
+  // Red colors
+  --red-500: #ef4444;
+  --red-400: #f87171;
+  --red-600: #dc2626;
+
+  /* ==========================================
+     GRAY PALETTE EXTENDED
+     ========================================== */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  /* ==========================================
+     DARK THEME COLORS
+     ========================================== */
+  --dark-blue-1: #1a1a2e;
+  --dark-blue-2: #16213e;
+  --dark-blue-3: #0f0f23;
+
+  /* ==========================================
+     TEXT COLORS
+     ========================================== */
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b7280;
+  --text-tertiary: #9ca3af;
+  --text-white: #ffffff;
+  --text-white-soft: rgba(255, 255, 255, 0.8);
+  --text-white-muted: rgba(255, 255, 255, 0.6);
+
+  /* ==========================================
+     BACKGROUND COLORS
+     ========================================== */
+  --bg-transparent: transparent;
+  --bg-white: #ffffff;
+  --bg-black: #000000;
+  --bg-gray-50: #f9fafb;
+  --bg-gray-100: #f3f4f6;
+
+  /* ==========================================
+     GLASS MORPHISM COLORS
+     ========================================== */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-bg-light: rgba(255, 255, 255, 0.1);
+  --glass-bg-medium: rgba(255, 255, 255, 0.15);
+  --glass-bg-subtle: rgba(255, 255, 255, 0.05);
+  --glass-bg-strong: rgba(255, 255, 255, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-border-light: rgba(255, 255, 255, 0.1);
+
+  /* ==========================================
+     SHADOW COLORS
+     ========================================== */
+  --shadow-black-soft: rgba(0, 0, 0, 0.5);
+  --shadow-black-medium: rgba(0, 0, 0, 0.3);
+  --shadow-black-light: rgba(0, 0, 0, 0.1);
+  --shadow-black-subtle: rgba(0, 0, 0, 0.05);
+  --shadow-black-strong: rgba(0, 0, 0, 0.2);
+  --shadow-black-extra: rgba(0, 0, 0, 0.15);
+  --shadow-black-weak: rgba(0, 0, 0, 0.25);
+  
+  --shadow-blue: rgba(102, 126, 234, 0.15);
+  --shadow-blue-medium: rgba(102, 126, 234, 0.3);
+  --shadow-blue-strong: rgba(102, 126, 234, 0.4);
+  
+  --shadow-purple: rgba(139, 92, 246, 0.3);
+  --shadow-purple-strong: rgba(139, 92, 246, 0.4);
+  --shadow-purple-extra: rgba(139, 92, 246, 0.6);
+  
+  --shadow-cyan: rgba(6, 182, 212, 0.6);
+  --shadow-cyan-medium: rgba(6, 182, 212, 0.3);
+  
+  --shadow-pink: rgba(236, 72, 153, 0.3);
+  
+  --shadow-orange: rgba(251, 191, 36, 0.3);
+  --shadow-orange-strong: rgba(251, 191, 36, 0.5);
+  --shadow-orange-light: rgba(251, 191, 36, 0.1);
+  
+  --shadow-purple-alt: rgba(147, 51, 234, 0.3);
+
+  /* ==========================================
+     GRADIENT DEFINITIONS
+     ========================================== */
+  --gradient-primary: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+  --gradient-purple: linear-gradient(135deg, var(--purple-500), var(--purple-400));
+  --gradient-purple-hover: linear-gradient(135deg, var(--purple-600), var(--purple-700));
+  --gradient-purple-reverse: linear-gradient(135deg, var(--accent-cyan), var(--primary-blue));
+  --gradient-purple-pink: linear-gradient(135deg, var(--purple-500), var(--pink-500));
+  --gradient-rainbow: linear-gradient(-45deg, var(--purple-500), var(--pink-500), var(--orange-500), var(--blue-500));
+  --gradient-cyan-blue: linear-gradient(to right, var(--accent-cyan), var(--blue-500));
+  --gradient-green-cyan: linear-gradient(to right, var(--green-500), var(--accent-cyan));
+  --gradient-purple-cyan: linear-gradient(to right, var(--purple-500), var(--accent-cyan));
+  --gradient-orange: linear-gradient(45deg, var(--orange-400), var(--orange-500));
+  --gradient-green: linear-gradient(90deg, var(--green-400), var(--green-alt));
+  --gradient-border-rainbow: linear-gradient(45deg, var(--accent-cyan), var(--purple-500), var(--pink-500), var(--accent-cyan));
+  --gradient-shimmer: linear-gradient(90deg, transparent, var(--glass-bg-strong), transparent);
+  --gradient-shimmer-subtle: linear-gradient(90deg, transparent, var(--text-white-muted), transparent);
+  --gradient-shimmer-bright: linear-gradient(90deg, transparent, var(--glass-bg-medium), transparent);
+  --gradient-shimmer-white: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  --gradient-white-content: linear-gradient(var(--text-white) 0 0) content-box;
+  --gradient-dark-footer: linear-gradient(135deg, var(--dark-blue-1) 0%, var(--dark-blue-2) 50%, var(--dark-blue-3) 100%);
+
+  /* ==========================================
+     BOX SHADOW DEFINITIONS
+     ========================================== */
+  --shadow-soft: 0 4px 20px var(--shadow-blue);
+  --shadow-medium: 0 4px 15px var(--shadow-blue-medium);
+  --shadow-strong: 0 6px 20px var(--shadow-blue-strong);
+  --shadow-purple-medium: 0 4px 15px var(--shadow-purple);
+  --shadow-purple-strong: 0 6px 20px var(--shadow-purple-strong);
+  --shadow-glass: 0 2px 10px var(--shadow-black-subtle);
+
+  /* ==========================================
+     TEXT SHADOW DEFINITIONS
+     ========================================== */
+  --text-shadow-soft: 0 1px 3px var(--shadow-black-soft);
+  --text-shadow-medium: 0 1px 3px var(--shadow-black-medium);
+  --text-shadow-light: 0 1px 2px var(--shadow-black-soft);
+  --text-shadow-cyan-glow: 0 0 8px var(--shadow-cyan);
+
+  /* ==========================================
+     HOVER STATE COLORS
+     ========================================== */
+  --hover-bg-white-light: rgba(255, 255, 255, 0.1);
+  --hover-bg-purple-light: rgba(168, 85, 247, 0.1);
+  --hover-bg-blue-light: rgba(102, 126, 234, 0.1);
+  --hover-bg-orange: rgba(251, 191, 36, 0.1);
+  --hover-bg-orange-strong: rgba(251, 191, 36, 0.5);
+
+  /* ==========================================
+     BORDER COLORS
+     ========================================== */
+  --border-white-light: rgba(255, 255, 255, 0.2);
+  --border-white-subtle: rgba(255, 255, 255, 0.1);
+  --border-gray-light: #e5e7eb;
+  --border-orange: var(--orange-400);
+
+  /* ==========================================
+     SPECIAL GRAYS FOR BUTTONS/UI
+     ========================================== */
+  --gray-step-1: #ccc;
+  --gray-step-2: #c9c9c9;
+  --gray-step-3: #bbb;
+  --gray-step-4: #b9b9b9;
+  --gray-step-5: #aaa;
+
+  /* ==========================================
+     WHITE VARIANTS
+     ========================================== */
+  --white-solid: #fff;
+
+  /* ==========================================
+     BACKDROP FILTER VALUES
+     ========================================== */
+  --backdrop-blur-sm: blur(10px);
+  --backdrop-blur-md: blur(15px);
+  --backdrop-blur-lg: blur(20px);
+
+  /* ==========================================
+     TRANSITION VALUES
+     ========================================== */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
+}
+
+/* ==========================================
+   SEMANTIC COLOR ALIASES
+   ========================================== */
+:root {
+  /* Header specific semantic colors */
+  --header-text-default: var(--text-white);
+  --header-text-hover: var(--accent-cyan);
+  --header-text-purple: var(--purple-500);
+  --header-text-purple-hover: var(--purple-400);
+  --header-tagline: var(--text-white-soft);
+  --header-tagline-purple: var(--text-secondary);
+  
+  /* Navigation specific colors */
+  --nav-bg-transparent: var(--bg-transparent);
+  --nav-bg-glass: var(--glass-bg-light);
+  --nav-border-glass: var(--border-white-subtle);
+  --nav-shadow-glass: var(--shadow-glass);
+  
+  /* CTA Button colors */
+  --cta-bg: var(--gradient-purple);
+  --cta-bg-hover: var(--gradient-purple-hover);
+  --cta-shadow: var(--shadow-purple-medium);
+  --cta-shadow-hover: var(--shadow-purple-strong);
+  --cta-border: var(--border-white-light);
+}

@@ -109,25 +109,25 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
 :host {
   // Override white backgrounds with glass-morphism
   ::ng-deep .bg-white {
-    background: rgba(255, 255, 255, 0.1) !important;
-    backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: var(--glass-bg-light) !important;
+    backdrop-filter: var(--backdrop-blur-lg) !important;
+    border: 1px solid var(--glass-border) !important;
   }
 
   // Override gray backgrounds to be transparent
   ::ng-deep .bg-gray-50,
   ::ng-deep .bg-gray-100 {
-    background: transparent !important;
+    background: var(--bg-transparent) !important;
   }
 
   // Override dark text colors to white/light
   ::ng-deep .text-gray-900 {
-    color: white !important;
+    color: var(--text-white) !important;
   }
 
   ::ng-deep .text-gray-600,
   ::ng-deep .text-gray-700 {
-    color: #d1d5db !important; // gray-300
+    color: var(--gray-300) !important;
   }
 
   // Override tag backgrounds with glass effect
@@ -137,8 +137,8 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
   ::ng-deep .bg-green-100,
   ::ng-deep .bg-purple-100,
   ::ng-deep .bg-orange-100 {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: var(--glass-bg-light) !important;
+    border: 1px solid var(--glass-border) !important;
   }
 
   // Override tag text colors
@@ -148,37 +148,37 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
   ::ng-deep .text-green-700,
   ::ng-deep .text-purple-700,
   ::ng-deep .text-orange-700 {
-    color: #cbd5e1 !important; // gray-300
+    color: var(--gray-300) !important;
   }
 
   // Override borders
   ::ng-deep .border-gray-100,
   ::ng-deep .border-gray-200 {
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    border-color: var(--glass-border) !important;
   }
 
   // Override checkmark icons to cyan
   ::ng-deep .text-green-500 {
-    color: #06b6d4 !important; // cyan-500
+    color: var(--accent-cyan) !important;
   }
 
   // Update gradients to match blue theme
   ::ng-deep .from-blue-600.to-purple-600 {
-    background: linear-gradient(to right, #06b6d4, #3b82f6) !important;
+    background: var(--gradient-cyan-blue) !important;
     -webkit-background-clip: text !important;
     background-clip: text !important;
   }
 
   ::ng-deep .from-blue-600.to-indigo-600 {
-    background: linear-gradient(to right, #06b6d4, #3b82f6) !important;
+    background: var(--gradient-cyan-blue) !important;
   }
 
   ::ng-deep .from-green-600.to-emerald-600 {
-    background: linear-gradient(to right, #10b981, #06b6d4) !important;
+    background: var(--gradient-green-cyan) !important;
   }
 
   ::ng-deep .from-purple-600.to-pink-600 {
-    background: linear-gradient(to right, #8b5cf6, #06b6d4) !important;
+    background: var(--gradient-purple-cyan) !important;
   }
 }
 
@@ -216,7 +216,7 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
     }
 
     .current {
-      color: #fbbf24;
+      color: var(--orange-400);
     }
   }
 
@@ -227,7 +227,7 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
     margin-bottom: 24px;
 
     .title-accent {
-      background: linear-gradient(45deg, #fbbf24, #f59e0b);
+      background: var(--gradient-orange);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -257,7 +257,7 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
       .stat-number {
         font-size: 2rem;
         font-weight: 700;
-        color: #fbbf24;
+        color: var(--orange-400);
         display: block;
         margin-bottom: 4px;
       }
@@ -277,9 +277,9 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
     margin: 0 auto;
 
     .service-icon {
-      background: rgba(255, 255, 255, 0.1);
+      background: var(--glass-bg-light);
       backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid var(--glass-bg-strong);
       border-radius: 16px;
       padding: 20px;
       text-align: center;
@@ -296,12 +296,12 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
 
       &:hover {
         transform: translateY(-10px);
-        background: rgba(255, 255, 255, 0.15);
+        background: var(--glass-bg-medium);
       }
 
       i {
         font-size: 24px;
-        color: #fbbf24;
+        color: var(--orange-400);
       }
     }
   }
@@ -343,7 +343,7 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
 // Main Services Section
 .main-services {
   padding: 80px 20px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--glass-bg-subtle);
 
   .section-header {
     text-align: center;
@@ -377,9 +377,9 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
   }
 
   .service-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg-light);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--glass-bg-strong);
     border-radius: 20px;
     padding: 30px;
     color: white;
@@ -388,15 +388,15 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
     overflow: hidden;
 
     &.featured {
-      border: 2px solid #fbbf24;
-      background: rgba(251, 191, 36, 0.1);
+      border: 2px solid var(--border-orange);
+      background: var(--shadow-orange-light);
 
       .featured-badge {
         position: absolute;
         top: 20px;
         right: 20px;
-        background: linear-gradient(45deg, #fbbf24, #f59e0b);
-        color: #1f2937;
+        background: var(--gradient-orange);
+        color: var(--gray-800);
         padding: 4px 12px;
         border-radius: 12px;
         font-size: 12px;
@@ -406,14 +406,14 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
 
     &:hover {
       transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-      border-color: rgba(251, 191, 36, 0.5);
+      box-shadow: 0 20px 40px var(--shadow-black-strong);
+      border-color: var(--shadow-orange-strong);
     }
 
     .service-icon-box {
       width: 60px;
       height: 60px;
-      background: linear-gradient(45deg, #fbbf24, #f59e0b);
+      background: var(--gradient-orange);
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -450,7 +450,7 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
         font-size: 14px;
 
         i {
-          color: #fbbf24;
+          color: var(--orange-400);
           width: 16px;
         }
       }
@@ -463,12 +463,12 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
       margin-bottom: 20px;
 
       .tech-badge {
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: var(--glass-bg-light);
+        border: 1px solid var(--glass-bg-strong);
         border-radius: 12px;
         padding: 4px 8px;
         font-size: 12px;
-        color: #fbbf24;
+        color: var(--orange-400);
       }
     }
 
@@ -476,8 +476,8 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
       display: inline-flex;
       align-items: center;
       padding: 10px 20px;
-      background: linear-gradient(45deg, #fbbf24, #f59e0b);
-      color: #1f2937;
+      background: var(--gradient-orange);
+      color: var(--gray-800);
       text-decoration: none;
       border-radius: 8px;
       font-weight: 600;
@@ -486,7 +486,7 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
 
       &:hover {
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(251, 191, 36, 0.3);
+        box-shadow: 0 5px 15px var(--shadow-orange);
       }
     }
   }
@@ -532,8 +532,8 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
     .step-number {
       width: 60px;
       height: 60px;
-      background: linear-gradient(45deg, #fbbf24, #f59e0b);
-      color: #1f2937;
+      background: var(--gradient-orange);
+      color: var(--gray-800);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -561,7 +561,7 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
 // Services CTA Section
 .services-cta {
   padding: 80px 20px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--glass-bg-subtle);
   text-align: center;
   color: white;
 
@@ -605,23 +605,23 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
   }
 
   .btn-primary {
-    background: linear-gradient(45deg, #fbbf24, #f59e0b);
-    color: #1f2937;
+    background: var(--gradient-orange);
+    color: var(--gray-800);
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3);
+      box-shadow: 0 10px 25px var(--shadow-orange);
     }
   }
 
   .btn-secondary {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg-light);
     color: white;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--glass-bg-strong);
 
     &:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: var(--glass-bg-strong);
       transform: translateY(-2px);
     }
   }
@@ -719,12 +719,12 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
 @keyframes glow-pulse {
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+    box-shadow: 0 0 20px var(--shadow-cyan-medium);
   }
   50% {
     box-shadow:
-      0 0 40px rgba(6, 182, 212, 0.6),
-      0 0 60px rgba(147, 51, 234, 0.3);
+      0 0 40px var(--shadow-cyan),
+      0 0 60px var(--shadow-purple-alt);
   }
 }
 
@@ -764,7 +764,7 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    background: var(--gradient-shimmer-white);
     animation: shimmer 2s infinite;
   }
 }
@@ -797,14 +797,14 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
     position: absolute;
     inset: -2px;
     padding: 2px;
-    background: linear-gradient(45deg, #06b6d4, #8b5cf6, #ec4899, #06b6d4);
+    background: var(--gradient-border-rainbow);
     border-radius: inherit;
     opacity: 0;
     transition: opacity 0.3s;
     animation: animate-gradient-x 3s linear infinite;
     mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
+      var(--gradient-white-content) content-box,
+      var(--gradient-white-content);
     mask-composite: xor;
   }
 
@@ -816,16 +816,16 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
 // 3D Text Shadow Effect
 .text-3d {
   text-shadow:
-    0 1px 0 #ccc,
-    0 2px 0 #c9c9c9,
-    0 3px 0 #bbb,
-    0 4px 0 #b9b9b9,
-    0 5px 0 #aaa,
-    0 6px 1px rgba(0, 0, 0, 0.1),
-    0 0 5px rgba(0, 0, 0, 0.1),
-    0 1px 3px rgba(0, 0, 0, 0.3),
-    0 3px 5px rgba(0, 0, 0, 0.2),
-    0 5px 10px rgba(0, 0, 0, 0.25);
+    0 1px 0 var(--gray-step-1),
+    0 2px 0 var(--gray-step-2),
+    0 3px 0 var(--gray-step-3),
+    0 4px 0 var(--gray-step-4),
+    0 5px 0 var(--gray-step-5),
+    0 6px 1px var(--shadow-black-light),
+    0 0 5px var(--shadow-black-light),
+    0 1px 3px var(--shadow-black-medium),
+    0 3px 5px var(--shadow-black-strong),
+    0 5px 10px var(--shadow-black-weak);
 }
 
 // Interactive stats counter

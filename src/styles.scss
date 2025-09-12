@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Global Color System */
+@import 'styles/colors.scss';
+
 /* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
@@ -75,15 +78,15 @@ body {
     -apple-system,
     sans-serif;
   line-height: 1.6;
-  color: #1f2937;
-  background-color: #ffffff;
+  color: var(--gray-800);
+  background-color: var(--text-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .dark body {
-  color: #f9fafb;
-  background-color: #111827;
+  color: var(--gray-50);
+  background-color: var(--gray-900);
 }
 
 /* Typography enhancements */
@@ -111,28 +114,28 @@ h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: var(--gray-50);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: var(--gray-300);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: var(--gray-400);
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: #1e293b;
+  background: var(--gray-800);
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #475569;
+  background: var(--gray-600);
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: var(--gray-500);
 }
 
 /* Utility classes */
@@ -374,7 +377,7 @@ body {
 
 .scroll-card:hover {
   transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px var(--shadow-light);
 }
 
 /* Staggered animations for grids */

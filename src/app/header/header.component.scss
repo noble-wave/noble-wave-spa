@@ -6,23 +6,11 @@
   text-decoration: none;
 }
 
-/* CSS Custom Properties */
-:host {
-  --primary-blue: #667eea;
-  --secondary-purple: #764ba2;
-  --accent-cyan: #06b6d4;
-  --glass-bg: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --text-primary: #1a1a1a;
-  --text-secondary: #6b7280;
-  --shadow-soft: 0 4px 20px rgba(102, 126, 234, 0.15);
-}
-
 /* Main container */
 .main-div {
   position: relative;
   z-index: 1000;
-  background: transparent;
+  background: var(--bg-transparent);
 }
 
 /* Modern Navigation Bar - Dynamic Styling Based on Section */
@@ -36,91 +24,93 @@ nav {
   position: fixed;
   top: 0;
   box-shadow: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition-smooth);
   z-index: 1000;
 
   /* Default text styling for home section - white text */
   .nav-link {
-    color: white;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    color: var(--header-text-default);
+    text-shadow: var(--text-shadow-soft);
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
 
     &:hover {
-      color: #06b6d4;
-      text-shadow: 0 0 8px rgba(6, 182, 212, 0.6);
+      color: var(--header-text-hover);
+      text-shadow: var(--text-shadow-cyan-glow);
     }
   }
 
   .company-tagline {
-    color: rgba(255, 255, 255, 0.8);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    color: var(--header-tagline);
+    text-shadow: var(--text-shadow-light);
   }
 
   .cta-btn {
-    background: linear-gradient(135deg, #8b5cf6, #a855f7);
-    color: white;
+    background: var(--cta-bg);
+    color: var(--text-white);
+    padding: 10px 20px;
+    border-radius: 25px;
     text-shadow: none;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+    border: 1px solid var(--cta-border);
+    box-shadow: var(--cta-shadow);
 
     &:hover {
-      background: linear-gradient(135deg, #7c3aed, #9333ea);
+      background: var(--cta-bg-hover);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+      box-shadow: var(--cta-shadow-hover);
     }
   }
 
   /* Transparent state for home section */
   &.transparent-header {
-    background: transparent !important;
+    background: var(--bg-transparent) !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     border-bottom: none !important;
     box-shadow: none !important;
 
     .nav-link {
-      color: white !important;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+      color: var(--header-text-default) !important;
+      text-shadow: var(--text-shadow-soft) !important;
 
       &:hover {
-        color: #06b6d4 !important;
-        text-shadow: 0 0 8px rgba(6, 182, 212, 0.6) !important;
+        color: var(--header-text-hover) !important;
+        text-shadow: var(--text-shadow-cyan-glow) !important;
       }
     }
 
     .company-tagline {
-      color: rgba(255, 255, 255, 0.8) !important;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+      color: var(--header-tagline) !important;
+      text-shadow: var(--text-shadow-light) !important;
     }
   }
 
   /* Glass-morphism styling for other sections */
   &.glass-header {
-    background: rgba(255, 255, 255, 0.1) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+    background: var(--nav-bg-glass) !important;
+    backdrop-filter: var(--backdrop-blur-lg) !important;
+    -webkit-backdrop-filter: var(--backdrop-blur-lg) !important;
+    border-bottom: 1px solid var(--nav-border-glass) !important;
+    box-shadow: var(--nav-shadow-glass) !important;
 
     .nav-link {
-      color: #8b5cf6 !important;
+      color: var(--header-text-purple) !important;
       text-shadow: none !important;
 
       &:hover {
-        color: #a855f7 !important;
+        color: var(--header-text-purple-hover) !important;
         text-shadow: none !important;
       }
     }
 
     .company-tagline {
-      color: #6b7280 !important;
+      color: var(--header-tagline-purple) !important;
       text-shadow: none !important;
     }
 
     .cta-btn {
-      background: linear-gradient(135deg, #8b5cf6, #a855f7) !important;
-      color: white !important;
+      background: var(--cta-bg) !important;
+      color: var(--text-white) !important;
     }
   }
 }
@@ -138,17 +128,17 @@ nav {
   img {
     width: 180px;
     height: auto;
-    filter: drop-shadow(0 2px 8px rgba(102, 126, 234, 0.3));
-    transition: filter 0.3s ease;
+    filter: drop-shadow(0 2px 8px var(--shadow-blue-medium));
+    transition: var(--transition-fast);
 
     &:hover {
-      filter: drop-shadow(0 4px 12px rgba(102, 126, 234, 0.4));
+      filter: drop-shadow(0 4px 12px var(--shadow-blue-strong));
     }
   }
 
   .company-tagline {
     font-size: 0.85rem;
-    background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -175,32 +165,32 @@ nav {
     list-style: none;
 
     .nav-link {
-      color: white;
+      color: var(--header-text-default);
       text-decoration: none;
       font-weight: 600;
       padding: 8px 16px;
       border-radius: 25px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: var(--transition-smooth);
       position: relative;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      text-shadow: var(--text-shadow-medium);
 
       &:hover {
-        color: var(--accent-cyan);
-        background: rgba(255, 255, 255, 0.1);
+        color: var(--header-text-hover);
+        background: var(--hover-bg-white-light);
         transform: translateY(-1px);
-        backdrop-filter: blur(10px);
+        backdrop-filter: var(--backdrop-blur-sm);
       }
 
       &.cta-btn {
-        background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
-        color: white;
+        background: var(--gradient-primary);
+        color: var(--text-white);
         padding: 10px 20px;
         font-weight: 600;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        box-shadow: var(--shadow-medium);
 
         &:hover {
-          background: linear-gradient(135deg, var(--accent-cyan), var(--primary-blue));
-          box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+          background: var(--gradient-purple-reverse);
+          box-shadow: var(--shadow-strong);
           transform: translateY(-2px);
         }
       }
@@ -221,11 +211,11 @@ nav {
   span {
     width: 25px;
     height: 3px;
-    background: white;
+    background: var(--text-white);
     margin: 3px 0;
     transition: 0.3s;
     border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--text-shadow-medium);
   }
 }
 
@@ -271,10 +261,10 @@ nav {
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.3s ease;
+      transition: var(--transition-fast);
 
       &:hover {
-        background: rgba(102, 126, 234, 0.1);
+        background: var(--hover-bg-blue-light);
         color: var(--primary-blue);
       }
     }
@@ -293,24 +283,24 @@ nav {
         color: var(--text-primary);
         text-decoration: none;
         font-weight: 500;
-        transition: all 0.3s ease;
+        transition: var(--transition-fast);
 
         &:hover {
-          background: rgba(102, 126, 234, 0.1);
+          background: var(--hover-bg-blue-light);
           color: var(--primary-blue);
           padding-left: 2.5rem;
         }
 
         &.mobile-cta {
           margin: 1rem 2rem;
-          background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
-          color: white;
+          background: var(--gradient-primary);
+          color: var(--text-white);
           border-radius: 25px;
           text-align: center;
 
           &:hover {
             padding-left: 2rem;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--primary-blue));
+            background: var(--gradient-purple-reverse);
           }
         }
       }
