@@ -387,6 +387,14 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
     position: relative;
     overflow: hidden;
 
+    // Simple hover effect - only slight elevation and border color change
+    &:hover {
+      background: var(--glass-bg-medium);
+      border-color: var(--glass-border);
+      box-shadow: 0 4px 20px var(--shadow-black-light);
+    }
+
+    // Remove all complex 3D effects and animations
     &.featured {
       border: 2px solid var(--border-orange);
       background: var(--shadow-orange-light);
@@ -402,12 +410,6 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
         font-size: 12px;
         font-weight: 600;
       }
-    }
-
-    &:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px var(--shadow-black-strong);
-      border-color: var(--shadow-orange-strong);
     }
 
     .service-icon-box {
@@ -743,98 +745,128 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
   animation: animate-gradient-x 3s ease infinite;
 }
 
-.tech-card-3d {
-  perspective: 1000px;
-  transform-style: preserve-3d;
+// Simple tech cards - no 3D effects or complex animations
+.tech-card-simple {
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-bg-strong);
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.3s ease;
 
   &:hover {
-    animation: tech-card-hover 0.3s ease-out forwards;
+    background: var(--glass-bg-medium);
+    border-color: var(--glass-border);
   }
 }
 
-// Performance indicator animations
-.performance-bar {
-  position: relative;
-  overflow: hidden;
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-shimmer-white);
-    animation: shimmer 2s infinite;
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 100%;
-  }
-}
-
-// Floating icon animations
-.floating-icon {
-  animation: float-bounce 3s ease-in-out infinite;
+// Simple tech item styling
+.tech-item-simple {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--glass-bg-subtle);
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    animation-play-state: paused;
-    transform: scale(1.1) rotate(12deg);
+    background: var(--glass-bg-light);
+  }
+
+  .tech-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .tech-content {
+    .tech-name {
+      color: var(--text-white);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .tech-description {
+      color: var(--text-white-muted);
+      font-size: 12px;
+    }
   }
 }
 
-// Enhanced glow effects
-.glow-border {
-  position: relative;
+// Simple performance indicator - no animations
+.performance-bar-simple {
+  background: var(--glass-bg-light);
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid var(--glass-border);
 
-  &::before {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    padding: 2px;
-    background: var(--gradient-border-rainbow);
-    border-radius: inherit;
-    opacity: 0;
-    transition: opacity 0.3s;
-    animation: animate-gradient-x 3s linear infinite;
-    mask:
-      var(--gradient-white-content) content-box,
-      var(--gradient-white-content);
-    mask-composite: xor;
+  .performance-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+
+    .label {
+      color: var(--text-white-muted);
+    }
+
+    .score {
+      color: var(--text-white);
+      font-weight: 600;
+    }
   }
 
-  &:hover::before {
-    opacity: 1;
+  .progress-bar {
+    height: 6px;
+    background: var(--gray-700);
+    border-radius: 3px;
+    overflow: hidden;
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
   }
 }
 
-// 3D Text Shadow Effect
-.text-3d {
-  text-shadow:
-    0 1px 0 var(--gray-step-1),
-    0 2px 0 var(--gray-step-2),
-    0 3px 0 var(--gray-step-3),
-    0 4px 0 var(--gray-step-4),
-    0 5px 0 var(--gray-step-5),
-    0 6px 1px var(--shadow-black-light),
-    0 0 5px var(--shadow-black-light),
-    0 1px 3px var(--shadow-black-medium),
-    0 3px 5px var(--shadow-black-strong),
-    0 5px 10px var(--shadow-black-weak);
-}
+// Removed complex shimmer animation - keeping it simple
 
-// Interactive stats counter
-.stat-counter {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+// Simple icon styling - no floating animations
+.simple-icon {
+  transition: transform 0.2s ease;
 
   &:hover {
-    transform: scale(1.15) rotate(-2deg);
-    text-shadow: 0 0 20px currentColor;
+    transform: scale(1.05);
+  }
+}
+
+// Simple border styling - no glow effects
+.simple-border {
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+
+  &:hover {
+    border-color: var(--glass-bg-strong);
+  }
+}
+
+// Simple text styling - no 3D effects
+.simple-text {
+  color: var(--text-white);
+  text-shadow: none;
+}
+
+// Simple stats styling - no complex effects
+.simple-stat {
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--accent-cyan);
   }
 }
 
