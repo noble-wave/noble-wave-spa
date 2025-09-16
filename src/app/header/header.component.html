@@ -48,29 +48,32 @@
       <span></span>
     </div>
   </nav>
+</div>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu">
-    <div class="mobile-menu-header">
-      <img src="assets/noble/NameofCompany.svg" alt="Noble Wave" />
-      <button class="close-mobile-menu" (click)="closeMobileMenu()">
-        &times;
-      </button>
-    </div>
-    <ul class="mobile-nav-links">
-      <li><a href="#home" (click)="scrollToSection('#home')">Home</a></li>
-      <li><a href="#about" (click)="scrollToSection('#about')">About</a></li>
-      <li>
-        <a href="#services" (click)="scrollToSection('#services')">Services</a>
-      </li>
-      <li>
-        <a href="#contact" (click)="scrollToSection('#contact')">Contact</a>
-      </li>
-      <li>
-        <a href="#" class="mobile-cta" (click)="scrollToSection('#contact')"
-          >Get Started</a
-        >
-      </li>
-    </ul>
+<!-- Mobile Menu Backdrop -->
+<div class="mobile-menu-backdrop" [class.active]="isMobileMenuOpen" (click)="closeMobileMenu()"></div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" [class.active]="isMobileMenuOpen">
+  <div class="mobile-menu-header">
+    <img src="assets/noble/NameofCompany.svg" alt="Noble Wave" />
+    <button class="close-mobile-menu" (click)="closeMobileMenu()">
+      ×
+    </button>
   </div>
+  <ul class="mobile-nav-links">
+    <li><a href="#home" (click)="scrollToSection('#home')">Home</a></li>
+    <li><a href="#about" (click)="scrollToSection('#about')">About</a></li>
+    <li>
+      <a href="#services" (click)="scrollToSection('#services')">Services</a>
+    </li>
+    <li>
+      <a href="#contact" (click)="scrollToSection('#contact')">Contact</a>
+    </li>
+    <li>
+      <a href="#" class="mobile-cta" (click)="scrollToSection('#contact')"
+        >Get Started</a
+      >
+    </li>
+  </ul>
 </div>
