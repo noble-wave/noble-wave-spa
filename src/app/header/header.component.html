@@ -1,6 +1,6 @@
 <div class="main-div">
   <nav>
-    <div class="logo-container">
+    <div class="logo-container" (click)="scrollToSection('#home')" style="cursor: pointer;">
       <img src="assets/noble/NameofCompany.svg" alt="Noble Wave" />
       <span class="company-tagline">Leading Digital Innovation</span>
     </div>
@@ -56,7 +56,7 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu" [class.active]="isMobileMenuOpen">
   <div class="mobile-menu-header">
-    <img src="assets/noble/NameofCompany.svg" alt="Noble Wave" />
+    <img src="assets/noble/NameofCompany.svg" alt="Noble Wave" (click)="scrollToSection('#home')" style="cursor: pointer;" />
     <button class="close-mobile-menu" (click)="closeMobileMenu()">
       ×
     </button>
