@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ export class HeaderComponent implements OnInit {
   isScrolled = false;
   isInHomeSection = true;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     // Set initial transparent header for home section
@@ -88,14 +89,24 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  // Smooth scroll to section
+  // Navigate to section or route
   scrollToSection(sectionId: string): void {
-    const element = document.getElementById(sectionId.replace('#', ''));
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
+    // Handle routing for specific pages
+    if (sectionId === '#about') {
+      this.router.navigate(['/about']);
+    } else if (sectionId === '#services') {
+      this.router.navigate(['/detail']);
+    } else if (sectionId === '#home') {
+      this.router.navigate(['/']);
+    } else {
+      // For sections within the same page (like contact in footer)
+      const element = document.getElementById(sectionId.replace('#', ''));
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
     }
     this.closeMobileMenu();
   }

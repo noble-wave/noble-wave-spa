@@ -36,6 +36,7 @@ import {
   Facebook,
   Youtube,
 } from 'lucide-angular';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {
     HomeComponent,
     MainComponent,
     FooterComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
