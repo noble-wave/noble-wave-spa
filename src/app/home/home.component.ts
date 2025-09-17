@@ -46,4 +46,20 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.observers.push(observer);
     });
   }
+
+  // Method to scroll to contact section
+  scrollToContact(): void {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Method to scroll to services section  
+  scrollToServices(): void {
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

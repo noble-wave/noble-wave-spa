@@ -53,18 +53,18 @@ export class DetailsComponent implements OnInit, AfterViewInit {
       this.counterService.animateCounter(techElement, 0, 15, 2000, '+');
     }
 
-    // Animate Uptime counter (99%)
+    // Animate Uptime counter (95%)
     const uptimeElement = this.elementRef.nativeElement.querySelector('#uptime-counter');
     if (uptimeElement) {
-      this.counterService.animateCounter(uptimeElement, 0, 99, 2500, '%');
+      this.counterService.animateCounter(uptimeElement, 0, 95, 2500, '%');
     }
 
-    // Animate Support (24/7) - special handling
+    // Animate Support (Dedicated) - special handling
     const supportElement = this.elementRef.nativeElement.querySelector('#support-counter');
     if (supportElement) {
-      supportElement.textContent = '0/0';
+      supportElement.textContent = '0';
       setTimeout(() => {
-        supportElement.textContent = '24/7';
+        supportElement.textContent = '100%';
       }, 1500);
     }
 
@@ -79,6 +79,22 @@ export class DetailsComponent implements OnInit, AfterViewInit {
           possibilitiesElement.style.opacity = '1';
         }, 300);
       }, 2000);
+    }
+  }
+
+  // Method to scroll to services section
+  scrollToServicesSection(): void {
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Method to scroll to contact section
+  scrollToContactSection(): void {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   }
 }
