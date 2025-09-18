@@ -53,13 +53,13 @@ export class DetailsComponent implements OnInit, AfterViewInit {
       this.counterService.animateCounter(techElement, 0, 15, 2000, '+');
     }
 
-    // Animate Uptime counter (95%)
+    // Animate Success Rate counter (98%)
     const uptimeElement = this.elementRef.nativeElement.querySelector('#uptime-counter');
     if (uptimeElement) {
-      this.counterService.animateCounter(uptimeElement, 0, 95, 2500, '%');
+      this.counterService.animateCounter(uptimeElement, 0, 98, 2500, '%');
     }
 
-    // Animate Support (Dedicated) - special handling
+    // Animate Code Quality - special handling
     const supportElement = this.elementRef.nativeElement.querySelector('#support-counter');
     if (supportElement) {
       supportElement.textContent = '0';
