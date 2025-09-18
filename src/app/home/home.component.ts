@@ -1,13 +1,65 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { CounterAnimationService } from '../services/counter-animation.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
-  playVideo(): void {
-    const videoElement = document.getElementById('videoElement') as HTMLVideoElement;
-    videoElement.play();
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+  private observers: IntersectionObserver[] = [];
+
+  constructor(private counterService: CounterAnimationService) {}
+
+  ngOnInit(): void {
+    // Component initialization
+  }
+
+  ngAfterViewInit(): void {
+    // Set up counter animations after view is initialized
+    setTimeout(() => {
+      this.setupCounterAnimations();
+    }, 100);
+  }
+
+  ngOnDestroy(): void {
+    // Clean up observers
+    this.observers.forEach(observer => observer.disconnect());
+  }
+
+  private setupCounterAnimations(): void {
+    // Find all counter elements
+    const counterElements = document.querySelectorAll('.counter-number');
+    
+    counterElements.forEach((element) => {
+      const target = parseInt(element.getAttribute('data-target') || '0');
+      const htmlElement = element as HTMLElement;
+      
+      // Create observer for each counter
+      const observer = this.counterService.createCounterObserver(
+        htmlElement,
+        target,
+        '', // No suffix for these counters, suffix is in HTML
+        2000 // 2 seconds duration
+      );
+      
+      this.observers.push(observer);
+    });
+  }
+
+  // Method to scroll to contact section
+  scrollToContact(): void {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Method to scroll to services section  
+  scrollToServices(): void {
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }

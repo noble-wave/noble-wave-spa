@@ -1,12 +1,478 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-html, body { height: 100%;
-margin: 0;
-padding: 0;
-box-sizing: border-box; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-:root{
-    --primary:#3a77ba;
-    --secondary:#15b798;
-    
+/* Import Global Color System */
+@import 'styles/colors.scss';
+
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Account for fixed header */
 }
+
+/* Enhanced scrolling for mobile */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom smooth scroll class for programmatic scrolling */
+.smooth-scroll {
+  scroll-behavior: smooth !important;
+}
+
+/* Custom CSS Variables */
+:root {
+  --color-primary: #0052ff;
+  --color-primary-dark: #7aa2ff;
+  --color-secondary: #00d1b2;
+  --color-accent: #ffc857;
+  --color-success: #16a34a;
+  --color-warning: #f59e0b;
+  --color-danger: #dc2626;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Transitions */
+  --transition-fast: 150ms ease-out;
+  --transition-base: 250ms ease-out;
+  --transition-slow: 350ms ease-out;
+}
+
+/* Dark mode variables */
+.dark {
+  --color-primary: #7aa2ff;
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.6;
+  color: var(--gray-800);
+  background-color: var(--text-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark body {
+  color: var(--gray-50);
+  background-color: var(--gray-900);
+}
+
+/* Typography enhancements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", "Inter", system-ui, sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  color: inherit;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-400);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--gray-800);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--gray-600);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-500);
+}
+
+/* Utility classes */
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.section-padding {
+  @apply py-16 sm:py-20 lg:py-24;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animation utilities */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
+  }
+
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* PrimeNG theme overrides */
+.p-button {
+  @apply font-medium;
+}
+
+.p-button.p-button-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.p-button.p-button-primary:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  opacity: 0.9;
+}
+
+.p-button.p-button-secondary {
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.p-inputtext:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+/* Loading states */
+.loading {
+  @apply opacity-50 pointer-events-none;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-primary);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Ocean Wave Tech Stack Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float-delayed {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 4s ease-in-out infinite 1s;
+}
+
+.animate-float-slow {
+  animation: float-slow 5s ease-in-out infinite 2s;
+}
+
+/* Wave animation for SVG paths */
+@keyframes wave {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(400px);
+  }
+}
+
+.animate-wave {
+  animation: wave 8s linear infinite;
+}
+
+/* Custom Scroll Animations */
+/* Enhanced AOS animations */
+[data-aos="fade-up-scale"] {
+  transform: translateY(30px) scale(0.95);
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+[data-aos="fade-up-scale"].aos-animate {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+[data-aos="slide-in-left"] {
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+[data-aos="slide-in-left"].aos-animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+[data-aos="slide-in-right"] {
+  transform: translateX(100px);
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+[data-aos="slide-in-right"].aos-animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+[data-aos="zoom-in-rotate"] {
+  transform: scale(0.8) rotate(-5deg);
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+[data-aos="zoom-in-rotate"].aos-animate {
+  transform: scale(1) rotate(0deg);
+  opacity: 1;
+}
+
+/* Card hover animations with scroll reveal */
+.scroll-card {
+  transition: all 0.3s ease;
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+.scroll-card.aos-animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.scroll-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px var(--shadow-light);
+}
+
+/* Staggered animations for grids */
+.staggered-animation > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.staggered-animation.aos-animate > *:nth-child(1) {
+  animation: staggerFadeIn 0.6s ease forwards 0.1s;
+}
+
+.staggered-animation.aos-animate > *:nth-child(2) {
+  animation: staggerFadeIn 0.6s ease forwards 0.2s;
+}
+
+.staggered-animation.aos-animate > *:nth-child(3) {
+  animation: staggerFadeIn 0.6s ease forwards 0.3s;
+}
+
+.staggered-animation.aos-animate > *:nth-child(4) {
+  animation: staggerFadeIn 0.6s ease forwards 0.4s;
+}
+
+.staggered-animation.aos-animate > *:nth-child(5) {
+  animation: staggerFadeIn 0.6s ease forwards 0.5s;
+}
+
+.staggered-animation.aos-animate > *:nth-child(6) {
+  animation: staggerFadeIn 0.6s ease forwards 0.6s;
+}
+
+@keyframes staggerFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Parallax scroll effect */
+.parallax-scroll {
+  transform: translateY(var(--scroll-offset, 0));
+}
+
+:root {
+  --primary: #3a77ba;
+  --secondary: #15b798;
+}
+
+/* Counter Animation Styles */
+.counter-number {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  transition: transform 0.3s ease;
+}
+
+.counter-number:not([data-animated]) {
+  opacity: 0.7;
+}
+
+.counter-number[data-animated] {
+  opacity: 1;
+  animation: counterPulse 0.5s ease-out;
+}
+
+@keyframes counterPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Enhanced scroll animations for cards */
+.scroll-card {
+  opacity: 0;
+  transform: translateY(50px) scale(0.9);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-card.aos-animate {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Statistics section hover effects */
+.counter-number:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

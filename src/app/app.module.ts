@@ -8,11 +8,35 @@ import { MatIconModule } from '@angular/material/icon';
 import { DetailsComponent } from './details/details.component';
 import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
-import { IntroComponent } from './intro/intro.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
-import { ContactComponent } from './contact/contact.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {
+  LucideAngularModule,
+  Code2,
+  Globe,
+  Server,
+  Database,
+  Cloud,
+  CloudCog,
+  Workflow,
+  Star,
+  Layers,
+  HardDrive,
+  Cpu,
+  Smartphone,
+  Settings,
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Twitter,
+  Github,
+  Instagram,
+  Facebook,
+  Youtube,
+} from 'lucide-angular';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +45,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     DetailsComponent,
     HomeComponent,
     MainComponent,
-    IntroComponent,
     FooterComponent,
-    ContactComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +55,30 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatIconModule,
     FormsModule,
     FlexLayoutModule,
+    LucideAngularModule.pick({
+      Code2,
+      Globe,
+      Server,
+      Database,
+      Cloud,
+      CloudCog,
+      Workflow,
+      Star,
+      Layers,
+      HardDrive,
+      Cpu,
+      Smartphone,
+      Settings,
+      Mail,
+      Phone,
+      MapPin,
+      Linkedin,
+      Twitter,
+      Github,
+      Instagram,
+      Facebook,
+      Youtube,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

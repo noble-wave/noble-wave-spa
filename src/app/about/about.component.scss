@@ -1,0 +1,97 @@
+/* About Page Styling */
+main {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  padding-top: 80px; /* Account for fixed header */
+}
+
+/* Glass morphism containers */
+.bg-white\/10 {
+  background: var(--bg-glass-card);
+  backdrop-filter: var(--backdrop-blur-md);
+  -webkit-backdrop-filter: var(--backdrop-blur-md);
+}
+
+/* Container styling */
+.container {
+  max-width: 1280px;
+}
+
+/* Force center alignment for values section text */
+.text-center {
+  text-align: center !important;
+}
+
+/* Ensure paragraph content is centered */
+p.text-center {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Responsive spacing */
+@media (max-width: 768px) {
+  main {
+    padding-top: 70px;
+  }
+  
+  .text-5xl {
+    font-size: 2.5rem;
+  }
+  
+  .text-7xl {
+    font-size: 3rem;
+  }
+  
+  .text-4xl {
+    font-size: 2rem;
+  }
+  
+  .py-20 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .gap-16 {
+    gap: 2rem;
+  }
+  
+  .gap-8 {
+    gap: 1.5rem;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Button enhancements */
+button {
+  transition: all 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.3);
+  }
+}
