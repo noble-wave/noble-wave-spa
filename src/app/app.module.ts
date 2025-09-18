@@ -37,6 +37,7 @@ import {
   Youtube,
 } from 'lucide-angular';
 import { AboutComponent } from './about/about.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { AboutComponent } from './about/about.component';
     MainComponent,
     FooterComponent,
     AboutComponent,
+    PrivacyPolicyComponent,
   ],
   imports: [
     BrowserModule,
