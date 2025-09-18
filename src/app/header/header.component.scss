@@ -119,6 +119,13 @@ nav {
     .cta-btn {
       background: var(--cta-bg) !important;
       color: var(--text-white) !important;
+
+      &:hover {
+        background: var(--cta-bg-hover) !important;
+        color: var(--text-white) !important;
+        transform: translateY(-2px);
+        box-shadow: var(--cta-shadow-hover) !important;
+      }
     }
   }
 }
