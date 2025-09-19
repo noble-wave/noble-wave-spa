@@ -19,7 +19,7 @@ export class CounterAnimationService {
     element: HTMLElement, 
     start: number = 0, 
     end: number, 
-    duration: number = 2000,
+    duration: number = 100,
     suffix: string = ''
   ): void {
     const startTime = performance.now();
