@@ -9,6 +9,7 @@ import { DetailsComponent } from './details/details.component';
 import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
 import { FooterComponent } from './footer/footer.component';
+import { CookiePolicyComponent } from './cookie-policy/cookie-policy.component';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {
@@ -49,6 +50,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
     FooterComponent,
     AboutComponent,
     PrivacyPolicyComponent,
+    CookiePolicyComponent,
   ],
   imports: [
     BrowserModule,
