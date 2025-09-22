@@ -474,5 +474,10 @@ body {
   transition: transform 0.2s ease;
 }
 
+/* Cookie Policy Background Image */
+.bg-cookie-policy {
+  background-image: url('assets/noble/cookie-policy.png');
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
