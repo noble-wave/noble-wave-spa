@@ -3,10 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent {
-
   // Method to scroll to contact section
   scrollToContact(): void {
     const contactSection = document.getElementById('contact');
@@ -15,12 +14,11 @@ export class AboutComponent {
     }
   }
 
-  // Method to scroll to services section  
+  // Method to scroll to services section
   scrollToServices(): void {
     const servicesSection = document.getElementById('services');
     if (servicesSection) {
       servicesSection.scrollIntoView({ behavior: 'smooth' });
     }
   }
-
 }
