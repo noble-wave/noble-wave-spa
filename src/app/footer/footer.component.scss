@@ -1,9 +1,10 @@
-// Modern Footer Styles - Professional Design
+// Modern Footer Styles - Professional Light Design
 .modern-footer {
   position: relative;
-  background: var(--gradient-dark-footer);
-  color: white;
+  background: linear-gradient(135deg, #f9fafb 0%, #ffffff 50%, #f3f4f6 100%);
+  color: #374151;
   overflow: hidden;
+  border-top: 1px solid #e5e7eb;
 }
 
 // Animated Background
@@ -40,7 +41,12 @@
       position: absolute;
       font-size: 20px;
       animation: particleFloat 12s ease-in-out infinite;
-      opacity: 0.6;
+      opacity: 0.4;
+      color: #0891b2;
+
+      lucide-icon {
+        color: #0891b2 !important;
+      }
 
       &.particle-1 {
         top: 20%;
@@ -52,18 +58,33 @@
         top: 60%;
         right: 20%;
         animation-delay: 3s;
+        color: #8b5cf6;
+
+        lucide-icon {
+          color: #8b5cf6 !important;
+        }
       }
 
       &.particle-3 {
         bottom: 30%;
         left: 25%;
         animation-delay: 6s;
+        color: #06b6d4;
+
+        lucide-icon {
+          color: #06b6d4 !important;
+        }
       }
 
       &.particle-4 {
         top: 40%;
         right: 10%;
         animation-delay: 9s;
+        color: #10b981;
+
+        lucide-icon {
+          color: #10b981 !important;
+        }
       }
     }
   }
@@ -105,7 +126,7 @@
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 20px;
-    color: var(--orange-400);
+    color: #0891b2;
   }
 
   &.company-info {
@@ -117,7 +138,7 @@
       .logo-img {
         width: 100%;
         height: 100%;
-        filter: brightness(0) invert(1);
+        filter: none;
       }
     }
 
@@ -125,7 +146,7 @@
       font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: 16px;
-      background: var(--gradient-orange);
+      background: linear-gradient(135deg, #0891b2, #3b82f6);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -133,7 +154,7 @@
 
     .company-tagline {
       line-height: 1.6;
-      opacity: 0.9;
+      color: #6b7280;
       margin-bottom: 24px;
       max-width: 300px;
     }
@@ -150,15 +171,16 @@
     margin-bottom: 12px;
 
     a {
-      color: var(--text-white-soft);
+      color: #4b5563;
       text-decoration: none;
       transition: all 0.3s ease;
       display: inline-flex;
       align-items: center;
       padding: 4px 0;
+      font-weight: 500;
 
       &:hover {
-        color: var(--orange-400);
+        color: #0891b2;
         transform: translateX(5px);
       }
 
@@ -168,6 +190,7 @@
         opacity: 0;
         transform: translateX(-10px);
         transition: all 0.3s ease;
+        color: #0891b2;
       }
 
       &:hover::before {
@@ -187,29 +210,24 @@
   .social-link {
     width: 40px;
     height: 40px;
-    background: var(--glass-bg-light);
-    border: 1px solid var(--glass-bg-strong);
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
     text-decoration: none;
     transition: all 0.3s ease;
 
     &:hover {
-      background: var(--gradient-orange);
-      border-color: var(--orange-400);
+      background: linear-gradient(135deg, #0891b2, #3b82f6);
+      border-color: #0891b2;
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px var(--shadow-orange);
-    }
-
-    i {
-      font-size: 16px;
+      box-shadow: 0 5px 15px rgba(8, 145, 178, 0.3);
     }
 
     lucide-icon {
-      color: white !important;
+      color: #374151 !important;
       width: 20px !important;
       height: 20px !important;
       display: block !important;
@@ -217,48 +235,35 @@
     }
 
     &:hover lucide-icon {
-      color: var(--gray-800) !important;
+      color: #ffffff !important;
     }
 
-    // Additional targeting for nested elements
-    ::ng-deep lucide-icon {
-      color: white !important;
+    ::ng-deep svg {
+      color: #374151 !important;
+      stroke: #374151 !important;
       width: 20px !important;
       height: 20px !important;
-      display: block !important;
-
-      svg {
-        color: white !important;
-        fill: white !important;
-        width: 20px !important;
-        height: 20px !important;
-      }
     }
 
-    &:hover ::ng-deep lucide-icon {
-      color: var(--gray-800) !important;
-
-      svg {
-        color: var(--gray-800) !important;
-        fill: var(--gray-800) !important;
-      }
+    &:hover ::ng-deep svg {
+      color: #ffffff !important;
+      stroke: #ffffff !important;
     }
 
-    // Specific targeting for social-icon class
     .social-icon {
-      color: white !important;
+      color: #374151 !important;
       width: 20px !important;
       height: 20px !important;
       display: block !important;
       opacity: 1 !important;
       visibility: visible !important;
-      stroke: white !important;
+      stroke: #374151 !important;
       fill: none !important;
     }
 
     &:hover .social-icon {
-      color: var(--gray-800) !important;
-      stroke: var(--gray-800) !important;
+      color: #ffffff !important;
+      stroke: #ffffff !important;
     }
   }
 }
@@ -279,7 +284,7 @@
     .contact-icon {
       width: 40px;
       height: 40px;
-      background: var(--gradient-orange);
+      background: linear-gradient(135deg, #0891b2, #3b82f6);
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -288,11 +293,11 @@
 
       i {
         font-size: 16px;
-        color: var(--gray-800);
+        color: #ffffff;
       }
 
       lucide-icon {
-        color: var(--bg-black);
+        color: #ffffff;
       }
     }
 
@@ -303,18 +308,20 @@
 
       .contact-label {
         font-size: 14px;
-        opacity: 0.7;
+        color: #6b7280;
         font-weight: 500;
       }
 
-      a {
-        color: white;
+      a,
+      span {
+        color: #374151;
         text-decoration: none;
+        font-weight: 500;
         transition: color 0.3s ease;
+      }
 
-        &:hover {
-          color: var(--orange-400);
-        }
+      a:hover {
+        color: #0891b2;
       }
     }
   }
@@ -433,7 +440,7 @@
 
     .copyright {
       p {
-        opacity: 0.8;
+        color: #6b7280;
         font-size: 14px;
       }
     }
@@ -447,13 +454,14 @@
       }
 
       a {
-        color: var(--text-white-soft);
+        color: #4b5563;
         text-decoration: none;
         font-size: 14px;
+        font-weight: 500;
         transition: color 0.3s ease;
 
         &:hover {
-          color: var(--orange-400);
+          color: #0891b2;
         }
       }
     }
@@ -463,10 +471,10 @@
       align-items: center;
       gap: 6px;
       font-size: 14px;
-      opacity: 0.8;
+      color: #6b7280;
 
       .heart {
-        color: var(--red-500);
+        color: #ef4444;
         animation: heartbeat 2s ease-in-out infinite;
       }
     }

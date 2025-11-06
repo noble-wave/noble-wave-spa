@@ -1,8 +1,28 @@
 /* About Page Styling */
 main {
-  background: var(--bg-primary);
+  background: transparent;
   color: var(--text-primary);
   padding-top: 80px; /* Account for fixed header */
+  position: relative;
+  z-index: 1;
+}
+
+/* Override text colors for light theme */
+:host {
+  display: block;
+  position: relative;
+  
+  ::ng-deep .text-white {
+    color: #1f2937 !important;
+  }
+
+  ::ng-deep .text-gray-300 {
+    color: #6b7280 !important;
+  }
+
+  ::ng-deep .text-gray-400 {
+    color: #9ca3af !important;
+  }
 }
 
 /* Glass morphism containers */

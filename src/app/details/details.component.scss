@@ -120,14 +120,22 @@ p.text-2xl.text-gray-300.max-w-4xl.mx-auto.leading-relaxed.mb-12.text-center {
     background: var(--bg-transparent) !important;
   }
 
-  // Override dark text colors to white/light
+  // Override text colors for light theme - make them dark instead of white
+  ::ng-deep .text-white {
+    color: #1f2937 !important;
+  }
+
   ::ng-deep .text-gray-900 {
-    color: var(--text-white) !important;
+    color: #1f2937 !important;
   }
 
   ::ng-deep .text-gray-600,
   ::ng-deep .text-gray-700 {
-    color: var(--gray-300) !important;
+    color: #4b5563 !important;
+  }
+
+  ::ng-deep .text-gray-300 {
+    color: #6b7280 !important;
   }
 
   // Override tag backgrounds with glass effect
