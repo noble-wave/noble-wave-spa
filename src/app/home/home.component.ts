@@ -1,20 +1,40 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { CounterAnimationService } from '../services/counter-animation.service';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [
+    trigger('slideAnimation', [
+      transition('* => *', [
+        style({ transform: 'translateX(100%)', opacity: 0 }),
+        animate('800ms ease-out', style({ transform: 'translateX(0)', opacity: 1 }))
+      ])
+    ])
+  ]
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private observers: IntersectionObserver[] = [];
   @ViewChild('videoElement', { static: false }) videoElement?: ElementRef<HTMLVideoElement>;
+  
+  titles: string[] = [
+    'Customized Software Development',
+    'Crafting Modern Web Applications', 
+    'Innovation Meets Excellence'
+  ];
+  currentSlide: number = 0;
+  private slideInterval: any;
 
   constructor(private counterService: CounterAnimationService) {}
 
   ngOnInit(): void {
     // Component initialization
     console.log('Home component initialized');
+    
+    // Start title slider
+    this.startTitleSlider();
   }
 
   ngAfterViewInit(): void {
@@ -31,19 +51,27 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // Clean up observers
+    // Clean up observers and intervals
     this.observers.forEach(observer => observer.disconnect());
+    if (this.slideInterval) {
+      clearInterval(this.slideInterval);
+    }
+  }
+
+  private startTitleSlider(): void {
+    this.slideInterval = setInterval(() => {
+      this.currentSlide = (this.currentSlide + 1) % this.titles.length;
+    }, 3000); // Change every 3 seconds
   }
 
   private forceVideoLoad(): void {
-    const video = document.querySelector('.video-bg') as HTMLVideoElement;
+    // Force load video
+    const video = this.videoElement?.nativeElement;
     if (video) {
-      // Force reflow/repaint
       video.style.display = 'none';
-      video.offsetHeight; // Trigger reflow
+      video.offsetHeight;
       video.style.display = 'block';
       
-      // Ensure video is loaded and playing
       if (video.readyState >= 2) {
         video.play().catch(err => console.log('Video play error:', err));
       } else {
@@ -53,48 +81,30 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       }
       
       console.log('Video force loaded - readyState:', video.readyState);
-    } else {
-      console.error('Video element not found');
     }
   }
 
   private initializeVideo(): void {
-    const video = document.querySelector('.video-bg') as HTMLVideoElement;
+    const video = this.videoElement?.nativeElement;
+    
     if (video) {
       console.log('Initializing video...');
-      
-      // Set video source explicitly if needed
       video.load();
-
-      // Force video to play
       video.play().catch(error => {
         console.log('Video autoplay failed:', error);
-        // Fallback: Try to play on user interaction
-        document.addEventListener('click', () => {
-          video.play().catch(err => console.log('Click play failed:', err));
-        }, { once: true });
       });
 
-      // Log video status for debugging
       video.addEventListener('loadeddata', () => {
         console.log('Video loaded successfully');
       });
 
       video.addEventListener('canplay', () => {
         console.log('Video can play');
-        video.play().catch(err => console.log('Canplay error:', err));
       });
 
       video.addEventListener('error', (e) => {
         console.error('Video loading error:', e);
-        console.error('Video error details:', video.error);
       });
-
-      video.addEventListener('loadstart', () => {
-        console.log('Video loading started');
-      });
-    } else {
-      console.error('Video element not found in DOM');
     }
   }
 

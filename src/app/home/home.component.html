@@ -1,6 +1,6 @@
 <main class="min-h-screen relative home-section" id="home">
-  <!-- Video Background - Only for Home Page -->
-  <div class="video-background-container">
+  <!-- Video Background - Only for Home Page with Short Height -->
+  <div class="video-background-container short-video">
     <video 
       #videoElement
       class="video-bg" 
@@ -12,56 +12,31 @@
       [muted]="true"
       [autoplay]="true"
     >
-      <source src="assets/video/EarthAnimation.mp4" type="video/mp4">
+      <source src="assets/video/Background_video.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <div class="video-overlay"></div>
+    <div class="video-overlay-dark"></div>
   </div>
 
-  <section class="relative z-30 pt-6 pb-12 md:py-16 lg:py-24">
-    <div class="home-content-wrapper">
-      <div class="flex flex-col lg:flex-row items-center min-h-[80vh]">
-        <!-- Left spacer for video -->
-        <div class="hidden lg:block lg:w-1/2"></div>
+  <!-- Hero Content with Sliding Titles -->
+  <section class="hero-content-section">
+    <div class="container mx-auto px-4">
+      <div class="hero-text-wrapper">
+        <h1 class="hero-title">
+          <span class="sliding-text" [@slideAnimation]="currentSlide">
+            {{ titles[currentSlide] }}
+          </span>
+          <span class="company-name">Noble Wave</span>
+        </h1>
+        <p class="hero-subtitle">Transform Your Business Today</p>
         
-        <!-- Right side - Content (positioned to the right) -->
-        <div class="w-full lg:w-1/2 mobile-safe-spacing" data-aos="fade-left" data-aos-delay="200">
-          <div class="content-box">
-            <h1
-              class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-gray-900 mb-6"
-              data-aos="fade-up" data-aos-delay="400"
-            >
-              Crafting Modern Web Applications
-              <span
-                class="bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent block mt-3"
-              >
-                That Work
-              </span>
-            </h1>
-
-            <p
-              class="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed mb-8"
-              data-aos="fade-up" data-aos-delay="600"
-            >
-              We specialize in building responsive web applications, intuitive user interfaces,
-              and reliable backend systems for growing businesses.
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="800">
-              <button
-                class="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                (click)="scrollToContact()"
-              >
-                Get in Touch
-              </button>
-              <button
-                class="border-2 border-cyan-500 text-cyan-600 hover:bg-cyan-500 hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300"
-                (click)="scrollToServices()"
-              >
-                Our Services
-              </button>
-            </div>
-          </div>
+        <div class="hero-button">
+          <button
+            class="cta-button"
+            (click)="scrollToContact()"
+          >
+            Get Started →
+          </button>
         </div>
       </div>
     </div>

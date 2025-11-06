@@ -8,7 +8,8 @@
 
 .home-section {
   position: relative;
-  min-height: 100vh;
+  min-height: auto;
+  height: auto;
   z-index: 10;
   background: transparent;
 }
@@ -18,14 +19,17 @@
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
   width: 100%;
-  height: 100%;
-  min-height: 100vh;
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
   will-change: opacity;
+
+  /* Short height for video */
+  &.short-video {
+    height: 80vh;
+    max-height: none;
+  }
 
   .video-bg {
     position: absolute;
@@ -43,6 +47,22 @@
     will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+  }
+
+  .video-overlay-dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
   }
 
   .video-overlay {
@@ -84,15 +104,140 @@ section {
   padding: 0 1rem;
 }
 
+/* Hero Content Section */
+.hero-content-section {
+  position: relative;
+  z-index: 30;
+  height: 80vh;
+  max-height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  margin-bottom: -5rem;
+}
+
+.hero-text-wrapper {
+  max-width: 1200px;
+
+}
+
+.hero-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  line-height: 1;
+  margin-top:150px;
+  margin-bottom: 0.50rem;
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8),
+               0 0 25px rgba(0, 0, 0, 0.6);
+
+  .sliding-text {
+    display: inline-block;
+    animation: slideIn 0.8s ease-out;
+  }
+
+  .company-name {
+    display: block;
+    margin-top: 0.5rem;
+    background: linear-gradient(135deg, #00d4ff 0%, #0077ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 3rem;
+  }
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, #e08337 0%, #ff7b00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+  color: white;
+  padding: 0.875rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 180, 216, 0.4);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 180, 216, 0.6);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content-section {
+    height: 50vh;
+    max-height: 500px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .cta-button {
+    padding: 0.875rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.75rem;
+  }
+}
+
 .content-box {
   padding: 2rem;
   
   h1 {
     line-height: 1.2;
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.9),
+                 0 0 20px rgba(255, 255, 255, 0.7),
+                 0 0 30px rgba(255, 255, 255, 0.5);
   }
   
   p {
     max-width: 100%;
+    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.9),
+                 0 0 15px rgba(255, 255, 255, 0.6);
+  }
+  
+  button {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
 }
 
