@@ -1,44 +1,118 @@
 <main class="min-h-screen relative home-section" id="home">
-  <!-- Video Background - Only for Home Page with Short Height -->
-  <div class="video-background-container short-video">
-    <video 
-      #videoElement
-      class="video-bg" 
-      autoplay 
-      muted 
-      loop 
-      playsinline 
-      preload="auto"
-      [muted]="true"
-      [autoplay]="true"
-    >
-      <source src="assets/video/Background_video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="video-overlay-dark"></div>
-  </div>
+  <!-- LIGHT MODE - Video Background -->
+  <ng-container *ngIf="themeService.isLightMode()">
+    <div class="video-background-container short-video">
+      <video 
+        #videoElement
+        class="video-bg" 
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        preload="auto"
+        [muted]="true"
+        [autoplay]="true"
+      >
+        <source src="assets/video/Background_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-overlay-dark"></div>
+    </div>
 
-  <!-- Hero Content with Sliding Titles -->
-  <section class="hero-content-section">
-    <div class="container mx-auto px-4">
-      <div class="hero-text-wrapper">
-        <h1 class="hero-title">
-          <span class="sliding-text" [@slideAnimation]="currentSlide">
-            {{ titles[currentSlide] }}
-          </span>
-          <span class="company-name">Noble Wave</span>
-        </h1>
-        <p class="hero-subtitle">Transform Your Business Today</p>
-        
-        <div class="hero-button">
-          <button
-            class="cta-button"
-            (click)="scrollToContact()"
-          >
-            Get Started →
-          </button>
+    <!-- Hero Content with Sliding Titles -->
+    <section class="hero-content-section">
+      <div class="container mx-auto px-4">
+        <div class="hero-text-wrapper">
+          <h1 class="hero-title">
+            <span class="sliding-text" [@slideAnimation]="currentSlide">
+              {{ titles[currentSlide] }}
+            </span>
+            <span class="company-name">Noble Wave</span>
+          </h1>
+          <p class="hero-subtitle">Transform Your Business Today</p>
+          
+          <div class="hero-button">
+            <button
+              class="cta-button"
+              (click)="scrollToContact()"
+            >
+              Get Started →
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </ng-container>
+
+  <!-- DARK MODE - Original Production Design from Main Branch -->
+  <ng-container *ngIf="themeService.isDarkMode()">
+    <!-- Content overlay for readability -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/30 via-black/10 to-black/30 z-10"></div>
+    
+    <section class="relative z-30 pt-6 pb-12 md:py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 md:pt-0">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Left Content -->
+          <div class="space-y-8 text-white mobile-safe-spacing" data-aos="fade-right" data-aos-delay="200">
+            <div class="space-y-6">
+              <h1
+                class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+                data-aos="fade-up" data-aos-delay="400"
+              >
+                Crafting Modern Web Applications
+                <span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                  That Work
+                </span>
+              </h1>
+
+              <p
+                class="text-lg md:text-xl text-blue-100 leading-relaxed max-w-2xl"
+                data-aos="fade-up" data-aos-delay="600"
+              >
+                We specialize in building responsive web applications, intuitive user interfaces,
+                and reliable backend systems for growing businesses.
+              </p>
+
+              <div class="flex flex-col sm:flex-row gap-4 pt-6" data-aos="fade-up" data-aos-delay="800">
+                <button
+                  class="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+                  (click)="scrollToContact()"
+                >
+                  Get in Touch
+                </button>
+                <button
+                  class="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-blue-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300"
+                  (click)="scrollToServices()"
+                >
+                  Our Services
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Content - Animated Image -->
+          <div class="relative" data-aos="fade-left" data-aos-delay="400">
+            <div class="relative w-full h-96 lg:h-[500px] flex items-center justify-center">
+              <div class="relative w-full max-w-md lg:max-w-lg">
+                <img
+                  src="./assets/noble/teamwork.png"
+                  alt="Noble Wave Tech Solutions"
+                  class="w-full h-auto object-contain animate-continuous-float"
+                />
+
+                <!-- Floating Elements -->
+                <div class="absolute -top-4 -right-4 w-3 h-3 bg-cyan-400/60 rounded-full animate-pulse-float-1"></div>
+                <div class="absolute top-1/4 -left-6 w-2 h-2 bg-blue-400/60 rounded-full animate-pulse-float-2"></div>
+                <div class="absolute bottom-1/4 -right-8 w-4 h-4 bg-purple-400/60 rounded-full animate-pulse-float-3"></div>
+                <div class="absolute -bottom-6 left-1/4 w-2 h-2 bg-emerald-400/60 rounded-full animate-pulse-float-4"></div>
+
+                <!-- Glowing backdrop -->
+                <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-transparent to-purple-500/20 rounded-2xl blur-3xl -z-10 animate-glow-pulse"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </ng-container>
 </main>

@@ -33,6 +33,12 @@
         >
       </li>
       <li>
+        <button class="theme-toggle-btn" (click)="toggleTheme()" title="Toggle Theme">
+          <span class="theme-icon" *ngIf="isDarkMode">🌙</span>
+          <span class="theme-icon" *ngIf="!isDarkMode">☀️</span>
+        </button>
+      </li>
+      <li>
         <a
           href="#"
           class="nav-link cta-btn"

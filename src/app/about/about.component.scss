@@ -2,26 +2,250 @@
 main {
   background: transparent;
   color: var(--text-primary);
-  padding-top: 80px; /* Account for fixed header */
+  padding-top: 0;
   position: relative;
   z-index: 1;
+  
+  /* Light mode: Remove padding from main, will add to hero section */
+  [data-theme="light"] & {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+  /* Dark mode: Normal spacing (no video to pull up to) */
+  [data-theme="dark"] & {
+    margin-top: 0;
+    padding-top: 4rem;
+  }
 }
 
-/* Override text colors for light theme */
+/* Light Mode Hero Section with Image */
+.hero-section-light {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  margin-top: 5rem; /* Add significant margin to push down */
+  
+  @media (max-width: 768px) {
+    height: 300px;
+    margin-top: 6rem;
+  }
+  
+  .hero-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: blur(2px);
+      animation: zoomInOut 8s ease-in-out forwards;
+      transform-origin: center center;
+      /* Temporarily hide image to see text */
+      opacity: 0;
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+      /* Temporarily hide overlay to see text */
+      opacity: 0;
+    }
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+    
+    .hero-title {
+      font-size: 5rem;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.1;
+      margin: 0;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+      
+      @media (max-width: 1024px) {
+        font-size: 4rem;
+      }
+      
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
+      
+      .hero-title-highlight {
+        display: block;
+        background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+        color: #ffffff;
+        padding: 0.5rem 1.5rem;
+        margin-top: 1rem;
+        display: inline-block;
+        box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.4);
+        
+        @media (max-width: 768px) {
+          padding: 0.3rem 1rem;
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+}
+
+/* Light Mode Description Section */
+.description-section {
+  background: #ffffff;
+  padding: 4rem 0;
+  
+  @media (max-width: 768px) {
+    padding: 2rem 0;
+  }
+  
+  .description-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .description-text {
+      .description-paragraph {
+        font-size: 1.125rem;
+        line-height: 1.8;
+        color: #374151;
+        margin-bottom: 2rem;
+        
+        @media (max-width: 768px) {
+          font-size: 1rem;
+        }
+      }
+      
+      .description-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        
+        .btn-primary {
+          background: #ff6b35;
+          color: #ffffff;
+          padding: 1rem 2rem;
+          border-radius: 2rem;
+          font-weight: 600;
+          font-size: 1rem;
+          border: none;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+          
+          &:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4);
+          }
+          
+          @media (max-width: 768px) {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+          }
+        }
+        
+        .btn-secondary {
+          background: transparent;
+          color: #ff6b35;
+          padding: 1rem 2rem;
+          border-radius: 2rem;
+          font-weight: 600;
+          font-size: 1rem;
+          border: 2px solid #ff6b35;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            background: #ff6b35;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+          }
+          
+          @media (max-width: 768px) {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+    
+    .description-image {
+      position: relative;
+      
+      .team-image {
+        width: 100%;
+        height: auto;
+        border-radius: 1rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        
+        @media (max-width: 1024px) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+/* Override text colors for light theme only */
 :host {
   display: block;
   position: relative;
   
-  ::ng-deep .text-white {
-    color: #1f2937 !important;
-  }
+  /* Light mode: Override white text to dark */
+  [data-theme="light"] & {
+    ::ng-deep .text-white {
+      color: #1f2937 !important;
+    }
 
-  ::ng-deep .text-gray-300 {
-    color: #6b7280 !important;
-  }
+    ::ng-deep .text-gray-300 {
+      color: #6b7280 !important;
+    }
 
-  ::ng-deep .text-gray-400 {
-    color: #9ca3af !important;
+    ::ng-deep .text-gray-400 {
+      color: #9ca3af !important;
+    }
+  }
+  
+  /* Dark mode: Keep original white/light colors */
+  [data-theme="dark"] & {
+    ::ng-deep .text-white {
+      color: #ffffff !important;
+    }
+
+    ::ng-deep .text-gray-300 {
+      color: #d1d5db !important;
+    }
+
+    ::ng-deep .text-gray-400 {
+      color: #9ca3af !important;
+    }
   }
 }
 
@@ -99,6 +323,21 @@ p.text-center {
   }
   50% {
     opacity: 0.5;
+  }
+}
+
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+    filter: blur(2px);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: blur(2px);
+  }
+  100% {
+    transform: scale(1);
+    filter: blur(2px);
   }
 }
 

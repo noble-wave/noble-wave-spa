@@ -1,10 +1,20 @@
-// Modern Footer Styles - Professional Light Design
+// Modern Footer Styles - Theme Aware
 .modern-footer {
   position: relative;
-  background: linear-gradient(135deg, #f9fafb 0%, #ffffff 50%, #f3f4f6 100%);
   color: #374151;
   overflow: hidden;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  
+  // Light Mode (Default)
+  background: linear-gradient(135deg, #f9fafb 0%, #ffffff 50%, #f3f4f6 100%);
   border-top: 1px solid #e5e7eb;
+  
+  // Dark Mode
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg, rgba(15, 15, 35, 0.95) 0%, rgba(26, 26, 46, 0.95) 50%, rgba(22, 33, 62, 0.95) 100%) !important;
+    color: #e5e7eb !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
 }
 
 // Animated Background
@@ -127,6 +137,11 @@
     font-weight: 600;
     margin-bottom: 20px;
     color: #0891b2;
+    transition: color 0.3s ease;
+    
+    [data-theme="dark"] & {
+      color: #06b6d4;
+    }
   }
 
   &.company-info {
@@ -139,6 +154,10 @@
         width: 100%;
         height: 100%;
         filter: none;
+        
+        [data-theme="dark"] & {
+          filter: brightness(1.2);
+        }
       }
     }
 
@@ -150,6 +169,13 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      
+      [data-theme="dark"] & {
+        background: linear-gradient(135deg, #06b6d4, #60a5fa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
     }
 
     .company-tagline {
@@ -157,6 +183,11 @@
       color: #6b7280;
       margin-bottom: 24px;
       max-width: 300px;
+      transition: color 0.3s ease;
+      
+      [data-theme="dark"] & {
+        color: #9ca3af;
+      }
     }
   }
 }
@@ -178,10 +209,18 @@
       align-items: center;
       padding: 4px 0;
       font-weight: 500;
+      
+      [data-theme="dark"] & {
+        color: #d1d5db;
+      }
 
       &:hover {
         color: #0891b2;
         transform: translateX(5px);
+        
+        [data-theme="dark"] & {
+          color: #06b6d4;
+        }
       }
 
       &::before {
@@ -218,12 +257,23 @@
     justify-content: center;
     text-decoration: none;
     transition: all 0.3s ease;
+    
+    [data-theme="dark"] & {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
 
     &:hover {
       background: linear-gradient(135deg, #0891b2, #3b82f6);
       border-color: #0891b2;
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(8, 145, 178, 0.3);
+      
+      [data-theme="dark"] & {
+        background: linear-gradient(135deg, #06b6d4, #60a5fa);
+        border-color: #06b6d4;
+        box-shadow: 0 5px 15px rgba(6, 182, 212, 0.4);
+      }
     }
 
     lucide-icon {
@@ -232,6 +282,10 @@
       height: 20px !important;
       display: block !important;
       visibility: visible !important;
+      
+      [data-theme="dark"] & {
+        color: #d1d5db !important;
+      }
     }
 
     &:hover lucide-icon {
@@ -243,6 +297,11 @@
       stroke: #374151 !important;
       width: 20px !important;
       height: 20px !important;
+      
+      [data-theme="dark"] & {
+        color: #d1d5db !important;
+        stroke: #d1d5db !important;
+      }
     }
 
     &:hover ::ng-deep svg {
@@ -290,6 +349,10 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      
+      [data-theme="dark"] & {
+        background: linear-gradient(135deg, #06b6d4, #60a5fa);
+      }
 
       i {
         font-size: 16px;
@@ -310,6 +373,11 @@
         font-size: 14px;
         color: #6b7280;
         font-weight: 500;
+        transition: color 0.3s ease;
+        
+        [data-theme="dark"] & {
+          color: #9ca3af;
+        }
       }
 
       a,
@@ -318,10 +386,18 @@
         text-decoration: none;
         font-weight: 500;
         transition: color 0.3s ease;
+        
+        [data-theme="dark"] & {
+          color: #d1d5db;
+        }
       }
 
       a:hover {
         color: #0891b2;
+        
+        [data-theme="dark"] & {
+          color: #06b6d4;
+        }
       }
     }
   }
@@ -424,6 +500,11 @@
 .footer-bottom {
   border-top: 1px solid var(--glass-bg-light);
   padding: 30px 0;
+  transition: border-color 0.3s ease;
+  
+  [data-theme="dark"] & {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
 
   .footer-bottom-content {
     display: flex;
@@ -442,6 +523,11 @@
       p {
         color: #6b7280;
         font-size: 14px;
+        transition: color 0.3s ease;
+        
+        [data-theme="dark"] & {
+          color: #9ca3af;
+        }
       }
     }
 
@@ -459,9 +545,17 @@
         font-size: 14px;
         font-weight: 500;
         transition: color 0.3s ease;
+        
+        [data-theme="dark"] & {
+          color: #d1d5db;
+        }
 
         &:hover {
           color: #0891b2;
+          
+          [data-theme="dark"] & {
+            color: #06b6d4;
+          }
         }
       }
     }
@@ -472,6 +566,11 @@
       gap: 6px;
       font-size: 14px;
       color: #6b7280;
+      transition: color 0.3s ease;
+      
+      [data-theme="dark"] & {
+        color: #9ca3af;
+      }
 
       .heart {
         color: #ef4444;

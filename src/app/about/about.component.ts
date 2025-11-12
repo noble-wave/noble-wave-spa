@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-about',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent {
+
+  constructor(public themeService: ThemeService) {}
 
   // Method to scroll to contact section
   scrollToContact(): void {

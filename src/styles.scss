@@ -82,11 +82,20 @@ body {
   background-color: var(--text-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.dark body {
-  color: var(--gray-50);
-  background-color: var(--gray-900);
+/* Dark theme styling - IMPORTANT: Must come after base body styles */
+body[data-theme="dark"] {
+  color: var(--text-white) !important;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%) !important;
+  background-attachment: fixed !important;
+}
+
+/* Light theme styling */
+body[data-theme="light"] {
+  color: var(--gray-800);
+  background-color: var(--text-white);
 }
 
 /* Typography enhancements */
@@ -474,5 +483,18 @@ body {
   transition: transform 0.2s ease;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Ensure html and body take full height */
+html, body { 
+  height: 100%; 
+  margin: 0;
+  padding: 0;
+}
+
+/* Global Dark Mode Overrides for Footer */
+body[data-theme="dark"] {
+  .modern-footer {
+    background: linear-gradient(135deg, rgba(15, 15, 35, 0.95) 0%, rgba(26, 26, 46, 0.95) 50%, rgba(22, 33, 62, 0.95) 100%) !important;
+    color: #e5e7eb !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+}

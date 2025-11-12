@@ -9,6 +9,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <!-- Critical CSS for Theme Support -->
+  <style>
+    body[data-theme="dark"] {
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%) !important;
+      background-attachment: fixed !important;
+      color: #ffffff !important;
+    }
+    
+    body[data-theme="light"] {
+      background-color: #ffffff !important;
+      color: #1f2937 !important;
+    }
+  </style>
 </head>
 <body class="mat-typography">
   <app-root></app-root>

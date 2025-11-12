@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   currentYear!: number;
+
+  constructor(public themeService: ThemeService) {}
 
   ngOnInit(): void {
     this.updateYear();

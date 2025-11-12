@@ -62,6 +62,35 @@ nav {
     }
   }
 
+  /* Theme Toggle Button */
+  .theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    
+    .theme-icon {
+      font-size: 1.25rem;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+      
+      .theme-icon {
+        transform: rotate(20deg);
+      }
+    }
+  }
+
   /* Transparent state for home section */
   &.transparent-header {
     background: var(--bg-transparent) !important;

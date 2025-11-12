@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +11,25 @@ export class HeaderComponent implements OnInit {
   isMobileMenuOpen = false;
   isScrolled = false;
   isInHomeSection = true;
+  isDarkMode = false;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private themeService: ThemeService
+  ) {}
 
   ngOnInit(): void {
     // Set initial transparent header for home section
     this.updateHeaderStyle();
+    
+    // Subscribe to theme changes
+    this.themeService.theme$.subscribe(theme => {
+      this.isDarkMode = theme === 'dark';
+    });
+  }
+
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
   }
 
   // Toggle mobile menu

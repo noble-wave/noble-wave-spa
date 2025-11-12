@@ -243,9 +243,9 @@
   
   /* Navigation specific colors */
   --nav-bg-transparent: var(--bg-transparent);
-  --nav-bg-glass: rgba(255, 255, 255, 0.9);
-  --nav-border-glass: rgba(0, 0, 0, 0.05);
-  --nav-shadow-glass: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --nav-bg-glass: var(--glass-bg-light);
+  --nav-border-glass: var(--border-white-subtle);
+  --nav-shadow-glass: var(--shadow-glass);
   
   /* CTA Button colors */
   --cta-bg: var(--gradient-purple);
@@ -253,4 +253,18 @@
   --cta-shadow: var(--shadow-purple-medium);
   --cta-shadow-hover: var(--shadow-purple-strong);
   --cta-border: var(--border-white-light);
+}
+
+/* Dark Mode Theme Overrides */
+body[data-theme="dark"] {
+  /* Header text should be white in dark mode */
+  --header-text-default: var(--text-white);
+  --header-tagline: var(--text-white-soft);
+}
+
+/* Light Mode Theme Overrides */
+body[data-theme="light"] {
+  /* Header text should be white in light mode (for video background) */
+  --header-text-default: var(--text-white);
+  --header-tagline: var(--gray-600);
 }

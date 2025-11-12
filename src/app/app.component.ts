@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as AOS from 'aos';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,14 @@ import * as AOS from 'aos';
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'noble-wave';
+  currentTheme: 'light' | 'dark' = 'light';
+
+  constructor(private themeService: ThemeService) {
+    // Subscribe to theme changes
+    this.themeService.theme$.subscribe(theme => {
+      this.currentTheme = theme;
+    });
+  }
 
   ngOnInit() {
     // Initialize AOS after the component loads

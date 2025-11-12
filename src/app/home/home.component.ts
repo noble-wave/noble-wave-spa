@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { CounterAnimationService } from '../services/counter-animation.service';
+import { ThemeService } from '../services/theme.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
@@ -26,18 +27,34 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ];
   currentSlide: number = 0;
   private slideInterval: any;
+  isLightMode = true;
 
-  constructor(private counterService: CounterAnimationService) {}
-
+  constructor(
+    private counterService: CounterAnimationService,
+    public themeService: ThemeService
+  ) {}
+  
   ngOnInit(): void {
     // Component initialization
     console.log('Home component initialized');
     
-    // Start title slider
-    this.startTitleSlider();
-  }
-
-  ngAfterViewInit(): void {
+    // Subscribe to theme changes
+    this.themeService.theme$.subscribe(theme => {
+      this.isLightMode = theme === 'light';
+      
+      // Stop/start video based on theme
+      if (this.isLightMode) {
+        this.startTitleSlider();
+      } else {
+        this.stopTitleSlider();
+      }
+    });
+    
+    // Start title slider if in light mode
+    if (this.isLightMode) {
+      this.startTitleSlider();
+    }
+  }  ngAfterViewInit(): void {
     // Set up counter animations and video after view is initialized
     setTimeout(() => {
       this.setupCounterAnimations();
@@ -62,6 +79,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.slideInterval = setInterval(() => {
       this.currentSlide = (this.currentSlide + 1) % this.titles.length;
     }, 3000); // Change every 3 seconds
+  }
+
+  private stopTitleSlider(): void {
+    if (this.slideInterval) {
+      clearInterval(this.slideInterval);
+    }
   }
 
   private forceVideoLoad(): void {

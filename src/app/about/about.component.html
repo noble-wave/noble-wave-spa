@@ -1,7 +1,50 @@
 <!-- About Page - Our Story -->
 <main class="relative min-h-screen" id="about">
-  <!-- Hero Section -->
-  <section class="py-20 relative z-10">
+  
+  <!-- Light Mode Hero Section with Image -->
+  <section class="hero-section-light" *ngIf="themeService.isLightMode()">
+    <div class="hero-image-container">
+      <img src="/assets/noble/about1.jpg" alt="Noble Wave Team" class="hero-image">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Who We Are
+        <span class="hero-title-highlight">Noble Wave</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- Light Mode Description Section -->
+  <section class="description-section" *ngIf="themeService.isLightMode()">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="description-content">
+        <div class="description-text">
+          <p class="description-paragraph">
+            We are a trusted Digital Engineering and Enterprise Modernization partner,
+            combining deep technical expertise and industry experience to help our
+            clients anticipate what's next and answer questions before they're asked. Our
+            offerings and proven solutions create unique competitive advantage for our
+            clients by giving them the power to see beyond and rise above.
+          </p>
+          <div class="description-buttons">
+            <button class="btn-primary" (click)="scrollToContact()">
+              Let's work together
+            </button>
+            <button class="btn-secondary">
+              View brand video
+            </button>
+          </div>
+        </div>
+        <div class="description-image">
+          <img src="/assets/noble/teamwork1.jpg" alt="Team collaboration" class="team-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dark Mode Hero Section (Original) -->
+  <section class="py-20 relative z-10" *ngIf="themeService.isDarkMode()">
     <div class="container mx-auto px-6 lg:px-8">
       <div class="text-center max-w-4xl mx-auto">
         <div
