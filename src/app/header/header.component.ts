@@ -55,7 +55,7 @@ export class HeaderComponent implements OnInit {
   }
 
   // Listen for scroll events to detect which section we're in
-  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:scroll')
   onWindowScroll(): void {
     const scrollPosition = window.pageYOffset;
     const windowHeight = window.innerHeight;

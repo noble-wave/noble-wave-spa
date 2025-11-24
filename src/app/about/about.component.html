@@ -9,7 +9,7 @@
     </div>
     <div class="hero-content">
       <h1 class="hero-title">
-        Who We Are
+        <span class="weAre">Who We Are</span>
         <span class="hero-title-highlight">Noble Wave</span>
       </h1>
     </div>
@@ -43,31 +43,349 @@
     </div>
   </section>
 
-  <!-- Dark Mode Hero Section (Original) -->
+  <!-- Light Mode Mission & Vision Section -->
+  <section class="mission-vision-light" *ngIf="themeService.isLightMode()">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="mission-vision-grid">
+        <!-- Mission Card -->
+        <div class="mission-card">
+          <div class="card-icon">
+            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="card-title">Our Mission</h3>
+          <p class="card-description">
+            To build reliable, user-friendly web applications and digital solutions that help 
+            businesses establish their online presence and connect with their customers effectively. 
+            We focus on delivering quality work that meets real business needs.
+          </p>
+        </div>
+
+        <!-- Vision Card -->
+        <div class="vision-card">
+          <div class="card-icon">
+            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+            </svg>
+          </div>
+          <h3 class="card-title">Our Vision</h3>
+          <p class="card-description">
+            To become a trusted technology partner for local and regional businesses, helping them 
+            grow through well-crafted digital solutions. We aim to build lasting relationships 
+            based on quality work and reliable service.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Slider - Light Mode Only -->
+  <section class="tech-stack-section" *ngIf="themeService.isLightMode()">
+    <div class="tech-stack-container">
+      <div class="tech-stack-slider">
+        <!-- First set of icons -->
+        <div class="tech-icon">
+          <i class="devicon-html5-plain colored"></i>
+          <span>HTML5</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-css3-plain colored"></i>
+          <span>CSS3</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-javascript-plain colored"></i>
+          <span>JavaScript</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-typescript-plain colored"></i>
+          <span>TypeScript</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-angularjs-plain colored"></i>
+          <span>Angular</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-react-original colored"></i>
+          <span>React</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-nodejs-plain colored"></i>
+          <span>Node.js</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-python-plain colored"></i>
+          <span>Python</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-amazonwebservices-plain-wordmark colored"></i>
+          <span>AWS</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-azure-plain colored"></i>
+          <span>Azure</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-azuredevops-plain colored"></i>
+          <span>Azure DevOps</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-googlecloud-plain colored"></i>
+          <span>Google Cloud</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-ionic-original colored"></i>
+          <span>Ionic</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-tailwindcss-plain colored"></i>
+          <span>Tailwind CSS</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-sass-original colored"></i>
+          <span>Sass</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-bootstrap-plain colored"></i>
+          <span>Bootstrap</span>
+        </div>
+        
+        <!-- Duplicate set for seamless loop -->
+        <div class="tech-icon">
+          <i class="devicon-html5-plain colored"></i>
+          <span>HTML5</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-css3-plain colored"></i>
+          <span>CSS3</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-javascript-plain colored"></i>
+          <span>JavaScript</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-typescript-plain colored"></i>
+          <span>TypeScript</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-angularjs-plain colored"></i>
+          <span>Angular</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-react-original colored"></i>
+          <span>React</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-nodejs-plain colored"></i>
+          <span>Node.js</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-python-plain colored"></i>
+          <span>Python</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-amazonwebservices-plain-wordmark colored"></i>
+          <span>AWS</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-azure-plain colored"></i>
+          <span>Azure</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-azuredevops-plain colored"></i>
+          <span>Azure DevOps</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-googlecloud-plain colored"></i>
+          <span>Google Cloud</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-ionic-original colored"></i>
+          <span>Ionic</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-tailwindcss-plain colored"></i>
+          <span>Tailwind CSS</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-sass-original colored"></i>
+          <span>Sass</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-bootstrap-plain colored"></i>
+          <span>Bootstrap</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Light Mode Values Section -->
+  <section class="values-section-light" *ngIf="themeService.isLightMode()">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="values-header">
+        <span class="values-badge">Our Core Values</span>
+        <h2 class="values-title">What Drives Us Forward</h2>
+        <p class="values-subtitle">The principles that guide every decision we make</p>
+      </div>
+      
+      <div class="values-grid-light">
+        <div class="value-item-light">
+          <div class="value-number">01</div>
+          <div class="value-icon-large">💻</div>
+          <h3 class="value-title-light">Clean Code</h3>
+          <p class="value-desc-light">
+            We write maintainable, well-documented code that follows best practices and is built to last.
+          </p>
+        </div>
+
+        <div class="value-item-light">
+          <div class="value-number">02</div>
+          <div class="value-icon-large">🎯</div>
+          <h3 class="value-title-light">Client-Focused</h3>
+          <p class="value-desc-light">
+            We listen carefully to understand your needs and deliver solutions that solve your problems.
+          </p>
+        </div>
+
+        <div class="value-item-light">
+          <div class="value-number">03</div>
+          <div class="value-icon-large">⏰</div>
+          <h3 class="value-title-light">On-Time Delivery</h3>
+          <p class="value-desc-light">
+            We set realistic deadlines and stick to them, keeping you informed throughout.
+          </p>
+        </div>
+
+        <div class="value-item-light">
+          <div class="value-number">04</div>
+          <div class="value-icon-large">💬</div>
+          <h3 class="value-title-light">Clear Communication</h3>
+          <p class="value-desc-light">
+            No technical jargon - we explain everything in plain language.
+          </p>
+        </div>
+
+        <div class="value-item-light">
+          <div class="value-number">05</div>
+          <div class="value-icon-large">📚</div>
+          <h3 class="value-title-light">Always Learning</h3>
+          <p class="value-desc-light">
+            We stay current with web technologies and best practices.
+          </p>
+        </div>
+
+        <div class="value-item-light">
+          <div class="value-number">06</div>
+          <div class="value-icon-large">💰</div>
+          <h3 class="value-title-light">Fair Pricing</h3>
+          <p class="value-desc-light">
+            Transparent pricing with no hidden costs - quality should be accessible.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Light Mode Team Section -->
+  <section class="team-section-light" *ngIf="themeService.isLightMode()">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="team-header-light">
+        <span class="team-badge">Our Team</span>
+        <h2 class="team-title-light">Meet the Team Behind Your Success</h2>
+        <p class="team-subtitle-light">
+          A focused team of skilled developers committed to delivering quality solutions
+        </p>
+      </div>
+
+      <div class="team-stats-grid">
+        <div class="stat-card-light">
+          <div class="stat-icon-wrapper">
+            <svg class="stat-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Team Members</div>
+            <p class="stat-description">Dedicated developers focused on your project</p>
+          </div>
+        </div>
+
+        <div class="stat-card-light">
+          <div class="stat-icon-wrapper">
+            <svg class="stat-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Projects Completed</div>
+            <p class="stat-description">Successful web applications delivered</p>
+          </div>
+        </div>
+
+        <div class="stat-card-light">
+          <div class="stat-icon-wrapper">
+            <svg class="stat-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Years in Business</div>
+            <p class="stat-description">Building web solutions for businesses</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Light Mode CTA Section -->
+  <section class="cta-section-light" *ngIf="themeService.isLightMode()">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="cta-card-light">
+        <div class="cta-content-light">
+          <h2 class="cta-title-light">Ready to Start Your Digital Journey?</h2>
+          <p class="cta-description-light">
+            Let's discuss how we can help transform your vision into reality.
+          </p>
+          <div class="cta-buttons-light">
+            <button class="cta-btn-primary-light" (click)="scrollToContact()">
+              <span>Get in Touch</span>
+              <svg class="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </button>
+            <button class="cta-btn-secondary-light" (click)="scrollToServices()">
+              Explore Services
+            </button>
+          </div>
+        </div>
+        <div class="cta-decoration">
+          <div class="decoration-circle decoration-1"></div>
+          <div class="decoration-circle decoration-2"></div>
+          <div class="decoration-circle decoration-3"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dark Mode Hero Section -->
   <section class="py-20 relative z-10" *ngIf="themeService.isDarkMode()">
     <div class="container mx-auto px-6 lg:px-8">
       <div class="text-center max-w-4xl mx-auto">
-        <div
-          class="inline-flex items-center px-6 py-3 bg-purple-500/20 backdrop-blur-sm rounded-full text-purple-300 text-sm font-medium mb-8 border border-purple-500/30"
-          data-aos="fade-down"
-        >
-          <span
-            class="w-2 h-2 bg-purple-400 rounded-full mr-2 animate-pulse"
-          ></span>
+        <div class="inline-flex items-center px-6 py-3 bg-purple-500/20 backdrop-blur-sm rounded-full text-purple-300 text-sm font-medium mb-8 border border-purple-500/30">
+          <span class="w-2 h-2 bg-purple-400 rounded-full mr-2 animate-pulse"></span>
           Our Story
         </div>
-        <h1
-          class="text-5xl lg:text-7xl font-black text-white mb-6 leading-tight"
-          data-aos="fade-up" data-aos-delay="200"
-        >
+        <h1 class="text-5xl lg:text-7xl font-black text-white mb-6 leading-tight">
           About
-          <span
-            class="bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent"
-          >
+          <span class="bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
             Noble Wave
           </span>
         </h1>
-        <p class="text-xl text-gray-300 mb-12 leading-relaxed" data-aos="fade-up" data-aos-delay="400">
+        <p class="text-xl text-gray-300 mb-12 leading-relaxed">
           We are a focused web development team passionate about creating quality digital solutions. 
           Our focus is on building reliable, user-friendly applications that help businesses succeed online.
         </p>
@@ -75,12 +393,12 @@
     </div>
   </section>
 
-  <!-- Mission & Vision Section -->
-  <section class="py-20 relative z-10">
+  <!-- Dark Mode Mission & Vision Section -->
+  <section class="py-20 relative z-10" *ngIf="themeService.isDarkMode()">
     <div class="container mx-auto px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <!-- Mission -->
-        <div class="space-y-8" data-aos="fade-right" data-aos-delay="200">
+        <div class="space-y-8">
           <div>
             <div class="inline-flex items-center px-4 py-2 bg-cyan-500/20 backdrop-blur-sm rounded-full text-cyan-300 text-sm font-medium mb-4 border border-cyan-500/30">
               Our Mission
@@ -100,7 +418,7 @@
         </div>
 
         <!-- Vision -->
-        <div class="space-y-8" data-aos="fade-left" data-aos-delay="400">
+        <div class="space-y-8">
           <div>
             <div class="inline-flex items-center px-4 py-2 bg-purple-500/20 backdrop-blur-sm rounded-full text-purple-300 text-sm font-medium mb-4 border border-purple-500/30">
               Our Vision
@@ -122,99 +440,69 @@
     </div>
   </section>
 
-  <!-- Values Section -->
-  <section class="py-20 relative z-10">
+  <!-- Dark Mode Values Section -->
+  <section class="py-20 relative z-10" *ngIf="themeService.isDarkMode()">
     <div class="container mx-auto px-6 lg:px-8">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <div class="inline-flex items-center px-6 py-3 bg-blue-500/20 backdrop-blur-sm rounded-full text-blue-300 text-sm font-medium mb-8 border border-blue-500/30">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 backdrop-blur-sm rounded-full text-cyan-300 text-sm font-medium mb-6 border border-cyan-500/30">
           Our Core Values
         </div>
         <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
           What Drives
-          <span class="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+          <span class="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
             Us Forward
           </span>
         </h2>
-        <p class="text-xl text-gray-300 max-w-3xl mx-auto text-center" style="text-align: center !important;">
-          Our values shape every decision we make and every solution we deliver
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          These principles guide every decision we make and every solution we deliver
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <!-- Quality Code -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 hover:border-cyan-400/50 hover:shadow-xl hover:shadow-cyan-500/20 hover:-translate-y-2 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
-          <div class="text-cyan-400 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-            �
-          </div>
-          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-cyan-300 transition-colors duration-300">
-            Clean Code
-          </h3>
-          <p class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="value-card-dark">
+          <div class="value-icon">💻</div>
+          <h3 class="value-title">Clean Code</h3>
+          <p class="value-description">
             We write maintainable, well-documented code that follows best practices and is built to last.
           </p>
         </div>
 
-        <!-- Client Focus -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 hover:border-blue-400/50 hover:shadow-xl hover:shadow-blue-500/20 hover:-translate-y-2 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="400">
-          <div class="text-blue-400 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-            🎯
-          </div>
-          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors duration-300">
-            Client-Focused
-          </h3>
-          <p class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+        <div class="value-card-dark">
+          <div class="value-icon">🎯</div>
+          <h3 class="value-title">Client-Focused</h3>
+          <p class="value-description">
             We listen carefully to understand your needs and deliver solutions that actually solve your business problems.
           </p>
         </div>
 
-        <!-- Reliable Delivery -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 hover:border-purple-400/50 hover:shadow-xl hover:shadow-purple-500/20 hover:-translate-y-2 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="600">
-          <div class="text-purple-400 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-            ⏰
-          </div>
-          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors duration-300">
-            On-Time Delivery
-          </h3>
-          <p class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+        <div class="value-card-dark">
+          <div class="value-icon">⏰</div>
+          <h3 class="value-title">On-Time Delivery</h3>
+          <p class="value-description">
             We set realistic deadlines and stick to them, keeping you informed throughout the development process.
           </p>
         </div>
 
-        <!-- Transparency -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 hover:border-green-400/50 hover:shadow-xl hover:shadow-green-500/20 hover:-translate-y-2 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="800">
-          <div class="text-green-400 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-            💬
-          </div>
-          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-green-300 transition-colors duration-300">
-            Clear Communication
-          </h3>
-          <p class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+        <div class="value-card-dark">
+          <div class="value-icon">💬</div>
+          <h3 class="value-title">Clear Communication</h3>
+          <p class="value-description">
             No technical jargon or confusing updates - we explain everything in plain language and keep you in the loop.
           </p>
         </div>
 
-        <!-- Continuous Learning -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 hover:border-orange-400/50 hover:shadow-xl hover:shadow-orange-500/20 hover:-translate-y-2 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="1000">
-          <div class="text-orange-400 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-            📚
-          </div>
-          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-orange-300 transition-colors duration-300">
-            Always Learning
-          </h3>
-          <p class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+        <div class="value-card-dark">
+          <div class="value-icon">📚</div>
+          <h3 class="value-title">Always Learning</h3>
+          <p class="value-description">
             We stay current with web technologies and best practices to deliver modern, secure solutions.
           </p>
         </div>
 
-        <!-- Fair Pricing -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 hover:border-pink-400/50 hover:shadow-xl hover:shadow-pink-500/20 hover:-translate-y-2 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="1200">
-          <div class="text-pink-400 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-            💰
-          </div>
-          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-pink-300 transition-colors duration-300">
-            Fair Pricing
-          </h3>
-          <p class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+        <div class="value-card-dark">
+          <div class="value-icon">💰</div>
+          <h3 class="value-title">Fair Pricing</h3>
+          <p class="value-description">
             Transparent pricing with no hidden costs - we believe quality web development should be accessible to all businesses.
           </p>
         </div>
@@ -222,69 +510,67 @@
     </div>
   </section>
 
-  <!-- Team Section -->
-  <section class="py-20 relative z-10">
+  <!-- Dark Mode Team Section -->
+  <section class="py-20 relative z-10" *ngIf="themeService.isDarkMode()">
     <div class="container mx-auto px-6 lg:px-8">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <div class="inline-flex items-center px-6 py-3 bg-cyan-500/20 backdrop-blur-sm rounded-full text-cyan-300 text-sm font-medium mb-8 border border-cyan-500/30">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-full text-purple-300 text-sm font-medium mb-6 border border-purple-500/30">
           Our Team
         </div>
         <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
-          Meet the
-          <span class="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            Team
+          Meet the Team Behind
+          <span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            Your Success
           </span>
         </h2>
-        <p class="text-xl text-gray-300 max-w-3xl mx-auto text-center" style="text-align: center !important;">
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
           A focused team of skilled developers committed to delivering quality web solutions
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <!-- Team stats -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center group hover:bg-white/20 hover:border-cyan-400/50 hover:shadow-xl hover:shadow-cyan-500/20 hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
-          <div class="text-4xl font-black text-cyan-400 mb-2 group-hover:scale-110 transition-transform duration-300">10+</div>
-          <div class="text-white font-semibold mb-2">Team Members</div>
-          <div class="text-gray-400 text-sm">Dedicated developers focused on your project</div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="team-stat-card-dark">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Team Members</div>
+          <p class="stat-description">Dedicated developers focused on your project</p>
         </div>
 
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center group hover:bg-white/20 hover:border-purple-400/50 hover:shadow-xl hover:shadow-purple-500/20 hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
-          <div class="text-4xl font-black text-purple-400 mb-2 group-hover:scale-110 transition-transform duration-300">15+</div>
-          <div class="text-white font-semibold mb-2">Projects Completed</div>
-          <div class="text-gray-400 text-sm">Successful web applications delivered</div>
+        <div class="team-stat-card-dark">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Projects Completed</div>
+          <p class="stat-description">Successful web applications delivered</p>
         </div>
 
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center group hover:bg-white/20 hover:border-blue-400/50 hover:shadow-xl hover:shadow-blue-500/20 hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="600">
-          <div class="text-4xl font-black text-blue-400 mb-2 group-hover:scale-110 transition-transform duration-300">5+</div>
-          <div class="text-white font-semibold mb-2">Years in Business</div>
-          <div class="text-gray-400 text-sm">Building web solutions for local businesses</div>
+        <div class="team-stat-card-dark">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Years in Business</div>
+          <p class="stat-description">Building web solutions for businesses</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-20 relative overflow-hidden">
-    <div class="container mx-auto px-6 lg:px-8 text-center">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6" data-aos="fade-up">
+  <!-- Dark Mode CTA Section -->
+  <section class="py-20 relative z-10" *ngIf="themeService.isDarkMode()">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="cta-card-dark">
+        <h2 class="cta-title">
           Ready to Start Your
-          <span class="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            Digital Journey?
-          </span>
+          <span class="cta-highlight">Digital Journey?</span>
         </h2>
-        <p class="text-xl text-gray-300 mb-12 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+        <p class="cta-description">
           Let's discuss how we can help transform your vision into reality with our innovative solutions.
         </p>
-        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center" data-aos="fade-up" data-aos-delay="400">
-          <button class="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1" (click)="scrollToContact()">
+        <div class="cta-buttons">
+          <button class="cta-btn-primary" (click)="scrollToContact()">
             Get in Touch
           </button>
-          <button class="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-blue-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300" (click)="scrollToServices()">
+          <button class="cta-btn-secondary" (click)="scrollToServices()">
             Explore Services
           </button>
         </div>
       </div>
     </div>
   </section>
+
 </main>

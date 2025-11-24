@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 import { CounterAnimationService } from '../services/counter-animation.service';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-details',
@@ -11,7 +12,8 @@ export class DetailsComponent implements OnInit, AfterViewInit {
 
   constructor(
     private counterService: CounterAnimationService,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    public themeService: ThemeService
   ) {}
 
   ngOnInit(): void {}
