@@ -1,288 +1,435 @@
-<!-- Services Page - Modern Clean Design -->
-<div class="services-wrapper" [class.light-theme]="themeService.isLightMode()" [class.dark-theme]="themeService.isDarkMode()">
-  <main class="services-main">
-    
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="container">
-        <div class="hero-content">
-          <span class="hero-badge">Our Services</span>
+<div class="details-page" [ngClass]="themeService.isLightMode() ? 'light-theme' : 'dark-theme'">
+  
+  <!-- 1️⃣ Hero Section - Premium Modern Design -->
+  <section class="hero-details-section" data-aos="fade-up">
+    <!-- Animated Background Elements -->
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <!-- Left Content -->
+        <div class="hero-content" data-aos="fade-right" data-aos-delay="200">
+          <!-- Premium Badge -->
+          <div class="premium-badge">
+            <span class="badge-dot"></span>
+            <span class="badge-text">Leading Digital Innovation</span>
+          </div>
+
           <h1 class="hero-title">
-            Transform Your Business With
-            <span class="gradient-text">Digital Excellence</span>
+            Transforming Ideas into
+            <span class="gradient-text-animated">Digital Solutions</span>
           </h1>
+          
           <p class="hero-description">
-            We deliver cutting-edge solutions that drive innovation and growth for your business
+            We empower businesses with innovative technology solutions that drive digital transformation. 
+            From startups to enterprises, we help you succeed with cutting-edge applications, 
+            strategic consulting, and seamless cloud integration.
+          </p>
+          
+          <!-- Feature Pills -->
+          <div class="feature-pills">
+            <div class="pill" data-aos="fade-up" data-aos-delay="300">
+              <div class="pill-icon">
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span>Innovation-Driven Solutions</span>
+            </div>
+            <div class="pill" data-aos="fade-up" data-aos-delay="350">
+              <div class="pill-icon">
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span>Enterprise-Grade Security</span>
+            </div>
+            <div class="pill" data-aos="fade-up" data-aos-delay="400">
+              <div class="pill-icon">
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span>Seamless Cloud Integration</span>
+            </div>
+          </div>
+          
+          <!-- CTA Buttons -->
+          <div class="hero-cta-group" data-aos="fade-up" data-aos-delay="450">
+            <button class="btn-primary-gradient" (click)="scrollToContactSection()">
+              <span>Schedule a Consultation</span>
+              <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button class="btn-secondary-glass" (click)="scrollToServicesSection()">
+              <span>Explore Services</span>
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Visual Element -->
+        <div class="hero-visual-wrapper" data-aos="fade-left" data-aos-delay="400">
+          <div class="visual-container">
+            <!-- Main Image Card -->
+            <div class="main-image-card">
+              <div class="card-glow"></div>
+              <img 
+                src="assets/noble/teamwork.png"
+                alt="Noble Wave - Digital Solutions"
+                class="main-image"
+                (error)="onImgError($event)"
+              />
+            </div>
+
+            <!-- Floating Tech Icons -->
+            <div class="tech-icon-float icon-1">
+              <i class="devicon-react-original colored"></i>
+            </div>
+            <div class="tech-icon-float icon-2">
+              <i class="devicon-nodejs-plain colored"></i>
+            </div>
+            <div class="tech-icon-float icon-3">
+              <i class="devicon-docker-plain colored"></i>
+            </div>
+            <div class="tech-icon-float icon-4">
+              <i class="devicon-amazonwebservices-plain-wordmark colored"></i>
+            </div>
+
+            <!-- Stats Badge -->
+            <div class="stats-badge">
+              <div class="stat-item">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Projects</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-number">98%</span>
+                <span class="stat-label">Success</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2️⃣ Services Overview -->
+  <section class="services-overview-section section-padding">
+    <div class="container mx-auto px-4">
+      <div class="section-header-center" data-aos="fade-up">
+        <h2 class="section-title">
+          Our <span class="gradient-text-cyan">Expertise</span>
+        </h2>
+        <p class="overview-intro">
+          Noble Wave is your trusted partner for end-to-end IT solutions. We specialize in delivering innovative web and mobile applications, 
+          expert IT consulting, intuitive UI/UX design, and robust cloud solutions. With a focus on performance, reliability, and digital transformation, 
+          we help businesses of all sizes achieve their technology goals through agile methodologies and high-quality delivery.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3️⃣ List of Core Services -->
+  <section class="core-services-section section-padding" id="services">
+    <div class="container mx-auto px-4">
+      <div class="section-header-center" data-aos="fade-up">
+        <h2 class="section-title">
+          Core <span class="gradient-text-cyan">Services</span>
+        </h2>
+        <p class="section-subtitle">Comprehensive solutions tailored to your business needs</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- IT Consulting -->
+        <div class="service-card glass-card" data-aos="zoom-in">
+          <div class="service-icon-wrapper">
+            <div class="service-icon"><i class="devicon-digitalocean-plain"></i></div>
+          </div>
+          <h3 class="service-title">IT Consulting</h3>
+          <p class="service-description">
+            Our expert IT consultants provide strategic guidance to help you navigate complex technology landscapes. 
+            We analyze your business needs, identify opportunities for improvement, and deliver actionable roadmaps 
+            that align technology with your business objectives. From digital transformation strategies to technology 
+            stack optimization, we ensure your IT investments drive measurable results.
+          </p>
+          <ul class="service-benefits">
+            <li><span class="benefit-icon">✓</span> Strategic technology roadmaps</li>
+            <li><span class="benefit-icon">✓</span> Cost optimization and efficiency</li>
+            <li><span class="benefit-icon">✓</span> Risk assessment and mitigation</li>
+          </ul>
+        </div>
+
+        <!-- Web Application Development -->
+        <div class="service-card glass-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="service-icon-wrapper">
+            <div class="service-icon icon-pulse"><i class="devicon-angularjs-plain"></i></div>
+          </div>
+          <h3 class="service-title">Web Application Development</h3>
+          <p class="service-description">
+            Build powerful, scalable web applications using modern frameworks like Angular and Node.js. 
+            Our development team creates responsive, high-performance web solutions that deliver exceptional 
+            user experiences across all devices. From single-page applications to complex enterprise platforms, 
+            we leverage cutting-edge technologies to bring your vision to life with clean, maintainable code.
+          </p>
+          <ul class="service-benefits">
+            <li><span class="benefit-icon">✓</span> Modern frameworks (Angular, Node.js)</li>
+            <li><span class="benefit-icon">✓</span> Responsive and mobile-first design</li>
+            <li><span class="benefit-icon">✓</span> High performance and scalability</li>
+          </ul>
+        </div>
+
+        <!-- Mobile App Development -->
+        <div class="service-card glass-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="service-icon-wrapper">
+            <div class="service-icon"><i class="devicon-android-plain"></i></div>
+          </div>
+          <h3 class="service-title">Mobile App Development</h3>
+          <p class="service-description">
+            Create engaging mobile experiences with our cross-platform app development using Ionic and other 
+            modern frameworks. We build native-quality mobile applications that work seamlessly on iOS and Android, 
+            reducing development time and costs while maintaining exceptional performance. Our mobile solutions 
+            integrate with your existing systems and deliver the functionality your users expect.
+          </p>
+          <ul class="service-benefits">
+            <li><span class="benefit-icon">✓</span> Cross-platform development (iOS & Android)</li>
+            <li><span class="benefit-icon">✓</span> Native-like performance with Ionic</li>
+            <li><span class="benefit-icon">✓</span> Faster time-to-market</li>
+          </ul>
+        </div>
+
+        <!-- Software Product Engineering -->
+        <div class="service-card glass-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="service-icon-wrapper">
+            <div class="service-icon icon-pulse"><i class="devicon-nodejs-plain"></i></div>
+          </div>
+          <h3 class="service-title">Software Product Engineering</h3>
+          <p class="service-description">
+            Transform your ideas into market-ready software products with our end-to-end engineering services. 
+            We handle everything from initial concept and architecture design to development, testing, and deployment. 
+            Using agile methodologies and best practices, we build scalable, secure software products that evolve 
+            with your business needs and exceed user expectations.
+          </p>
+          <ul class="service-benefits">
+            <li><span class="benefit-icon">✓</span> Full product lifecycle management</li>
+            <li><span class="benefit-icon">✓</span> Agile development methodology</li>
+            <li><span class="benefit-icon">✓</span> Continuous integration and delivery</li>
+          </ul>
+        </div>
+
+        <!-- UI/UX Designing -->
+        <div class="service-card glass-card" data-aos="zoom-in" data-aos-delay="400">
+          <div class="service-icon-wrapper">
+            <div class="service-icon"><i class="devicon-figma-plain"></i></div>
+          </div>
+          <h3 class="service-title">UI/UX Designing</h3>
+          <p class="service-description">
+            Craft exceptional user experiences with our user-centric design approach. Our designers combine 
+            aesthetics with functionality to create intuitive interfaces that delight users and drive engagement. 
+            Through research, prototyping, and iterative testing, we ensure every interaction is meaningful and 
+            every design element serves a purpose, resulting in products that users love to use.
+          </p>
+          <ul class="service-benefits">
+            <li><span class="benefit-icon">✓</span> User research and persona development</li>
+            <li><span class="benefit-icon">✓</span> Interactive prototypes and wireframes</li>
+            <li><span class="benefit-icon">✓</span> Usability testing and optimization</li>
+          </ul>
+        </div>
+
+        <!-- Cloud Integration & Deployment -->
+        <div class="service-card glass-card" data-aos="zoom-in" data-aos-delay="500">
+          <div class="service-icon-wrapper">
+            <div class="service-icon icon-pulse"><i class="devicon-amazonwebservices-plain-wordmark"></i></div>
+          </div>
+          <h3 class="service-title">Cloud Integration & Deployment</h3>
+          <p class="service-description">
+            Leverage the power of cloud computing with our comprehensive integration and deployment services. 
+            We help you migrate to the cloud, optimize your infrastructure, and implement DevOps practices for 
+            continuous deployment. Whether you need AWS, Azure, or Google Cloud solutions, we ensure your 
+            applications are secure, scalable, and always available with minimal downtime.
+          </p>
+          <ul class="service-benefits">
+            <li><span class="benefit-icon">✓</span> Multi-cloud platform expertise</li>
+            <li><span class="benefit-icon">✓</span> Automated CI/CD pipelines</li>
+            <li><span class="benefit-icon">✓</span> Infrastructure as Code (IaC)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4️⃣ Why Choose Noble Wave -->
+  <section class="why-choose-section section-padding">
+    <div class="container mx-auto px-4">
+      <div class="section-header-center" data-aos="fade-up">
+        <h2 class="section-title">
+          Why Choose <span class="gradient-text-cyan">Noble Wave</span>
+        </h2>
+        <p class="section-subtitle">Your success is our mission</p>
+      </div>
+
+      <div class="why-choose-grid">
+        <div class="why-card glass-card" data-aos="fade-up">
+          <div class="why-icon"><i class="devicon-github-original"></i></div>
+          <h3 class="why-title">Experienced IT Professionals</h3>
+          <p class="why-desc">
+            Our team consists of seasoned developers, designers, and consultants with years of industry experience 
+            and a proven track record of delivering successful projects across various domains.
+          </p>
+        </div>
+
+        <div class="why-card glass-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="why-icon"><i class="devicon-sketch-line"></i></div>
+          <h3 class="why-title">User-Centric Designs</h3>
+          <p class="why-desc">
+            We put users at the center of everything we create, ensuring intuitive interfaces and seamless 
+            experiences that drive engagement and satisfaction.
+          </p>
+        </div>
+
+        <div class="why-card glass-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="why-icon"><i class="devicon-slack-plain"></i></div>
+          <h3 class="why-title">Strong Post-Delivery Support</h3>
+          <p class="why-desc">
+            Our commitment doesn't end at deployment. We provide comprehensive maintenance, updates, and 
+            technical support to ensure your solutions continue to perform optimally.
+          </p>
+        </div>
+
+        <div class="why-card glass-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="why-icon"><i class="devicon-docker-plain"></i></div>
+          <h3 class="why-title">Scalable and Secure Solutions</h3>
+          <p class="why-desc">
+            We build with growth in mind, implementing security best practices and scalable architectures 
+            that adapt as your business evolves.
+          </p>
+        </div>
+
+        <div class="why-card glass-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="why-icon"><i class="devicon-gitlab-plain"></i></div>
+          <h3 class="why-title">On-Time Delivery Guaranteed</h3>
+          <p class="why-desc">
+            We respect your timelines and commitments. Through agile methodologies and transparent communication, 
+            we consistently deliver projects on schedule without compromising quality.
           </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Services Grid -->
-    <section class="services-section">
-      <div class="container">
-        
-        <!-- Service 1: Web Development -->
-        <div class="service-card" data-aos="fade-up">
-          <div class="service-icon web-dev">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-            </svg>
-          </div>
-          <div class="service-content">
-            <h3 class="service-title">Web Development</h3>
-            <p class="service-description">
-              Build fast, responsive, and scalable web applications using modern frameworks like Angular, React, and Vue.js.
-            </p>
-            <ul class="service-features">
-              <li>
-                <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>Responsive Design</span>
-              </li>
-              <li>
-                <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>Progressive Web Apps</span>
-              </li>
-              <li>
-                <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>Single Page Applications</span>
-              </li>
-            </ul>
-            <div class="service-tags">
-              <span class="tag">Angular</span>
-              <span class="tag">React</span>
-              <span class="tag">Vue.js</span>
-              <span class="tag">TypeScript</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 2: API Development -->
-        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="service-icon api-dev">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <div class="service-content">
-            <h3 class="service-title">API Development</h3>
-            <p class="service-description">
-              Design and develop robust RESTful and GraphQL APIs that power your applications with seamless data integration.
-            </p>
-            <ul class="service-features">
-              <li>
-                <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>RESTful Architecture</span>
-              </li>
-              <li>
-                <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>GraphQL Integration</span>
-              </li>
-              <li>
-                <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>API Documentation</span>
-              </li>
-            </ul>
-            <div class="service-tags">
-              <span class="tag">Node.js</span>
-              <span class="tag">Express</span>
-              <span class="tag">NestJS</span>
-              <span class="tag">GraphQL</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 3: Cloud Solutions -->
-        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="service-icon cloud-sol">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-            </svg>
-          </div>
-          <div class="service-content">
-            <h3 class="service-title">Cloud Solutions</h3>
-            <p class="service-description">
-              Deploy and manage scalable cloud infrastructure on AWS, Azure, and Google Cloud with automated DevOps pipelines.
-            </p>
-            <ul class="service-features">
-              <li>
-                <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>Cloud Migration</span>
-              </li>
-              <li>
-                <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>Infrastructure as Code</span>
-              </li>
-              <li>
-                <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>Container Orchestration</span>
-              </li>
-            </ul>
-            <div class="service-tags">
-              <span class="tag">AWS</span>
-              <span class="tag">Azure</span>
-              <span class="tag">Docker</span>
-              <span class="tag">Kubernetes</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 4: Database Solutions -->
-        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="service-icon db-sol">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-            </svg>
-          </div>
-          <div class="service-content">
-            <h3 class="service-title">Database Solutions</h3>
-            <p class="service-description">
-              Design and optimize database architectures for high performance, scalability, and data integrity.
-            </p>
-            <ul class="service-features">
-              <li>
-                <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>Database Design</span>
-              </li>
-              <li>
-                <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>Performance Tuning</span>
-              </li>
-              <li>
-                <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>Data Migration</span>
-              </li>
-            </ul>
-            <div class="service-tags">
-              <span class="tag">PostgreSQL</span>
-              <span class="tag">MongoDB</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">Redis</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 5: Mobile Development -->
-        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-          <div class="service-icon mobile-dev">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <div class="service-content">
-            <h3 class="service-title">Mobile Development</h3>
-            <p class="service-description">
-              Create native and cross-platform mobile applications that deliver exceptional user experiences on iOS and Android.
-            </p>
-            <ul class="service-features">
-              <li>
-                <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>Cross-Platform Apps</span>
-              </li>
-              <li>
-                <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>Native Performance</span>
-              </li>
-              <li>
-                <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>App Store Deployment</span>
-              </li>
-            </ul>
-            <div class="service-tags">
-              <span class="tag">React Native</span>
-              <span class="tag">Flutter</span>
-              <span class="tag">Ionic</span>
-              <span class="tag">Swift</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 6: AI & Machine Learning -->
-        <div class="service-card" data-aos="fade-up" data-aos-delay="500">
-          <div class="service-icon ai-ml">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-            </svg>
-          </div>
-          <div class="service-content">
-            <h3 class="service-title">AI & Machine Learning</h3>
-            <p class="service-description">
-              Implement intelligent automation and data-driven insights using advanced machine learning algorithms and AI models.
-            </p>
-            <ul class="service-features">
-              <li>
-                <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>Predictive Analytics</span>
-              </li>
-              <li>
-                <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>Natural Language Processing</span>
-              </li>
-              <li>
-                <svg class="check-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>Computer Vision</span>
-              </li>
-            </ul>
-            <div class="service-tags">
-              <span class="tag">TensorFlow</span>
-              <span class="tag">PyTorch</span>
-              <span class="tag">Python</span>
-              <span class="tag">OpenAI</span>
-            </div>
-          </div>
-        </div>
-
+  <!-- Portfolio Gallery -->
+  <section class="portfolio-section section-padding">
+    <div class="container mx-auto px-4">
+      <div class="section-header-center" data-aos="fade-up">
+        <h2 class="section-title">
+          Our <span class="gradient-text-cyan">Work</span>
+        </h2>
+        <p class="section-subtitle">Explore some of our successful projects</p>
       </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-      <div class="container">
-        <div class="cta-content">
-          <h2 class="cta-title">Ready to Start Your Project?</h2>
-          <p class="cta-description">
-            Let's discuss how we can help transform your vision into reality
-          </p>
-          <button class="cta-button">Get Started Today</button>
+      <div class="portfolio-grid">
+        <div class="portfolio-main" data-aos="zoom-in">
+          <div class="portfolio-image-box">
+            <img 
+              [src]="item.images[selectedImageIndex]"
+              [alt]="'Project ' + (selectedImageIndex + 1)"
+              class="portfolio-main-img"
+              (click)="toggleLightbox(true)"
+              (error)="onImgError($event)"
+            />
+            <div class="portfolio-overlay" (click)="toggleLightbox(true)">
+              <div class="overlay-icon">🔍</div>
+              <div class="overlay-text">View Full Screen</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-thumbnails">
+          <button 
+            *ngFor="let img of item.images; let i = index"
+            class="portfolio-thumb"
+            [class.thumb-active]="i === selectedImageIndex"
+            (click)="selectImage(i)"
+            data-aos="fade-up"
+            [attr.data-aos-delay]="i * 60"
+          >
+            <img [src]="img" [alt]="'Thumbnail ' + (i + 1)" (error)="onImgError($event)" />
+            <div class="thumb-overlay"></div>
+          </button>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
+  <!-- Stats Counter -->
+  <section class="stats-counter-section section-padding">
+    <div class="container mx-auto px-4">
+      <div class="stats-counter-grid glass-card" data-aos="zoom-in">
+        <div class="stat-counter-item">
+          <div class="stat-counter-icon"><i class="devicon-vscode-plain"></i></div>
+          <div class="stat-counter-value" id="tech-counter">0</div>
+          <div class="stat-counter-label">Technologies</div>
+        </div>
+        <div class="stat-counter-item">
+          <div class="stat-counter-icon"><i class="devicon-jenkins-line"></i></div>
+          <div class="stat-counter-value" id="uptime-counter">0</div>
+          <div class="stat-counter-label">Success Rate</div>
+        </div>
+        <div class="stat-counter-item">
+          <div class="stat-counter-icon"><i class="devicon-typescript-plain"></i></div>
+          <div class="stat-counter-value" id="support-counter">0</div>
+          <div class="stat-counter-label">Code Quality</div>
+        </div>
+        <div class="stat-counter-item">
+          <div class="stat-counter-icon"><i class="devicon-kubernetes-plain"></i></div>
+          <div class="stat-counter-value" id="possibilities-counter">0</div>
+          <div class="stat-counter-label">Possibilities</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5️⃣ Call-to-Action Section -->
+  <section class="cta-section section-padding">
+    <div class="container mx-auto px-4">
+      <div class="cta-box glass-card" data-aos="zoom-in-up">
+        <h2 class="cta-title">Let's Build Something Amazing Together</h2>
+        <p class="cta-subtitle">
+          Ready to transform your ideas into reality? Our team is here to help you succeed with innovative 
+          technology solutions tailored to your unique needs. Let's start the conversation.
+        </p>
+        <div class="cta-actions">
+          <button class="btn-gradient-primary" (click)="scrollToContactSection()">
+            Contact Us
+          </button>
+          <button class="btn-outline-cyan" (click)="scrollToContactSection()">
+            Schedule a Consultation
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox-overlay" *ngIf="lightboxOpen" (click)="toggleLightbox(false)">
+    <button class="lightbox-btn-close" (click)="toggleLightbox(false)">✕</button>
+    <button class="lightbox-btn-prev" (click)="prevImage(); $event.stopPropagation()">‹</button>
+    <img 
+      [src]="item.images[selectedImageIndex]"
+      [alt]="'Fullscreen ' + (selectedImageIndex + 1)"
+      class="lightbox-image"
+      (click)="$event.stopPropagation()"
+      (error)="onImgError($event)"
+    />
+    <button class="lightbox-btn-next" (click)="nextImage(); $event.stopPropagation()">›</button>
+    <div class="lightbox-counter">{{ selectedImageIndex + 1 }} / {{ item.images.length }}</div>
+  </div>
+
 </div>

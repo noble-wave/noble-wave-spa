@@ -9,6 +9,44 @@ import { ThemeService } from '../services/theme.service';
 })
 export class DetailsComponent implements OnInit, AfterViewInit {
   private observer: IntersectionObserver | null = null;
+  // --- Software Development Service Details ---
+  item = {
+    id: 'nw-dev-001',
+    title: 'Enterprise Software Development',
+    subtitle: 'Custom software solutions built with cutting-edge technologies',
+    rating: 4.9,
+    reviews: 156,
+    price: 'Custom',
+    currency: '',
+    tags: ['Full-Stack', 'Cloud', 'Scalable', 'Agile'],
+    images: [
+      'assets/noble/teamwork.png',
+      'assets/noble/about1.jpg',
+      'assets/noble/teamwork1.jpg',
+      'assets/noble/teamwork2.jpg'
+    ],
+    features: [
+      'Full-Stack Web & Mobile Development',
+      'Cloud-Native Architecture & DevOps',
+      'RESTful & GraphQL API Development',
+      'Microservices & Scalable Infrastructure'
+    ],
+    specs: {
+      frontend: 'Angular, React, Vue.js, TypeScript',
+      backend: 'Node.js, NestJS, Express, Python',
+      database: 'PostgreSQL, MongoDB, Redis, MySQL',
+      cloud: 'AWS, Azure, Google Cloud, Docker, Kubernetes',
+      methodology: 'Agile, Scrum, CI/CD, TDD',
+    },
+    description:
+      'NobleWave delivers enterprise-grade software solutions tailored to your business needs. From web applications to cloud infrastructure, we leverage modern technologies and best practices to build scalable, secure, and high-performance systems.'
+  };
+
+  selectedImageIndex = 0;
+  lightboxOpen = false;
+
+  // Computed specs array for template iteration
+  specsArray: {label: string; value: string}[] = [];
 
   constructor(
     private counterService: CounterAnimationService,
@@ -16,7 +54,13 @@ export class DetailsComponent implements OnInit, AfterViewInit {
     public themeService: ThemeService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Build specs array from specs object dynamically
+    this.specsArray = Object.entries(this.item.specs).map(([key, value]) => ({
+      label: key.charAt(0).toUpperCase() + key.slice(1),
+      value: value as string
+    }));
+  }
 
   ngAfterViewInit(): void {
     this.setupCounterAnimation();
@@ -89,6 +133,39 @@ export class DetailsComponent implements OnInit, AfterViewInit {
     const servicesSection = document.getElementById('services');
     if (servicesSection) {
       servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // --- New interactive helpers for gallery / CTA ---
+  selectImage(idx: number): void {
+    if (idx >= 0 && idx < this.item.images.length) {
+      this.selectedImageIndex = idx;
+    }
+  }
+
+  nextImage(): void {
+    this.selectedImageIndex = (this.selectedImageIndex + 1) % this.item.images.length;
+  }
+
+  prevImage(): void {
+    this.selectedImageIndex = (this.selectedImageIndex - 1 + this.item.images.length) % this.item.images.length;
+  }
+
+  toggleLightbox(open?: boolean): void {
+    this.lightboxOpen = typeof open === 'boolean' ? open : !this.lightboxOpen;
+  }
+
+  addToCart(): void {
+    // Minimal placeholder behaviour for now
+    console.log(`Add to cart: ${this.item.id} - ${this.item.title}`);
+    alert(`${this.item.title} added to cart`);
+  }
+
+  onImgError(event: Event): void {
+    const el = event.target as HTMLImageElement;
+    if (el && el.src && !el.dataset['fallback']) {
+      el.dataset['fallback'] = '1';
+      el.src = 'assets/noble/banner.jpg';
     }
   }
 
