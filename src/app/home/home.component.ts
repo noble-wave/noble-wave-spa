@@ -22,7 +22,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   
   titles: string[] = [
     'Customized Software Development',
-    'Crafting Modern Web Applications', 
+    'Capable Engineers Mature Products',
+    // 'Crafting Modern Web Applications', 
     'Innovation Meets Excellence'
   ];
   currentSlide: number = 0;
