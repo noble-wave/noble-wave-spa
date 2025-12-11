@@ -11,24 +11,8 @@ import { MainComponent } from './main/main.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {
-  LucideAngularModule,
-  Cloud,
-  Star,
-  Cpu,
-  Mail,
-  Phone,
-  MapPin,
-  Award,
-  Users,
-  Headphones,
-  Shield,
-  Clock,
-  Linkedin,
-  Twitter,
-  Github,
-  Facebook,
-} from 'lucide-angular';
+import { LucideAngularModule } from 'lucide-angular';
+import { lucideIcons } from './lucide-icons.config';
 import { AboutComponent } from './about/about.component';
 
 @NgModule({
@@ -48,23 +32,7 @@ import { AboutComponent } from './about/about.component';
     MatIconModule,
     FormsModule,
     FlexLayoutModule,
-    LucideAngularModule.pick({
-      Cloud,
-      Star,
-      Cpu,
-      Mail,
-      Phone,
-      MapPin,
-      Award,
-      Users,
-      Headphones,
-      Shield,
-      Clock,
-      Linkedin,
-      Twitter,
-      Github,
-      Facebook,
-    }),
+    LucideAngularModule.pick(lucideIcons),
   ],
   providers: [],
   bootstrap: [AppComponent],
