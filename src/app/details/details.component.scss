@@ -507,6 +507,24 @@
         background-clip: text;
         -webkit-text-fill-color: transparent;
       }
+      
+      // Full width background image with increased height
+      &.title-with-bg {
+        position: relative;
+        display: block;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        padding: 5.5rem 2rem;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: url('/assets/noble/about1.jpg') center/cover no-repeat;
+          opacity: 0.15;
+          z-index: -1;
+        }
+      }
     }
 
     .section-subtitle {
@@ -1073,5 +1091,12 @@
   to {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
+  }
+}
+
+// Dark mode override for title background image
+.dark-theme {
+  .title-with-bg::before {
+    opacity: 0.25;
   }
 }
