@@ -77,13 +77,6 @@
   --gray-900: #111827;
 
   /* ==========================================
-     DARK THEME COLORS
-     ========================================== */
-  --dark-blue-1: #1a1a2e;
-  --dark-blue-2: #16213e;
-  --dark-blue-3: #0f0f23;
-
-  /* ==========================================
      TEXT COLORS
      ========================================== */
   --text-primary: #1a1a1a;
@@ -163,7 +156,6 @@
   --gradient-shimmer-bright: linear-gradient(90deg, transparent, var(--glass-bg-medium), transparent);
   --gradient-shimmer-white: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   --gradient-white-content: linear-gradient(var(--text-white) 0 0) content-box;
-  --gradient-dark-footer: linear-gradient(135deg, var(--dark-blue-1) 0%, var(--dark-blue-2) 50%, var(--dark-blue-3) 100%);
 
   /* ==========================================
      BOX SHADOW DEFINITIONS
@@ -253,13 +245,6 @@
   --cta-shadow: var(--shadow-purple-medium);
   --cta-shadow-hover: var(--shadow-purple-strong);
   --cta-border: var(--border-white-light);
-}
-
-/* Dark Mode Theme Overrides */
-body[data-theme="dark"] {
-  /* Header text should be white in dark mode */
-  --header-text-default: var(--text-white);
-  --header-tagline: var(--text-white-soft);
 }
 
 /* Light Mode Theme Overrides */

@@ -9,7 +9,7 @@ import { ThemeService } from './services/theme.service';
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'noble-wave';
-  currentTheme: 'light' | 'dark' = 'light';
+  currentTheme: string = 'light';
 
   constructor(private themeService: ThemeService) {
     // Subscribe to theme changes

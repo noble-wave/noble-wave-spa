@@ -10,11 +10,6 @@
   border-top: 1px solid #e5e7eb;
   
   // Dark Mode
-  [data-theme="dark"] & {
-    background: linear-gradient(135deg, rgba(15, 15, 35, 0.95) 0%, rgba(26, 26, 46, 0.95) 50%, rgba(22, 33, 62, 0.95) 100%) !important;
-    color: #e5e7eb !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-  }
 }
 
 // Animated Background
@@ -139,10 +134,6 @@
     color: #0891b2;
     transition: color 0.3s ease;
     
-    [data-theme="dark"] & {
-      color: #06b6d4;
-    }
-  }
 
   &.company-info {
     .company-logo {
@@ -155,41 +146,6 @@
         height: 100%;
         filter: none;
         
-        [data-theme="dark"] & {
-          filter: brightness(1.2);
-        }
-      }
-    }
-
-    h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      background: linear-gradient(135deg, #0891b2, #3b82f6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      
-      [data-theme="dark"] & {
-        background: linear-gradient(135deg, #06b6d4, #60a5fa);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-    }
-
-    .company-tagline {
-      line-height: 1.6;
-      color: #6b7280;
-      margin-bottom: 24px;
-      max-width: 300px;
-      transition: color 0.3s ease;
-      
-      [data-theme="dark"] & {
-        color: #9ca3af;
-      }
-    }
-  }
 }
 
 // Footer Links
@@ -210,34 +166,6 @@
       padding: 4px 0;
       font-weight: 500;
       
-      [data-theme="dark"] & {
-        color: #d1d5db;
-      }
-
-      &:hover {
-        color: #0891b2;
-        transform: translateX(5px);
-        
-        [data-theme="dark"] & {
-          color: #06b6d4;
-        }
-      }
-
-      &::before {
-        content: "→";
-        margin-right: 8px;
-        opacity: 0;
-        transform: translateX(-10px);
-        transition: all 0.3s ease;
-        color: #0891b2;
-      }
-
-      &:hover::before {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-  }
 }
 
 // Social Links
@@ -258,73 +186,6 @@
     text-decoration: none;
     transition: all 0.3s ease;
     
-    [data-theme="dark"] & {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.1);
-    }
-
-    &:hover {
-      background: linear-gradient(135deg, #0891b2, #3b82f6);
-      border-color: #0891b2;
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(8, 145, 178, 0.3);
-      
-      [data-theme="dark"] & {
-        background: linear-gradient(135deg, #06b6d4, #60a5fa);
-        border-color: #06b6d4;
-        box-shadow: 0 5px 15px rgba(6, 182, 212, 0.4);
-      }
-    }
-
-    lucide-icon {
-      color: #374151 !important;
-      width: 20px !important;
-      height: 20px !important;
-      display: block !important;
-      visibility: visible !important;
-      
-      [data-theme="dark"] & {
-        color: #d1d5db !important;
-      }
-    }
-
-    &:hover lucide-icon {
-      color: #ffffff !important;
-    }
-
-    ::ng-deep svg {
-      color: #374151 !important;
-      stroke: #374151 !important;
-      width: 20px !important;
-      height: 20px !important;
-      
-      [data-theme="dark"] & {
-        color: #d1d5db !important;
-        stroke: #d1d5db !important;
-      }
-    }
-
-    &:hover ::ng-deep svg {
-      color: #ffffff !important;
-      stroke: #ffffff !important;
-    }
-
-    .social-icon {
-      color: #374151 !important;
-      width: 20px !important;
-      height: 20px !important;
-      display: block !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-      stroke: #374151 !important;
-      fill: none !important;
-    }
-
-    &:hover .social-icon {
-      color: #ffffff !important;
-      stroke: #ffffff !important;
-    }
-  }
 }
 
 // Contact Info
@@ -350,57 +211,6 @@
       justify-content: center;
       flex-shrink: 0;
       
-      [data-theme="dark"] & {
-        background: linear-gradient(135deg, #06b6d4, #60a5fa);
-      }
-
-      i {
-        font-size: 16px;
-        color: #ffffff;
-      }
-
-      lucide-icon {
-        color: #ffffff;
-      }
-    }
-
-    .contact-details {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-
-      .contact-label {
-        font-size: 14px;
-        color: #6b7280;
-        font-weight: 500;
-        transition: color 0.3s ease;
-        
-        [data-theme="dark"] & {
-          color: #9ca3af;
-        }
-      }
-
-      a,
-      span {
-        color: #374151;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-        
-        [data-theme="dark"] & {
-          color: #d1d5db;
-        }
-      }
-
-      a:hover {
-        color: #0891b2;
-        
-        [data-theme="dark"] & {
-          color: #06b6d4;
-        }
-      }
-    }
-  }
 }
 
 // Newsletter Section
@@ -502,9 +312,6 @@
   padding: 30px 0;
   transition: border-color 0.3s ease;
   
-  [data-theme="dark"] & {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
 
   .footer-bottom-content {
     display: flex;
@@ -525,59 +332,6 @@
         font-size: 14px;
         transition: color 0.3s ease;
         
-        [data-theme="dark"] & {
-          color: #9ca3af;
-        }
-      }
-    }
-
-    .legal-links {
-      display: flex;
-      gap: 24px;
-
-      @media (max-width: 768px) {
-        gap: 16px;
-      }
-
-      a {
-        color: #4b5563;
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: 500;
-        transition: color 0.3s ease;
-        
-        [data-theme="dark"] & {
-          color: #d1d5db;
-        }
-
-        &:hover {
-          color: #0891b2;
-          
-          [data-theme="dark"] & {
-            color: #06b6d4;
-          }
-        }
-      }
-    }
-
-    .footer-badge {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 14px;
-      color: #6b7280;
-      transition: color 0.3s ease;
-      
-      [data-theme="dark"] & {
-        color: #9ca3af;
-      }
-
-      .heart {
-        color: #ef4444;
-        animation: heartbeat 2s ease-in-out infinite;
-      }
-    }
-  }
 }
 
 // Animations

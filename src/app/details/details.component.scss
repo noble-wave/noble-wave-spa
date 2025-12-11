@@ -1093,10 +1093,3 @@
     transform: translateX(-50%) translateY(0);
   }
 }
-
-// Dark mode override for title background image
-.dark-theme {
-  .title-with-bg::before {
-    opacity: 0.25;
-  }
-}
