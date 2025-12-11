@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
 import * as AOS from 'aos';
 import { ThemeService } from './services/theme.service';
+import { APP_CONFIG, ANIMATION_CONFIG, SCROLL_CONFIG } from './config';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { ThemeService } from './services/theme.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  title = 'noble-wave';
+  title = APP_CONFIG.appName;
   currentTheme: string = 'light';
   showScrollButton: boolean = false;
 
@@ -32,25 +33,25 @@ export class AppComponent implements OnInit, AfterViewInit {
   scrollToTop() {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: SCROLL_CONFIG.behavior
     });
   }
 
   ngAfterViewInit() {
     AOS.init({
-      duration: 800, // Animation duration in milliseconds
-      easing: 'ease-out-cubic', // Easing function
-      once: false, // Animation happens every time element comes into view
-      mirror: true, // Elements animate out while scrolling past them
-      offset: 100, // Offset from the original trigger point
-      delay: 0, // Global delay in milliseconds
-      disable: false, // Disable AOS on certain conditions
-      startEvent: 'DOMContentLoaded', // Event on which AOS should initialize
-      animatedClassName: 'aos-animate', // Class applied after initialization
-      useClassNames: false, // If true, will add content of `data-aos` as classes on scroll
-      disableMutationObserver: false, // Disables automatic mutations' detections
-      debounceDelay: 50, // Delay on resize
-      throttleDelay: 99, // Delay on scroll
+      duration: ANIMATION_CONFIG.aos.duration,
+      easing: ANIMATION_CONFIG.aos.easing,
+      once: ANIMATION_CONFIG.aos.once,
+      mirror: true,
+      offset: 100,
+      delay: 0,
+      disable: false,
+      startEvent: 'DOMContentLoaded',
+      animatedClassName: 'aos-animate',
+      useClassNames: false,
+      disableMutationObserver: false,
+      debounceDelay: 50,
+      throttleDelay: 99,
     });
 
     // Refresh AOS after route changes and DOM updates

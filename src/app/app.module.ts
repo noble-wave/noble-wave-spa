@@ -12,7 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LucideAngularModule } from 'lucide-angular';
-import { lucideIcons } from './lucide-icons.config';
+import { lucideIcons } from './config';
 import { AboutComponent } from './about/about.component';
 
 @NgModule({

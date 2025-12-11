@@ -65,26 +65,26 @@
 
             <!-- Social Links -->
             <div class="social-links">
-              <a href="#" class="social-link" aria-label="LinkedIn">
+              <a [href]="socialLinks.linkedin" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                 <lucide-icon
                   name="linkedin"
                   class="w-5 h-5 social-icon"
                 ></lucide-icon>
               </a>
-              <a href="#" class="social-link" aria-label="Twitter">
+              <a [href]="socialLinks.twitter" class="social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
                 <lucide-icon
                   name="twitter"
                   class="w-5 h-5 social-icon"
                 ></lucide-icon>
               </a>
-              <a href="#" class="social-link" aria-label="GitHub">
+              <a [href]="socialLinks.github" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                 <lucide-icon
                   name="github"
                   class="w-5 h-5 social-icon"
                 ></lucide-icon>
               </a>
              
-              <a href="#" class="social-link" aria-label="Facebook">
+              <a [href]="socialLinks.facebook" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                 <lucide-icon
                   name="facebook"
                   class="w-5 h-5 social-icon"
@@ -127,7 +127,7 @@
                 </div>
                 <div class="contact-details">
                   <span class="contact-label">Email</span>
-                  <a href="mailto:hello@noblewave.com">info@noble-wave.com</a>
+                  <a [href]="'mailto:' + companyInfo.email">{{ companyInfo.email }}</a>
                 </div>
               </div>
 
@@ -137,7 +137,7 @@
                 </div>
                 <div class="contact-details">
                   <span class="contact-label">Phone</span>
-                  <a href="tel:+1234567890">(+91) 8448462846</a>
+                  <a [href]="'tel:' + companyInfo.phone">{{ companyInfo.phoneDisplay }}</a>
                 </div>
               </div>
 
@@ -147,7 +147,7 @@
                 </div>
                 <div class="contact-details">
                   <span class="contact-label">Location</span>
-                  <span>New Delhi, India</span>
+                  <span>{{ companyInfo.location }}</span>
                 </div>
               </div>
             </div>

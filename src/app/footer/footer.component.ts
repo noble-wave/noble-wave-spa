@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ThemeService } from '../services/theme.service';
+import { COMPANY_INFO, SOCIAL_LINKS } from '../config';
 
 @Component({
   selector: 'app-footer',
@@ -8,6 +9,8 @@ import { ThemeService } from '../services/theme.service';
 })
 export class FooterComponent {
   currentYear!: number;
+  companyInfo = COMPANY_INFO;
+  socialLinks = SOCIAL_LINKS;
 
   constructor(public themeService: ThemeService) {}
 
