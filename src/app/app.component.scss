@@ -147,3 +147,59 @@
 .animate-float-circle-3 {
   animation: float-circle-3 6s ease-in-out infinite;
 }
+
+/* Scroll to Top Button */
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid #06b6d4;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  pointer-events: none;
+
+  &.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+    stroke: #06b6d4;
+    stroke-width: 2.5;
+  }
+
+  &:active {
+    transform: translateY(-2px) scale(1);
+  }
+
+  // Pulse animation on first appearance
+  &.show {
+    animation: pulse-once 0.6s ease-out;
+  }
+}
+
+@keyframes pulse-once {
+  0% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4), 0 0 0 8px rgba(6, 182, 212, 0.1);
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}

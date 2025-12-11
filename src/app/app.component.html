@@ -18,4 +18,15 @@
   <div class="relative z-10">
     <router-outlet></router-outlet>
   </div>
+
+  <!-- Scroll to Top Button -->
+  <button 
+    [class.show]="showScrollButton"
+    (click)="scrollToTop()"
+    class="scroll-to-top-btn"
+    aria-label="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m0 0l-7 7m7-7l7 7" />
+    </svg>
+  </button>
 </div>

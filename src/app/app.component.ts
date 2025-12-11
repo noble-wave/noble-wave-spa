@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
 import * as AOS from 'aos';
 import { ThemeService } from './services/theme.service';
 
@@ -10,6 +10,7 @@ import { ThemeService } from './services/theme.service';
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'noble-wave';
   currentTheme: string = 'light';
+  showScrollButton: boolean = false;
 
   constructor(private themeService: ThemeService) {
     // Subscribe to theme changes
@@ -20,6 +21,19 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     // Initialize AOS after the component loads
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    // Show button when user scrolls down 300px
+    this.showScrollButton = window.pageYOffset > 300;
+  }
+
+  scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 
   ngAfterViewInit() {
