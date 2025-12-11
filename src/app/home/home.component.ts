@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private startTitleSlider(): void {
     this.slideInterval = setInterval(() => {
       this.currentSlide = (this.currentSlide + 1) % this.titles.length;
-    }, 3000); // Change every 3 seconds
+    }, 3000); 
   }
 
   private stopTitleSlider(): void {
@@ -144,8 +144,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       const observer = this.counterService.createCounterObserver(
         htmlElement,
         target,
-        '', // No suffix for these counters, suffix is in HTML
-        2000 // 2 seconds duration
+        '', 
+        2000 
       );
       
       this.observers.push(observer);

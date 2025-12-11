@@ -107,4 +107,9 @@ export class AboutComponent implements AfterViewInit {
     }
   }
 
+  // Navigate to services section on details page
+  navigateToServices(): void {
+    window.location.href = '#services';
+  }
+
 }
