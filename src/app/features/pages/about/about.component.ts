@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
-import { ThemeService } from '../services/theme.service';
+import { ThemeService } from '../../../core/services';
 import lottie, { AnimationItem } from 'lottie-web';
 
 @Component({

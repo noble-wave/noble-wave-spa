@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
-import { CounterAnimationService } from '../services/counter-animation.service';
-import { ThemeService } from '../services/theme.service';
+import { CounterAnimationService, ThemeService } from '../../../core/services';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({

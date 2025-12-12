@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
-import { CounterAnimationService } from '../services/counter-animation.service';
-import { ThemeService } from '../services/theme.service';
+import { CounterAnimationService, ThemeService } from '../../../core/services';
 
 @Component({
   selector: 'app-details',

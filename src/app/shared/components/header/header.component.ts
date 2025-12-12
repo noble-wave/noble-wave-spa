@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ThemeService } from '../services/theme.service';
+import { ThemeService } from '../../../core/services';
 
 @Component({
   selector: 'app-header',

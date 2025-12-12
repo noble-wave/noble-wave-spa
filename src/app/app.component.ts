@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
 import * as AOS from 'aos';
-import { ThemeService } from './services/theme.service';
+import { ThemeService } from './core/services';
 import { APP_CONFIG, ANIMATION_CONFIG, SCROLL_CONFIG } from './config';
 
 @Component({
