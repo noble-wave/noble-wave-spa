@@ -374,6 +374,97 @@
   }
 }
 
+/* ===== DARK MODE STYLES ===== */
+:host-context(body[data-theme="dark"]) {
+  .modern-footer {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #e2e8f0 !important;
+
+    .footer-section {
+      h3 {
+        color: #ffffff;
+        background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      p, a {
+        color: #cbd5e1;
+
+        &:hover {
+          color: #06b6d4;
+        }
+      }
+    }
+
+    .company-description {
+      color: #94a3b8;
+    }
+
+    .social-links a {
+      background: rgba(6, 182, 212, 0.1);
+      color: #06b6d4;
+      border-color: rgba(6, 182, 212, 0.2);
+
+      &:hover {
+        background: rgba(6, 182, 212, 0.2);
+        color: #ffffff;
+        border-color: rgba(6, 182, 212, 0.4);
+        box-shadow: 0 8px 24px rgba(6, 182, 212, 0.3);
+      }
+    }
+
+    .contact-item {
+      lucide-icon {
+        color: #06b6d4;
+      }
+
+      span, a {
+        color: #cbd5e1;
+
+        &:hover {
+          color: #06b6d4;
+        }
+      }
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+      p {
+        color: #94a3b8;
+
+        .heart {
+          color: #ef4444;
+        }
+      }
+
+      .footer-links a {
+        color: #94a3b8;
+
+        &:hover {
+          color: #06b6d4;
+        }
+      }
+    }
+
+    .floating-particles .particle {
+      color: #06b6d4;
+      opacity: 0.3;
+    }
+
+    .animated-waves {
+      opacity: 0.2;
+      
+      svg path {
+        fill: rgba(6, 182, 212, 0.1);
+      }
+    }
+  }
+}
+
 // Responsive Design
 @media (max-width: 768px) {
   .footer-content {

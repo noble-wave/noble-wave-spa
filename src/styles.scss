@@ -83,6 +83,50 @@ body {
 body[data-theme="light"] {
   color: var(--gray-800);
   background-color: var(--text-white);
+  
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8faff;
+  --bg-tertiary: #f0f5ff;
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme styling */
+body[data-theme="dark"] {
+  color: #e2e8f0;
+  background-color: #0f172a;
+  
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #e2e8f0;
+  --text-secondary: #cbd5e1;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --gray-800: #e2e8f0;
+  --text-white: #ffffff;
+  
+  /* Override gradients for dark mode */
+  --gradient-primary: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  --gradient-secondary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  
+  /* Card backgrounds */
+  .card, .service-card, .feature-card {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Section backgrounds */
+  section:not(.home-section section) {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  }
+  
+  /* Glass morphism adjustments */
+  .glass-effect {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
 }
 
 /* Typography enhancements */

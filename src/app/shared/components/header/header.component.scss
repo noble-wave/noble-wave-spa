@@ -63,30 +63,40 @@ nav {
   }
 
   /* Theme Toggle Button */
+  .theme-toggle-item {
+    display: flex;
+    align-items: center;
+    margin-left: 0.5rem;
+  }
+
   .theme-toggle-btn {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    padding: 0;
     
-    .theme-icon {
-      font-size: 1.25rem;
+    .material-icons {
+      font-size: 1.35rem;
+      color: rgba(255, 255, 255, 0.9);
       transition: transform 0.3s ease;
     }
 
     &:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(6, 182, 212, 0.3);
+      border-color: rgba(6, 182, 212, 0.5);
       transform: scale(1.1);
       
-      .theme-icon {
+      .material-icons {
         transform: rotate(20deg);
+        color: #ffffff;
       }
     }
   }
@@ -154,6 +164,39 @@ nav {
         color: var(--text-white) !important;
         transform: translateY(-2px);
         box-shadow: var(--cta-shadow-hover) !important;
+      }
+    }
+    
+    .theme-toggle-btn {
+      background: rgba(6, 182, 212, 0.1);
+      border-color: rgba(6, 182, 212, 0.3);
+      
+      .material-icons {
+        color: #06b6d4;
+      }
+      
+      &:hover {
+        background: rgba(6, 182, 212, 0.2);
+        border-color: rgba(6, 182, 212, 0.5);
+      }
+    }
+  }
+}
+
+/* Dark mode specific styles */
+body[data-theme="dark"] {
+  .main-div nav {
+    &.glass-header {
+      background: rgba(15, 23, 42, 0.85) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    .theme-toggle-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+      
+      .material-icons {
+        color: rgba(255, 255, 255, 0.8);
       }
     }
   }
@@ -397,6 +440,38 @@ nav {
             background: linear-gradient(135deg, #0284c7, #2563eb);
             transform: scale(1.02);
           }
+        }
+      }
+    }
+
+    .mobile-theme-toggle {
+      margin: 1rem 1.5rem;
+      padding: 0;
+
+      .mobile-theme-btn {
+        width: 100%;
+        background: rgba(6, 182, 212, 0.1);
+        border: 2px solid rgba(6, 182, 212, 0.3);
+        border-radius: 20px;
+        padding: 0.8rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        color: #06b6d4;
+        font-weight: 600;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        .material-icons {
+          font-size: 1.25rem;
+        }
+
+        &:hover {
+          background: rgba(6, 182, 212, 0.2);
+          border-color: rgba(6, 182, 212, 0.5);
+          transform: scale(1.02);
         }
       }
     }

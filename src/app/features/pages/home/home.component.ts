@@ -41,18 +41,77 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     // Subscribe to theme changes
     this.themeService.theme$.subscribe(theme => {
       this.isLightMode = theme === 'light';
+      console.log('Theme changed to:', theme);
       
-      // Stop/start video based on theme
-      if (this.isLightMode) {
-        this.startTitleSlider();
-      } else {
-        this.stopTitleSlider();
-      }
+      // Ensure video continues playing after theme change
+      setTimeout(() => {
+        this.ensureVideoPlaying();
+      }, 100);
     });
     
-    // Start title slider if in light mode
-    if (this.isLightMode) {
-      this.startTitleSlider();
+    // Start title slider
+    this.startTitleSlider();
+  }
+
+  private ensureVideoPlaying(): void {
+    const video = this.videoElement?.nativeElement;
+    if (video) {
+      const computedStyle = window.getComputedStyle(video);
+      const container = video.parentElement;
+      const containerStyle = container ? window.getComputedStyle(container) : null;
+      
+      console.log('=== VIDEO DEBUG INFO ===');
+      console.log('Video element:', {
+        exists: !!video,
+        paused: video.paused,
+        readyState: video.readyState,
+        currentTime: video.currentTime,
+        duration: video.duration,
+        display: computedStyle.display,
+        visibility: computedStyle.visibility,
+        opacity: computedStyle.opacity,
+        zIndex: computedStyle.zIndex
+      });
+      
+      if (containerStyle) {
+        console.log('Container:', {
+          display: containerStyle.display,
+          visibility: containerStyle.visibility,
+          opacity: containerStyle.opacity,
+          zIndex: containerStyle.zIndex,
+          position: containerStyle.position
+        });
+      }
+      
+      console.log('Current theme:', this.themeService.getCurrentTheme());
+      
+      // Force display and visibility
+      video.style.display = 'block';
+      video.style.visibility = 'visible';
+      video.style.opacity = '1';
+      
+      if (container) {
+        container.style.display = 'block';
+        container.style.visibility = 'visible';
+        container.style.opacity = '1';
+      }
+      
+      // Reload and play if paused
+      if (video.paused) {
+        console.log('Video is paused, attempting to play...');
+        video.play().catch(err => {
+          console.error('Video play error:', err);
+          // Retry after a short delay
+          setTimeout(() => {
+            console.log('Retrying video play...');
+            video.play().catch(e => console.error('Video play retry error:', e));
+          }, 500);
+        });
+      } else {
+        console.log('Video is already playing');
+      }
+    } else {
+      console.error('Video element not found!');
     }
   }  ngAfterViewInit(): void {
     // Set up counter animations and video after view is initialized
@@ -65,6 +124,22 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     setTimeout(() => {
       this.forceVideoLoad();
     }, 500);
+
+    // Monitor video playback continuously
+    setInterval(() => {
+      this.checkVideoPlayback();
+    }, 2000);
+  }
+
+  private checkVideoPlayback(): void {
+    const video = this.videoElement?.nativeElement;
+    if (video) {
+      const theme = this.themeService.getCurrentTheme();
+      if (video.paused && video.readyState >= 2) {
+        console.log(`[${theme}] Video was paused, restarting...`);
+        video.play().catch(err => console.log('Auto-restart error:', err));
+      }
+    }
   }
 
   ngOnDestroy(): void {

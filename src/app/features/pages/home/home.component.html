@@ -1,5 +1,5 @@
 <main class="min-h-screen relative home-section" id="home">
-  <!-- LIGHT MODE - Video Background -->
+  <!-- Video Background (works in both light and dark mode) -->
   <div class="video-background-container short-video">
     <video 
       #videoElement
@@ -15,6 +15,9 @@
       <source src="assets/video/Background_video.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
+    <!-- Light mode overlay -->
+    <div class="video-overlay"></div>
+    <!-- Dark mode overlay -->
     <div class="video-overlay-dark"></div>
   </div>
 

@@ -11,15 +11,29 @@ export class HeaderComponent implements OnInit {
   isMobileMenuOpen = false;
   isScrolled = false;
   isInHomeSection = true;
+  isDarkMode = false;
 
   constructor(
     private router: Router,
-    private themeService: ThemeService
+    public themeService: ThemeService
   ) {}
 
   ngOnInit(): void {
     // Set initial transparent header for home section
     this.updateHeaderStyle();
+    
+    // Subscribe to theme changes
+    this.themeService.theme$.subscribe(theme => {
+      this.isDarkMode = theme === 'dark';
+    });
+  }
+
+  toggleTheme(): void {
+    console.log('Toggle theme button clicked!');
+    console.log('Current theme before toggle:', this.themeService.getCurrentTheme());
+    this.themeService.toggleTheme();
+    console.log('Theme after toggle:', this.themeService.getCurrentTheme());
+    console.log('Body data-theme attribute:', document.body.getAttribute('data-theme'));
   }
 
   // Toggle mobile menu

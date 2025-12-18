@@ -1920,3 +1920,510 @@ main {
     }
   }
 }
+
+/* ===== DARK MODE STYLES ===== */
+:host-context(body[data-theme="dark"]) {
+  main {
+    background: #0f172a;
+    color: #e2e8f0;
+  }
+
+  .hero-section-light {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+
+    .hero-content {
+      h1 {
+        color: #ffffff !important;
+
+        .weAre {
+          color: #06b6d4 !important;
+        }
+
+        .hero-title-highlight {
+          color: #ffffff !important;
+          background: rgba(30, 41, 59, 0.8) !important;
+        }
+      }
+
+      .hero-title {
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+        background: none !important;
+      }
+
+      p {
+        color: #cbd5e1;
+      }
+    }
+
+    .btn-primary, .btn-secondary {
+      &:hover {
+        box-shadow: 0 8px 24px rgba(6, 182, 212, 0.3);
+      }
+    }
+  }
+
+  // Description Section
+  .description-section {
+    background: #0f172a !important;
+
+    .description-text {
+      .description-paragraph {
+        color: #cbd5e1 !important;
+      }
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%) !important;
+      
+      &:hover {
+        box-shadow: 0 8px 24px rgba(6, 182, 212, 0.4) !important;
+      }
+    }
+
+    .btn-secondary {
+      border-color: #06b6d4 !important;
+      color: #06b6d4 !important;
+
+      &:hover {
+        background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%) !important;
+        color: #ffffff !important;
+      }
+    }
+  }
+
+  // Mission & Vision Section
+  .mission-vision-light {
+    background: rgba(15, 23, 42, 0.8) !important;
+
+    .section-title {
+      color: #ffffff !important;
+    }
+  }
+
+  .mission-card {
+    background: rgba(30, 41, 59, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+
+    .card-icon {
+      background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%) !important;
+      color: #ffffff !important;
+    }
+
+    h3,
+    .card-title {
+      color: #ffffff !important;
+    }
+
+    p,
+    .card-description {
+      color: #cbd5e1 !important;
+    }
+
+    &:hover {
+      background: rgba(30, 41, 59, 0.95) !important;
+      border-color: rgba(6, 182, 212, 0.3) !important;
+      transform: translateY(-8px) !important;
+      box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2) !important;
+    }
+  }
+
+  .vision-card {
+    background: rgba(30, 41, 59, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+
+    .card-icon {
+      background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%) !important;
+      color: #ffffff !important;
+    }
+
+    h3,
+    .card-title {
+      color: #ffffff !important;
+    }
+
+    p,
+    .card-description {
+      color: #cbd5e1 !important;
+    }
+
+    &:hover {
+      background: rgba(30, 41, 59, 0.95) !important;
+      border-color: rgba(6, 182, 212, 0.3) !important;
+      transform: translateY(-8px) !important;
+      box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2) !important;
+    }
+  }
+
+  // Tech Stack Section
+  .tech-stack-section {
+    background: rgba(15, 23, 42, 0.8) !important;
+
+    .section-title {
+      color: #ffffff !important;
+    }
+
+    .tech-stack-container {
+      &::before {
+        background: linear-gradient(to right, #0f172a 0%, transparent 100%) !important;
+      }
+
+      &::after {
+        background: linear-gradient(to left, #0f172a 0%, transparent 100%) !important;
+      }
+    }
+
+    .tech-icon {
+      span {
+        color: #cbd5e1 !important;
+      }
+    }
+
+    .tech-card {
+      background: rgba(30, 41, 59, 0.8) !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+
+      &:hover {
+        background: rgba(30, 41, 59, 0.95) !important;
+        border-color: rgba(6, 182, 212, 0.3) !important;
+      }
+
+      span {
+        color: #cbd5e1 !important;
+      }
+    }
+  }
+
+  // Values Section
+  .our-values-section-light,
+  .values-light,
+  .values-section-light {
+    background: rgba(15, 23, 42, 0.8) !important;
+
+    .values-badge {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%) !important;
+      color: #06b6d4 !important;
+      border-color: rgba(6, 182, 212, 0.3) !important;
+    }
+
+    .values-title,
+    .section-title {
+      color: #ffffff !important;
+    }
+
+    .values-subtitle {
+      color: #cbd5e1 !important;
+    }
+
+    .value-card,
+    .value-item-light {
+      background: rgba(30, 41, 59, 0.8) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+
+      &:hover {
+        background: rgba(30, 41, 59, 0.95) !important;
+        border-color: rgba(6, 182, 212, 0.3) !important;
+        box-shadow: 0 12px 30px rgba(6, 182, 212, 0.2) !important;
+        transform: translateY(-8px) !important;
+      }
+
+      .value-number {
+        background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%) !important;
+        color: #ffffff !important;
+      }
+
+      .value-icon {
+        filter: brightness(1.2);
+      }
+
+      h3,
+      .card-title,
+      .value-title,
+      .value-title-light {
+        color: #ffffff !important;
+      }
+
+      p,
+      .card-description,
+      .value-text,
+      .value-desc-light {
+        color: #cbd5e1 !important;
+      }
+    }
+  }
+
+  // Company Overview Section
+  .company-overview-section {
+    background: rgba(15, 23, 42, 0.8);
+
+    .section-title, h2 {
+      color: #ffffff;
+      background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-subtitle, p {
+      color: #cbd5e1;
+    }
+
+    .overview-card {
+      background: rgba(30, 41, 59, 0.8);
+      border-color: rgba(255, 255, 255, 0.1);
+
+      &:hover {
+        background: rgba(30, 41, 59, 0.95);
+        border-color: rgba(6, 182, 212, 0.3);
+      }
+
+      .card-number {
+        background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+      }
+
+      h3 {
+        color: #ffffff;
+      }
+
+      p {
+        color: #cbd5e1;
+      }
+    }
+  }
+
+  // Team Section
+  .team-section-light {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #0f172a 100%) !important;
+
+    .team-badge {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%) !important;
+      color: #06b6d4 !important;
+      border-color: rgba(6, 182, 212, 0.3) !important;
+    }
+
+    .team-title-light,
+    .team-header-light h2 {
+      color: #ffffff !important;
+    }
+
+    .team-subtitle-light,
+    .team-header-light p {
+      color: #cbd5e1 !important;
+    }
+
+    .stat-card-light {
+      background: rgba(30, 41, 59, 0.8) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+
+      &:hover {
+        background: rgba(30, 41, 59, 0.95) !important;
+        border-color: rgba(6, 182, 212, 0.3) !important;
+        box-shadow: 0 12px 30px rgba(6, 182, 212, 0.2) !important;
+        transform: translateY(-8px) !important;
+
+        .stat-icon-wrapper {
+          background: rgba(6, 182, 212, 0.2) !important;
+          transform: scale(1.05) !important;
+
+          .stat-icon {
+            color: #06b6d4 !important;
+          }
+        }
+      }
+
+      .stat-number {
+        background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+      }
+
+      .stat-label {
+        color: #ffffff !important;
+      }
+
+      .stat-description {
+        color: #94a3b8 !important;
+      }
+
+      .stat-icon-wrapper {
+        background: rgba(6, 182, 212, 0.15) !important;
+        box-shadow: 0 8px 20px rgba(6, 182, 212, 0.2) !important;
+
+        .stat-icon {
+          color: #06b6d4 !important;
+        }
+      }
+    }
+
+    .team-card-light {
+      background: rgba(30, 41, 59, 0.8) !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+
+      &:hover {
+        background: rgba(30, 41, 59, 0.95) !important;
+        border-color: rgba(6, 182, 212, 0.3) !important;
+      }
+
+      h3,
+      .member-name {
+        color: #ffffff !important;
+      }
+
+      .member-role {
+        color: #06b6d4 !important;
+      }
+
+      p,
+      .member-bio {
+        color: #cbd5e1 !important;
+      }
+
+      .social-link {
+        background: rgba(6, 182, 212, 0.1) !important;
+        color: #06b6d4 !important;
+
+        &:hover {
+          background: rgba(6, 182, 212, 0.2) !important;
+          color: #ffffff !important;
+        }
+      }
+    }
+  }
+
+  // Our Values Section
+  .our-values-section {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+
+    .value-card {
+      background: rgba(30, 41, 59, 0.8);
+      border-color: rgba(255, 255, 255, 0.1);
+
+      &:hover {
+        background: rgba(30, 41, 59, 0.95);
+        border-color: rgba(6, 182, 212, 0.3);
+        transform: translateY(-10px);
+      }
+
+      h3 {
+        color: #ffffff;
+      }
+
+      p {
+        color: #cbd5e1;
+      }
+
+      .lottie-icon {
+        filter: brightness(1.2);
+      }
+    }
+  }
+
+  // Mission & Vision Section
+  .mission-vision-section {
+    background: rgba(15, 23, 42, 0.8);
+
+    .mission-card, .vision-card {
+      background: rgba(30, 41, 59, 0.8);
+      border-color: rgba(255, 255, 255, 0.1);
+
+      &:hover {
+        background: rgba(30, 41, 59, 0.95);
+        border-color: rgba(6, 182, 212, 0.3);
+      }
+
+      .icon-wrapper {
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
+        box-shadow: 0 8px 24px rgba(6, 182, 212, 0.2);
+      }
+
+      h3 {
+        color: #ffffff;
+      }
+
+      p {
+        color: #cbd5e1;
+      }
+    }
+  }
+
+  // Team Section
+  .team-section {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+
+    .team-card {
+      background: rgba(30, 41, 59, 0.8);
+      border-color: rgba(255, 255, 255, 0.1);
+
+      &:hover {
+        background: rgba(30, 41, 59, 0.95);
+        border-color: rgba(6, 182, 212, 0.3);
+      }
+
+      h3 {
+        color: #ffffff;
+      }
+
+      .role {
+        color: #06b6d4;
+      }
+
+      p {
+        color: #cbd5e1;
+      }
+
+      .social-links a {
+        background: rgba(6, 182, 212, 0.1);
+        color: #06b6d4;
+
+        &:hover {
+          background: rgba(6, 182, 212, 0.2);
+          color: #ffffff;
+        }
+      }
+    }
+  }
+
+  // CTA Section
+  .cta-section-light {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
+
+    .cta-title-light {
+      color: #ffffff !important;
+    }
+
+    .cta-description-light {
+      color: #cbd5e1 !important;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(6, 182, 212, 0.4);
+      }
+    }
+  }
+
+  // Stats Section
+  .stats-section {
+    .stat-card {
+      background: rgba(30, 41, 59, 0.8);
+      border-color: rgba(255, 255, 255, 0.1);
+
+      .stat-number {
+        background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .stat-label {
+        color: #94a3b8;
+      }
+    }
+  }
+}

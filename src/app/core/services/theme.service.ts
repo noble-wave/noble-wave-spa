@@ -7,31 +7,58 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class ThemeService {
   private themeSubject: BehaviorSubject<string>;
   public theme$: Observable<string>;
+  private readonly THEME_KEY = 'noble-wave-theme';
 
   constructor() {
-    // Always use light mode
-    this.themeSubject = new BehaviorSubject<string>('light');
+    // Load theme from localStorage or default to light
+    const savedTheme = localStorage.getItem(this.THEME_KEY) || 'light';
+    this.themeSubject = new BehaviorSubject<string>(savedTheme);
     this.theme$ = this.themeSubject.asObservable();
     
-    // Apply light mode on initialization
-    this.applyLightMode();
+    // Apply saved theme on initialization
+    this.applyTheme(savedTheme);
+  }
+
+  toggleTheme(): void {
+    const currentTheme = this.themeSubject.value;
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    this.setTheme(newTheme);
+  }
+
+  setTheme(theme: string): void {
+    this.themeSubject.next(theme);
+    localStorage.setItem(this.THEME_KEY, theme);
+    this.applyTheme(theme);
   }
 
   getCurrentTheme(): string {
-    return 'light';
+    return this.themeSubject.value;
   }
 
-  private applyLightMode(): void {
-    document.body.setAttribute('data-theme', 'light');
-    
-    // Apply light mode styles
-    document.body.style.setProperty('background', '#ffffff', 'important');
-    document.body.style.setProperty('background-attachment', 'initial', 'important');
-    document.body.style.setProperty('color', '#1f2937', 'important');
-    document.body.style.removeProperty('min-height');
+  isDarkMode(): boolean {
+    return this.themeSubject.value === 'dark';
   }
 
   isLightMode(): boolean {
-    return true;
+    return this.themeSubject.value === 'light';
+  }
+
+  private applyTheme(theme: string): void {
+    console.log('🎨 Applying theme:', theme);
+    document.body.setAttribute('data-theme', theme);
+    console.log('✅ Body data-theme set to:', document.body.getAttribute('data-theme'));
+    
+    if (theme === 'dark') {
+      // Apply dark mode styles
+      document.body.style.setProperty('background', '#0f172a', 'important');
+      document.body.style.setProperty('color', '#e2e8f0', 'important');
+      console.log('🌙 Dark mode styles applied');
+    } else {
+      // Apply light mode styles
+      document.body.style.setProperty('background', '#ffffff', 'important');
+      document.body.style.setProperty('color', '#1f2937', 'important');
+      console.log('☀️ Light mode styles applied');
+    }
+    document.body.style.setProperty('background-attachment', 'initial', 'important');
   }
 }
