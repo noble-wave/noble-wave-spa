@@ -26,12 +26,12 @@ main {
   height: 550px;
   display: flex;
   align-items: center;
-  margin-top: 5rem;
+  margin-top: -120px !important;
   overflow: visible;
   
   @media (max-width: 768px) {
     height: 350px;
-    margin-top: 6rem;
+    margin-top: -80px !important;
   }
   
   .hero-image-container {

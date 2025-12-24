@@ -486,14 +486,21 @@
   // === SECTION PADDING ===
   .section-padding {
     padding: 90px 0;
-    
-    &.services-overview-section {
-      padding-bottom: 30px;
-    }
-    
-    &.core-services-section {
-      padding-top: 30px;
-    }
+  }
+  
+  // Force remove spacing
+  section.services-overview-section,
+  .services-overview-section {
+    padding: 0 !important;
+    margin-top: -100px !important;
+    margin-bottom: -200px !important;
+  }
+  
+  section.core-services-section,
+  .core-services-section {
+    padding: 0 !important;
+    padding-bottom: 40px !important;
+    margin-top: -200px !important;
   }
 
   // === SECTION HEADERS - LIGHT THEME ===
@@ -570,6 +577,7 @@
       max-width: 900px;
       margin: 0 auto;
       font-weight: 400;
+      text-align: center;
     }
   }
 
@@ -596,10 +604,17 @@
   // === SERVICES OVERVIEW SECTION ===
   .services-overview-section {
     background: linear-gradient(135deg, rgba(5, 163, 255, 0.02) 0%, rgba(29, 212, 245, 0.02) 100%);
+    margin-top: -100px !important;
+    margin-bottom: -200px !important;
+    padding: 0 !important;
   }
 
   // === CORE SERVICES SECTION - LIGHT THEME ===
   .core-services-section {
+    margin-top: -200px !important;
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+    
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -1153,10 +1168,13 @@
     // Services Overview Section
     .services-overview-section {
       background: rgba(15, 23, 42, 0.5) !important;
-      padding: 10px 0 0 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      margin-bottom: -150px !important;
 
       .section-title {
         color: #ffffff !important;
+        margin-bottom: 0 !important;
 
         .gradient-text-cyan {
           background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%) !important;
@@ -1167,11 +1185,14 @@
       }
 
       .section-header-center {
-        margin-bottom: 15px !important;
+        margin-bottom: 0 !important;
+        padding: 0 !important;
       }
 
       .overview-intro {
         color: #cbd5e1 !important;
+        margin: 0 !important;
+        text-align: center !important;
       }
     }
 
@@ -1179,6 +1200,8 @@
     .core-services-section {
       background: transparent !important;
       padding: 0 0 40px 0 !important;
+      margin: 0 !important;
+      margin-top: -150px !important;
 
       .section-title {
         color: #ffffff !important;

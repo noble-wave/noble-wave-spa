@@ -175,6 +175,26 @@ h6 {
   @apply py-16 sm:py-20 lg:py-24;
 }
 
+// Override for services/details page sections to reduce gap
+.details-page {
+  margin-top: -100px !important;
+}
+
+.details-page .services-overview-section.section-padding,
+.services-overview-section.section-padding {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: -100px !important;
+  margin-bottom: -200px !important;
+}
+
+.details-page .core-services-section.section-padding,
+.core-services-section.section-padding {
+  padding-top: 0 !important;
+  padding-bottom: 40px !important;
+  margin-top: -200px !important;
+}
+
 .text-gradient {
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   -webkit-background-clip: text;
