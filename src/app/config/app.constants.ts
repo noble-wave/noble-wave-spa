@@ -5,7 +5,8 @@
 
 export const APP_CONFIG = {
   appName: 'Noble Wave',
-  tagline: 'Leading Digital Innovation',
+  // tagline: 'Leading Digital Innovation',
+  tagline: 'Your Trusted IT Development Partner',
   description: 'Transforming ideas into powerful digital solutions',
 } as const;
 

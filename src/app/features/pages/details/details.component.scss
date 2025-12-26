@@ -531,6 +531,11 @@
         margin-left: calc(-50vw + 50%);
         padding: 8rem 2rem;
         overflow: hidden;
+        text-align: center;
+        
+        > span {
+          display: inline;
+        }
         
         &::before {
           content: '';
