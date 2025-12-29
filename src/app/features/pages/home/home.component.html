@@ -29,9 +29,9 @@
           <span class="sliding-text" [@slideAnimation]="currentSlide">
             {{ titles[currentSlide] }}
           </span>
-          <span class="company-name">Noble Wave</span>
+          <span class="company-name">{{ appConfig.appName }}</span>
         </h1>
-        <p class="hero-subtitle">Transform Your Business Today</p>
+        <p class="hero-subtitle">{{ appConfig.description }}</p>
         
         <div class="hero-button">
           <button

@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { CounterAnimationService, ThemeService } from '../../../core/services';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { APP_CONFIG } from '../../../config';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private observers: IntersectionObserver[] = [];
   @ViewChild('videoElement', { static: false }) videoElement?: ElementRef<HTMLVideoElement>;
   
+  appConfig = APP_CONFIG;
   titles: string[] = [
     'Customized Software Development',
     'Capable Engineers Mature Products',

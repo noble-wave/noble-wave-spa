@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 import { CounterAnimationService, ThemeService } from '../../../core/services';
+import { APP_CONFIG } from '../../../config';
 
 @Component({
   selector: 'app-details',
@@ -8,6 +9,7 @@ import { CounterAnimationService, ThemeService } from '../../../core/services';
 })
 export class DetailsComponent implements OnInit, AfterViewInit {
   private observer: IntersectionObserver | null = null;
+  appConfig = APP_CONFIG;
   // --- Software Development Service Details ---
   item = {
     id: 'nw-dev-001',

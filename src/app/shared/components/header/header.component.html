@@ -2,34 +2,13 @@
   <nav>
     <div class="logo-container" (click)="scrollToSection('#home')" style="cursor: pointer;">
       <img src="assets/noble/NameofCompany.svg" alt="Noble Wave" />
-      <span class="company-tagline">Your Trusted IT Development Partner</span>
+      <span class="company-tagline">{{ appConfig.tagline }}</span>
     </div>
 
     <ul class="nav-menu">
-      <li>
-        <a href="#home" class="nav-link" (click)="scrollToSection('#home')"
-          >Home</a
-        >
-      </li>
-      <li>
-        <a href="#about" class="nav-link" (click)="scrollToSection('#about')"
-          >About</a
-        >
-      </li>
-      <li>
-        <a
-          href="#services"
-          class="nav-link"
-          (click)="scrollToSection('#services')"
-          >Services</a
-        >
-      </li>
-      <li>
-        <a
-          href="#contact"
-          class="nav-link"
-          (click)="scrollToSection('#contact')"
-          >Contact</a
+      <li *ngFor="let link of navLinks">
+        <a [href]="'#' + link.fragment" class="nav-link" (click)="scrollToSection('#' + link.fragment)"
+          >{{ link.label }}</a
         >
       </li>
       <li>
@@ -67,13 +46,8 @@
     </button>
   </div>
   <ul class="mobile-nav-links">
-    <li><a href="#home" (click)="scrollToSection('#home')">Home</a></li>
-    <li><a href="#about" (click)="scrollToSection('#about')">About</a></li>
-    <li>
-      <a href="#services" (click)="scrollToSection('#services')">Services</a>
-    </li>
-    <li>
-      <a href="#contact" (click)="scrollToSection('#contact')">Contact</a>
+    <li *ngFor="let link of navLinks">
+      <a [href]="'#' + link.fragment" (click)="scrollToSection('#' + link.fragment)">{{ link.label }}</a>
     </li>
     <li>
       <a href="#" class="mobile-cta" (click)="scrollToSection('#contact')"

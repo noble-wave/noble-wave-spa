@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { ThemeService } from '../../../core/services';
 import lottie, { AnimationItem } from 'lottie-web';
+import { APP_CONFIG } from '../../../config';
 
 @Component({
   selector: 'app-about',
@@ -8,6 +9,7 @@ import lottie, { AnimationItem } from 'lottie-web';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements AfterViewInit {
+  appConfig = APP_CONFIG;
 
   @ViewChild('codingAnimationContainer', { static: false }) codingAnimationContainer!: ElementRef;
   @ViewChild('targetAnimationContainer', { static: false }) targetAnimationContainer!: ElementRef;

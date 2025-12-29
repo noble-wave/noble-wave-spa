@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ThemeService } from '../../../core/services';
+import { APP_CONFIG, NAVIGATION_LINKS } from '../../../config';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,8 @@ export class HeaderComponent implements OnInit {
   isScrolled = false;
   isInHomeSection = true;
   isDarkMode = false;
+  appConfig = APP_CONFIG;
+  navLinks = NAVIGATION_LINKS;
 
   constructor(
     private router: Router,
