@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   titles: string[] = [
     'Customized Software Development',
     'Capable Engineers Mature Products',
-    // 'Crafting Modern Web Applications', 
     'Innovation Meets Excellence'
   ];
   currentSlide: number = 0;
@@ -36,12 +35,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   
   ngOnInit(): void {
     // Component initialization
-    console.log('Home component initialized');
     
     // Subscribe to theme changes
     this.themeService.theme$.subscribe(theme => {
       this.isLightMode = theme === 'light';
-      console.log('Theme changed to:', theme);
       
       // Ensure video continues playing after theme change
       setTimeout(() => {
@@ -56,40 +53,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private ensureVideoPlaying(): void {
     const video = this.videoElement?.nativeElement;
     if (video) {
-      const computedStyle = window.getComputedStyle(video);
-      const container = video.parentElement;
-      const containerStyle = container ? window.getComputedStyle(container) : null;
-      
-      console.log('=== VIDEO DEBUG INFO ===');
-      console.log('Video element:', {
-        exists: !!video,
-        paused: video.paused,
-        readyState: video.readyState,
-        currentTime: video.currentTime,
-        duration: video.duration,
-        display: computedStyle.display,
-        visibility: computedStyle.visibility,
-        opacity: computedStyle.opacity,
-        zIndex: computedStyle.zIndex
-      });
-      
-      if (containerStyle) {
-        console.log('Container:', {
-          display: containerStyle.display,
-          visibility: containerStyle.visibility,
-          opacity: containerStyle.opacity,
-          zIndex: containerStyle.zIndex,
-          position: containerStyle.position
-        });
-      }
-      
-      console.log('Current theme:', this.themeService.getCurrentTheme());
-      
       // Force display and visibility
       video.style.display = 'block';
       video.style.visibility = 'visible';
       video.style.opacity = '1';
       
+      const container = video.parentElement;
       if (container) {
         container.style.display = 'block';
         container.style.visibility = 'visible';
@@ -98,20 +67,13 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       
       // Reload and play if paused
       if (video.paused) {
-        console.log('Video is paused, attempting to play...');
-        video.play().catch(err => {
-          console.error('Video play error:', err);
+        video.play().catch(() => {
           // Retry after a short delay
           setTimeout(() => {
-            console.log('Retrying video play...');
-            video.play().catch(e => console.error('Video play retry error:', e));
+            video.play().catch(() => {});
           }, 500);
         });
-      } else {
-        console.log('Video is already playing');
       }
-    } else {
-      console.error('Video element not found!');
     }
   }  ngAfterViewInit(): void {
     // Set up counter animations and video after view is initialized
@@ -134,10 +96,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private checkVideoPlayback(): void {
     const video = this.videoElement?.nativeElement;
     if (video) {
-      const theme = this.themeService.getCurrentTheme();
       if (video.paused && video.readyState >= 2) {
-        console.log(`[${theme}] Video was paused, restarting...`);
-        video.play().catch(err => console.log('Auto-restart error:', err));
+        video.play().catch(() => {});
       }
     }
   }
@@ -171,14 +131,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       video.style.display = 'block';
       
       if (video.readyState >= 2) {
-        video.play().catch(err => console.log('Video play error:', err));
+        video.play().catch(() => {});
       } else {
         video.addEventListener('canplay', () => {
-          video.play().catch(err => console.log('Video play error:', err));
+          video.play().catch(() => {});
         }, { once: true });
       }
-      
-      console.log('Video force loaded - readyState:', video.readyState);
     }
   }
 
@@ -186,23 +144,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     const video = this.videoElement?.nativeElement;
     
     if (video) {
-      console.log('Initializing video...');
       video.load();
-      video.play().catch(error => {
-        console.log('Video autoplay failed:', error);
-      });
-
-      video.addEventListener('loadeddata', () => {
-        console.log('Video loaded successfully');
-      });
-
-      video.addEventListener('canplay', () => {
-        console.log('Video can play');
-      });
-
-      video.addEventListener('error', (e) => {
-        console.error('Video loading error:', e);
-      });
+      video.play().catch(() => {});
     }
   }
 

@@ -29,11 +29,7 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleTheme(): void {
-    console.log('Toggle theme button clicked!');
-    console.log('Current theme before toggle:', this.themeService.getCurrentTheme());
     this.themeService.toggleTheme();
-    console.log('Theme after toggle:', this.themeService.getCurrentTheme());
-    console.log('Body data-theme attribute:', document.body.getAttribute('data-theme'));
   }
 
   // Toggle mobile menu

@@ -44,20 +44,16 @@ export class ThemeService {
   }
 
   private applyTheme(theme: string): void {
-    console.log('🎨 Applying theme:', theme);
     document.body.setAttribute('data-theme', theme);
-    console.log('✅ Body data-theme set to:', document.body.getAttribute('data-theme'));
     
     if (theme === 'dark') {
       // Apply dark mode styles
       document.body.style.setProperty('background', '#0f172a', 'important');
       document.body.style.setProperty('color', '#e2e8f0', 'important');
-      console.log('🌙 Dark mode styles applied');
     } else {
       // Apply light mode styles
       document.body.style.setProperty('background', '#ffffff', 'important');
       document.body.style.setProperty('color', '#1f2937', 'important');
-      console.log('☀️ Light mode styles applied');
     }
     document.body.style.setProperty('background-attachment', 'initial', 'important');
   }

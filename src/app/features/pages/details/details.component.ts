@@ -156,7 +156,6 @@ export class DetailsComponent implements OnInit, AfterViewInit {
 
   addToCart(): void {
     // Minimal placeholder behaviour for now
-    console.log(`Add to cart: ${this.item.id} - ${this.item.title}`);
     alert(`${this.item.title} added to cart`);
   }
 
