@@ -9,12 +9,13 @@ export class CounterAnimationService {
 
   /**
    * Animates a number from start to end value
-   * @param element - The DOM element to update
+   * 
    * @param start - Starting number
    * @param end - Target number
    * @param duration - Animation duration in milliseconds
    * @param suffix - Optional suffix (e.g., '+', '%', 'K')
    */
+  
   animateCounter(
     element: HTMLElement, 
     start: number = 0, 
@@ -45,16 +46,12 @@ export class CounterAnimationService {
     requestAnimationFrame(updateCounter);
   }
 
-  /**
-   * Format number with commas for thousands
-   */
+  // Format number with commas for thousands
   private formatNumber(num: number): string {
     return num.toLocaleString();
   }
 
-  /**
-   * Create intersection observer for counter animation
-   */
+  // Create intersection observer for counter animation
   createCounterObserver(
     element: HTMLElement, 
     targetValue: number, 

@@ -1,5 +1,3 @@
-/**
- * Shared Module Barrel Export
- */
+// Shared Module Barrel Export
 
 export * from './components';

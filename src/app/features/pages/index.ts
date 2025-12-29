@@ -1,6 +1,6 @@
-/**
- * Feature Pages Barrel Export
- */
+
+// Feature Pages Barrel Export
+
 
 export * from './about/about.component';
 export * from './home/home.component';

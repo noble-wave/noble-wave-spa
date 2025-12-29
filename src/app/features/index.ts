@@ -1,5 +1,3 @@
-/**
- * Features Module Barrel Export
- */
+// Features Module Barrel Export
 
 export * from './pages';

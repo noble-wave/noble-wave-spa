@@ -1,5 +1,3 @@
-/**
- * Core Module Barrel Export
- */
+// Core Module Barrel Export
 
 export * from './services';

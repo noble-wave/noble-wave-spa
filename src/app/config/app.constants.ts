@@ -1,7 +1,6 @@
-/**
- * Application Constants
- * Centralized configuration for the entire application
- */
+
+// Centralized configuration for the entire application
+
 
 export const APP_CONFIG = {
   appName: 'Noble Wave',
