@@ -40,14 +40,20 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu" [class.active]="isMobileMenuOpen">
   <div class="mobile-menu-header">
-    <img src="assets/noble/NameofCompany.svg" alt="Noble Wave" (click)="scrollToSection('#home')" style="cursor: pointer;" />
+    <div class="mobile-menu-branding">
+      <img src="assets/noble/NameofCompany.svg" alt="Noble Wave" (click)="scrollToSection('#home')" style="cursor: pointer;" />
+      <p class="mobile-menu-subtitle">{{ appConfig.tagline }}</p>
+    </div>
     <button class="close-mobile-menu" (click)="closeMobileMenu()">
       ×
     </button>
   </div>
   <ul class="mobile-nav-links">
     <li *ngFor="let link of navLinks">
-      <a [href]="'#' + link.fragment" (click)="scrollToSection('#' + link.fragment)">{{ link.label }}</a>
+      <a [href]="'#' + link.fragment" (click)="scrollToSection('#' + link.fragment)">
+        <span class="material-icons">{{ link.icon }}</span>
+        <span>{{ link.label }}</span>
+      </a>
     </li>
     <li>
       <a href="#" class="mobile-cta" (click)="scrollToSection('#contact')"

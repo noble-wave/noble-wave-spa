@@ -26,10 +26,10 @@ export const SOCIAL_LINKS = {
 } as const;
 
 export const NAVIGATION_LINKS = [
-  { label: 'Home', path: '/', fragment: 'home' },
-  { label: 'About', path: '/about', fragment: 'about' },
-  { label: 'Services', path: '/detail', fragment: 'services' },
-  { label: 'Contact', path: '/', fragment: 'contact' },
+  { label: 'Home', path: '/', fragment: 'home', icon: 'home' },
+  { label: 'About', path: '/about', fragment: 'about', icon: 'info' },
+  { label: 'Services', path: '/detail', fragment: 'services', icon: 'work' },
+  { label: 'Contact', path: '/', fragment: 'contact', icon: 'email' },
 ] as const;
 
 export const SCROLL_CONFIG = {
