@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ThemeService } from '../../../core/services';
 import { APP_CONFIG, NAVIGATION_LINKS } from '../../../config';
 
+// Mobile menu styling updated
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
