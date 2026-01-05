@@ -1,0 +1,47 @@
+<main class="min-h-screen relative home-section" id="home">
+  <!-- Video Background (works in both light and dark mode) -->
+  <div class="video-background-container short-video">
+    <video 
+      #videoElement
+      class="video-bg" 
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      preload="auto"
+      [muted]="true"
+      [autoplay]="true"
+    >
+      <source src="assets/video/Background_video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <!-- Light mode overlay -->
+    <div class="video-overlay"></div>
+    <!-- Dark mode overlay -->
+    <div class="video-overlay-dark"></div>
+  </div>
+
+  <!-- Hero Content with Sliding Titles -->
+  <section class="hero-content-section">
+    <div class="container mx-auto px-4">
+      <div class="hero-text-wrapper">
+        <h1 class="hero-title">
+          <span class="sliding-text" [@slideAnimation]="currentSlide">
+            {{ titles[currentSlide] }}
+          </span>
+          <span class="company-name">{{ appConfig.appName }}</span>
+        </h1>
+        <p class="hero-subtitle">{{ appConfig.description }}</p>
+        
+        <div class="hero-button">
+          <button
+            class="cta-button"
+            (click)="scrollToContact()"
+          >
+            Get Started →
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

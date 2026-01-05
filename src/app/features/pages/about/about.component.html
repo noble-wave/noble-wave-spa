@@ -1,0 +1,361 @@
+<!-- About Page - Our Story -->
+<main class="relative min-h-screen" id="about" style="margin-top: -180px !important;">
+  
+  <!-- Hero Section with Image -->
+  <section class="hero-section-light" style="margin-top: 0 !important;">
+    <div class="hero-image-container">
+      <img src="/assets/noble/about1.jpg" alt="Noble Wave Team" class="hero-image">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="weAre">Who We Are</span>
+        <span class="hero-title-highlight">{{ appConfig.appName }}</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- Description Section -->
+  <section class="description-section">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="description-content">
+        <div class="description-text">
+          <p class="description-paragraph">
+            We are a trusted Digital Engineering and Enterprise Modernization partner,
+            combining deep technical expertise and industry experience to help our
+            clients anticipate what's next and answer questions before they're asked. Our
+            offerings and proven solutions create unique competitive advantage for our
+            clients by giving them the power to see beyond and rise above.
+          </p>
+          <div class="description-buttons">
+            <button class="btn-primary" (click)="scrollToContact()">
+              Let's work together
+            </button>
+            <button class="btn-secondary" (click)="navigateToServices()">
+              Learn More
+            </button>
+          </div>
+        </div>
+        <div class="description-image">
+          <img src="/assets/noble/teamwork1.jpg" alt="Team collaboration" class="team-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision Section -->
+  <section class="mission-vision-light">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="mission-vision-grid">
+        <!-- Mission Card -->
+        <div class="mission-card">
+          <div class="card-icon">
+            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="card-title">Our Mission</h3>
+          <p class="card-description">
+            To build reliable, user-friendly web applications and digital solutions that help 
+            businesses establish their online presence and connect with their customers effectively. 
+            We focus on delivering quality work that meets real business needs.
+          </p>
+        </div>
+
+        <!-- Vision Card -->
+        <div class="vision-card">
+          <div class="card-icon">
+            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+            </svg>
+          </div>
+          <h3 class="card-title">Our Vision</h3>
+          <p class="card-description">
+            To become a trusted technology partner for local and regional businesses, helping them 
+            grow through well-crafted digital solutions. We aim to build lasting relationships 
+            based on quality work and reliable service.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Slider -->
+  <section class="tech-stack-section">
+    <div class="tech-stack-container">
+      <div class="tech-stack-slider">
+        <!-- First set of icons -->
+        <div class="tech-icon">
+          <i class="devicon-html5-plain colored"></i>
+          <span>HTML5</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-css3-plain colored"></i>
+          <span>CSS3</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-javascript-plain colored"></i>
+          <span>JavaScript</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-typescript-plain colored"></i>
+          <span>TypeScript</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-angularjs-plain colored"></i>
+          <span>Angular</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-react-original colored"></i>
+          <span>React</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-nodejs-plain colored"></i>
+          <span>Node.js</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-python-plain colored"></i>
+          <span>Python</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-amazonwebservices-plain-wordmark colored"></i>
+          <span>AWS</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-azure-plain colored"></i>
+          <span>Azure</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-azuredevops-plain colored"></i>
+          <span>Azure DevOps</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-googlecloud-plain colored"></i>
+          <span>Google Cloud</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-ionic-original colored"></i>
+          <span>Ionic</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-tailwindcss-plain colored"></i>
+          <span>Tailwind CSS</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-sass-original colored"></i>
+          <span>Sass</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-bootstrap-plain colored"></i>
+          <span>Bootstrap</span>
+        </div>
+        
+        <!-- Duplicate set for seamless loop -->
+        <div class="tech-icon">
+          <i class="devicon-html5-plain colored"></i>
+          <span>HTML5</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-css3-plain colored"></i>
+          <span>CSS3</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-javascript-plain colored"></i>
+          <span>JavaScript</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-typescript-plain colored"></i>
+          <span>TypeScript</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-angularjs-plain colored"></i>
+          <span>Angular</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-react-original colored"></i>
+          <span>React</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-nodejs-plain colored"></i>
+          <span>Node.js</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-python-plain colored"></i>
+          <span>Python</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-amazonwebservices-plain-wordmark colored"></i>
+          <span>AWS</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-azure-plain colored"></i>
+          <span>Azure</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-azuredevops-plain colored"></i>
+          <span>Azure DevOps</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-googlecloud-plain colored"></i>
+          <span>Google Cloud</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-ionic-original colored"></i>
+          <span>Ionic</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-tailwindcss-plain colored"></i>
+          <span>Tailwind CSS</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-sass-original colored"></i>
+          <span>Sass</span>
+        </div>
+        <div class="tech-icon">
+          <i class="devicon-bootstrap-plain colored"></i>
+          <span>Bootstrap</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values-section-light">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="values-header">
+        <span class="values-badge">Our Core Values</span>
+        <h2 class="values-title">What Drives Us Forward</h2>
+        <p class="values-subtitle">The principles that guide every decision we make</p>
+      </div>
+      
+      <div class="values-grid-light">
+        <div class="value-item-light">
+          <div class="value-number">01</div>
+          <div class="value-icon-large" style="overflow: visible; margin: -20px 0;">
+            <div #codingAnimationContainer style="width: 220px; height: 220px; margin: 0 auto; transform: scale(1.5);"></div>
+          </div>
+          <h3 class="value-title-light">Clean Code</h3>
+          <p class="value-desc-light">
+            We write maintainable, well-documented code that follows best practices and is built to last.
+          </p>
+        </div>
+
+        <div class="value-item-light">
+          <div class="value-number">02</div>
+          <div class="value-icon-large" style="overflow: visible; margin: -10px 0;">
+            <div #targetAnimationContainer style="width: 180px; height: 180px; margin: 0 auto; transform: scale(1.2);"></div>
+          </div>
+          <h3 class="value-title-light">Client-Focused</h3>
+          <p class="value-desc-light">
+            We listen carefully to understand your needs and deliver solutions that solve your problems.
+          </p>
+        </div>
+
+        <div class="value-item-light">
+          <div class="value-number">03</div>
+          <div class="value-icon-large" style="overflow: visible; margin: -10px 0;">
+            <div #deliveryAnimationContainer style="width: 180px; height: 180px; margin: 0 auto; transform: scale(1.2);"></div>
+          </div>
+          <h3 class="value-title-light">On-Time Delivery</h3>
+          <p class="value-desc-light">
+            We set realistic deadlines and stick to them, keeping you informed throughout.
+          </p>
+        </div>
+
+        <div class="value-item-light">
+          <div class="value-number">04</div>
+          <div class="value-icon-large" style="overflow: visible; margin: -25px 0 -5px 0;">
+            <div #communicationAnimationContainer style="width: 180px; height: 180px; margin: 0 auto; transform: scale(1.2);"></div>
+          </div>
+          <h3 class="value-title-light">Clear Communication</h3>
+          <p class="value-desc-light">
+            No technical jargon - we explain everything in plain language.
+          </p>
+        </div>
+
+        <div class="value-item-light">
+          <div class="value-number">05</div>
+          <div class="value-icon-large" style="overflow: visible; margin: -20px 0 -10px 0;">
+            <div #learningAnimationContainer style="width: 180px; height: 180px; margin: 0 auto; transform: scale(1.2);"></div>
+          </div>
+          <h3 class="value-title-light">Always Learning</h3>
+          <p class="value-desc-light">
+            We stay current with web technologies and best practices.
+          </p>
+        </div>
+
+        <div class="value-item-light">
+          <div class="value-number">06</div>
+          <div class="value-icon-large" style="overflow: visible; margin: -10px 0;">
+            <div #priceAnimationContainer style="width: 180px; height: 180px; margin: 0 auto; transform: scale(1.2);"></div>
+          </div>
+          <h3 class="value-title-light">Fair Pricing</h3>
+          <p class="value-desc-light">
+            Transparent pricing with no hidden costs - quality should be accessible.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section-light">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="team-header-light">
+        <span class="team-badge">Our Team</span>
+        <h2 class="team-title-light">Meet the Team Behind Your Success</h2>
+        <p class="team-subtitle-light">
+          A focused team of skilled developers committed to delivering quality solutions
+        </p>
+      </div>
+
+      <div class="team-stats-grid">
+        <div class="stat-card-light">
+          <div class="stat-icon-wrapper">
+            <svg class="stat-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Team Members</div>
+            <p class="stat-description">Dedicated developers focused on your project</p>
+          </div>
+        </div>
+
+        <div class="stat-card-light">
+          <div class="stat-icon-wrapper">
+            <svg class="stat-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Projects Completed</div>
+            <p class="stat-description">Successful web applications delivered</p>
+          </div>
+        </div>
+
+        <div class="stat-card-light">
+          <div class="stat-icon-wrapper">
+            <svg class="stat-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Years in Business</div>
+            <p class="stat-description">Building web solutions for businesses</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+</main>

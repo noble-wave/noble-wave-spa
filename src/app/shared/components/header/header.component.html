@@ -1,0 +1,70 @@
+<div class="main-div">
+  <nav>
+    <div class="logo-container" (click)="scrollToSection('#home')" style="cursor: pointer;">
+      <img src="assets/noble/NameofCompany.svg" alt="Noble Wave" />
+      <span class="company-tagline">{{ appConfig.tagline }}</span>
+    </div>
+
+    <ul class="nav-menu">
+      <li *ngFor="let link of navLinks">
+        <a [href]="'#' + link.fragment" class="nav-link" (click)="scrollToSection('#' + link.fragment)"
+          >{{ link.label }}</a
+        >
+      </li>
+      <li>
+        <a
+          href="#"
+          class="nav-link cta-btn"
+          (click)="scrollToSection('#contact')"
+          >Get Started</a
+        >
+      </li>
+      <li class="theme-toggle-item">
+        <button class="theme-toggle-btn" (click)="toggleTheme()" [attr.aria-label]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'">
+          <span class="material-icons">{{ isDarkMode ? 'light_mode' : 'dark_mode' }}</span>
+        </button>
+      </li>
+    </ul>
+
+    <div class="mobile-menu-toggle" (click)="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+</div>
+
+<!-- Mobile Menu Backdrop -->
+<div class="mobile-menu-backdrop" [class.active]="isMobileMenuOpen" (click)="closeMobileMenu()"></div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" [class.active]="isMobileMenuOpen">
+  <div class="mobile-menu-header">
+    <div class="mobile-menu-branding">
+      <img src="assets/noble/NameofCompany.svg" alt="Noble Wave" (click)="scrollToSection('#home')" style="cursor: pointer;" />
+      <p class="mobile-menu-subtitle">{{ appConfig.tagline }}</p>
+    </div>
+    <button class="close-mobile-menu" (click)="closeMobileMenu()">
+      ×
+    </button>
+  </div>
+  <ul class="mobile-nav-links">
+    <li *ngFor="let link of navLinks">
+      <a [href]="'#' + link.fragment" (click)="scrollToSection('#' + link.fragment)">
+        <span class="material-icons">{{ link.icon }}</span>
+        <span>{{ link.label }}</span>
+      </a>
+    </li>
+    <li>
+      <a href="#" class="mobile-cta" (click)="scrollToSection('#contact')"
+        >Get Started</a
+      >
+    </li>
+    <li class="mobile-theme-toggle">
+      <button class="mobile-theme-btn" (click)="toggleTheme()" [attr.aria-label]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'">
+        <span class="material-icons">{{ isDarkMode ? 'light_mode' : 'dark_mode' }}</span>
+        <span>{{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}</span>
+      </button>
+    </li>
+  </ul>
+</div>
