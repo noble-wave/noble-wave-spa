@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ThemeService } from '../../../core/services';
 import { APP_CONFIG, NAVIGATION_LINKS } from '../../../config';
@@ -10,17 +10,15 @@ import { APP_CONFIG, NAVIGATION_LINKS } from '../../../config';
     styleUrl: './header.scss'
 })
 export class HeaderComponent implements OnInit {
+  private router = inject(Router);
+  themeService = inject(ThemeService);
+
   isMobileMenuOpen = false;
   isScrolled = false;
   isInHomeSection = true;
   isDarkMode = false;
   appConfig = APP_CONFIG;
   navLinks = NAVIGATION_LINKS;
-
-  constructor(
-    private router: Router,
-    public themeService: ThemeService
-  ) {}
 
   ngOnInit(): void {
     // Set initial transparent header for home section

@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, inject } from '@angular/core';
 import { ThemeService } from '../../../core/services';
 import lottie, { AnimationItem } from 'lottie-web';
 import { APP_CONFIG } from '../../../config';
@@ -9,6 +9,8 @@ import { APP_CONFIG } from '../../../config';
     styleUrl: './about.scss'
 })
 export class AboutComponent implements AfterViewInit {
+  themeService = inject(ThemeService);
+
   appConfig = APP_CONFIG;
 
   @ViewChild('codingAnimationContainer', { static: false }) codingAnimationContainer!: ElementRef;
@@ -24,8 +26,6 @@ export class AboutComponent implements AfterViewInit {
   private communicationAnimation!: AnimationItem;
   private learningAnimation!: AnimationItem;
   private priceAnimation!: AnimationItem;
-
-  constructor(public themeService: ThemeService) {}
 
   ngAfterViewInit(): void {
     this.loadAllAnimations();

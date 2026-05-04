@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, OnDestroy, inject } from '@angular/core';
 import { CounterAnimationService, ThemeService } from '../../../core/services';
 import { APP_CONFIG } from '../../../config';
 import { LucideAngularModule } from 'lucide-angular';
@@ -9,7 +9,11 @@ import { LucideAngularModule } from 'lucide-angular';
     styleUrl: './details.scss',
     imports: [LucideAngularModule]
 })
-export class DetailsComponent implements OnInit, AfterViewInit {
+export class DetailsComponent implements OnInit, AfterViewInit, OnDestroy {
+  private counterService = inject(CounterAnimationService);
+  private elementRef = inject(ElementRef);
+  themeService = inject(ThemeService);
+
   private observer: IntersectionObserver | null = null;
   appConfig = APP_CONFIG;
   // --- Software Development Service Details ---
@@ -50,12 +54,6 @@ export class DetailsComponent implements OnInit, AfterViewInit {
 
   // Computed specs array for template iteration
   specsArray: {label: string; value: string}[] = [];
-
-  constructor(
-    private counterService: CounterAnimationService,
-    private elementRef: ElementRef,
-    public themeService: ThemeService
-  ) {}
 
   ngOnInit(): void {
     // Build specs array from specs object dynamically

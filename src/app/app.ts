@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
+import { Component, OnInit, AfterViewInit, HostListener, inject } from '@angular/core';
 import * as AOS from 'aos';
 import { ThemeService } from './core/services';
 import { APP_CONFIG, ANIMATION_CONFIG, SCROLL_CONFIG } from './config';
@@ -11,11 +11,13 @@ import { RouterOutlet } from '@angular/router';
     imports: [RouterOutlet]
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  title = APP_CONFIG.appName;
-  currentTheme: string = 'light';
-  showScrollButton: boolean = false;
+  private themeService = inject(ThemeService);
 
-  constructor(private themeService: ThemeService) {
+  title = APP_CONFIG.appName;
+  currentTheme = 'light';
+  showScrollButton = false;
+
+  constructor() {
     // Subscribe to theme changes
     this.themeService.theme$.subscribe(theme => {
       this.currentTheme = theme;

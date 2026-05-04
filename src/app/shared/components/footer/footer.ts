@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ThemeService } from '../../../core/services';
 import { COMPANY_INFO, SOCIAL_LINKS } from '../../../config';
 import { LucideAngularModule } from 'lucide-angular';
@@ -10,12 +10,12 @@ import { RouterLink } from '@angular/router';
     styleUrl: './footer.scss',
     imports: [LucideAngularModule, RouterLink]
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
+  themeService = inject(ThemeService);
+
   currentYear!: number;
   companyInfo = COMPANY_INFO;
   socialLinks = SOCIAL_LINKS;
-
-  constructor(public themeService: ThemeService) {}
 
   ngOnInit(): void {
     this.updateYear();

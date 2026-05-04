@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ThemeService } from '../../../core/services';
 import { APP_CONFIG, COMPANY_INFO } from '../../../config';
 import { HeaderComponent } from '../../../shared/components/header/header';
@@ -12,9 +12,9 @@ import { FooterComponent } from '../../../shared/components/footer/footer';
     imports: [HeaderComponent, RouterLink, FooterComponent]
 })
 export class TermsComponent {
+  themeService = inject(ThemeService);
+
   appConfig = APP_CONFIG;
   companyInfo = COMPANY_INFO;
   lastUpdated = 'May 4, 2026';
-
-  constructor(public themeService: ThemeService) {}
 }

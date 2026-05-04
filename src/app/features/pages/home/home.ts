@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild, inject } from '@angular/core';
 import { CounterAnimationService, ThemeService } from '../../../core/services';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { APP_CONFIG } from '../../../config';
@@ -17,6 +17,9 @@ import { APP_CONFIG } from '../../../config';
     ]
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+  private counterService = inject(CounterAnimationService);
+  themeService = inject(ThemeService);
+
   private observers: IntersectionObserver[] = [];
   @ViewChild('videoElement', { static: false }) videoElement?: ElementRef<HTMLVideoElement>;
   
@@ -26,14 +29,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     'Capable Engineers Mature Products',
     'Innovation Meets Excellence'
   ];
-  currentSlide: number = 0;
+  currentSlide = 0;
   private slideInterval: any;
   isLightMode = true;
-
-  constructor(
-    private counterService: CounterAnimationService,
-    public themeService: ThemeService
-  ) {}
   
   ngOnInit(): void {
     // Component initialization

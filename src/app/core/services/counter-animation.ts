@@ -18,10 +18,10 @@ export class CounterAnimationService {
   
   animateCounter(
     element: HTMLElement, 
-    start: number = 0, 
+    start = 0, 
     end: number, 
-    duration: number = 2000,
-    suffix: string = ''
+    duration = 2000,
+    suffix = ''
   ): void {
     const startTime = performance.now();
     const range = end - start;
@@ -55,8 +55,8 @@ export class CounterAnimationService {
   createCounterObserver(
     element: HTMLElement, 
     targetValue: number, 
-    suffix: string = '',
-    duration: number = 2000
+    suffix = '',
+    duration = 2000
   ): IntersectionObserver {
     const observer = new IntersectionObserver(
       (entries) => {
