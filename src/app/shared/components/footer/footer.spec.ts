@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { FooterComponent } from './footer.component';
+import { FooterComponent } from './footer';
 
 describe('FooterComponent', () => {
   it('should create', () => {

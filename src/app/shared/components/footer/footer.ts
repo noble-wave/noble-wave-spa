@@ -6,8 +6,8 @@ import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-footer',
-    templateUrl: './footer.component.html',
-    styleUrls: ['./footer.component.scss'],
+    templateUrl: './footer.html',
+    styleUrl: './footer.scss',
     imports: [LucideAngularModule, RouterLink]
 })
 export class FooterComponent {

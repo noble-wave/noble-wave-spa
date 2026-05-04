@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { ThemeService } from '../../../core/services';
 import { APP_CONFIG, COMPANY_INFO } from '../../../config';
-import { HeaderComponent } from '../../../shared/components/header/header.component';
-import { FooterComponent } from '../../../shared/components/footer/footer.component';
+import { HeaderComponent } from '../../../shared/components/header/header';
+import { FooterComponent } from '../../../shared/components/footer/footer';
 
 @Component({
     selector: 'app-privacy',
-    templateUrl: './privacy.component.html',
-    styleUrls: ['./privacy.component.scss'],
+    templateUrl: './privacy.html',
+    styleUrl: './privacy.scss',
     imports: [HeaderComponent, FooterComponent]
 })
 export class PrivacyComponent {

@@ -5,8 +5,8 @@ import { APP_CONFIG } from '../../../config';
 
 @Component({
     selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss'],
+    templateUrl: './home.html',
+    styleUrl: './home.scss',
     animations: [
         trigger('slideAnimation', [
             transition('* => *', [

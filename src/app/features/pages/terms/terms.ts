@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { ThemeService } from '../../../core/services';
 import { APP_CONFIG, COMPANY_INFO } from '../../../config';
-import { HeaderComponent } from '../../../shared/components/header/header.component';
+import { HeaderComponent } from '../../../shared/components/header/header';
 import { RouterLink } from '@angular/router';
-import { FooterComponent } from '../../../shared/components/footer/footer.component';
+import { FooterComponent } from '../../../shared/components/footer/footer';
 
 @Component({
     selector: 'app-terms',
-    templateUrl: './terms.component.html',
-    styleUrls: ['./terms.component.scss'],
+    templateUrl: './terms.html',
+    styleUrl: './terms.scss',
     imports: [HeaderComponent, RouterLink, FooterComponent]
 })
 export class TermsComponent {

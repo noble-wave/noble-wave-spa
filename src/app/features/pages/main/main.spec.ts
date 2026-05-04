@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { MainComponent } from './main.component';
+import { MainComponent } from './main';
 
 describe('MainComponent', () => {
   it('should create', () => {

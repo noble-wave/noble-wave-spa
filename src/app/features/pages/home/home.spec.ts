@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { HomeComponent } from './home.component';
+import { HomeComponent } from './home';
 
 describe('HomeComponent', () => {
   it('should create', () => {

@@ -5,8 +5,8 @@ import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
     selector: 'app-details',
-    templateUrl: './details.component.html',
-    styleUrls: ['./details.component.scss'],
+    templateUrl: './details.html',
+    styleUrl: './details.scss',
     imports: [LucideAngularModule]
 })
 export class DetailsComponent implements OnInit, AfterViewInit {

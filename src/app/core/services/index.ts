@@ -1,4 +1,4 @@
 // Core Services Barrel Export
 
-export * from './theme.service';
-export * from './counter-animation.service';
+export * from './theme';
+export * from './counter-animation';
