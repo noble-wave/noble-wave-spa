@@ -14,6 +14,7 @@ import {
   Twitter,
   Github,
   Facebook,
+  Globe,
 } from 'lucide-angular';
 
 export const lucideIcons = {
@@ -32,4 +33,5 @@ export const lucideIcons = {
   Twitter,
   Github,
   Facebook,
+  Globe,
 };
