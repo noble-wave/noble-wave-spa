@@ -51,13 +51,13 @@
   /* ==========================================
      GREEN PALETTE
      ========================================== */
-    // Green colors
+    /* Green colors */
   --green-500: #10b981;
   --green-400: #4ade80;
   --green-600: #059669;
   --green-alt: #22c55e;
 
-  // Red colors
+  /* Red colors */
   --red-500: #ef4444;
   --red-400: #f87171;
   --red-600: #dc2626;
