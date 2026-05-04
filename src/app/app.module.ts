@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { LucideAngularModule } from 'lucide-angular';
 import { lucideIcons } from './config';
 
@@ -33,7 +32,6 @@ import { HeaderComponent, FooterComponent } from './shared/components';
     BrowserAnimationsModule,
     MatIconModule,
     FormsModule,
-    FlexLayoutModule,
     LucideAngularModule.pick(lucideIcons),
   ],
   providers: [],
