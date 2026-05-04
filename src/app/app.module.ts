@@ -10,7 +10,7 @@ import { LucideAngularModule } from 'lucide-angular';
 import { lucideIcons } from './config';
 
 // Feature Components
-import { AboutComponent, HomeComponent, MainComponent, DetailsComponent } from './features/pages';
+import { AboutComponent, HomeComponent, MainComponent, DetailsComponent, PrivacyComponent } from './features/pages';
 
 // Shared Components
 import { HeaderComponent, FooterComponent } from './shared/components';
@@ -24,6 +24,7 @@ import { HeaderComponent, FooterComponent } from './shared/components';
     MainComponent,
     FooterComponent,
     AboutComponent,
+    PrivacyComponent,
   ],
   imports: [
     BrowserModule,
