@@ -14,8 +14,7 @@ import { APP_CONFIG } from '../../../config';
                 animate('800ms ease-out', style({ transform: 'translateX(0)', opacity: 1 }))
             ])
         ])
-    ],
-    standalone: false
+    ]
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private observers: IntersectionObserver[] = [];

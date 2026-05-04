@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { ThemeService } from '../../../core/services';
 import { APP_CONFIG, COMPANY_INFO } from '../../../config';
+import { HeaderComponent } from '../../../shared/components/header/header.component';
+import { FooterComponent } from '../../../shared/components/footer/footer.component';
 
 @Component({
     selector: 'app-privacy',
     templateUrl: './privacy.component.html',
     styleUrls: ['./privacy.component.scss'],
-    standalone: false
+    imports: [HeaderComponent, FooterComponent]
 })
 export class PrivacyComponent {
   appConfig = APP_CONFIG;

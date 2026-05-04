@@ -1,12 +1,13 @@
 import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 import { CounterAnimationService, ThemeService } from '../../../core/services';
 import { APP_CONFIG } from '../../../config';
+import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
     selector: 'app-details',
     templateUrl: './details.component.html',
     styleUrls: ['./details.component.scss'],
-    standalone: false
+    imports: [LucideAngularModule]
 })
 export class DetailsComponent implements OnInit, AfterViewInit {
   private observer: IntersectionObserver | null = null;

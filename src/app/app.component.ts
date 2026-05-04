@@ -2,12 +2,13 @@ import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
 import * as AOS from 'aos';
 import { ThemeService } from './core/services';
 import { APP_CONFIG, ANIMATION_CONFIG, SCROLL_CONFIG } from './config';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    standalone: false
+    imports: [RouterOutlet]
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = APP_CONFIG.appName;

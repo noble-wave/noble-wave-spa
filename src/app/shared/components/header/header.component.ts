@@ -7,8 +7,7 @@ import { APP_CONFIG, NAVIGATION_LINKS } from '../../../config';
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss'],
-    standalone: false
+    styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
   isMobileMenuOpen = false;

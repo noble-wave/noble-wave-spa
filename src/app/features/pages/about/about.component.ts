@@ -6,8 +6,7 @@ import { APP_CONFIG } from '../../../config';
 @Component({
     selector: 'app-about',
     templateUrl: './about.component.html',
-    styleUrls: ['./about.component.scss'],
-    standalone: false
+    styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements AfterViewInit {
   appConfig = APP_CONFIG;
