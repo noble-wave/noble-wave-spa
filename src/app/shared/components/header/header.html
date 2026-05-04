@@ -1,6 +1,13 @@
 <div class="main-div">
   <nav>
-    <div class="logo-container" (click)="scrollToSection('#home')" style="cursor: pointer;">
+    <div
+      class="logo-container"
+      role="button"
+      tabindex="0"
+      (click)="scrollToSection('#home')"
+      (keydown.enter)="scrollToSection('#home')"
+      (keydown.space)="scrollToSection('#home'); $event.preventDefault()"
+      style="cursor: pointer;">
       <img src="assets/noble/NameofCompany.svg" alt="Noble Wave" />
       <span class="company-tagline">{{ appConfig.tagline }}</span>
     </div>
@@ -28,7 +35,14 @@
           </li>
         </ul>
 
-        <div class="mobile-menu-toggle" (click)="toggleMobileMenu()">
+        <div
+          class="mobile-menu-toggle"
+          role="button"
+          tabindex="0"
+          aria-label="Toggle menu"
+          (click)="toggleMobileMenu()"
+          (keydown.enter)="toggleMobileMenu()"
+          (keydown.space)="toggleMobileMenu(); $event.preventDefault()">
           <span></span>
           <span></span>
           <span></span>
@@ -37,13 +51,28 @@
     </div>
 
     <!-- Mobile Menu Backdrop -->
-    <div class="mobile-menu-backdrop" [class.active]="isMobileMenuOpen" (click)="closeMobileMenu()"></div>
+    <div
+      class="mobile-menu-backdrop"
+      role="button"
+      tabindex="-1"
+      aria-label="Close menu"
+      [class.active]="isMobileMenuOpen"
+      (click)="closeMobileMenu()"
+      (keydown.escape)="closeMobileMenu()"></div>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" [class.active]="isMobileMenuOpen">
       <div class="mobile-menu-header">
         <div class="mobile-menu-branding">
-          <img src="assets/noble/NameofCompany.svg" alt="Noble Wave" (click)="scrollToSection('#home')" style="cursor: pointer;" />
+          <img
+            src="assets/noble/NameofCompany.svg"
+            alt="Noble Wave"
+            role="button"
+            tabindex="0"
+            (click)="scrollToSection('#home')"
+            (keydown.enter)="scrollToSection('#home')"
+            (keydown.space)="scrollToSection('#home'); $event.preventDefault()"
+            style="cursor: pointer;" />
           <p class="mobile-menu-subtitle">{{ appConfig.tagline }}</p>
         </div>
         <button class="close-mobile-menu" (click)="closeMobileMenu()">

@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild, inject } from '@angular/core';
 import { CounterAnimationService, ThemeService } from '../../../core/services';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { trigger, style, transition, animate } from '@angular/animations';
 import { APP_CONFIG } from '../../../config';
 
 @Component({
@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     'Innovation Meets Excellence'
   ];
   currentSlide = 0;
-  private slideInterval: any;
+  private slideInterval?: ReturnType<typeof setInterval>;
   isLightMode = true;
   
   ngOnInit(): void {
@@ -70,7 +70,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         video.play().catch(() => {
           // Retry after a short delay
           setTimeout(() => {
-            video.play().catch(() => {});
+            video.play().catch(() => undefined);
           }, 500);
         });
       }
@@ -97,7 +97,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     const video = this.videoElement?.nativeElement;
     if (video) {
       if (video.paused && video.readyState >= 2) {
-        video.play().catch(() => {});
+        video.play().catch(() => undefined);
       }
     }
   }
@@ -127,14 +127,14 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     const video = this.videoElement?.nativeElement;
     if (video) {
       video.style.display = 'none';
-      video.offsetHeight;
+      void video.offsetHeight;
       video.style.display = 'block';
       
       if (video.readyState >= 2) {
-        video.play().catch(() => {});
+        video.play().catch(() => undefined);
       } else {
         video.addEventListener('canplay', () => {
-          video.play().catch(() => {});
+          video.play().catch(() => undefined);
         }, { once: true });
       }
     }
@@ -145,7 +145,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     
     if (video) {
       video.load();
-      video.play().catch(() => {});
+      video.play().catch(() => undefined);
     }
   }
 

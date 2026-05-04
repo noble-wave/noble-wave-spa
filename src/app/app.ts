@@ -17,20 +17,14 @@ export class AppComponent implements OnInit, AfterViewInit {
   currentTheme = 'light';
   showScrollButton = false;
 
-  constructor() {
-    // Subscribe to theme changes
+  ngOnInit() {
     this.themeService.theme$.subscribe(theme => {
       this.currentTheme = theme;
     });
   }
 
-  ngOnInit() {
-    // Initialize AOS after the component loads
-  }
-
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    // Show button when user scrolls down 300px
     this.showScrollButton = window.pageYOffset > 300;
   }
 

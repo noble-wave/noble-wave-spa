@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, inject } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, inject } from '@angular/core';
 import { ThemeService } from '../../../core/services';
 import lottie, { AnimationItem } from 'lottie-web';
 import { APP_CONFIG } from '../../../config';

@@ -206,9 +206,17 @@
 
   <!-- Lightbox -->
   @if (lightboxOpen) {
-    <div class="lightbox-overlay" (click)="toggleLightbox(false)">
+    <div
+      class="lightbox-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Image lightbox"
+      tabindex="0"
+      (click)="toggleLightbox(false)"
+      (keydown.escape)="toggleLightbox(false)">
       <button class="lightbox-btn-close" (click)="toggleLightbox(false)">✕</button>
       <button class="lightbox-btn-prev" (click)="prevImage(); $event.stopPropagation()">‹</button>
+      <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events,@angular-eslint/template/interactive-supports-focus -->
       <img
         [src]="item.images[selectedImageIndex]"
         [alt]="'Fullscreen ' + (selectedImageIndex + 1)"

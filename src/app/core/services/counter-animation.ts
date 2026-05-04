@@ -4,9 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CounterAnimationService {
-
-  constructor() { }
-
   /**
    * Animates a number from start to end value
    * 
