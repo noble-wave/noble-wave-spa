@@ -1,6 +1,7 @@
 {
   "name": "noble-wave",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,8 +9,6 @@
     "build": "ng build",
     "build:prod": "ng build -c production --base-href https://noble-wave.com",
     "dist": "npx angular-cli-ghpages --dir=dist/noble-wave/browser",
-    "dist:ng2": "ng deploy --cname=noble-wave.com --no-silent --branch=gh-pages --base-href=https://noble-wave.com",
-    "dist:ng": "ng deploy --branch=gh-pages --base-href=https://noble-wave.com --no-silent",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
