@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "noble-wave:build:production"
+              "buildTarget": "noble-wave:build:production"
             },
             "development": {
-              "browserTarget": "noble-wave:build:development"
+              "buildTarget": "noble-wave:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "noble-wave:build"
+            "buildTarget": "noble-wave:build"
           }
         },
         "test": {
