@@ -7,3 +7,4 @@ export * from './home/home.component';
 export * from './main/main.component';
 export * from './details/details.component';
 export * from './privacy/privacy.component';
+export * from './terms/terms.component';
