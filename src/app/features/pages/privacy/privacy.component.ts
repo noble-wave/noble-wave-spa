@@ -3,9 +3,10 @@ import { ThemeService } from '../../../core/services';
 import { APP_CONFIG, COMPANY_INFO } from '../../../config';
 
 @Component({
-  selector: 'app-privacy',
-  templateUrl: './privacy.component.html',
-  styleUrls: ['./privacy.component.scss'],
+    selector: 'app-privacy',
+    templateUrl: './privacy.component.html',
+    styleUrls: ['./privacy.component.scss'],
+    standalone: false
 })
 export class PrivacyComponent {
   appConfig = APP_CONFIG;

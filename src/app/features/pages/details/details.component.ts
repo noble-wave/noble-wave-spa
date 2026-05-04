@@ -3,9 +3,10 @@ import { CounterAnimationService, ThemeService } from '../../../core/services';
 import { APP_CONFIG } from '../../../config';
 
 @Component({
-  selector: 'app-details',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss'],
+    selector: 'app-details',
+    templateUrl: './details.component.html',
+    styleUrls: ['./details.component.scss'],
+    standalone: false
 })
 export class DetailsComponent implements OnInit, AfterViewInit {
   private observer: IntersectionObserver | null = null;

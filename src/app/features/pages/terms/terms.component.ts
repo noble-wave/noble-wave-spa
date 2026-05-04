@@ -3,9 +3,10 @@ import { ThemeService } from '../../../core/services';
 import { APP_CONFIG, COMPANY_INFO } from '../../../config';
 
 @Component({
-  selector: 'app-terms',
-  templateUrl: './terms.component.html',
-  styleUrls: ['./terms.component.scss'],
+    selector: 'app-terms',
+    templateUrl: './terms.component.html',
+    styleUrls: ['./terms.component.scss'],
+    standalone: false
 })
 export class TermsComponent {
   appConfig = APP_CONFIG;

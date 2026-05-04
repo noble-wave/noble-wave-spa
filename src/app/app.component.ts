@@ -4,9 +4,10 @@ import { ThemeService } from './core/services';
 import { APP_CONFIG, ANIMATION_CONFIG, SCROLL_CONFIG } from './config';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: false
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = APP_CONFIG.appName;

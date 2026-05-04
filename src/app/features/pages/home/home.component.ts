@@ -4,17 +4,18 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { APP_CONFIG } from '../../../config';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  animations: [
-    trigger('slideAnimation', [
-      transition('* => *', [
-        style({ transform: 'translateX(100%)', opacity: 0 }),
-        animate('800ms ease-out', style({ transform: 'translateX(0)', opacity: 1 }))
-      ])
-    ])
-  ]
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    animations: [
+        trigger('slideAnimation', [
+            transition('* => *', [
+                style({ transform: 'translateX(100%)', opacity: 0 }),
+                animate('800ms ease-out', style({ transform: 'translateX(0)', opacity: 1 }))
+            ])
+        ])
+    ],
+    standalone: false
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private observers: IntersectionObserver[] = [];
