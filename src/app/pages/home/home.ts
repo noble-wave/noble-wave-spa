@@ -104,14 +104,28 @@ import { TechMarquee } from '../../shared/ui/tech-marquee';
         </div>
         <div>
           <nw-section-heading eyebrow="Why Noble Wave" title="Built around your" accent="business" />
-          <img
-            src="images/teamwork1.jpg"
-            alt="The Noble Wave team collaborating"
-            class="mt-8 aspect-[16/10] w-full rounded-3xl border border-border object-cover"
-            width="800"
-            height="500"
-            loading="lazy"
-          />
+          <div class="pv mt-8 aspect-[16/10]" style="--glow: 14 116 144">
+            <img
+              class="pv-phone"
+              src="images/story/salah-prayer-times.webp"
+              alt="Noble Salah Guide: prayer times and a countdown to the next prayer"
+              style="--x:9%;--y:-26%;--h:122%;--r:-5deg;z-index:1"
+              width="560"
+              height="1214"
+              loading="lazy"
+              decoding="async"
+            />
+            <img
+              class="pv-phone"
+              src="images/story/rent-portfolio.webp"
+              alt="Rent Manager: a portfolio of properties with rent collected"
+              style="--x:50%;--y:-34%;--h:116%;--r:5deg;z-index:2"
+              width="516"
+              height="1070"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <ul class="mt-6 grid gap-4 sm:grid-cols-2">
             @for (w of principles; track w.title) {
               <li class="flex items-start gap-3">
