@@ -484,19 +484,70 @@
     color: var(--muted);
   }
 
+  /* Contact page */
+  .contact-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    box-shadow: 0 1px 2px hsl(var(--shadow-color) / 0.05);
+  }
+  @media (min-width: 40rem) {
+    .contact-card {
+      padding: 1.75rem 2rem;
+    }
+  }
+  .contact-list {
+    border-top: 1px solid var(--border);
+  }
+  .contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding-block: 0.9rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .contact-icon {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.6rem;
+    color: var(--brand);
+    background: color-mix(in srgb, var(--brand) 12%, transparent);
+  }
+  .contact-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+  }
+  .contact-value {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+  a.contact-value:hover {
+    color: var(--brand);
+  }
+
   /* Forms */
   .field-label {
     display: block;
-    margin-bottom: 0.4rem;
-    font-size: 0.875rem;
-    font-weight: 700;
+    margin-bottom: 0.3rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
   }
   .field {
     width: 100%;
-    min-height: 2.9rem;
-    padding: 0.65rem 1rem;
+    min-height: 2.65rem;
+    padding: 0.5rem 0.8rem;
     border: 1px solid var(--border);
-    border-radius: 0.9rem;
+    border-radius: 0.6rem;
+    font-size: 0.9375rem;
     background: var(--bg);
     color: var(--text);
     font: inherit;

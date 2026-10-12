@@ -15,35 +15,42 @@ type Status = 'idle' | 'sending' | 'sent' | 'mailto' | 'error';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section class="page-glow">
-      <div class="container-page py-16 sm:py-20 lg:py-24">
+      <div class="container-page py-10 sm:py-14 lg:py-16">
         <p class="eyebrow">Contact</p>
-        <h1 class="h-display mt-5 max-w-4xl">Questions, feedback or <span class="gradient-text">a project idea?</span></h1>
-        <p class="lead mt-6">Ask about our apps, report a problem or talk to us about working together. We reply within one business day.</p>
+        <h1 class="h-display mt-4 max-w-4xl">Questions, feedback or <span class="gradient-text">a project idea?</span></h1>
+        <p class="lead mt-4">Ask about our apps, report a problem or talk to us about working together. We reply within one business day.</p>
       </div>
     </section>
 
-    <section class="section !pt-4">
-      <div class="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
-        <div class="space-y-4">
-          <a class="card card-interactive flex items-start gap-4 !p-5" [href]="'mailto:' + site.email">
-            <span class="icon-tile"><nw-icon name="mail" /></span>
-            <span><span class="block text-sm text-muted">Email</span><span class="font-semibold">{{ site.email }}</span></span>
-          </a>
-          <a class="card card-interactive flex items-start gap-4 !p-5" [href]="'tel:' + site.phone">
-            <span class="icon-tile"><nw-icon name="phone" /></span>
-            <span><span class="block text-sm text-muted">Phone</span><span class="font-semibold">{{ site.phoneDisplay }}</span></span>
-          </a>
-          <div class="card flex items-start gap-4 !p-5">
-            <span class="icon-tile"><nw-icon name="map-pin" /></span>
-            <span><span class="block text-sm text-muted">Studio</span><span class="font-semibold">{{ site.location }}</span></span>
-          </div>
-        </div>
+    <section class="section !pt-2 !pb-12 sm:!pb-16">
+      <div class="container-page grid items-start gap-8 lg:grid-cols-[minmax(0,19rem)_minmax(0,1fr)] lg:gap-12">
+        <aside aria-label="Contact details">
+          <h2 class="text-base font-bold">Get in touch</h2>
+          <ul class="contact-list mt-4">
+            <li>
+              <span class="contact-icon"><nw-icon name="mail" [size]="18" /></span>
+              <span><span class="contact-label">Email</span><a class="contact-value" [href]="'mailto:' + site.email">{{ site.email }}</a></span>
+            </li>
+            <li>
+              <span class="contact-icon"><nw-icon name="phone" [size]="18" /></span>
+              <span><span class="contact-label">Phone</span><a class="contact-value" [href]="'tel:' + site.phone">{{ site.phoneDisplay }}</a></span>
+            </li>
+            <li>
+              <span class="contact-icon"><nw-icon name="map-pin" [size]="18" /></span>
+              <span><span class="contact-label">Location</span><span class="contact-value">{{ site.location }}</span></span>
+            </li>
+            <li>
+              <span class="contact-icon"><nw-icon name="clock" [size]="18" /></span>
+              <span><span class="contact-label">Response time</span><span class="contact-value">Within one business day</span></span>
+            </li>
+          </ul>
+        </aside>
 
-        <div class="card !p-6 sm:!p-9">
+        <div class="contact-card">
           @if (status() === 'sent' || status() === 'mailto') {
-            <div role="status" class="py-10 text-center">
-              <span class="icon-tile !h-14 !w-14 !rounded-full"><nw-icon name="check" [size]="28" /></span>
-              <h2 class="mt-6 text-2xl">
+            <div role="status" class="py-8 text-center">
+              <span class="icon-tile !h-12 !w-12"><nw-icon name="check" [size]="24" /></span>
+              <h2 class="mt-5 text-xl">
                 {{ status() === 'sent' ? 'Message sent' : 'Your email app should open' }}
               </h2>
               <p class="mx-auto mt-3 max-w-md text-muted">
@@ -58,8 +65,9 @@ type Status = 'idle' | 'sending' | 'sent' | 'mailto' | 'error';
             </div>
           } @else {
             <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
-              <h2 class="text-2xl">Send us a message</h2>
-              <div class="mt-6 grid gap-5 sm:grid-cols-2">
+              <h2 class="text-xl">Send us a message</h2>
+              <p class="mt-1 text-sm text-muted">Fields marked * are required.</p>
+              <div class="mt-5 grid gap-4 sm:grid-cols-2">
                 <div>
                   <label for="c-name" class="field-label">Name <span aria-hidden="true">*</span></label>
                   <input id="c-name" class="field" formControlName="name" autocomplete="name" required [attr.aria-invalid]="invalid('name')" aria-describedby="c-name-err" />
@@ -86,9 +94,9 @@ type Status = 'idle' | 'sending' | 'sent' | 'mailto' | 'error';
                   </select>
                 </div>
               </div>
-              <div class="mt-5">
+              <div class="mt-4">
                 <label for="c-message" class="field-label">Your message <span aria-hidden="true">*</span></label>
-                <textarea id="c-message" rows="6" class="field" formControlName="message" required [attr.aria-invalid]="invalid('message')" aria-describedby="c-message-err"></textarea>
+                <textarea id="c-message" rows="5" class="field" formControlName="message" required [attr.aria-invalid]="invalid('message')" aria-describedby="c-message-err"></textarea>
                 @if (invalid('message')) { <p id="c-message-err" class="field-error">Please add a few details (at least 10 characters).</p> }
               </div>
 
@@ -105,8 +113,8 @@ type Status = 'idle' | 'sending' | 'sent' | 'mailto' | 'error';
                 </p>
               }
 
-              <div class="mt-7 flex flex-wrap items-center gap-4">
-                <button type="submit" class="btn btn-primary" [disabled]="status() === 'sending'">
+              <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
+                <button type="submit" class="btn btn-primary !min-h-11 !px-6" [disabled]="status() === 'sending'">
                   {{ status() === 'sending' ? 'Sending…' : 'Send message' }}
                   <nw-icon name="arrow-right" />
                 </button>
