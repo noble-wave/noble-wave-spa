@@ -31,13 +31,13 @@ const PRIVACY: LegalDoc = {
       heading: 'What we collect',
       paragraphs: ['We collect only what you choose to send us and the minimum technical data needed to run the site.'],
       list: [
-        'Contact details and project information you enter in the contact form (name, email address, optional phone number, service of interest and your message).',
+        'Contact details and project information you enter in the contact form (name, email address, optional phone number, topic of interest and your message).',
         'Standard technical logs created by our hosting provider, such as IP address, browser type and pages requested.',
       ],
     },
     {
       heading: 'How we use it',
-      paragraphs: ['We use contact form details to reply to your enquiry and to discuss a possible project. We do not sell your information and we do not use it for advertising.'],
+      paragraphs: ['We use contact form details to reply to your message and, if you ask, to discuss a possible project. We do not sell your information and we do not use it for advertising.'],
     },
     {
       heading: 'Cookies and tracking',

@@ -81,10 +81,10 @@ export interface Step {
 }
 
 export const PROCESS: readonly Step[] = [
-  { title: 'Discover', text: 'We learn your goals, users and constraints before proposing anything.' },
-  { title: 'Design', text: 'Clickable prototypes, so you see the product before we build it.' },
-  { title: 'Build', text: 'Short iterations with a working demo at the end of each one.' },
-  { title: 'Launch and support', text: 'Deployment, monitoring and continued improvements once you are live.' },
+  { title: 'Start with a real problem', text: 'Every app begins with something people do every day and find harder than it should be.' },
+  { title: 'Design it simply', text: 'We keep screens clear and tools easy to find, so a new user can get going without a manual.' },
+  { title: 'Build and release', text: 'We build in small steps, test as we go and release on the web and, where it fits, on Android.' },
+  { title: 'Keep improving', text: 'We run the apps ourselves, listen to feedback and keep fixing and adding things after launch.' },
 ];
 
 export interface Principle {
@@ -94,19 +94,19 @@ export interface Principle {
 }
 
 export const PRINCIPLES: readonly Principle[] = [
-  { icon: 'users', title: 'A hands-on team', text: 'You talk to the people building your product, not an account manager.' },
-  { icon: 'layout', title: 'User-centred design', text: 'We design around how people actually work, so the product gets used.' },
-  { icon: 'shield-check', title: 'Secure and scalable', text: 'Sound architecture and secure defaults that grow with your business.' },
-  { icon: 'headphones', title: 'Support after launch', text: 'Maintenance, monitoring and updates once you are live.' },
+  { icon: 'users', title: 'Built by a small team', text: 'The people who build each app also support it, so feedback goes straight to them.' },
+  { icon: 'layout', title: 'Simple to use', text: 'Clear screens and the tools you need up front, designed around everyday tasks.' },
+  { icon: 'shield-check', title: 'Privacy respected', text: 'PDF Workshop processes your files in your browser, so they never leave your device.' },
+  { icon: 'check', title: 'Free to use', text: 'PDF Workshop, Noble Salah Guide and Rent Manager are all free.' },
 ];
 
 export const VALUES: readonly Principle[] = [
-  { icon: 'code', title: 'Clean code', text: 'Readable, tested code that your team can pick up and carry forward.' },
-  { icon: 'users', title: 'Client-focused', text: 'Your business goals decide what we build and how we build it.' },
-  { icon: 'clock', title: 'Reliable delivery', text: 'Clear milestones and regular demos keep projects on track.' },
-  { icon: 'headphones', title: 'Clear communication', text: 'Plain language, honest status and no surprises.' },
-  { icon: 'compass', title: 'Always learning', text: 'We keep our skills and tools current so your product does not age.' },
-  { icon: 'check', title: 'Fair pricing', text: 'Transparent scope and pricing, agreed before work begins.' },
+  { icon: 'layout', title: 'Simple first', text: 'If a new user needs a manual, we have more design work to do.' },
+  { icon: 'shield-check', title: 'Respect for privacy', text: 'We collect as little as we can and keep your files on your own device where possible.' },
+  { icon: 'check', title: 'Free to use', text: 'Our current apps are free, with no paywalled basics.' },
+  { icon: 'code', title: 'Clean, tested code', text: 'Readable code and regular releases keep the apps fast and dependable.' },
+  { icon: 'headphones', title: 'We answer', text: 'Tell us what is broken or missing. A real person replies within one business day.' },
+  { icon: 'compass', title: 'Always improving', text: 'We keep updating the apps and our tools so nothing gets left behind.' },
 ];
 
 export interface TechGroup {
@@ -123,32 +123,35 @@ export const TECH_GROUPS: readonly TechGroup[] = [
 ];
 
 export const MISSION =
-  'To build reliable, user-friendly web applications and digital solutions that help businesses establish their online presence and connect with their customers effectively. We focus on quality work that meets real business needs.';
+  'To build simple, dependable apps that make everyday tasks easier, and to treat the people who use them with respect.';
 
 export const VISION =
-  'To become a trusted technology partner for businesses, helping them grow through well-crafted digital solutions. We aim to build lasting relationships based on quality work and reliable service.';
+  'To be known for a small family of well-made, useful apps that people open every day and recommend to others.';
 
 export interface FaqItem {
   readonly q: string;
   readonly a: string;
 }
 
-/** TODO(content): confirm these answers match how Noble Wave really works. */
 export const FAQ: readonly FaqItem[] = [
   {
-    q: 'How do we get started?',
-    a: 'Send us a short description of your project through the contact form. We reply within one business day to arrange a discovery call.',
+    q: 'Are your apps free?',
+    a: 'Yes. PDF Workshop, Noble Salah Guide and Rent Manager are all free to use.',
   },
   {
-    q: 'Can you work with our existing codebase?',
-    a: 'Yes. We can review what you have, fix and extend it, or plan a gradual modernisation.',
+    q: 'Where can I use them?',
+    a: 'All three run in your web browser, so there is nothing to install. Noble Salah Guide is also available on Google Play for Android.',
   },
   {
-    q: 'How do you price projects?',
-    a: 'After discovery we propose a fixed scope or a time-and-materials plan, whichever suits the project, and agree it before work begins.',
+    q: 'Are my PDF files uploaded anywhere?',
+    a: 'No. PDF Workshop does its work in your browser, so your files stay on your device. There is no upload step.',
   },
   {
-    q: 'What happens after launch?',
-    a: 'We offer maintenance, monitoring and feature work, so your product keeps improving.',
+    q: 'How do I report a problem or suggest a feature?',
+    a: 'Send us a message through the contact form or email us. We read everything and reply within one business day.',
+  },
+  {
+    q: 'Can you build something for my business?',
+    a: 'This site is about our own apps. If you have a project in mind, send us a message and we will tell you whether and how we can help.',
   },
 ];

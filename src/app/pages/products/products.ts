@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { PRODUCTS } from '../../core/products.config';
 import { SeoService } from '../../core/seo.service';
+import { productListData } from '../../core/structured-data';
 import { CtaBanner } from '../../shared/ui/cta-banner';
 import { ProductFeature } from '../../shared/ui/product-feature';
 
@@ -16,7 +17,7 @@ import { ProductFeature } from '../../shared/ui/product-feature';
           Apps we <span class="gradient-text">built, launched</span> and still run
         </h1>
         <p class="lead mt-6">
-          Alongside client projects we build and operate our own products. Try them yourself: all of them are live today.
+          We build, host and support these apps ourselves, and all of them are free to use. Open one and try it.
         </p>
       </div>
     </section>
@@ -29,7 +30,7 @@ import { ProductFeature } from '../../shared/ui/product-feature';
       </div>
     </section>
 
-    <nw-cta-banner title="Want a product like these?" text="We can build and launch yours the same way, from the first prototype to the store listing." />
+    <nw-cta-banner title="Have feedback on our apps?" text="Tell us what works, what does not and what you would like to see next." />
   `,
 })
 export class Products {
@@ -37,10 +38,11 @@ export class Products {
 
   constructor() {
     inject(SeoService).set({
-      title: 'Products',
+      title: 'Products: PDF Workshop, Noble Salah Guide, Rent Manager',
       description:
         'PDF Workshop for private, in-browser PDF tools, Noble Salah Guide for prayer times and Islamic tools, and Rent Manager for landlords: apps built and run by Noble Wave.',
       path: '/products',
+      jsonLd: productListData(),
     });
   }
 }

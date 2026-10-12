@@ -25,6 +25,10 @@ export interface Product {
   readonly device: 'phone' | 'desktop';
   readonly tagline: string;
   readonly description: string;
+  /** schema.org applicationCategory, used in the SoftwareApplication structured data. */
+  readonly category: 'BusinessApplication' | 'UtilitiesApplication' | 'LifestyleApplication';
+  /** True when the product is free to use; it adds a zero-price offer to the structured data. */
+  readonly free?: boolean;
   /** Short platform badges shown next to the name. */
   readonly platforms: readonly string[];
   readonly features: readonly string[];
@@ -40,6 +44,8 @@ export const PRODUCTS: readonly Product[] = [
     id: 'pdf-workshop',
     name: 'PDF Workshop',
     device: 'desktop',
+    category: 'BusinessApplication',
+    free: true,
     tagline: 'Every PDF job, done on your own machine',
     description:
       'PDF Workshop is a free web app with close to 100 tools for working with PDFs: merge, edit, sign, convert and make scans searchable. Everything runs in your browser, so your files never leave your device.',
@@ -71,9 +77,11 @@ export const PRODUCTS: readonly Product[] = [
     id: 'noble-salah',
     name: 'Noble Salah Guide',
     device: 'phone',
+    category: 'LifestyleApplication',
+    free: true,
     tagline: 'Prayer times, Qibla and daily Islamic tools in one app',
     description:
-      'Noble Salah Guide helps you keep up with your daily prayers. See accurate prayer times and a countdown to the next prayer, then use the built-in tools for Qibla, the Quran, hadith, the Islamic calendar and more.',
+      'Noble Salah Guide is a free app that helps you keep up with your daily prayers. See accurate prayer times and a countdown to the next prayer, then use the built-in tools for Qibla, the Quran, hadith, the Islamic calendar and more.',
     platforms: ['Web', 'Android'],
     features: [
       'Accurate prayer times with a next-prayer countdown',
@@ -109,9 +117,11 @@ export const PRODUCTS: readonly Product[] = [
     id: 'rent-manager',
     name: 'Rent Manager',
     device: 'phone',
+    category: 'BusinessApplication',
+    free: true,
     tagline: 'Manage your rentals, hassle free',
     description:
-      'Rent Manager keeps landlords organised. Track properties, units and tenants, record rent and utility bills, see who has paid and who still owes, and get reminders before payments are due.',
+      'Rent Manager is a free web app that keeps landlords organised. Track properties, units and tenants, record rent and utility bills, see who has paid and who still owes, and get reminders before payments are due.',
     platforms: ['Web'],
     features: [
       'Houses, apartments, shops and PG properties',

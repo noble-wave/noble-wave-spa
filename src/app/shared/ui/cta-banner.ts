@@ -5,9 +5,9 @@ import { Icon } from './icon';
 
 /** What a visitor can expect after getting in touch. Matches the promises made on the Contact page and FAQ. */
 const NEXT_STEPS = [
-  { title: 'Tell us about it', text: 'Share what you are building and where you are stuck.' },
+  { title: 'Say hello', text: 'Ask about an app, report a problem, suggest a feature or tell us about a project.' },
   { title: 'We reply within a day', text: 'A real person answers within one business day.' },
-  { title: 'Agree a plan', text: 'We agree scope and approach before any work begins.' },
+  { title: 'We follow through', text: 'We fix the issue, answer the question or agree the next step with you.' },
 ] as const;
 
 /** Full-width call to action that closes most pages. */
@@ -27,7 +27,7 @@ const NEXT_STEPS = [
             <p class="mt-4 max-w-xl text-lg opacity-90">{{ text() }}</p>
             <div class="mt-8 flex flex-wrap items-center gap-3">
               <a routerLink="/contact" class="btn bg-bg text-text hover:opacity-90">
-                Start a project <nw-icon name="arrow-right" />
+                Contact us <nw-icon name="arrow-right" />
               </a>
               <a [href]="'mailto:' + site.email" class="btn border-white/40 text-on-brand hover:bg-white/10">
                 <nw-icon name="mail" /> {{ site.email }}
@@ -57,6 +57,6 @@ const NEXT_STEPS = [
 export class CtaBanner {
   protected readonly site = SITE;
   protected readonly steps = NEXT_STEPS;
-  readonly title = input('Have a project in mind?');
-  readonly text = input('Tell us what you are building. We reply within one business day.');
+  readonly title = input('Questions or feedback?');
+  readonly text = input('Ask about our apps, tell us what you would like to see next, or talk to us about a project. We reply within one business day.');
 }

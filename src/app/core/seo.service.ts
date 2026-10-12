@@ -10,7 +10,10 @@ export interface PageMeta {
   /** Path starting with "/", used for the canonical URL and social URL. */
   readonly path: string;
   readonly image?: string;
+  readonly imageAlt?: string;
   readonly noindex?: boolean;
+  /** Structured data (schema.org JSON-LD) for this page, replacing the previous page's. */
+  readonly jsonLd?: readonly object[];
 }
 
 /** Sets the document title, description, canonical link and social-card tags for each page. */
@@ -30,6 +33,11 @@ export class SeoService {
     this.meta.updateTag({ name: 'robots', content: page.noindex ? 'noindex, nofollow' : 'index, follow' });
 
     this.meta.updateTag({ property: 'og:type', content: 'website' });
+    this.meta.updateTag({ property: 'og:locale', content: 'en_IN' });
+    this.meta.updateTag({ property: 'og:image:width', content: '1200' });
+    this.meta.updateTag({ property: 'og:image:height', content: '630' });
+    this.meta.updateTag({ property: 'og:image:alt', content: page.imageAlt ?? `${SITE.name}: ${SITE.tagline}` });
+    this.meta.updateTag({ name: 'twitter:image:alt', content: page.imageAlt ?? `${SITE.name}: ${SITE.tagline}` });
     this.meta.updateTag({ property: 'og:site_name', content: SITE.name });
     this.meta.updateTag({ property: 'og:title', content: fullTitle });
     this.meta.updateTag({ property: 'og:description', content: page.description });
@@ -47,5 +55,19 @@ export class SeoService {
       this.doc.head.appendChild(link);
     }
     link.setAttribute('href', url);
+
+    this.setJsonLd(page.jsonLd ?? []);
+  }
+
+  private setJsonLd(items: readonly object[]): void {
+    this.doc.querySelectorAll('script[data-nw-jsonld]').forEach((el) => el.remove());
+    for (const item of items) {
+      const script = this.doc.createElement('script');
+      script.setAttribute('type', 'application/ld+json');
+      script.setAttribute('data-nw-jsonld', '');
+      // "<" is escaped so structured data can never close the script tag.
+      script.textContent = JSON.stringify({ '@context': 'https://schema.org', ...item }).replace(/</g, '\\u003c');
+      this.doc.head.appendChild(script);
+    }
   }
 }

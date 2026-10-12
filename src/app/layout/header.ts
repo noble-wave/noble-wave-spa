@@ -34,7 +34,7 @@ import { Icon } from '../shared/ui/icon';
         </nav>
 
         <div class="flex items-center gap-1.5">
-          <a routerLink="/contact" class="btn btn-primary hidden !min-h-10 sm:inline-flex">Get started</a>
+          <a routerLink="/contact" class="btn btn-primary hidden !min-h-10 sm:inline-flex">Contact us</a>
           <button
             type="button"
             class="btn btn-ghost !min-h-10 !px-3 lg:hidden"
@@ -64,7 +64,7 @@ import { Icon } from '../shared/ui/icon';
                 >{{ l.label }}</a
               >
             }
-            <a routerLink="/contact" class="btn btn-primary mt-2 w-full">Get started</a>
+            <a routerLink="/contact" class="btn btn-primary mt-2 w-full">Contact us</a>
           </div>
         </nav>
       }

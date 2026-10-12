@@ -18,15 +18,15 @@ import { TechIcon } from '../../shared/ui/tech-icon';
         <div>
           <p class="eyebrow">About us</p>
           <h1 class="h-display mt-5">
-            A software studio that <span class="gradient-text">builds and runs</span> its own products
+            A small team that <span class="gradient-text">builds and runs</span> its own apps
           </h1>
           <p class="lead mt-6">
-            {{ site.name }} is a technology partner based in {{ site.location }}. We help businesses turn ideas into
-            software people use, from the first sketch to the store listing and the support after.
+            {{ site.name }} is based in {{ site.location }}. We make free apps for everyday needs: working with PDFs,
+            keeping up with daily prayers and managing rentals. We build, host and support each one ourselves.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
-            <a routerLink="/contact" class="btn btn-primary">Work with us <nw-icon name="arrow-right" /></a>
-            <a routerLink="/products" class="btn btn-secondary">Our products</a>
+            <a routerLink="/products" class="btn btn-primary">See our products <nw-icon name="arrow-right" /></a>
+            <a routerLink="/contact" class="btn btn-secondary">Get in touch</a>
           </div>
         </div>
         <img
@@ -57,7 +57,7 @@ import { TechIcon } from '../../shared/ui/tech-icon';
 
     <section class="section section-alt">
       <div class="container-page">
-        <nw-section-heading eyebrow="What drives us" title="Values we" accent="work by" [center]="true" />
+        <nw-section-heading eyebrow="What drives us" title="What we" accent="care about" [center]="true" />
         <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           @for (v of values; track v.title) {
             <article class="card reveal">
@@ -72,7 +72,7 @@ import { TechIcon } from '../../shared/ui/tech-icon';
 
     <section class="section">
       <div class="container-page">
-        <nw-section-heading eyebrow="How we work" title="From first call to" accent="live product" [center]="true" />
+        <nw-section-heading eyebrow="How we build" title="From an everyday problem to a" accent="live app" [center]="true" />
         <ol class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           @for (s of process; track s.title; let i = $index) {
             <li class="rounded-[var(--radius-card)] border border-border bg-bg p-6">
@@ -87,7 +87,7 @@ import { TechIcon } from '../../shared/ui/tech-icon';
 
     <section class="section section-alt">
       <div class="container-page">
-        <nw-section-heading eyebrow="Technology" title="Tools we use" accent="every day" [center]="true" />
+        <nw-section-heading eyebrow="Technology" title="Tools we build with" accent="every day" [center]="true" />
         <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           @for (g of tech; track g.label) {
             <div>
@@ -116,8 +116,8 @@ export class About {
 
   constructor() {
     inject(SeoService).set({
-      title: 'About us',
-      description: `${SITE.name} is a software studio in ${SITE.location} that designs, builds and runs web, mobile and cloud products.`,
+      title: 'About Noble Wave',
+      description: `${SITE.name} is a small product team in ${SITE.location} that designs, builds and runs the apps we ship: PDF Workshop, Noble Salah Guide and Rent Manager.`,
       path: '/about',
     });
   }

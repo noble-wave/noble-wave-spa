@@ -17,8 +17,8 @@ type Status = 'idle' | 'sending' | 'sent' | 'mailto' | 'error';
     <section class="page-glow">
       <div class="container-page py-16 sm:py-20 lg:py-24">
         <p class="eyebrow">Contact</p>
-        <h1 class="h-display mt-5 max-w-4xl">Let's talk about <span class="gradient-text">your project</span></h1>
-        <p class="lead mt-6">Tell us what you are building and where you are stuck. We reply within one business day.</p>
+        <h1 class="h-display mt-5 max-w-4xl">Questions, feedback or <span class="gradient-text">a project idea?</span></h1>
+        <p class="lead mt-6">Ask about our apps, report a problem or talk to us about working together. We reply within one business day.</p>
       </div>
     </section>
 
@@ -77,7 +77,8 @@ type Status = 'idle' | 'sending' | 'sent' | 'mailto' | 'error';
                 <div>
                   <label for="c-service" class="field-label">I am interested in</label>
                   <select id="c-service" class="field" formControlName="service">
-                    <option value="">Choose a service</option>
+                    <option value="">Choose a topic</option>
+                    <option value="A question about one of our products">A question about one of our products</option>
                     @for (s of services; track s.id) {
                       <option [value]="s.title">{{ s.title }}</option>
                     }
@@ -86,7 +87,7 @@ type Status = 'idle' | 'sending' | 'sent' | 'mailto' | 'error';
                 </div>
               </div>
               <div class="mt-5">
-                <label for="c-message" class="field-label">Project details <span aria-hidden="true">*</span></label>
+                <label for="c-message" class="field-label">Your message <span aria-hidden="true">*</span></label>
                 <textarea id="c-message" rows="6" class="field" formControlName="message" required [attr.aria-invalid]="invalid('message')" aria-describedby="c-message-err"></textarea>
                 @if (invalid('message')) { <p id="c-message-err" class="field-error">Please add a few details (at least 10 characters).</p> }
               </div>
@@ -140,7 +141,7 @@ export class Contact {
   constructor() {
     inject(SeoService).set({
       title: 'Contact',
-      description: `Get in touch with ${SITE.name} about your software project. We reply within one business day.`,
+      description: `Contact ${SITE.name}: ask about PDF Workshop, Noble Salah Guide or Rent Manager, or talk to us about a project. Email, phone or the form; we reply within one business day.`,
       path: '/contact',
     });
   }

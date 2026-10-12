@@ -19,7 +19,7 @@ describe('SeoService', () => {
 
   it('uses the tagline as the title on the home page', () => {
     TestBed.inject(SeoService).set({ description: 'Home.', path: '/' });
-    expect(TestBed.inject(DOCUMENT).title).toContain('Your Trusted IT Development Partner');
+    expect(TestBed.inject(DOCUMENT).title).toContain('Useful apps for PDFs, prayer and rentals');
   });
 
   it('marks noindex pages and reuses a single canonical link', () => {
@@ -30,5 +30,24 @@ describe('SeoService', () => {
 
     expect(meta('meta[name="robots"]')).toBe('noindex, nofollow');
     expect(doc.querySelectorAll('link[rel="canonical"]').length).toBe(1);
+  });
+
+  it('replaces structured data on each page and escapes script-closing characters', () => {
+    const seo = TestBed.inject(SeoService);
+    const doc = TestBed.inject(DOCUMENT);
+    seo.set({ description: 'a', path: '/', jsonLd: [{ '@type': 'Organization', name: 'A</script>' }] });
+    seo.set({ description: 'b', path: '/b', jsonLd: [{ '@type': 'WebSite' }, { '@type': 'ItemList' }] });
+
+    const scripts = [...doc.querySelectorAll('script[type="application/ld+json"]')];
+    expect(scripts.length).toBe(2);
+    expect(JSON.parse(scripts[0].textContent!)['@context']).toBe('https://schema.org');
+
+    seo.set({ description: 'c', path: '/c', jsonLd: [{ '@type': 'Organization', name: 'x</script>y' }] });
+    const text = doc.querySelector('script[type="application/ld+json"]')!.textContent!;
+    expect(text).not.toContain('</script>');
+    expect(JSON.parse(text).name).toBe('x</script>y');
+
+    seo.set({ description: 'd', path: '/d' });
+    expect(doc.querySelectorAll('script[type="application/ld+json"]').length).toBe(0);
   });
 });

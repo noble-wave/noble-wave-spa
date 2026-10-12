@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { PLAY_QR } from '../../core/qr';
 import { PRODUCTS } from '../../core/products.config';
 import { SeoService } from '../../core/seo.service';
+import { productData, productOgImage } from '../../core/structured-data';
 import { CtaBanner } from '../../shared/ui/cta-banner';
 import { Icon } from '../../shared/ui/icon';
 import { ProductVisual } from '../../shared/ui/product-visual';
@@ -102,7 +103,7 @@ import { NotFound } from '../not-found/not-found';
         </div>
       </section>
 
-      <nw-cta-banner title="Want something like this for your business?" text="We build and launch products the same way we built this one." />
+      <nw-cta-banner [title]="'Questions about ' + p.name + '?'" text="Send us feedback, report a problem or ask how it works. We reply within one business day." />
     } @else {
       <nw-not-found />
     }
@@ -123,10 +124,23 @@ export class ProductDetail {
       if (p) {
         this.seo.set({
           title: p.name,
-          description: `${p.name}: ${p.tagline}. ${p.description}`,
+          description: seoDescription(p),
           path: `/products/${p.id}`,
+          image: productOgImage(p),
+          imageAlt: `${p.name} on ${p.device === 'desktop' ? 'a laptop' : 'a phone'}: ${p.tagline}`,
+          jsonLd: productData(p),
         });
       }
     });
   }
+}
+
+/** Meta descriptions read best under about 160 characters, so lead with the tagline and trim the rest. */
+function seoDescription(p: { name: string; tagline: string; description: string }): string {
+  const text = `${p.name}: ${p.tagline}. ${p.description}`;
+  if (text.length <= 160) {
+    return text;
+  }
+  const cut = text.slice(0, 157);
+  return cut.slice(0, cut.lastIndexOf(' ')) + '…';
 }

@@ -1,27 +1,35 @@
 /**
  * Single source of truth for company details. Pages, header, footer and SEO
  * metadata all read from here, so a change is made in exactly one place.
- *
- * TODO(content): email and phone were carried over from the old site and have not
- * been confirmed as current.
  */
 export const SITE = {
   name: 'Noble Wave',
-  tagline: 'Your Trusted IT Development Partner',
+  tagline: 'Useful apps for PDFs, prayer and rentals',
   description:
-    'Noble Wave designs and builds custom software, web and mobile apps, and cloud solutions for businesses from New Delhi, India.',
+    'Noble Wave builds apps people use daily: PDF Workshop for private PDF tools, Noble Salah Guide for prayer times and Rent Manager for landlords. Made in New Delhi.',
   url: 'https://noble-wave.com',
   email: 'info@noble-wave.com',
   phone: '+918448462846',
   phoneDisplay: '+91 84484 62846',
   location: 'New Delhi, India',
-  /** Image used for link previews (Open Graph / Twitter cards). */
-  ogImage: '/images/about1.jpg',
+  /** Default image for link previews (Open Graph / Twitter cards), 1200x630. See scripts/make-og.mjs. */
+  ogImage: '/images/og/default.png',
   /**
-   * Contact form endpoint (for example a Formspree or Web3Forms URL that accepts a JSON POST).
-   * While this is empty the form falls back to opening the visitor's email app, pre-filled.
+   * Public profile URLs (LinkedIn, GitHub, X ...). They go into the Organization structured data
+   * as `sameAs` so search engines can link the brand to its profiles. Empty until profiles exist.
    */
-  formEndpoint: '',
+  social: [] as readonly string[],
+} as const;
+
+/**
+ * EmailJS settings for the contact form (https://www.emailjs.com). The public key is meant to be
+ * visible in the browser; restrict it to noble-wave.com under Account > Security in the EmailJS
+ * dashboard. While any value is empty the form falls back to opening the visitor's email app.
+ */
+export const EMAILJS = {
+  serviceId: '',
+  templateId: '',
+  publicKey: '',
 } as const;
 
 export interface NavLink {

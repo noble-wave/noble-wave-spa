@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { PRINCIPLES, PROCESS } from '../../core/content.config';
 import { PRODUCTS } from '../../core/products.config';
 import { SeoService } from '../../core/seo.service';
+import { organizationData } from '../../core/structured-data';
 import { SITE } from '../../core/site.config';
 import { CtaBanner } from '../../shared/ui/cta-banner';
 import { Faq } from '../../shared/ui/faq';
@@ -20,17 +21,17 @@ import { TechMarquee } from '../../shared/ui/tech-marquee';
     <section class="page-glow relative overflow-hidden">
       <div class="container-page grid items-center gap-12 pb-20 pt-14 lg:grid-cols-[1.1fr_0.9fr] lg:pb-28 lg:pt-24">
         <div>
-          <p class="eyebrow">IT development partner · {{ site.location }}</p>
+          <p class="eyebrow">Apps made in {{ site.location }}</p>
           <h1 class="h-display mt-5">
-            Ride the wave of <span class="gradient-text">better software</span>
+            Everyday apps that <span class="gradient-text">just work</span>
           </h1>
           <p class="lead mt-6">
-            We design, build and run web, mobile and cloud products, so your team can focus on the business
-            instead of the plumbing.
+            Noble Wave builds free apps for the things people do every day: working with PDFs, keeping up with
+            prayers and managing rentals. Open one in your browser today.
           </p>
           <div class="mt-9 flex flex-wrap gap-3">
-            <a routerLink="/contact" class="btn btn-primary">Start a project <nw-icon name="arrow-right" /></a>
-            <a routerLink="/products" class="btn btn-secondary">See our products</a>
+            <a routerLink="/products" class="btn btn-primary">See our products <nw-icon name="arrow-right" /></a>
+            <a routerLink="/contact" class="btn btn-secondary">Contact us</a>
           </div>
         </div>
 
@@ -38,14 +39,14 @@ import { TechMarquee } from '../../shared/ui/tech-marquee';
           <div class="hero-card float-slow p-5" aria-hidden="true">
             <div class="mb-4 flex items-center gap-2">
               <span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span>
-              <span class="ml-2 text-xs font-semibold text-muted">your-project.yml</span>
+              <span class="ml-2 text-xs font-semibold text-muted">noble-wave.yml</span>
             </div>
             <div class="code">
-              <div><span class="code-key">project:</span> <span class="code-val">your-idea</span></div>
-              <div><span class="code-key">stack:</span> [angular, node, cloud]</div>
-              <div><span class="code-key">design:</span> <span class="code-val">prototyped</span></div>
-              <div><span class="code-key">deploy:</span> <span class="code-val">automated</span></div>
-              <div><span class="code-key">support:</span> <span class="code-val">ongoing</span></div>
+              <div><span class="code-key">apps:</span> <span class="code-val">{{ products.length }}</span></div>
+              <div><span class="code-key">platforms:</span> [web, android]</div>
+              <div><span class="code-key">price:</span> <span class="code-val">free</span></div>
+              <div><span class="code-key">pdf-files:</span> <span class="code-val">stay-on-device</span></div>
+              <div><span class="code-key">made-in:</span> <span class="code-val">new-delhi</span></div>
             </div>
           </div>
           <a
@@ -92,7 +93,7 @@ import { TechMarquee } from '../../shared/ui/tech-marquee';
     <section class="section section-alt">
       <div class="container-page grid gap-14 lg:grid-cols-2">
         <div>
-          <nw-section-heading eyebrow="How we work" title="From first call to" accent="live product" />
+          <nw-section-heading eyebrow="How we build" title="From an everyday problem to a" accent="live app" />
           <ol class="steps mt-10 space-y-10">
             @for (s of process; track s.title) {
               <li class="step">
@@ -103,7 +104,7 @@ import { TechMarquee } from '../../shared/ui/tech-marquee';
           </ol>
         </div>
         <div>
-          <nw-section-heading eyebrow="Why Noble Wave" title="Built around your" accent="business" />
+          <nw-section-heading eyebrow="Why Noble Wave" title="Built around" accent="people" />
           <div class="pv mt-8 aspect-[16/10]" style="--glow: 14 116 144">
             <img
               class="pv-phone"
@@ -156,6 +157,7 @@ export class Home {
     inject(SeoService).set({
       description: SITE.description,
       path: '/',
+      jsonLd: organizationData(),
     });
   }
 }

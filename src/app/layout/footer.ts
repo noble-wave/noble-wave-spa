@@ -20,7 +20,7 @@ import { Icon } from '../shared/ui/icon';
             </a>
             <p class="footer-tagline mt-5">{{ site.tagline }}</p>
             <p class="footer-text mt-3 max-w-xs">
-              We design, build and run software. {{ products.length }} of our own apps are live today.
+              We build and run free apps for everyday life and work. {{ products.length }} are live today.
             </p>
           </div>
 
@@ -71,7 +71,7 @@ import { Icon } from '../shared/ui/icon';
               </li>
             </ul>
             <a routerLink="/contact" class="footer-cta mt-6">
-              Start a project <nw-icon name="arrow-right" [size]="18" />
+              Contact us <nw-icon name="arrow-right" [size]="18" />
             </a>
           </div>
         </div>
