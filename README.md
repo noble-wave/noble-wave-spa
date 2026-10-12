@@ -1,6 +1,6 @@
 # Noble Wave website
 
-Marketing site for [Noble Wave](https://noble-wave.com): home (with the services), about, products (with a page
+Marketing site for [Noble Wave](https://noble-wave.com): home, about, products (with a page
 per product), contact, privacy and terms. Built with Angular 22 (standalone components, signals, SSR
 prerendering) and Tailwind CSS 4. Every route is prerendered to static HTML, so it can be hosted on
 GitHub Pages or any static host.
@@ -56,6 +56,6 @@ public/       images, robots.txt, sitemap.xml, CNAME
 
 - Dark and light themes follow the visitor's system setting and remember their choice.
 - The look is the "ocean" design: teal and navy with a coral accent, Manrope type, rounded cards, a floating
-  pill header and a bento services grid. Colours and type live in the tokens at the top of `src/styles.css`.
+  pill header and a technology marquee. Colours and type live in the tokens at the top of `src/styles.css`.
 - The privacy policy and terms are drafts for review and are not legal advice.
 - The FAQ answers in `content.config.ts` are placeholders to confirm.

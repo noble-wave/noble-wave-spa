@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { PRINCIPLES, PROCESS, SERVICES, Service } from '../../core/content.config';
+import { PRINCIPLES, PROCESS } from '../../core/content.config';
 import { PRODUCTS } from '../../core/products.config';
 import { SeoService } from '../../core/seo.service';
 import { SITE } from '../../core/site.config';
@@ -10,23 +10,6 @@ import { Icon } from '../../shared/ui/icon';
 import { ProductFeature } from '../../shared/ui/product-feature';
 import { SectionHeading } from '../../shared/ui/section-heading';
 import { TechMarquee } from '../../shared/ui/tech-marquee';
-
-interface Tile {
-  service: Service;
-  /** Grid spans that give the bento its rhythm on large screens. */
-  span: string;
-  variant: '' | 'bento-tile-feature' | 'bento-tile-brand';
-}
-
-/** Order and emphasis of the services bento: the first tile leads, one tile carries the brand colour. */
-const BENTO: { id: string; span: string; variant: Tile['variant'] }[] = [
-  { id: 'web-development', span: 'lg:col-span-2 lg:row-span-2', variant: 'bento-tile-feature' },
-  { id: 'mobile-development', span: 'lg:col-span-2', variant: '' },
-  { id: 'cloud-devops', span: '', variant: 'bento-tile-brand' },
-  { id: 'ui-ux-design', span: '', variant: '' },
-  { id: 'product-engineering', span: 'lg:col-span-2', variant: '' },
-  { id: 'it-consulting', span: 'lg:col-span-2', variant: '' },
-];
 
 @Component({
   selector: 'nw-home',
@@ -47,7 +30,7 @@ const BENTO: { id: string; span: string; variant: Tile['variant'] }[] = [
           </p>
           <div class="mt-9 flex flex-wrap gap-3">
             <a routerLink="/contact" class="btn btn-primary">Start a project <nw-icon name="arrow-right" /></a>
-            <a routerLink="/" fragment="services" class="btn btn-secondary">Explore services</a>
+            <a routerLink="/products" class="btn btn-secondary">See our products</a>
           </div>
         </div>
 
@@ -87,40 +70,8 @@ const BENTO: { id: string; span: string; variant: Tile['variant'] }[] = [
       <nw-tech-marquee />
     </section>
 
-    <!-- Services: bento -->
-    <section id="services" class="section scroll-mt-20">
-      <div class="container-page">
-        <nw-section-heading
-          eyebrow="Services"
-          title="Everything you need, from"
-          accent="one team"
-          lead="Strategy, design, engineering and operations under one roof, so nothing gets lost in a handover."
-        />
-        <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:auto-rows-[minmax(13rem,auto)] lg:grid-cols-4">
-          @for (t of tiles; track t.service.id) {
-            <article class="bento-tile reveal flex flex-col justify-between {{ t.span }} {{ t.variant }}">
-              <div>
-                <span class="icon-tile"><nw-icon [name]="t.service.icon" [size]="24" /></span>
-                <h3 class="mt-5 text-xl">{{ t.service.title }}</h3>
-                <p class="mt-2 text-muted">{{ t.service.summary }}</p>
-              </div>
-              @if (t.variant === 'bento-tile-feature') {
-                <ul class="mt-5 space-y-2 text-sm">
-                  @for (b of t.service.benefits; track b) {
-                    <li class="flex gap-2">
-                      <nw-icon name="check" [size]="16" class="mt-0.5 text-accent" />{{ b }}
-                    </li>
-                  }
-                </ul>
-              }
-            </article>
-          }
-        </div>
-      </div>
-    </section>
-
     <!-- Products -->
-    <section class="section section-alt">
+    <section class="section">
       <div class="container-page">
         <nw-section-heading
           eyebrow="Our products"
@@ -138,7 +89,7 @@ const BENTO: { id: string; span: string; variant: Tile['variant'] }[] = [
     </section>
 
     <!-- Process and why us -->
-    <section class="section">
+    <section class="section section-alt">
       <div class="container-page grid gap-14 lg:grid-cols-2">
         <div>
           <nw-section-heading eyebrow="How we work" title="From first call to" accent="live product" />
@@ -176,9 +127,7 @@ const BENTO: { id: string; span: string; variant: Tile['variant'] }[] = [
       </div>
     </section>
 
-    <div class="section-alt">
-      <nw-faq />
-    </div>
+    <nw-faq />
 
     <nw-cta-banner class="mt-24 block" />
   `,
@@ -188,11 +137,6 @@ export class Home {
   protected readonly products = PRODUCTS;
   protected readonly principles = PRINCIPLES;
   protected readonly process = PROCESS;
-  protected readonly tiles: Tile[] = BENTO.map((b) => ({
-    service: SERVICES.find((s) => s.id === b.id)!,
-    span: b.span,
-    variant: b.variant,
-  }));
 
   constructor() {
     inject(SeoService).set({

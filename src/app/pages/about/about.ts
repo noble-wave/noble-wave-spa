@@ -26,7 +26,7 @@ import { TechIcon } from '../../shared/ui/tech-icon';
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
             <a routerLink="/contact" class="btn btn-primary">Work with us <nw-icon name="arrow-right" /></a>
-            <a routerLink="/" fragment="services" class="btn btn-secondary">Our services</a>
+            <a routerLink="/products" class="btn btn-secondary">Our products</a>
           </div>
         </div>
         <img

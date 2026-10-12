@@ -422,46 +422,6 @@
     color: var(--surface);
   }
 
-  /* Bento services grid */
-  .bento-tile {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-card);
-    padding: 1.75rem;
-    background: var(--bg);
-    transition:
-      transform 0.2s ease,
-      border-color 0.2s ease,
-      box-shadow 0.2s ease;
-  }
-  .bento-tile:hover {
-    transform: translateY(-3px);
-    border-color: color-mix(in srgb, var(--brand) 60%, var(--border));
-    box-shadow: var(--shadow-lift);
-  }
-  .bento-tile-feature {
-    background:
-      radial-gradient(80% 80% at 100% 0%, color-mix(in srgb, var(--brand) 30%, transparent), transparent 70%),
-      var(--surface);
-  }
-  .bento-tile-brand {
-    background: var(--brand);
-    color: var(--on-brand);
-    border-color: transparent;
-  }
-  /* Re-point the muted token so Tailwind's text-muted utility reads correctly on the brand fill. */
-  .bento-tile-brand {
-    --muted: color-mix(in srgb, var(--on-brand) 88%, transparent);
-  }
-  .bento-tile-brand .icon-tile {
-    background: rgb(255 255 255 / 0.2);
-    color: inherit;
-  }
-  .bento-tile-brand .link-arrow {
-    color: inherit;
-  }
-
   /* Technology marquee */
   .marquee {
     overflow: hidden;
