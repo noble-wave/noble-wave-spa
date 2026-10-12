@@ -718,3 +718,103 @@
     translate: 0 -50%;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Site footer: a deep ocean band that closes every page
+--------------------------------------------------------------------------- */
+@layer components {
+  .site-footer {
+    --f-bg: #06232f;
+    --f-text: #e6f4f8;
+    --f-muted: #9fc0cc;
+    --f-line: rgb(255 255 255 / 0.14);
+    --f-accent: #7eebf2;
+    margin-top: 0;
+    color: var(--f-text);
+  }
+  :root[data-theme='dark'] .site-footer {
+    --f-bg: #07202d;
+  }
+  .footer-body {
+    background: var(--f-bg);
+    border-top: 1px solid var(--f-line);
+  }
+  .footer-heading {
+    font-family: var(--font-display);
+    font-size: 0.8125rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--f-accent);
+  }
+  .footer-tagline {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+  .footer-text {
+    color: var(--f-muted);
+  }
+  .footer-accent {
+    color: var(--f-accent);
+  }
+  .footer-link {
+    color: var(--f-text);
+    text-decoration: none;
+    background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+    transition:
+      color 0.18s ease,
+      background-size 0.25s ease;
+    cursor: pointer;
+  }
+  .footer-link:hover {
+    color: var(--f-accent);
+    background-size: 100% 1px;
+  }
+  .site-footer :focus-visible {
+    outline-color: var(--f-accent);
+  }
+  /* Outbound action links (store and web app): accent colour and a permanent underline so they read as links. */
+  .footer-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 700;
+    color: var(--f-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.28em;
+    text-decoration-color: color-mix(in srgb, var(--f-accent) 55%, transparent);
+    transition:
+      color 0.18s ease,
+      text-decoration-color 0.18s ease;
+  }
+  .footer-action:hover {
+    color: #fff;
+    text-decoration-color: #fff;
+  }
+  .footer-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.25rem;
+    border-radius: 999px;
+    background: var(--f-accent);
+    color: var(--f-bg);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    transition:
+      transform 0.18s ease,
+      background-color 0.18s ease;
+  }
+  .footer-cta:hover {
+    transform: translateY(-2px);
+    background: #fff;
+  }
+  .footer-bar {
+    border-top: 1px solid var(--f-line);
+  }
+}

@@ -37,15 +37,6 @@ type Status = 'idle' | 'sending' | 'sent' | 'mailto' | 'error';
             <span class="icon-tile"><nw-icon name="map-pin" /></span>
             <span><span class="block text-sm text-muted">Studio</span><span class="font-semibold">{{ site.location }}</span></span>
           </div>
-          <div class="card !p-5">
-            <p class="text-sm text-muted">Elsewhere</p>
-            <div class="mt-3 flex gap-2">
-              <a class="btn btn-secondary !min-h-10 !px-3" [href]="site.social.linkedin" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><nw-icon name="linkedin" /></a>
-              <a class="btn btn-secondary !min-h-10 !px-3" [href]="site.social.github" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><nw-icon name="github" /></a>
-              <a class="btn btn-secondary !min-h-10 !px-3" [href]="site.social.x" aria-label="X" target="_blank" rel="noopener noreferrer"><nw-icon name="x-social" /></a>
-              <a class="btn btn-secondary !min-h-10 !px-3" [href]="site.social.facebook" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><nw-icon name="facebook" /></a>
-            </div>
-          </div>
         </div>
 
         <div class="card !p-6 sm:!p-9">

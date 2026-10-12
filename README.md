@@ -21,7 +21,7 @@ GitHub Pages or any static host.
 
 | To change | Edit |
 | --- | --- |
-| Company name, email, phone, address, social links, contact form endpoint | `src/app/core/site.config.ts` |
+| Company name, email, phone, address, contact form endpoint | `src/app/core/site.config.ts` |
 | Services, process, values, tech stack, mission and vision | `src/app/core/content.config.ts` |
 | Products, features, screenshots, store links | `src/app/core/products.config.ts` |
 | Colours, fonts, buttons, cards | `src/styles.css` (design tokens at the top) |

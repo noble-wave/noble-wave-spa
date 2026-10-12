@@ -2,8 +2,8 @@
  * Single source of truth for company details. Pages, header, footer and SEO
  * metadata all read from here, so a change is made in exactly one place.
  *
- * TODO(content): email, phone and social URLs were carried over from the old site
- * and have not been confirmed as current.
+ * TODO(content): email and phone were carried over from the old site and have not
+ * been confirmed as current.
  */
 export const SITE = {
   name: 'Noble Wave',
@@ -22,12 +22,6 @@ export const SITE = {
    * While this is empty the form falls back to opening the visitor's email app, pre-filled.
    */
   formEndpoint: '',
-  social: {
-    linkedin: 'https://linkedin.com/company/noble-wave',
-    x: 'https://twitter.com/noble-wave',
-    github: 'https://github.com/noble-wave',
-    facebook: 'https://facebook.com/noble-wave',
-  },
 } as const;
 
 export interface NavLink {
