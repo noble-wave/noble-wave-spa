@@ -1,12 +1,26 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { Product } from '../../core/products.config';
 
-/** Three phones from a product's walkthrough, fanned on a panel tinted with the product colour. */
+/**
+ * Hero visual for a product: three phones fanned on a tinted panel, or, for desktop products,
+ * the wide laptop scene.
+ */
 @Component({
   selector: 'nw-product-visual',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
   template: `
+    @if (product().device === 'desktop') {
+      <img
+        class="pv-wide"
+        [src]="'images/products/' + product().story[0].file + '.webp'"
+        [alt]="product().story[0].alt"
+        width="1600"
+        height="893"
+        [attr.loading]="eager() ? null : 'lazy'"
+        decoding="async"
+      />
+    } @else {
     <div class="pv aspect-[5/4]" [style.--glow]="product().glow">
       @for (p of phones(); track p.file) {
         <img
@@ -21,6 +35,7 @@ import { Product } from '../../core/products.config';
         />
       }
     </div>
+    }
   `,
 })
 export class ProductVisual {

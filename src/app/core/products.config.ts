@@ -21,6 +21,8 @@ export interface StoryStep {
 export interface Product {
   readonly id: string;
   readonly name: string;
+  /** 'phone' products show portrait phone screens; 'desktop' products show wide laptop screens. */
+  readonly device: 'phone' | 'desktop';
   readonly tagline: string;
   readonly description: string;
   /** Short platform badges shown next to the name. */
@@ -35,8 +37,40 @@ export interface Product {
 
 export const PRODUCTS: readonly Product[] = [
   {
+    id: 'pdf-workshop',
+    name: 'PDF Workshop',
+    device: 'desktop',
+    tagline: 'Every PDF job, done on your own machine',
+    description:
+      'PDF Workshop is a free web app with close to 100 tools for working with PDFs: merge, edit, sign, convert and make scans searchable. Everything runs in your browser, so your files never leave your device.',
+    platforms: ['Web'],
+    features: [
+      'Merge, split, reorder, rotate and trim pages',
+      'Annotate, redact, watermark and add page numbers',
+      'Sign PDFs, fill forms and create fillable forms',
+      'Convert images and other files to PDF, and PDFs to images and Word',
+      'Encrypt, compress and repair, plus OCR in English and Hindi',
+      'No upload, no account, no watermarks',
+    ],
+    glow: '59 130 246',
+    story: [
+      { file: 'pdf-1', title: 'Open a PDF, or find a tool', text: 'Drop a PDF anywhere on the page, or search for the tool you need. Everything runs in your browser.', alt: 'PDF Workshop home screen on a laptop: "Every PDF job, done on your own machine", with Open a PDF and tool search' },
+      { file: 'pdf-2', title: 'Preview first, then choose', text: 'See the file first, then decide what to do with it. It stays on your device and nothing is uploaded.', alt: 'PDF Workshop Open a PDF screen with a drag-and-drop area, stating that the file stays on your device' },
+      { file: 'pdf-3', title: 'Sign and fill forms', text: 'Draw, type or upload a signature, fill in forms directly in the browser (including XFA forms), or build a fillable form.', alt: 'PDF Workshop Sign and forms category showing Sign PDF, PDF Form Filler and Create PDF Form tools' },
+      { file: 'pdf-4', title: 'Convert images to PDF', text: 'Bring images into a PDF from many formats, including JPG, PNG, WebP, HEIC and TIFF.', alt: 'PDF Workshop Convert to PDF category listing image formats such as JPG, PNG, WebP, HEIC, TIFF and BMP' },
+    ],
+    links: [{ kind: 'web', label: 'Open web app', url: 'https://pdf-workshop.noble-wave.com/' }],
+    screenshots: [
+      { file: 'pdf-1', alt: 'PDF Workshop home screen on a laptop' },
+      { file: 'pdf-2', alt: 'PDF Workshop Open a PDF screen with a drag-and-drop area' },
+      { file: 'pdf-3', alt: 'PDF Workshop Sign and forms tools' },
+      { file: 'pdf-4', alt: 'PDF Workshop Convert to PDF tools for image formats' },
+    ],
+  },
+  {
     id: 'noble-salah',
     name: 'Noble Salah Guide',
+    device: 'phone',
     tagline: 'Prayer times, Qibla and daily Islamic tools in one app',
     description:
       'Noble Salah Guide helps you keep up with your daily prayers. See accurate prayer times and a countdown to the next prayer, then use the built-in tools for Qibla, the Quran, hadith, the Islamic calendar and more.',
@@ -74,6 +108,7 @@ export const PRODUCTS: readonly Product[] = [
   {
     id: 'rent-manager',
     name: 'Rent Manager',
+    device: 'phone',
     tagline: 'Manage your rentals, hassle free',
     description:
       'Rent Manager keeps landlords organised. Track properties, units and tenants, record rent and utility bills, see who has paid and who still owes, and get reminders before payments are due.',

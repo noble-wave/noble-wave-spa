@@ -20,7 +20,7 @@ import { Icon } from '../shared/ui/icon';
             </a>
             <p class="footer-tagline mt-5">{{ site.tagline }}</p>
             <p class="footer-text mt-3 max-w-xs">
-              We design, build and run software. Two of our own apps are live today.
+              We design, build and run software. {{ products.length }} of our own apps are live today.
             </p>
           </div>
 

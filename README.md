@@ -45,7 +45,7 @@ from that entry; add the new URL to `public/sitemap.xml` too.
 
 ```
 src/app/
-  core/       site and content config, SEO, contact and theme services
+  core/       site and content config, SEO and contact services
   layout/     site shell: header, footer, skip link
   pages/      one folder per page (lazy loaded)
   shared/ui/  icon, section heading, call-to-action banner, product visuals, screenshot gallery
@@ -54,7 +54,7 @@ public/       images, robots.txt, sitemap.xml, CNAME
 
 ## Notes
 
-- Dark and light themes follow the visitor's system setting and remember their choice.
+- The site is light-only (no dark mode).
 - The look is the "ocean" design: teal and navy with a coral accent, Manrope type, rounded cards, a floating
   pill header and a technology marquee. Colours and type live in the tokens at the top of `src/styles.css`.
 - The privacy policy and terms are drafts for review and are not legal advice.

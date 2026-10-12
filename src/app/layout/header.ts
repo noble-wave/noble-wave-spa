@@ -3,7 +3,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { filter } from 'rxjs';
 import { NAV_LINKS, SITE } from '../core/site.config';
-import { ThemeService } from '../core/theme.service';
 import { Icon } from '../shared/ui/icon';
 
 /** Floating pill header that stays at the top of the page. */
@@ -35,14 +34,6 @@ import { Icon } from '../shared/ui/icon';
         </nav>
 
         <div class="flex items-center gap-1.5">
-          <button
-            type="button"
-            class="btn btn-ghost !min-h-10 !px-3"
-            (click)="theme.toggle()"
-            [attr.aria-label]="theme.theme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
-          >
-            <nw-icon [name]="theme.theme() === 'dark' ? 'sun' : 'moon'" />
-          </button>
           <a routerLink="/contact" class="btn btn-primary hidden !min-h-10 sm:inline-flex">Get started</a>
           <button
             type="button"
@@ -83,7 +74,6 @@ import { Icon } from '../shared/ui/icon';
 export class Header {
   protected readonly site = SITE;
   protected readonly links = NAV_LINKS;
-  protected readonly theme = inject(ThemeService);
   protected readonly menuOpen = signal(false);
   protected readonly scrolled = signal(false);
 

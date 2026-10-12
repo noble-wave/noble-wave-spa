@@ -1,12 +1,8 @@
 @import 'tailwindcss';
 @import '@fontsource-variable/manrope';
 
-/* Dark mode is driven by <html data-theme="dark"> (set before first paint, see index.html). */
-@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
-
 /* ---------------------------------------------------------------------------
-   Design tokens ("ocean"). Light is the base palette; dark overrides the same
-   names. Components only ever use the semantic names, never raw hex values.
+   Design tokens ("ocean"). Components only ever use the semantic names, never raw hex values.
 --------------------------------------------------------------------------- */
 :root {
   color-scheme: light;
@@ -22,41 +18,6 @@
   --accent: #b83a07;
   --ring: #0e7490;
   --shadow-color: 195 60% 15%;
-}
-
-:root[data-theme='dark'] {
-  color-scheme: dark;
-  --bg: #04141c;
-  --surface: #082230;
-  --surface-2: #0d2f40;
-  --text: #e6f4f8;
-  --muted: #9bbac6;
-  --border: #17445a;
-  --brand: #2dd4e0;
-  --brand-strong: #7eebf2;
-  --on-brand: #04141c;
-  --accent: #ff8a5c;
-  --ring: #7eebf2;
-  --shadow-color: 200 80% 2%;
-}
-
-/* No-JS fallback: follow the OS setting when the theme attribute was never set. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    color-scheme: dark;
-    --bg: #04141c;
-    --surface: #082230;
-    --surface-2: #0d2f40;
-    --text: #e6f4f8;
-    --muted: #9bbac6;
-    --border: #17445a;
-    --brand: #2dd4e0;
-    --brand-strong: #7eebf2;
-    --on-brand: #04141c;
-    --accent: #ff8a5c;
-    --ring: #7eebf2;
-    --shadow-color: 200 80% 2%;
-  }
 }
 
 /* Expose the tokens as Tailwind utilities: bg-bg, bg-surface, text-muted, border-border, ... */
@@ -444,9 +405,6 @@
   .tech-logo {
     fill: var(--ic-l);
   }
-  :root[data-theme='dark'] .tech-logo {
-    fill: var(--ic-d);
-  }
   .marquee-pill {
     display: inline-flex;
     align-items: center;
@@ -565,9 +523,6 @@
     font-size: 0.8125rem;
     color: #b91c1c;
   }
-  :root[data-theme='dark'] .field-error {
-    color: #fca5a5;
-  }
 
   /* Long-form text (legal pages) */
   .prose-page h2 {
@@ -625,9 +580,6 @@
     transform-origin: 50% 100%;
     filter: drop-shadow(0 22px 28px rgb(4 30 45 / 0.32));
   }
-  :root[data-theme='dark'] .pv-phone {
-    filter: drop-shadow(0 22px 28px rgb(0 0 0 / 0.55));
-  }
 
   /* Screenshot gallery and full-size viewer */
   .gallery-track {
@@ -666,6 +618,21 @@
     object-fit: cover;
   }
 
+  .gallery-item.is-wide {
+    flex-basis: min(27.5rem, 85%);
+    aspect-ratio: 16 / 9;
+  }
+  .pv-wide {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1600 / 893;
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    background: var(--surface);
+    box-shadow: var(--shadow-card);
+  }
+
   .gallery-dialog {
     margin: auto;
     padding: 0;
@@ -686,6 +653,10 @@
     max-width: min(92vw, 34rem);
     max-height: calc(100dvh - 6rem);
     border-radius: 1rem;
+  }
+  .gallery-dialog-body.is-wide img {
+    max-width: min(94vw, 80rem);
+    max-height: calc(100dvh - 6rem);
   }
   .gallery-nav {
     position: fixed;
@@ -731,9 +702,6 @@
     --f-accent: #7eebf2;
     margin-top: 0;
     color: var(--f-text);
-  }
-  :root[data-theme='dark'] .site-footer {
-    --f-bg: #07202d;
   }
   .footer-body {
     background: var(--f-bg);

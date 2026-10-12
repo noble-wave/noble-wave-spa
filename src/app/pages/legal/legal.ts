@@ -32,7 +32,6 @@ const PRIVACY: LegalDoc = {
       paragraphs: ['We collect only what you choose to send us and the minimum technical data needed to run the site.'],
       list: [
         'Contact details and project information you enter in the contact form (name, email address, optional phone number, service of interest and your message).',
-        'Your theme preference (light or dark), stored in your browser on your device. It is not sent to us.',
         'Standard technical logs created by our hosting provider, such as IP address, browser type and pages requested.',
       ],
     },
@@ -82,7 +81,7 @@ const TERMS: LegalDoc = {
     },
     {
       heading: 'Products and third-party services',
-      paragraphs: ['Our apps, including Noble Salah Guide and Rent Manager, may be subject to separate terms and the policies of the stores or platforms that distribute them.'],
+      paragraphs: ['Our apps, including PDF Workshop, Noble Salah Guide and Rent Manager, may be subject to separate terms and the policies of the stores or platforms that distribute them.'],
     },
     {
       heading: 'Information on this site',

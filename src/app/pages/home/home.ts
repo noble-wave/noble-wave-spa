@@ -54,7 +54,7 @@ import { TechMarquee } from '../../shared/ui/tech-marquee';
           >
             <span class="icon-tile !h-10 !w-10"><nw-icon name="smartphone" /></span>
             <span>
-              <span class="block text-sm font-bold">2 products live</span>
+              <span class="block text-sm font-bold">{{ products.length }} products live</span>
               <span class="block text-xs text-muted">Web and Android</span>
             </span>
           </a>

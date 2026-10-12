@@ -14,7 +14,6 @@ import { TECH_ICONS } from '../../core/tech-icons';
         [attr.width]="size()"
         [attr.height]="size()"
         [style.--ic-l]="d.light ?? 'currentColor'"
-        [style.--ic-d]="d.dark ?? 'currentColor'"
         aria-hidden="true"
         focusable="false"
       >

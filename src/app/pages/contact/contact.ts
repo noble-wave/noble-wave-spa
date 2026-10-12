@@ -98,7 +98,7 @@ type Status = 'idle' | 'sending' | 'sent' | 'mailto' | 'error';
               </div>
 
               @if (status() === 'error') {
-                <p role="alert" class="mt-5 rounded-xl border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:border-red-800 dark:bg-red-950/40 dark:text-red-200">
+                <p role="alert" class="mt-5 rounded-xl border border-red-300 bg-red-50 p-4 text-sm text-red-800">
                   Sorry, we could not send your message. Your details are still here. Please try again, or email us at
                   <a class="underline" [href]="'mailto:' + site.email">{{ site.email }}</a>.
                 </p>

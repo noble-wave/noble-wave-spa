@@ -16,7 +16,7 @@ import { ProductFeature } from '../../shared/ui/product-feature';
           Apps we <span class="gradient-text">built, launched</span> and still run
         </h1>
         <p class="lead mt-6">
-          Alongside client projects we build and operate our own products. Try them yourself: both are live today.
+          Alongside client projects we build and operate our own products. Try them yourself: all of them are live today.
         </p>
       </div>
     </section>
@@ -39,7 +39,7 @@ export class Products {
     inject(SeoService).set({
       title: 'Products',
       description:
-        'Noble Salah Guide for prayer times and Islamic tools, and Rent Manager for landlords: two apps built and run by Noble Wave.',
+        'PDF Workshop for private, in-browser PDF tools, Noble Salah Guide for prayer times and Islamic tools, and Rent Manager for landlords: apps built and run by Noble Wave.',
       path: '/products',
     });
   }

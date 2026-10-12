@@ -42,5 +42,6 @@ describe('site content', () => {
     expect(urls).toContain('https://salah.noble-wave.com/');
     expect(urls).toContain('https://play.google.com/store/apps/details?id=com.noblewave.noblesalah');
     expect(urls).toContain('https://rentiva.noble-wave.com/');
+    expect(urls).toContain('https://pdf-workshop.noble-wave.com/');
   });
 });

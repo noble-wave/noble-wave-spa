@@ -33,16 +33,17 @@ const BASE = 'images/products/';
             type="button"
             role="listitem"
             class="gallery-item"
+            [class.is-wide]="wide()"
             [attr.aria-label]="'View larger: ' + s.alt"
             (click)="open(i)"
           >
             <img
               [src]="thumb(s)"
-              [attr.srcset]="thumb(s) + ' 512w, ' + full(s) + ' 1024w'"
-              sizes="(min-width: 640px) 224px, 62vw"
+              [attr.srcset]="wide() ? thumb(s) + ' 960w, ' + full(s) + ' 1600w' : thumb(s) + ' 512w, ' + full(s) + ' 1024w'"
+              [attr.sizes]="wide() ? '(min-width: 640px) 440px, 85vw' : '(min-width: 640px) 224px, 62vw'"
               [alt]="s.alt"
-              width="512"
-              height="768"
+              [attr.width]="wide() ? 960 : 512"
+              [attr.height]="wide() ? 536 : 768"
               loading="lazy"
               decoding="async"
             />
@@ -67,8 +68,8 @@ const BASE = 'images/products/';
       (keydown)="onKey($event)"
     >
       @if (current(); as s) {
-        <div class="gallery-dialog-body">
-          <img [src]="full(s)" [alt]="s.alt" width="1024" height="1536" />
+        <div class="gallery-dialog-body" [class.is-wide]="wide()">
+          <img [src]="full(s)" [alt]="s.alt" [attr.width]="wide() ? 1600 : 1024" [attr.height]="wide() ? 893 : 1536" />
           <p class="mt-3 text-center text-sm text-white/80" aria-live="polite">
             {{ index() + 1 }} / {{ screenshots().length }}
           </p>
@@ -89,6 +90,8 @@ const BASE = 'images/products/';
 export class ScreenshotGallery {
   readonly screenshots = input.required<readonly Screenshot[]>();
   readonly productName = input.required<string>();
+  /** Landscape (laptop) screenshots instead of portrait phone screens. */
+  readonly wide = input(false);
 
   private readonly track = viewChild.required<ElementRef<HTMLElement>>('track');
   private readonly dialog = viewChild.required<ElementRef<HTMLDialogElement>>('dialog');
@@ -100,7 +103,7 @@ export class ScreenshotGallery {
   }
 
   protected thumb(s: Screenshot): string {
-    return `${BASE}${s.file}-512.webp`;
+    return `${BASE}${s.file}${this.wide() ? '-sm' : '-512'}.webp`;
   }
 
   protected full(s: Screenshot): string {
