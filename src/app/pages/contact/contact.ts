@@ -3,7 +3,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ContactService } from '../../core/contact.service';
 import { SERVICES } from '../../core/content.config';
 import { SeoService } from '../../core/seo.service';
-import { SITE } from '../../core/site.config';
+import { SITE, WHATSAPP_URL } from '../../core/site.config';
 import { Faq } from '../../shared/ui/faq';
 import { Icon } from '../../shared/ui/icon';
 
@@ -34,6 +34,10 @@ type Status = 'idle' | 'sending' | 'sent' | 'mailto' | 'error';
             <li>
               <span class="contact-icon"><nw-icon name="phone" [size]="18" /></span>
               <span><span class="contact-label">Phone</span><a class="contact-value" [href]="'tel:' + site.phone">{{ site.phoneDisplay }}</a></span>
+            </li>
+            <li>
+              <span class="contact-icon contact-icon-wa"><nw-icon name="whatsapp" [size]="18" /></span>
+              <span><span class="contact-label">WhatsApp</span><a class="contact-value" [href]="whatsappUrl" target="_blank" rel="noopener" aria-label="Message us on WhatsApp (opens in a new tab)">Message us on WhatsApp</a></span>
             </li>
             <li>
               <span class="contact-icon"><nw-icon name="map-pin" [size]="18" /></span>
@@ -131,6 +135,7 @@ type Status = 'idle' | 'sending' | 'sent' | 'mailto' | 'error';
 })
 export class Contact {
   protected readonly site = SITE;
+  protected readonly whatsappUrl = WHATSAPP_URL;
   protected readonly services = SERVICES;
   protected readonly status = signal<Status>('idle');
 

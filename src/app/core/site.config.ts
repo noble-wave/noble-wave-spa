@@ -12,6 +12,8 @@ export const SITE = {
   phone: '+918448462846',
   phoneDisplay: '+91 84484 62846',
   location: 'New Delhi, India',
+  /** WhatsApp number in international format, digits only (used for wa.me links). */
+  whatsapp: '918448462846',
   /** Default image for link previews (Open Graph / Twitter cards), 1200x630. See scripts/make-og.mjs. */
   ogImage: '/images/og/default.png',
   /**
@@ -48,3 +50,6 @@ export const LEGAL_LINKS: readonly NavLink[] = [
   { label: 'Privacy Policy', path: '/privacy' },
   { label: 'Terms of Service', path: '/terms' },
 ];
+
+/** Opens a WhatsApp chat with the company, with a ready-to-send first line the visitor can edit. */
+export const WHATSAPP_URL = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent('Hello Noble Wave, I found you through your website and would like to ask about ')}`;

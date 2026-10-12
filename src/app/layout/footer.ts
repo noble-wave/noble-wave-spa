@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PRODUCTS } from '../core/products.config';
-import { LEGAL_LINKS, NAV_LINKS, SITE } from '../core/site.config';
+import { LEGAL_LINKS, NAV_LINKS, SITE, WHATSAPP_URL } from '../core/site.config';
 import { Icon } from '../shared/ui/icon';
 
 /** Closing band of every page: brand, navigation, the products, contact details and legal links. */
@@ -66,6 +66,10 @@ import { Icon } from '../shared/ui/icon';
                 <a class="footer-link" [href]="'tel:' + site.phone">{{ site.phoneDisplay }}</a>
               </li>
               <li class="flex items-start gap-3">
+                <nw-icon name="whatsapp" class="footer-accent mt-0.5" />
+                <a class="footer-link" [href]="whatsappUrl" target="_blank" rel="noopener" aria-label="Message us on WhatsApp (opens in a new tab)">WhatsApp us</a>
+              </li>
+              <li class="flex items-start gap-3">
                 <nw-icon name="map-pin" class="footer-accent mt-0.5" />
                 <span class="footer-text">{{ site.location }}</span>
               </li>
@@ -97,6 +101,7 @@ import { Icon } from '../shared/ui/icon';
 })
 export class Footer {
   protected readonly site = SITE;
+  protected readonly whatsappUrl = WHATSAPP_URL;
   protected readonly links = NAV_LINKS;
   protected readonly legal = LEGAL_LINKS;
   protected readonly products = PRODUCTS;
