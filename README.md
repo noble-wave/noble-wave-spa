@@ -1,27 +1,61 @@
-# NobleWave
+# Noble Wave website
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
+Marketing site for [Noble Wave](https://noble-wave.com): home (with the services), about, products (with a page
+per product), contact, privacy and terms. Built with Angular 22 (standalone components, signals, SSR
+prerendering) and Tailwind CSS 4. Every route is prerendered to static HTML, so it can be hosted on
+GitHub Pages or any static host.
 
-## Development server
+## Requirements
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Node.js 24.15 or later (Angular 22 requires it)
 
-## Code scaffolding
+## Commands
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+| Command | What it does |
+| --- | --- |
+| `npm start` | Dev server at http://localhost:4200 |
+| `npm test` | Unit tests (Vitest) |
+| `npm run build` | Production build into `dist/noble-wave/browser`, plus `404.html` for static hosting |
 
-## Build
+## Where to change things
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+| To change | Edit |
+| --- | --- |
+| Company name, email, phone, address, social links, contact form endpoint | `src/app/core/site.config.ts` |
+| Services, process, values, tech stack, mission and vision | `src/app/core/content.config.ts` |
+| Products, features, screenshots, store links | `src/app/core/products.config.ts` |
+| Colours, fonts, buttons, cards | `src/styles.css` (design tokens at the top) |
+| Page copy and layout | `src/app/pages/<page>/` |
+| Header and footer | `src/app/layout/` |
 
-## Running unit tests
+### Contact form
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Set `formEndpoint` in `site.config.ts` to a URL that accepts a JSON `POST` (for example a Formspree or
+Web3Forms endpoint). While it is empty, submitting the form opens the visitor's email app with a pre-filled
+message instead. The form includes validation, a hidden honeypot field for bots, and clear success and error
+states.
 
-## Running end-to-end tests
+### Adding a product
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Add an entry to `PRODUCTS` in `products.config.ts` and put its images in `public/images/story` (cut-out phone
+screens) and `public/images/products` (posters). The product page, listing, footer and sitemap routes follow
+from that entry; add the new URL to `public/sitemap.xml` too.
 
-## Further help
+## Project layout
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+src/app/
+  core/       site and content config, SEO, contact and theme services
+  layout/     site shell: header, footer, skip link
+  pages/      one folder per page (lazy loaded)
+  shared/ui/  icon, section heading, call-to-action banner, product visuals, screenshot gallery
+public/       images, robots.txt, sitemap.xml, CNAME
+```
+
+## Notes
+
+- Dark and light themes follow the visitor's system setting and remember their choice.
+- The look is the "ocean" design: teal and navy with a coral accent, Manrope type, rounded cards, a floating
+  pill header and a bento services grid. Colours and type live in the tokens at the top of `src/styles.css`.
+- The privacy policy and terms are drafts for review and are not legal advice.
+- The FAQ answers in `content.config.ts` are placeholders to confirm.

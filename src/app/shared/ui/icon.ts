@@ -1,0 +1,160 @@
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+
+interface IconDef {
+  /** SVG path data. Stroke icons use a 24px grid (Lucide, ISC licence). */
+  readonly paths: readonly string[];
+  /** Filled glyph (brand marks) instead of an outlined one. */
+  readonly filled?: boolean;
+}
+
+const ICONS = {
+  'arrow-right': { paths: ['M5 12h14', 'm12 5 7 7-7 7'] },
+  play: { paths: ['M6 3l14 9-14 9V3z'] },
+  globe: {
+    paths: [
+      'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z',
+      'M2 12h20',
+      'M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z',
+    ],
+  },
+  'external-link': {
+    paths: ['M15 3h6v6', 'M10 14 21 3', 'M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'],
+  },
+  'chevron-left': { paths: ['m15 18-6-6 6-6'] },
+  'chevron-right': { paths: ['m9 18 6-6-6-6'] },
+  menu: { paths: ['M4 6h16', 'M4 12h16', 'M4 18h16'] },
+  x: { paths: ['M18 6 6 18', 'm6 6 12 12'] },
+  check: { paths: ['M20 6 9 17l-5-5'] },
+  sun: {
+    paths: [
+      'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z',
+      'M12 2v2',
+      'M12 20v2',
+      'm4.93 4.93 1.41 1.41',
+      'm17.66 17.66 1.41 1.41',
+      'M2 12h2',
+      'M20 12h2',
+      'm6.34 17.66-1.41 1.41',
+      'm19.07 4.93-1.41 1.41',
+    ],
+  },
+  moon: { paths: ['M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z'] },
+  mail: {
+    paths: [
+      'm22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7',
+      'M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z',
+    ],
+  },
+  phone: {
+    paths: [
+      'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z',
+    ],
+  },
+  'map-pin': {
+    paths: ['M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z', 'M12 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6z'],
+  },
+  code: { paths: ['m16 18 6-6-6-6', 'm8 6-6 6 6 6'] },
+  cloud: { paths: ['M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z'] },
+  smartphone: {
+    paths: ['M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z', 'M12 18h.01'],
+  },
+  layout: {
+    paths: [
+      'M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z',
+      'M3 9h18',
+      'M9 21V9',
+    ],
+  },
+  compass: {
+    paths: [
+      'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z',
+      'm16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z',
+    ],
+  },
+  layers: {
+    paths: [
+      'm12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z',
+      'm22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65',
+      'm22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65',
+    ],
+  },
+  'shield-check': {
+    paths: [
+      'M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z',
+      'm9 12 2 2 4-4',
+    ],
+  },
+  users: {
+    paths: [
+      'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2',
+      'M9 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z',
+      'M22 21v-2a4 4 0 0 0-3-3.87',
+      'M16 3.13a4 4 0 0 1 0 7.75',
+    ],
+  },
+  clock: { paths: ['M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z', 'M12 6v6l4 2'] },
+  headphones: {
+    paths: [
+      'M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3',
+    ],
+  },
+  linkedin: {
+    paths: [
+      'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z',
+      'M2 9h4v12H2z',
+      'M4 2a2 2 0 1 0 0 4 2 2 0 1 0 0-4z',
+    ],
+  },
+  github: {
+    paths: [
+      'M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4',
+      'M9 18c-4.51 2-5-2-7-2',
+    ],
+  },
+  facebook: {
+    paths: ['M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z'],
+  },
+  'x-social': {
+    paths: [
+      'M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z',
+    ],
+    filled: true,
+  },
+} as const satisfies Record<string, IconDef>;
+
+export type IconName = keyof typeof ICONS;
+
+/** Inline SVG icon. Decorative by default; pass `label` when the icon stands alone. */
+@Component({
+  selector: 'nw-icon',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'inline-flex shrink-0' },
+  template: `
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      [attr.width]="size()"
+      [attr.height]="size()"
+      [attr.fill]="def().filled ? 'currentColor' : 'none'"
+      [attr.stroke]="def().filled ? 'none' : 'currentColor'"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      [attr.role]="label() ? 'img' : null"
+      [attr.aria-label]="label() || null"
+      [attr.aria-hidden]="label() ? null : 'true'"
+      focusable="false"
+    >
+      @for (d of def().paths; track d) {
+        <path [attr.d]="d" />
+      }
+    </svg>
+  `,
+})
+export class Icon {
+  readonly name = input.required<IconName>();
+  readonly size = input(20);
+  readonly label = input('');
+
+  protected readonly def = computed<IconDef>(() => ICONS[this.name()]);
+}

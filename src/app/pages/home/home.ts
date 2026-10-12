@@ -1,0 +1,203 @@
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { PRINCIPLES, PROCESS, SERVICES, Service } from '../../core/content.config';
+import { PRODUCTS } from '../../core/products.config';
+import { SeoService } from '../../core/seo.service';
+import { SITE } from '../../core/site.config';
+import { CtaBanner } from '../../shared/ui/cta-banner';
+import { Faq } from '../../shared/ui/faq';
+import { Icon } from '../../shared/ui/icon';
+import { ProductFeature } from '../../shared/ui/product-feature';
+import { SectionHeading } from '../../shared/ui/section-heading';
+import { TechMarquee } from '../../shared/ui/tech-marquee';
+
+interface Tile {
+  service: Service;
+  /** Grid spans that give the bento its rhythm on large screens. */
+  span: string;
+  variant: '' | 'bento-tile-feature' | 'bento-tile-brand';
+}
+
+/** Order and emphasis of the services bento: the first tile leads, one tile carries the brand colour. */
+const BENTO: { id: string; span: string; variant: Tile['variant'] }[] = [
+  { id: 'web-development', span: 'lg:col-span-2 lg:row-span-2', variant: 'bento-tile-feature' },
+  { id: 'mobile-development', span: 'lg:col-span-2', variant: '' },
+  { id: 'cloud-devops', span: '', variant: 'bento-tile-brand' },
+  { id: 'ui-ux-design', span: '', variant: '' },
+  { id: 'product-engineering', span: 'lg:col-span-2', variant: '' },
+  { id: 'it-consulting', span: 'lg:col-span-2', variant: '' },
+];
+
+@Component({
+  selector: 'nw-home',
+  imports: [RouterLink, Icon, SectionHeading, ProductFeature, TechMarquee, Faq, CtaBanner],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    <!-- Hero -->
+    <section class="page-glow relative overflow-hidden">
+      <div class="container-page grid items-center gap-12 pb-20 pt-14 lg:grid-cols-[1.1fr_0.9fr] lg:pb-28 lg:pt-24">
+        <div>
+          <p class="eyebrow">IT development partner · {{ site.location }}</p>
+          <h1 class="h-display mt-5">
+            Ride the wave of <span class="gradient-text">better software</span>
+          </h1>
+          <p class="lead mt-6">
+            We design, build and run web, mobile and cloud products, so your team can focus on the business
+            instead of the plumbing.
+          </p>
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a routerLink="/contact" class="btn btn-primary">Start a project <nw-icon name="arrow-right" /></a>
+            <a routerLink="/" fragment="services" class="btn btn-secondary">Explore services</a>
+          </div>
+        </div>
+
+        <div class="relative mx-auto mb-10 w-full max-w-md lg:mb-0">
+          <div class="hero-card float-slow p-5" aria-hidden="true">
+            <div class="mb-4 flex items-center gap-2">
+              <span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span>
+              <span class="ml-2 text-xs font-semibold text-muted">your-project.yml</span>
+            </div>
+            <div class="code">
+              <div><span class="code-key">project:</span> <span class="code-val">your-idea</span></div>
+              <div><span class="code-key">stack:</span> [angular, node, cloud]</div>
+              <div><span class="code-key">design:</span> <span class="code-val">prototyped</span></div>
+              <div><span class="code-key">deploy:</span> <span class="code-val">automated</span></div>
+              <div><span class="code-key">support:</span> <span class="code-val">ongoing</span></div>
+            </div>
+          </div>
+          <a
+            routerLink="/products"
+            class="hero-card absolute -bottom-12 -left-3 flex items-center gap-3 px-4 py-3 no-underline sm:-left-8"
+          >
+            <span class="icon-tile !h-10 !w-10"><nw-icon name="smartphone" /></span>
+            <span>
+              <span class="block text-sm font-bold">2 products live</span>
+              <span class="block text-xs text-muted">Web and Android</span>
+            </span>
+          </a>
+        </div>
+      </div>
+      <svg class="wave-divider" viewBox="0 0 1440 96" preserveAspectRatio="none" aria-hidden="true">
+        <path fill="currentColor" d="M0 48c120 40 240 48 360 24S600 0 720 8s240 56 360 64 240-24 360-48v72H0Z" />
+      </svg>
+    </section>
+
+    <!-- Technology marquee -->
+    <section class="bg-surface pb-12 pt-2" aria-label="Technologies">
+      <nw-tech-marquee />
+    </section>
+
+    <!-- Services: bento -->
+    <section id="services" class="section scroll-mt-20">
+      <div class="container-page">
+        <nw-section-heading
+          eyebrow="Services"
+          title="Everything you need, from"
+          accent="one team"
+          lead="Strategy, design, engineering and operations under one roof, so nothing gets lost in a handover."
+        />
+        <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:auto-rows-[minmax(13rem,auto)] lg:grid-cols-4">
+          @for (t of tiles; track t.service.id) {
+            <article class="bento-tile reveal flex flex-col justify-between {{ t.span }} {{ t.variant }}">
+              <div>
+                <span class="icon-tile"><nw-icon [name]="t.service.icon" [size]="24" /></span>
+                <h3 class="mt-5 text-xl">{{ t.service.title }}</h3>
+                <p class="mt-2 text-muted">{{ t.service.summary }}</p>
+              </div>
+              @if (t.variant === 'bento-tile-feature') {
+                <ul class="mt-5 space-y-2 text-sm">
+                  @for (b of t.service.benefits; track b) {
+                    <li class="flex gap-2">
+                      <nw-icon name="check" [size]="16" class="mt-0.5 text-accent" />{{ b }}
+                    </li>
+                  }
+                </ul>
+              }
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section class="section section-alt">
+      <div class="container-page">
+        <nw-section-heading
+          eyebrow="Our products"
+          title="Apps we built, launched and still"
+          accent="run"
+          lead="The best proof of how we work is something you can open today."
+          [center]="true"
+        />
+        <div class="mt-16 space-y-24">
+          @for (p of products; track p.id; let i = $index) {
+            <nw-product-feature [product]="p" [flip]="i % 2 === 1" />
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Process and why us -->
+    <section class="section">
+      <div class="container-page grid gap-14 lg:grid-cols-2">
+        <div>
+          <nw-section-heading eyebrow="How we work" title="From first call to" accent="live product" />
+          <ol class="steps mt-10 space-y-10">
+            @for (s of process; track s.title) {
+              <li class="step">
+                <h3 class="text-lg">{{ s.title }}</h3>
+                <p class="mt-1 text-muted">{{ s.text }}</p>
+              </li>
+            }
+          </ol>
+        </div>
+        <div>
+          <nw-section-heading eyebrow="Why Noble Wave" title="Built around your" accent="business" />
+          <img
+            src="images/teamwork1.jpg"
+            alt="The Noble Wave team collaborating"
+            class="mt-8 aspect-[16/10] w-full rounded-3xl border border-border object-cover"
+            width="800"
+            height="500"
+            loading="lazy"
+          />
+          <ul class="mt-6 grid gap-4 sm:grid-cols-2">
+            @for (w of principles; track w.title) {
+              <li class="flex items-start gap-3">
+                <span class="icon-tile !h-10 !w-10 shrink-0"><nw-icon [name]="w.icon" /></span>
+                <span>
+                  <strong class="block">{{ w.title }}</strong>
+                  <span class="text-sm text-muted">{{ w.text }}</span>
+                </span>
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-alt">
+      <nw-faq />
+    </div>
+
+    <nw-cta-banner class="mt-24 block" />
+  `,
+})
+export class Home {
+  protected readonly site = SITE;
+  protected readonly products = PRODUCTS;
+  protected readonly principles = PRINCIPLES;
+  protected readonly process = PROCESS;
+  protected readonly tiles: Tile[] = BENTO.map((b) => ({
+    service: SERVICES.find((s) => s.id === b.id)!,
+    span: b.span,
+    variant: b.variant,
+  }));
+
+  constructor() {
+    inject(SeoService).set({
+      description: SITE.description,
+      path: '/',
+    });
+  }
+}
