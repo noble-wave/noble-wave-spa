@@ -579,29 +579,104 @@
     color: #b91c1c;
   }
 
-  /* Long-form text (legal pages) */
-  .prose-page h2 {
-    margin-top: 2.5rem;
-    font-size: 1.5rem;
-  }
-  .prose-page h3 {
-    margin-top: 1.5rem;
-    font-size: 1.125rem;
-  }
-  .prose-page p,
-  .prose-page li {
-    margin-top: 0.75rem;
+  /* Legal pages: editorial layout, type and hairlines instead of boxes */
+  .legal-kicker {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--muted);
   }
-  .prose-page ul {
-    margin-top: 0.5rem;
-    padding-left: 1.25rem;
+  .legal-points {
+    display: grid;
+    margin-top: 1rem;
+    border-top: 2px solid var(--text);
+  }
+  @media (min-width: 48rem) {
+    .legal-points {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .legal-points li {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  @media (min-width: 48rem) {
+    .legal-points li {
+      padding: 1.5rem 1.75rem 1.75rem 0;
+      border-bottom: 0;
+    }
+    .legal-points li + li {
+      padding-left: 1.75rem;
+      border-left: 1px solid var(--border);
+    }
+  }
+  .legal-point-num {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: var(--accent);
+  }
+  .legal-point-text {
+    display: block;
+    margin-top: 0.6rem;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+  .legal-row {
+    display: grid;
+    gap: 0.9rem;
+    padding-block: 2.25rem;
+    border-top: 1px solid var(--border);
+  }
+  @media (min-width: 64rem) {
+    .legal-row {
+      grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+      gap: 3rem;
+      padding-block: 3rem;
+    }
+    .legal-row-head {
+      position: sticky;
+      top: 6.5rem;
+      align-self: start;
+    }
+  }
+  .legal-index {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--brand);
+  }
+  .legal-row-head h2 {
+    font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+    line-height: 1.2;
+  }
+  .legal-row-body {
+    max-width: 40rem;
+  }
+  .legal-row-body p,
+  .legal-row-body li {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+  .legal-row-body p + p,
+  .legal-row-body p + ul {
+    margin-top: 1rem;
+  }
+  .legal-row-body ul {
+    padding-left: 1.2rem;
     list-style: disc;
   }
-  .prose-page a {
+  .legal-row-body li + li {
+    margin-top: 0.5rem;
+  }
+  .legal-row-body li::marker {
     color: var(--brand);
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
   }
 
   /* Gentle float for the hero card and phones */
