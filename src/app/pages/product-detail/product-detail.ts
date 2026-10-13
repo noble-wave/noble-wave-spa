@@ -5,6 +5,7 @@ import { PRODUCTS } from '../../core/products.config';
 import { SeoService } from '../../core/seo.service';
 import { productData, productOgImage } from '../../core/structured-data';
 import { CtaBanner } from '../../shared/ui/cta-banner';
+import { Faq } from '../../shared/ui/faq';
 import { Icon } from '../../shared/ui/icon';
 import { ProductVisual } from '../../shared/ui/product-visual';
 import { ScreenshotGallery } from '../../shared/ui/screenshot-gallery';
@@ -13,7 +14,7 @@ import { NotFound } from '../not-found/not-found';
 
 @Component({
   selector: 'nw-product-detail',
-  imports: [RouterLink, Icon, ProductVisual, ScreenshotGallery, SectionHeading, CtaBanner, NotFound],
+  imports: [RouterLink, Icon, ProductVisual, ScreenshotGallery, SectionHeading, CtaBanner, Faq, NotFound],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (product(); as p) {
@@ -102,6 +103,8 @@ import { NotFound } from '../not-found/not-found';
           </div>
         </div>
       </section>
+
+      <div class="section-alt"><nw-faq [items]="p.faq" /></div>
 
       <nw-cta-banner [title]="'Questions about ' + p.name + '?'" text="Send us feedback, report a problem or ask how it works. We reply within one business day." />
     } @else {

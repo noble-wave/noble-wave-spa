@@ -75,9 +75,10 @@ for (const [route, file] of pages) {
   const types = ld.map((m) => { try { return JSON.parse(m[1])['@type']; } catch { return ''; } });
   if (route === '/' && !types.includes('Organization')) fail('missing Organization structured data');
   if (route.startsWith('/products/') && !types.includes('SoftwareApplication')) fail('missing SoftwareApplication structured data');
+  if ((route === '/' || route.startsWith('/products/')) && !types.includes('FAQPage')) fail('missing FAQPage structured data');
 }
 
-for (const file of ['sitemap.xml', 'robots.txt', '404.html', 'CNAME']) {
+for (const file of ['sitemap.xml', 'robots.txt', 'llms.txt', '404.html', 'CNAME', 'images/logo-512.png']) {
   if (!existsSync(`${dir}/${file}`)) problems.push(`${file} missing from the build output`);
 }
 if (existsSync(`${dir}/sitemap.xml`)) {

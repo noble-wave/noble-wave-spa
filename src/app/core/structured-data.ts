@@ -1,5 +1,5 @@
-import { Product } from './products.config';
-import { PRODUCTS } from './products.config';
+import { FAQ } from './content.config';
+import { PRODUCTS, Product } from './products.config';
 import { SITE } from './site.config';
 
 const ORG_ID = `${SITE.url}/#organization`;
@@ -17,13 +17,15 @@ export function organizationData(): object[] {
       '@id': ORG_ID,
       name: SITE.name,
       url: SITE.url,
-      logo: abs('/images/logo.svg'),
+      logo: abs('/images/logo-512.png'),
       description: SITE.description,
+      knowsAbout: ['PDF tools', 'Prayer times and Islamic tools', 'Rental property management', 'Web and mobile apps'],
       address: { '@type': 'PostalAddress', addressLocality: 'New Delhi', addressCountry: 'IN' },
       contactPoint: { '@type': 'ContactPoint', telephone: SITE.phone, email: SITE.email, contactType: 'customer support' },
       ...(SITE.social.length ? { sameAs: SITE.social } : {}),
     },
     { '@type': 'WebSite', '@id': `${SITE.url}/#website`, url: SITE.url, name: SITE.name, publisher: { '@id': ORG_ID }, inLanguage: 'en' },
+    faqPage(FAQ),
   ];
 }
 
@@ -64,12 +66,21 @@ export function productData(p: Product): object[] {
       publisher: { '@id': ORG_ID },
       ...(p.free ? { offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } } : {}),
     },
+    faqPage(p.faq),
     breadcrumbs([
       { name: 'Home', path: '/' },
       { name: 'Products', path: '/products' },
       { name: p.name, path: `/products/${p.id}` },
     ]),
   ];
+}
+
+/** schema.org FAQPage. Answer engines quote these question and answer pairs directly. */
+function faqPage(items: readonly { q: string; a: string }[]): object {
+  return {
+    '@type': 'FAQPage',
+    mainEntity: items.map((i) => ({ '@type': 'Question', name: i.q, acceptedAnswer: { '@type': 'Answer', text: i.a } })),
+  };
 }
 
 function breadcrumbs(trail: readonly { name: string; path: string }[]): object {

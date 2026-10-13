@@ -18,6 +18,11 @@ export interface StoryStep {
   readonly alt: string;
 }
 
+export interface ProductFaq {
+  readonly q: string;
+  readonly a: string;
+}
+
 export interface Product {
   readonly id: string;
   readonly name: string;
@@ -32,6 +37,8 @@ export interface Product {
   /** Short platform badges shown next to the name. */
   readonly platforms: readonly string[];
   readonly features: readonly string[];
+  /** Questions people ask about this product. Shown on its page and in FAQPage structured data. */
+  readonly faq: readonly ProductFaq[];
   readonly links: readonly ProductLink[];
   readonly screenshots: readonly Screenshot[];
   readonly story: readonly StoryStep[];
@@ -57,6 +64,13 @@ export const PRODUCTS: readonly Product[] = [
       'Convert images and other files to PDF, and PDFs to images and Word',
       'Encrypt, compress and repair, plus OCR in English and Hindi',
       'No upload, no account, no watermarks',
+    ],
+    faq: [
+      { q: 'What is PDF Workshop?', a: 'PDF Workshop is a free web app with close to 100 tools for working with PDFs. You can merge, split, edit, sign, convert, compress and encrypt files, and make scans searchable with OCR.' },
+      { q: 'Is PDF Workshop free?', a: 'Yes. It is free to use, with no account to create and no watermarks added to your files.' },
+      { q: 'Are my PDF files uploaded anywhere?', a: 'No. PDF Workshop runs in your browser, so your files stay on your device and there is no upload step.' },
+      { q: 'Which languages does OCR support?', a: 'OCR, which makes scanned pages searchable, works in English and Hindi.' },
+      { q: 'Do I need to install anything?', a: 'No. Open it in your web browser and start working.' },
     ],
     glow: '59 130 246',
     story: [
@@ -89,6 +103,12 @@ export const PRODUCTS: readonly Product[] = [
       'Quran and hadith in the app',
       'Qada prayer counter and prayer tracking',
       'Wudu and salah guides, morning and evening adhkar',
+    ],
+    faq: [
+      { q: 'What is Noble Salah Guide?', a: 'Noble Salah Guide is a free app that helps you keep up with your daily prayers. It shows prayer times with a countdown to the next prayer, plus tools for Qibla, the Quran, hadith, the Islamic calendar and more.' },
+      { q: 'Is Noble Salah Guide free?', a: 'Yes. It is free to use on the web and on Android.' },
+      { q: 'Where can I use Noble Salah Guide?', a: 'You can use it in your web browser or install it on Android from Google Play.' },
+      { q: 'What else does it include besides prayer times?', a: 'A Qibla compass, a monthly prayer calendar, the Quran and hadith, a Qada prayer counter, wudu and salah guides, and morning and evening adhkar.' },
     ],
     glow: '34 160 100',
     story: [
@@ -129,6 +149,13 @@ export const PRODUCTS: readonly Product[] = [
       'Rent and utility bills in one place',
       'Payments by UPI, cash or bank, with monthly summaries',
       'Reminders so you never miss a due date',
+    ],
+    faq: [
+      { q: 'What is Rent Manager?', a: 'Rent Manager is a free web app that keeps landlords organised. You can track properties, units and tenants, record rent and utility bills, and see who has paid and who still owes.' },
+      { q: 'Is Rent Manager free?', a: 'Yes. It is free to use in your web browser.' },
+      { q: 'What kinds of property can I manage?', a: 'Houses, apartments, shops and PG properties, each with its own units and tenants.' },
+      { q: 'How do I record payments?', a: 'Record payments by UPI, cash or bank, and see monthly summaries of what has been collected and what is still owed.' },
+      { q: 'Does Rent Manager send reminders?', a: 'Yes. It reminds you before payments are due so you do not miss a due date.' },
     ],
     glow: '52 211 153',
     story: [

@@ -30,9 +30,19 @@ const routes = [
   ['/terms', '0.3'],
 ];
 
+const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+// Product screenshots are listed on their product page so they can appear in image search.
+const images = (path) => {
+  const p = PRODUCTS.find((x) => path === `/products/${x.id}`);
+  return p
+    ? p.screenshots.map((s) => `<image:image><image:loc>${SITE.url}/images/products/${s.file}.webp</image:loc><image:title>${esc(s.alt)}</image:title></image:image>`).join('')
+    : '';
+};
+
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${routes.map(([path, priority]) => `  <url><loc>${SITE.url}${path}</loc><lastmod>${date}</lastmod><priority>${priority}</priority></url>`).join('\n')}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${routes.map(([path, priority]) => `  <url><loc>${SITE.url}${path}</loc><lastmod>${date}</lastmod><priority>${priority}</priority>${images(path)}</url>`).join('\n')}
 </urlset>
 `;
 writeFileSync(`${dir}/sitemap.xml`, xml);

@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FAQ } from '../../core/content.config';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { FAQ, FaqItem } from '../../core/content.config';
 import { SectionHeading } from './section-heading';
 
 /** Frequently asked questions as native disclosure widgets (keyboard accessible, no JavaScript needed). */
@@ -17,7 +17,7 @@ import { SectionHeading } from './section-heading';
           lead="Can't find yours? Send us a message and we will answer it."
         />
         <div class="space-y-3">
-          @for (f of items; track f.q) {
+          @for (f of items(); track f.q) {
             <details class="faq">
               <summary>{{ f.q }}</summary>
               <p>{{ f.a }}</p>
@@ -29,5 +29,6 @@ import { SectionHeading } from './section-heading';
   `,
 })
 export class Faq {
-  protected readonly items = FAQ;
+  /** Defaults to the site-wide questions; a product page passes its own. */
+  readonly items = input<readonly FaqItem[]>(FAQ);
 }

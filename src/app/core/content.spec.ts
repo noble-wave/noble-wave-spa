@@ -37,6 +37,17 @@ describe('site content', () => {
     }
   });
 
+  it('every product answers its own questions, with unique questions and full-sentence answers', () => {
+    for (const p of PRODUCTS) {
+      expect(p.faq.length, `${p.id} has no FAQ`).toBeGreaterThanOrEqual(3);
+      expect(new Set(p.faq.map((f) => f.q)).size).toBe(p.faq.length);
+      for (const f of p.faq) {
+        expect(f.q.endsWith('?'), f.q).toBe(true);
+        expect(f.a.length, f.q).toBeGreaterThan(30);
+      }
+    }
+  });
+
   it('lists the exact product links the company supplied', () => {
     const urls = PRODUCTS.flatMap((p) => p.links.map((l) => l.url));
     expect(urls).toContain('https://salah.noble-wave.com/');

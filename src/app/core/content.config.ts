@@ -1,4 +1,4 @@
-import { IconName } from '../shared/ui/icon';
+import type { IconName } from '../shared/ui/icon';
 
 /** Editorial content shared by several pages. Edit copy here, not in templates. */
 
