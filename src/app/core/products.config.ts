@@ -2,6 +2,8 @@ export interface Screenshot {
   /** File name (without size suffix or extension) in public/images/products. */
   readonly file: string;
   readonly alt: string;
+  /** Set on a portrait phone image inside a product whose other screenshots are landscape (or the reverse). */
+  readonly portrait?: boolean;
 }
 
 export interface ProductLink {
@@ -207,6 +209,9 @@ export const PRODUCTS: readonly Product[] = [
       { file: 'qaida-1', alt: 'Noble Qaida Learn screen with a daily goal, a streak and a learning path' },
       { file: 'qaida-2', alt: 'Noble Qaida English Letters screen with colourful letter tiles' },
       { file: 'qaida-3', alt: 'Noble Qaida Urdu Letters screen with a reader picker' },
+      { file: 'qaida-m-1', portrait: true, alt: 'Noble Qaida Learn screen on a phone with a daily goal, a streak and a Continue button' },
+      { file: 'qaida-m-2', portrait: true, alt: 'Noble Qaida English Letters screen on a phone with capital letters A to P' },
+      { file: 'qaida-m-3', portrait: true, alt: 'Noble Qaida Hindi Letters screen on a phone showing Hindi letters' },
     ],
   },
 ];

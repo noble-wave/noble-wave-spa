@@ -33,17 +33,18 @@ const BASE = 'images/products/';
             type="button"
             role="listitem"
             class="gallery-item"
-            [class.is-wide]="wide()"
+            [class.is-wide]="isWide(s)"
+            [class.is-poster]="s.portrait"
             [attr.aria-label]="'View larger: ' + s.alt"
             (click)="open(i)"
           >
             <img
               [src]="thumb(s)"
-              [attr.srcset]="wide() ? thumb(s) + ' 960w, ' + full(s) + ' 1600w' : thumb(s) + ' 512w, ' + full(s) + ' 1024w'"
-              [attr.sizes]="wide() ? '(min-width: 640px) 440px, 85vw' : '(min-width: 640px) 224px, 62vw'"
+              [attr.srcset]="isWide(s) ? thumb(s) + ' 960w, ' + full(s) + ' 1600w' : thumb(s) + ' 512w, ' + full(s) + ' 1024w'"
+              [attr.sizes]="isWide(s) ? '(min-width: 640px) 440px, 85vw' : '(min-width: 640px) 224px, 62vw'"
               [alt]="s.alt"
-              [attr.width]="wide() ? 960 : 512"
-              [attr.height]="wide() ? 536 : 768"
+              [attr.width]="isWide(s) ? 960 : 512"
+              [attr.height]="isWide(s) ? 536 : s.portrait ? 917 : 768"
               loading="lazy"
               decoding="async"
             />
@@ -68,8 +69,8 @@ const BASE = 'images/products/';
       (keydown)="onKey($event)"
     >
       @if (current(); as s) {
-        <div class="gallery-dialog-body" [class.is-wide]="wide()">
-          <img [src]="full(s)" [alt]="s.alt" [attr.width]="wide() ? 1600 : 1024" [attr.height]="wide() ? 893 : 1536" />
+        <div class="gallery-dialog-body" [class.is-wide]="isWide(s)">
+          <img [src]="full(s)" [alt]="s.alt" [attr.width]="isWide(s) ? 1600 : 1024" [attr.height]="isWide(s) ? 893 : s.portrait ? 1835 : 1536" />
           <p class="mt-3 text-center text-sm text-white/80" aria-live="polite">
             {{ index() + 1 }} / {{ screenshots().length }}
           </p>
@@ -102,8 +103,13 @@ export class ScreenshotGallery {
     return this.screenshots()[this.index()];
   }
 
+  /** Landscape or portrait, per image: a `portrait` flag flips the gallery's default. */
+  protected isWide(s: Screenshot): boolean {
+    return s.portrait ? !this.wide() : this.wide();
+  }
+
   protected thumb(s: Screenshot): string {
-    return `${BASE}${s.file}${this.wide() ? '-sm' : '-512'}.webp`;
+    return `${BASE}${s.file}${this.isWide(s) ? '-sm' : '-512'}.webp`;
   }
 
   protected full(s: Screenshot): string {
