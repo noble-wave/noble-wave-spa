@@ -31,7 +31,7 @@ export interface Product {
   readonly tagline: string;
   readonly description: string;
   /** schema.org applicationCategory, used in the SoftwareApplication structured data. */
-  readonly category: 'BusinessApplication' | 'UtilitiesApplication' | 'LifestyleApplication';
+  readonly category: 'BusinessApplication' | 'UtilitiesApplication' | 'LifestyleApplication' | 'EducationalApplication';
   /** True when the product is free to use; it adds a zero-price offer to the structured data. */
   readonly free?: boolean;
   /** Short platform badges shown next to the name. */
@@ -170,6 +170,43 @@ export const PRODUCTS: readonly Product[] = [
       { file: 'rent-units', alt: 'Rent Manager property screen showing expected, collected and outstanding rent for each unit' },
       { file: 'rent-add-property', alt: 'Rent Manager add property form with house, apartment, shop and PG types' },
       { file: 'rent-payments', alt: 'Rent Manager payments screen with monthly collections by UPI, cash and bank' },
+    ],
+  },
+  {
+    id: 'noble-qaida',
+    name: 'Noble Qaida',
+    device: 'desktop',
+    category: 'EducationalApplication',
+    free: true,
+    tagline: 'Learn letters and numbers in Arabic, Urdu, Hindi and English',
+    description:
+      'Noble Qaida is a free web app where children learn the letters and numbers of Arabic, Urdu, Hindi and English. Tap a letter to hear it, follow a guided learning path, and let parents track progress and daily goals.',
+    platforms: ['Web'],
+    features: [
+      'Letters and numbers in Arabic, Urdu, Hindi and English',
+      'Tap any letter to hear its sound, or play them all in a row',
+      'A guided learning path with a Continue button',
+      'Daily goals and a streak to build a learning habit',
+      'Progress and Parents sections to follow how a child is doing',
+    ],
+    faq: [
+      { q: 'What is Noble Qaida?', a: 'Noble Qaida is a free web app where children learn the letters and numbers of Arabic, Urdu, Hindi and English, with sounds to hear and a guided learning path.' },
+      { q: 'Is Noble Qaida free?', a: 'Yes. It is free to use in your web browser.' },
+      { q: 'Which languages can children learn?', a: 'Arabic, Urdu, Hindi and English. You choose the language when you start.' },
+      { q: 'Can parents follow progress?', a: 'Yes. The app has Progress and Parents sections, plus daily goals and a streak to keep children motivated.' },
+      { q: 'Do I need to install anything?', a: 'No. Open it in your web browser and start learning.' },
+    ],
+    glow: '20 160 140',
+    story: [
+      { file: 'qaida-1', title: 'A guided learning path', text: 'Pick up where you left off with Continue, follow the path from Explore to Hear & Pick, and watch the daily goal and streak.', alt: 'Noble Qaida Learn screen on a laptop with a daily goal, a streak, a Continue button and a learning path' },
+      { file: 'qaida-2', title: 'Letters you can hear', text: 'Tap a letter to hear how it sounds, or press Play all to go through them one by one. English has capital and lowercase letters, vowels and numbers.', alt: 'Noble Qaida Letters screen showing the English capital letters A to P in colourful tiles with their sounds' },
+      { file: 'qaida-3', title: 'Arabic, Urdu and Hindi too', text: 'Switch the language and the reader. Urdu letters can be played in the voice of Qari Sadruddin.', alt: 'Noble Qaida Letters screen showing Urdu letters, with a language picker and a reader called Qari Sadruddin' },
+    ],
+    links: [{ kind: 'web', label: 'Open web app', url: 'https://qaida.noble-wave.com/learn' }],
+    screenshots: [
+      { file: 'qaida-1', alt: 'Noble Qaida Learn screen with a daily goal, a streak and a learning path' },
+      { file: 'qaida-2', alt: 'Noble Qaida English Letters screen with colourful letter tiles' },
+      { file: 'qaida-3', alt: 'Noble Qaida Urdu Letters screen with a reader picker' },
     ],
   },
 ];

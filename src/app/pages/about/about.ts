@@ -117,7 +117,7 @@ export class About {
   constructor() {
     inject(SeoService).set({
       title: 'About Noble Wave',
-      description: `${SITE.name} is a small product team in ${SITE.location} that designs, builds and runs the apps we ship: PDF Workshop, Noble Salah Guide and Rent Manager.`,
+      description: `${SITE.name} is a small product team in ${SITE.location} that designs, builds and runs the apps we ship: PDF Workshop, Noble Salah Guide, Rent Manager and Noble Qaida.`,
       path: '/about',
     });
   }

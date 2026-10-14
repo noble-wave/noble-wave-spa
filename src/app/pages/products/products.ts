@@ -38,9 +38,9 @@ export class Products {
 
   constructor() {
     inject(SeoService).set({
-      title: 'Products: PDF Workshop, Noble Salah Guide, Rent Manager',
+      title: 'Our apps: PDF, prayer, rentals and learning',
       description:
-        'PDF Workshop for private, in-browser PDF tools, Noble Salah Guide for prayer times and Islamic tools, and Rent Manager for landlords: apps built and run by Noble Wave.',
+        'PDF Workshop, Noble Salah Guide, Rent Manager and Noble Qaida: free apps for PDFs, prayer times, rentals and learning letters, built and run by Noble Wave.',
       path: '/products',
       jsonLd: productListData(),
     });

@@ -154,7 +154,7 @@ export class Contact {
   constructor() {
     inject(SeoService).set({
       title: 'Contact',
-      description: `Contact ${SITE.name}: ask about PDF Workshop, Noble Salah Guide or Rent Manager, or talk to us about a project. Email, phone or the form; we reply within one business day.`,
+      description: `Contact ${SITE.name}: ask about our apps or talk to us about a project. Email, phone or the form; we reply within one business day.`,
       path: '/contact',
     });
   }
