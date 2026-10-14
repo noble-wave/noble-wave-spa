@@ -27,7 +27,7 @@ import { TechMarquee } from '../../shared/ui/tech-marquee';
           </h1>
           <p class="lead mt-6">
             Noble Wave builds free apps for the things people do every day: working with PDFs, keeping up with
-            prayers and managing rentals. Open one in your browser today.
+            prayers, managing rentals and helping children learn their letters. Open one in your browser today.
           </p>
           <div class="mt-9 flex flex-wrap gap-3">
             <a routerLink="/products" class="btn btn-primary">See our products <nw-icon name="arrow-right" /></a>

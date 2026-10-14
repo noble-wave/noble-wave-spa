@@ -4,7 +4,7 @@
  */
 export const SITE = {
   name: 'Noble Wave',
-  tagline: 'Useful apps for PDFs, prayer and rentals',
+  tagline: 'Free everyday apps for work, faith and learning',
   description:
     'Noble Wave builds free apps people use daily: PDF Workshop, Noble Salah Guide, Rent Manager and Noble Qaida, for PDFs, prayer, rentals and learning. Made in New Delhi.',
   url: 'https://noble-wave.com',

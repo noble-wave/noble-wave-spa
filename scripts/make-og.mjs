@@ -45,7 +45,7 @@ const cards = {
   default: `
     <img class="logo" src="${logo}">
     <div style="position:absolute;left:64px;top:150px;width:560px">
-      <h1 style="font-size:64px;line-height:1.05;font-weight:800;letter-spacing:-1.5px">Useful apps for PDFs, prayer and rentals</h1>
+      <h1 style="font-size:64px;line-height:1.05;font-weight:800;letter-spacing:-1.5px">Free everyday apps for work, faith and learning</h1>
       <p style="margin-top:26px;font-size:28px;line-height:1.35;color:#3f5e6b">PDF Workshop, Noble Salah Guide, Rent Manager and Noble Qaida. Made in ${SITE.location}.</p>
     </div>
     ${wave}

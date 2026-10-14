@@ -19,7 +19,7 @@ describe('SeoService', () => {
 
   it('uses the tagline as the title on the home page', () => {
     TestBed.inject(SeoService).set({ description: 'Home.', path: '/' });
-    expect(TestBed.inject(DOCUMENT).title).toContain('Useful apps for PDFs, prayer and rentals');
+    expect(TestBed.inject(DOCUMENT).title).toContain('Free everyday apps for work, faith and learning');
   });
 
   it('marks noindex pages and reuses a single canonical link', () => {

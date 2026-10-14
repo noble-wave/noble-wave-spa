@@ -308,6 +308,9 @@
 
   /* Navigation */
   .nav-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
     padding: 0.5rem 0.9rem;
     border-radius: 999px;
     font-size: 0.9375rem;
@@ -331,6 +334,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
+    min-height: 2.5rem;
     font-weight: 700;
     color: var(--brand);
     text-decoration: none;
@@ -482,6 +486,77 @@
   .faq p {
     padding: 0 1.4rem 1.2rem;
     color: var(--muted);
+  }
+
+  /* About: mission and vision as large statements on a dark band */
+  .statement-band {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding-block: clamp(4rem, 9vw, 7rem);
+    color: #e6f4f8;
+    background:
+      radial-gradient(60% 90% at 90% 0%, rgb(14 116 144 / 0.45), transparent 70%),
+      linear-gradient(160deg, #06232f, #0a3442);
+  }
+  .statement-wave {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    height: 55%;
+    color: #7eebf2;
+  }
+  .statement {
+    display: grid;
+    gap: 1rem;
+    padding-block: 2.5rem;
+    border-top: 1px solid rgb(255 255 255 / 0.16);
+  }
+  .statement:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+  .statement:last-child {
+    padding-bottom: 0;
+  }
+  @media (min-width: 64rem) {
+    .statement {
+      grid-template-columns: 13rem minmax(0, 1fr);
+      gap: 3rem;
+      padding-block: 3.5rem;
+    }
+  }
+  .statement-label {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7eebf2;
+  }
+  .statement-label span {
+    color: rgb(255 255 255 / 0.45);
+  }
+  .statement-text {
+    max-width: 46rem;
+    font-size: clamp(1.6rem, 3.1vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.22;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  .statement-text .nb {
+    white-space: nowrap;
+  }
+  .statement-accent {
+    background: linear-gradient(95deg, #7eebf2, #ffb59a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   /* Contact page */
@@ -700,6 +775,16 @@
       radial-gradient(70% 60% at 50% 100%, rgb(var(--glow, 14 116 144) / 0.3), transparent 70%),
       linear-gradient(180deg, var(--surface), color-mix(in srgb, var(--surface-2) 70%, var(--surface)));
   }
+  .pv-shot {
+    position: absolute;
+    height: auto;
+    aspect-ratio: 1600 / 893;
+    border: 4px solid #0b2530;
+    border-radius: 0.9rem;
+    background: #0b2530;
+    box-shadow: 0 20px 34px rgb(4 30 45 / 0.28);
+    object-fit: cover;
+  }
   .pv-phone {
     position: absolute;
     left: var(--x);
@@ -864,6 +949,9 @@
     color: var(--f-accent);
   }
   .footer-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
     color: var(--f-text);
     text-decoration: none;
     background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
@@ -884,6 +972,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
+    min-height: 2.25rem;
     font-weight: 700;
     color: var(--f-accent);
     text-decoration: underline;
