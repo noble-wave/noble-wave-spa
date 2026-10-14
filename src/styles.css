@@ -1023,7 +1023,7 @@
   .footer-link {
     display: inline-flex;
     align-items: center;
-    min-height: 2.5rem;
+    min-height: 2.25rem;
     color: var(--f-text);
     text-decoration: none;
     background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
@@ -1040,25 +1040,6 @@
     outline-color: var(--f-accent);
   }
   /* Outbound action links (store and web app): accent colour and a permanent underline so they read as links. */
-  .footer-action {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    min-height: 2.25rem;
-    font-weight: 700;
-    color: var(--f-accent);
-    text-decoration: underline;
-    text-decoration-thickness: 1.5px;
-    text-underline-offset: 0.28em;
-    text-decoration-color: color-mix(in srgb, var(--f-accent) 55%, transparent);
-    transition:
-      color 0.18s ease,
-      text-decoration-color 0.18s ease;
-  }
-  .footer-action:hover {
-    color: #fff;
-    text-decoration-color: #fff;
-  }
   .footer-cta {
     display: inline-flex;
     align-items: center;
