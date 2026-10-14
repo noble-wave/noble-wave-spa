@@ -85,15 +85,17 @@ import { TechIcon } from '../../shared/ui/tech-icon';
     <section class="section section-alt">
       <div class="container-page">
         <nw-section-heading eyebrow="Technology" title="Tools we build with" accent="every day" [center]="true" />
-        <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="tech-sheet mt-12">
           @for (g of tech; track g.label) {
-            <div>
-              <h3 class="text-sm font-bold uppercase tracking-wider text-muted">{{ g.label }}</h3>
-              <ul class="mt-3 flex flex-wrap gap-2">
-                @for (t of g.items; track t) {
-                  <li class="chip gap-2"><nw-tech-icon [name]="t" [size]="16" />{{ t }}</li>
-                }
-              </ul>
+            <div class="tech-row">
+              <h3 class="tech-row-label">{{ g.label }}</h3>
+              <div class="tech-cells-clip">
+                <ul class="tech-cells">
+                  @for (t of g.items; track t) {
+                    <li class="tech-cell"><nw-tech-icon [name]="t" [size]="30" /><span>{{ t }}</span></li>
+                  }
+                </ul>
+              </div>
             </div>
           }
         </div>

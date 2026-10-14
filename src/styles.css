@@ -559,6 +559,78 @@
     color: transparent;
   }
 
+  /* About: technology as a spec sheet of logo cells */
+  .tech-sheet {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    background: var(--bg);
+    box-shadow: var(--shadow-card);
+  }
+  .tech-row {
+    display: grid;
+  }
+  .tech-row + .tech-row {
+    border-top: 1px solid var(--border);
+  }
+  @media (min-width: 64rem) {
+    .tech-row {
+      grid-template-columns: 13rem minmax(0, 1fr);
+    }
+    .tech-row-label {
+      border-right: 1px solid var(--border);
+    }
+  }
+  .tech-row-label {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brand-strong);
+    background: color-mix(in srgb, var(--brand) 7%, var(--bg));
+    border-bottom: 1px solid var(--border);
+  }
+  @media (min-width: 64rem) {
+    .tech-row-label {
+      border-bottom: 0;
+    }
+  }
+  .tech-cells-clip {
+    overflow: hidden;
+  }
+  .tech-cells {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(6.25rem, 1fr));
+    margin: 0 -1px -1px 0;
+  }
+  .tech-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    min-height: 5.75rem;
+    padding: 0.9rem 0.4rem;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.18s ease;
+  }
+  .tech-cell:hover {
+    background: color-mix(in srgb, var(--brand) 6%, var(--bg));
+  }
+  .tech-cell nw-tech-icon {
+    transition: transform 0.18s ease;
+  }
+  .tech-cell:hover nw-tech-icon {
+    transform: translateY(-2px) scale(1.06);
+  }
+
   /* Contact page */
   .contact-card {
     background: var(--bg);
