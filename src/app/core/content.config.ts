@@ -97,7 +97,7 @@ export const PRINCIPLES: readonly Principle[] = [
   { icon: 'users', title: 'Built by a small team', text: 'The people who build each app also support it, so feedback goes straight to them.' },
   { icon: 'layout', title: 'Simple to use', text: 'Clear screens and the tools you need up front, designed around everyday tasks.' },
   { icon: 'shield-check', title: 'Privacy respected', text: 'PDF Workshop processes your files in your browser, so they never leave your device.' },
-  { icon: 'check', title: 'Free to use', text: 'PDF Workshop, Noble Salah Guide, Rent Manager and Noble Qaida are all free.' },
+  { icon: 'check', title: 'Free to use', text: 'PDF Workshop, Noble Salah Guide, Rentiva and Noble Qaida are all free.' },
 ];
 
 export const VALUES: readonly Principle[] = [
@@ -136,7 +136,7 @@ export interface FaqItem {
 export const FAQ: readonly FaqItem[] = [
   {
     q: 'Are your apps free?',
-    a: 'Yes. PDF Workshop, Noble Salah Guide, Rent Manager and Noble Qaida are all free to use.',
+    a: 'Yes. PDF Workshop, Noble Salah Guide, Rentiva and Noble Qaida are all free to use.',
   },
   {
     q: 'Where can I use them?',

@@ -13,6 +13,14 @@ describe('site content', () => {
     }
   });
 
+  it('sends the old Rent Manager address to Rentiva', () => {
+    const children = routes.find((r) => r.path === '' && r.children)?.children ?? [];
+    const old = children.find((r) => r.path === 'products/rent-manager');
+
+    expect(old?.redirectTo).toBe('/products/rentiva');
+    expect(PRODUCTS.some((p) => p.id === 'rentiva')).toBe(true);
+  });
+
   it('has a wildcard route for unknown URLs', () => {
     expect(childPaths).toContain('**');
   });

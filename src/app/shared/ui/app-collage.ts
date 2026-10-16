@@ -10,7 +10,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       class="pv aspect-[4/3]"
       style="--glow: 14 116 144"
       role="img"
-      aria-label="Screens from PDF Workshop, Noble Qaida, Noble Salah Guide and Rent Manager"
+      aria-label="Screens from PDF Workshop, Noble Qaida, Noble Salah Guide and Rentiva"
     >
       <img class="pv-shot" src="images/products/pdf-1.webp" alt="" width="1600" height="893" decoding="async" fetchpriority="high"
         style="left:4%;top:7%;width:60%;transform:rotate(-3deg);z-index:1" />

@@ -2,8 +2,8 @@ export interface Screenshot {
   /** File name (without size suffix or extension) in public/images/products. */
   readonly file: string;
   readonly alt: string;
-  /** Set on a portrait phone image inside a product whose other screenshots are landscape (or the reverse). */
-  readonly portrait?: boolean;
+  /** A tall (1024 x 1835) phone poster. It keeps its own proportions, even next to landscape screenshots. */
+  readonly poster?: boolean;
 }
 
 export interface ProductLink {
@@ -136,14 +136,14 @@ export const PRODUCTS: readonly Product[] = [
     ],
   },
   {
-    id: 'rent-manager',
-    name: 'Rent Manager',
+    id: 'rentiva',
+    name: 'Rentiva',
     device: 'phone',
     category: 'BusinessApplication',
     free: true,
     tagline: 'Manage your rentals, hassle free',
     description:
-      'Rent Manager is a free web app that keeps landlords organised. Track properties, units and tenants, record rent and utility bills, see who has paid and who still owes, and get reminders before payments are due.',
+      'Rentiva is a free web app that keeps landlords organised. Track properties, units and tenants, record rent and utility bills, see who has paid and who still owes, and get reminders before payments are due.',
     platforms: ['Web'],
     features: [
       'Houses, apartments, shops and PG properties',
@@ -153,25 +153,29 @@ export const PRODUCTS: readonly Product[] = [
       'Reminders so you never miss a due date',
     ],
     faq: [
-      { q: 'What is Rent Manager?', a: 'Rent Manager is a free web app that keeps landlords organised. You can track properties, units and tenants, record rent and utility bills, and see who has paid and who still owes.' },
-      { q: 'Is Rent Manager free?', a: 'Yes. It is free to use in your web browser.' },
+      { q: 'What is Rentiva?', a: 'Rentiva is a free web app that keeps landlords organised. You can track properties, units and tenants, record rent and utility bills, and see who has paid and who still owes.' },
+      { q: 'Is Rentiva free?', a: 'Yes. It is free to use in your web browser.' },
       { q: 'What kinds of property can I manage?', a: 'Houses, apartments, shops and PG properties, each with its own units and tenants.' },
       { q: 'How do I record payments?', a: 'Record payments by UPI, cash or bank, and see monthly summaries of what has been collected and what is still owed.' },
-      { q: 'Does Rent Manager send reminders?', a: 'Yes. It reminds you before payments are due so you do not miss a due date.' },
+      { q: 'Does Rentiva send reminders?', a: 'Yes. It reminds you before payments are due so you do not miss a due date.' },
     ],
     glow: '52 211 153',
     story: [
-      { file: 'rent-portfolio', title: 'Every property at a glance', text: 'Properties, tenants and vacant units, with rent collected against rent due for each property.', alt: 'Rent Manager portfolio listing properties with rent collected and overdue status' },
-      { file: 'rent-units', title: 'Units and tenants', text: 'See what is expected, collected and outstanding for every unit, and add tenants to the vacant ones.', alt: 'Rent Manager property screen showing expected, collected and outstanding rent per unit' },
-      { file: 'rent-add-property', title: 'Set up in minutes', text: 'Add a house, apartment, shop or PG, then set electricity and additional charges.', alt: 'Rent Manager add property form with house, apartment, shop and PG types' },
-      { file: 'rent-payments', title: 'Know who has paid', text: 'Money received this month, what is still owed, and a breakdown by UPI, cash and bank.', alt: 'Rent Manager payments screen with monthly collections by UPI, cash and bank' },
+      { file: 'rent-portfolio', title: 'Every property at a glance', text: 'Properties, tenants and vacant units, with rent collected against rent due for each property.', alt: 'Rentiva portfolio listing properties with rent collected and overdue status' },
+      { file: 'rent-units', title: 'Units and tenants', text: 'See what is expected, collected and outstanding for every unit, and add tenants to the vacant ones.', alt: 'Rentiva property screen showing expected, collected and outstanding rent per unit' },
+      { file: 'rent-add-property', title: 'Set up in minutes', text: 'Add a house, apartment, shop or PG, then set electricity and additional charges.', alt: 'Rentiva add property form with house, apartment, shop and PG types' },
+      { file: 'rent-payments', title: 'Know who has paid', text: 'Money received this month, what is still owed, and a breakdown by UPI, cash and bank.', alt: 'Rentiva payments screen with monthly collections by UPI, cash and bank' },
     ],
     links: [{ kind: 'web', label: 'Open web app', url: 'https://rentiva.noble-wave.com/' }],
     screenshots: [
-      { file: 'rent-portfolio', alt: 'Rent Manager property portfolio listing properties with rent collected and overdue status' },
-      { file: 'rent-units', alt: 'Rent Manager property screen showing expected, collected and outstanding rent for each unit' },
-      { file: 'rent-add-property', alt: 'Rent Manager add property form with house, apartment, shop and PG types' },
-      { file: 'rent-payments', alt: 'Rent Manager payments screen with monthly collections by UPI, cash and bank' },
+      { file: 'rentiva-1', poster: true, alt: 'Rentiva dashboard showing which tenants have paid and which are overdue' },
+      { file: 'rentiva-2', poster: true, alt: 'Rentiva portfolio of properties with rent collection progress for each one' },
+      { file: 'rentiva-3', poster: true, alt: 'Rentiva Bills screen with a Run bill cycle button for each property' },
+      { file: 'rentiva-4', poster: true, alt: 'Rentiva bill review with itemised rent, electricity and maintenance for each tenant' },
+      { file: 'rentiva-5', poster: true, alt: 'Rentiva sending each tenant their monthly bill as a PDF on WhatsApp' },
+      { file: 'rentiva-6', poster: true, alt: 'Rentiva expenses screen tracking repairs and net income for each property' },
+      { file: 'rentiva-7', poster: true, alt: 'Rentiva settings for light, dark and system themes, English and Hindi, and Google Drive backup' },
+      { file: 'rentiva-8', poster: true, alt: 'Rentiva welcome screen for smart rent management' },
     ],
   },
   {
@@ -209,9 +213,9 @@ export const PRODUCTS: readonly Product[] = [
       { file: 'qaida-1', alt: 'Noble Qaida Learn screen with a daily goal, a streak and a learning path' },
       { file: 'qaida-2', alt: 'Noble Qaida English Letters screen with colourful letter tiles' },
       { file: 'qaida-3', alt: 'Noble Qaida Urdu Letters screen with a reader picker' },
-      { file: 'qaida-m-1', portrait: true, alt: 'Noble Qaida Learn screen on a phone with a daily goal, a streak and a Continue button' },
-      { file: 'qaida-m-2', portrait: true, alt: 'Noble Qaida English Letters screen on a phone with capital letters A to P' },
-      { file: 'qaida-m-3', portrait: true, alt: 'Noble Qaida Hindi Letters screen on a phone showing Hindi letters' },
+      { file: 'qaida-m-1', poster: true, alt: 'Noble Qaida Learn screen on a phone with a daily goal, a streak and a Continue button' },
+      { file: 'qaida-m-2', poster: true, alt: 'Noble Qaida English Letters screen on a phone with capital letters A to P' },
+      { file: 'qaida-m-3', poster: true, alt: 'Noble Qaida Hindi Letters screen on a phone showing Hindi letters' },
     ],
   },
 ];

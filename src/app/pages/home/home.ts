@@ -6,6 +6,7 @@ import { SeoService } from '../../core/seo.service';
 import { organizationData } from '../../core/structured-data';
 import { SITE } from '../../core/site.config';
 import { CtaBanner } from '../../shared/ui/cta-banner';
+import { AppHub } from '../../shared/ui/app-hub';
 import { Faq } from '../../shared/ui/faq';
 import { Icon } from '../../shared/ui/icon';
 import { ProductFeature } from '../../shared/ui/product-feature';
@@ -14,12 +15,12 @@ import { TechMarquee } from '../../shared/ui/tech-marquee';
 
 @Component({
   selector: 'nw-home',
-  imports: [RouterLink, Icon, SectionHeading, ProductFeature, TechMarquee, Faq, CtaBanner],
+  imports: [RouterLink, Icon, SectionHeading, ProductFeature, TechMarquee, Faq, CtaBanner, AppHub],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <!-- Hero -->
     <section class="page-glow relative overflow-hidden">
-      <div class="container-page grid items-center gap-12 pb-20 pt-14 lg:grid-cols-[1.1fr_0.9fr] lg:pb-28 lg:pt-24">
+      <div class="container-page grid items-center gap-12 pb-20 pt-14 lg:grid-cols-[1fr_1.1fr] lg:pb-28 lg:pt-24">
         <div>
           <p class="eyebrow">Apps made in {{ site.location }}</p>
           <h1 class="h-display mt-5">
@@ -35,30 +36,8 @@ import { TechMarquee } from '../../shared/ui/tech-marquee';
           </div>
         </div>
 
-        <div class="relative mx-auto mb-10 w-full max-w-md lg:mb-0">
-          <div class="hero-card float-slow p-5" aria-hidden="true">
-            <div class="mb-4 flex items-center gap-2">
-              <span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span>
-              <span class="ml-2 text-xs font-semibold text-muted">noble-wave.yml</span>
-            </div>
-            <div class="code">
-              <div><span class="code-key">apps:</span> <span class="code-val">{{ products.length }}</span></div>
-              <div><span class="code-key">platforms:</span> [web, android]</div>
-              <div><span class="code-key">price:</span> <span class="code-val">free</span></div>
-              <div><span class="code-key">pdf-files:</span> <span class="code-val">stay-on-device</span></div>
-              <div><span class="code-key">made-in:</span> <span class="code-val">new-delhi</span></div>
-            </div>
-          </div>
-          <a
-            routerLink="/products"
-            class="hero-card absolute -bottom-12 -left-3 flex items-center gap-3 px-4 py-3 no-underline sm:-left-8"
-          >
-            <span class="icon-tile !h-10 !w-10"><nw-icon name="smartphone" /></span>
-            <span>
-              <span class="block text-sm font-bold">{{ products.length }} products live</span>
-              <span class="block text-xs text-muted">Web and Android</span>
-            </span>
-          </a>
+        <div class="mx-auto w-full max-w-xl lg:max-w-none">
+          <nw-app-hub />
         </div>
       </div>
       <svg class="wave-divider" viewBox="0 0 1440 96" preserveAspectRatio="none" aria-hidden="true">
@@ -119,7 +98,7 @@ import { TechMarquee } from '../../shared/ui/tech-marquee';
             <img
               class="pv-phone"
               src="images/story/rent-portfolio.webp"
-              alt="Rent Manager: a portfolio of properties with rent collected"
+              alt="Rentiva: a portfolio of properties with rent collected"
               style="--x:50%;--y:-34%;--h:116%;--r:5deg;z-index:2"
               width="516"
               height="1070"

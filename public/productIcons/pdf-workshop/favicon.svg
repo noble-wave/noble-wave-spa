@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="pdf-workshop">
+  <!--
+    The banded parcel from the header mark (src/app/shared/logo/logo.ts), reversed out of a
+    brand-blue tile.
+
+    The header draws the mark in ink and adds no colour, deliberately, so that it sits quietly
+    beside the wordmark. A favicon has the opposite job: it is 16 px wide, it has no wordmark
+    next to it, and it has to be picked out of a strip of twenty tabs. Colour is the strongest
+    signal available at that size, and the blue is the brand's own accent rather than a new
+    one. At 16 px the mark alone reads as an abstract glyph whichever way it is drawn; the
+    tile is what makes it findable.
+
+    Literal values, not var(): an icon is loaded outside the document and has no stylesheet to
+    read custom properties from. These are the light theme's brand and canvas tokens.
+
+    Do not write a double hyphen anywhere in this comment. XML forbids it inside a comment,
+    and an invalid SVG favicon fails silently: the file still serves with the right content
+    type, and the browser simply shows nothing.
+  -->
+  <rect width="32" height="32" rx="7" fill="#2e63e5"/>
+  <rect x="4" y="7" width="24" height="19" rx="3.5" fill="#f5ece3"/>
+  <rect x="14.2" y="7" width="3.6" height="19" fill="#2e63e5"/>
+  <circle cx="16" cy="13" r="2.25" fill="#f5ece3"/>
+</svg>

@@ -106,7 +106,7 @@ const TERMS: LegalDoc = {
     },
     {
       heading: 'Products and third-party services',
-      paragraphs: ['Our apps, including PDF Workshop, Noble Salah Guide, Rent Manager and Noble Qaida, may be subject to separate terms and the policies of the stores or platforms that distribute them.'],
+      paragraphs: ['Our apps, including PDF Workshop, Noble Salah Guide, Rentiva and Noble Qaida, may be subject to separate terms and the policies of the stores or platforms that distribute them.'],
     },
     {
       heading: 'Information on this site',
