@@ -27,8 +27,8 @@ import { Product } from '../../core/products.config';
         [attr.aria-labelledby]="uid + '-tab-' + index()"
       >
         <div class="showcase-panel pv" [class.is-wide]="wide()">
-          @for (s of product().story; track s.file; let i = $index) {
-            @if (wide()) {
+          @if (wide()) {
+            @for (s of product().story; track s.file; let i = $index) {
               <img
                 class="showcase-shot"
                 [class.is-active]="i === index()"
@@ -40,19 +40,26 @@ import { Product } from '../../core/products.config';
                 loading="lazy"
                 decoding="async"
               />
-            } @else {
-              <img
-                class="showcase-phone"
-                [class.is-active]="i === index()"
-                [src]="'images/story/' + s.file + '.webp'"
-                [alt]="s.alt"
-                [attr.aria-hidden]="i === index() ? null : 'true'"
-                width="560"
-                height="1214"
-                loading="lazy"
-                decoding="async"
-              />
             }
+          } @else {
+            <!-- One fixed phone; only the screen inside it changes. -->
+            <div class="showcase-device">
+              <div class="showcase-screen">
+                @for (s of product().story; track s.file; let i = $index) {
+                  <img
+                    class="showcase-img"
+                    [class.is-active]="i === index()"
+                    [src]="'images/screens/' + s.file + '.webp'"
+                    [alt]="s.alt"
+                    [attr.aria-hidden]="i === index() ? null : 'true'"
+                    width="480"
+                    height="1040"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                }
+              </div>
+            </div>
           }
         </div>
       </div>
