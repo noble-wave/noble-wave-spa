@@ -30,6 +30,8 @@ export interface Product {
   readonly name: string;
   /** 'phone' products show portrait phone screens; 'desktop' products show wide laptop screens. */
   readonly device: 'phone' | 'desktop';
+  /** Width over height of a desktop product's flattened screens (public/images/screens). Default 1.6. */
+  readonly screenRatio?: number;
   readonly tagline: string;
   readonly description: string;
   /** schema.org applicationCategory, used in the SoftwareApplication structured data. */
@@ -182,6 +184,7 @@ export const PRODUCTS: readonly Product[] = [
     id: 'noble-qaida',
     name: 'Noble Qaida',
     device: 'desktop',
+    screenRatio: 1.71,
     category: 'EducationalApplication',
     free: true,
     tagline: 'Learn letters and numbers in Arabic, Urdu, Hindi and English',

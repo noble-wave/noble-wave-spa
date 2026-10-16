@@ -28,19 +28,27 @@ import { Product } from '../../core/products.config';
       >
         <div class="showcase-panel pv" [class.is-wide]="wide()">
           @if (wide()) {
-            @for (s of product().story; track s.file; let i = $index) {
-              <img
-                class="showcase-shot"
-                [class.is-active]="i === index()"
-                [src]="'images/products/' + s.file + '.webp'"
-                [alt]="s.alt"
-                [attr.aria-hidden]="i === index() ? null : 'true'"
-                width="1600"
-                height="893"
-                loading="lazy"
-                decoding="async"
-              />
-            }
+            <!-- One fixed laptop; only the screen inside it changes. -->
+            <div class="showcase-laptop" [style.--ratio]="product().screenRatio ?? 1.6">
+              <div class="showcase-lid">
+                <div class="showcase-screen">
+                  @for (s of product().story; track s.file; let i = $index) {
+                    <img
+                      class="showcase-img"
+                      [class.is-active]="i === index()"
+                      [src]="'images/screens/' + s.file + '-screen.webp'"
+                      [alt]="s.alt"
+                      [attr.aria-hidden]="i === index() ? null : 'true'"
+                      width="1120"
+                      height="700"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  }
+                </div>
+              </div>
+              <div class="showcase-base" aria-hidden="true"></div>
+            </div>
           } @else {
             <!-- One fixed phone; only the screen inside it changes. -->
             <div class="showcase-device">

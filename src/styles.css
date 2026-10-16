@@ -953,9 +953,12 @@
     width: min(100%, 28rem);
   }
   .showcase-panel.is-wide {
-    aspect-ratio: 1600 / 893;
+    display: grid;
+    place-items: center;
+    aspect-ratio: auto;
     max-height: none;
     width: 100%;
+    padding: 3% 2% 6%;
     overflow: visible;
     border: 0;
     background: radial-gradient(60% 60% at 50% 55%, rgb(var(--glow, 14 116 144) / 0.22), transparent 70%);
@@ -1001,6 +1004,41 @@
     overflow: hidden;
     border-radius: 10.5% / 4.9%;
     background: #f4f6f4;
+  }
+  /* The laptop is drawn once; only its screen changes. */
+  .showcase-laptop {
+    width: 100%;
+    filter: drop-shadow(0 26px 30px rgb(4 30 45 / 0.28));
+  }
+  .showcase-lid {
+    padding: 2.2% 2.2% 2.6%;
+    border-radius: 1.1rem 1.1rem 0.35rem 0.35rem;
+    background: linear-gradient(160deg, #2b3a43, #0b1d26 55%);
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.12) inset;
+  }
+  .showcase-laptop .showcase-screen {
+    height: auto;
+    aspect-ratio: var(--ratio, 1.6);
+    border-radius: 0.45rem;
+  }
+  .showcase-base {
+    position: relative;
+    width: 112%;
+    margin-left: -6%;
+    height: clamp(0.6rem, 1.6vw, 0.95rem);
+    border-radius: 0 0 1.2rem 1.2rem / 0 0 0.9rem 0.9rem;
+    background: linear-gradient(180deg, #dfe5e9, #9aa6ae);
+  }
+  .showcase-base::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 16%;
+    height: 38%;
+    transform: translateX(-50%);
+    border-radius: 0 0 0.5rem 0.5rem;
+    background: #b7c1c8;
   }
   .showcase-img {
     inset: 0;
