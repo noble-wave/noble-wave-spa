@@ -5,6 +5,7 @@ import { PRODUCTS } from '../../core/products.config';
 import { SeoService } from '../../core/seo.service';
 import { productData, productOgImage } from '../../core/structured-data';
 import { CtaBanner } from '../../shared/ui/cta-banner';
+import { ProductShowcase } from '../../shared/ui/product-showcase';
 import { Faq } from '../../shared/ui/faq';
 import { Icon } from '../../shared/ui/icon';
 import { ProductVisual } from '../../shared/ui/product-visual';
@@ -14,7 +15,7 @@ import { NotFound } from '../not-found/not-found';
 
 @Component({
   selector: 'nw-product-detail',
-  imports: [RouterLink, Icon, ProductVisual, ScreenshotGallery, SectionHeading, CtaBanner, Faq, NotFound],
+  imports: [RouterLink, Icon, ProductVisual, ProductShowcase, ScreenshotGallery, SectionHeading, CtaBanner, Faq, NotFound],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (product(); as p) {
@@ -73,25 +74,8 @@ import { NotFound } from '../not-found/not-found';
 
       <section class="section section-alt">
         <div class="container-page">
-          <nw-section-heading eyebrow="Walkthrough" title="A closer" accent="look" [center]="true" />
-          <ol class="mt-14 grid gap-6 sm:grid-cols-2" [class.lg:grid-cols-3]="p.device === 'phone'">
-            @for (s of p.story; track s.file; let i = $index) {
-              <li class="card flex flex-col !p-0 overflow-hidden">
-                @if (p.device === 'desktop') {
-                  <img class="block aspect-[1600/893] w-full border-b border-border object-cover" [src]="'images/products/' + s.file + '-sm.webp'" [alt]="s.alt" width="960" height="536" loading="lazy" decoding="async" />
-                } @else {
-                  <div class="pv !rounded-none !border-0 aspect-[4/3]" [style.--glow]="p.glow">
-                    <img class="pv-phone" [src]="'images/story/' + s.file + '.webp'" [alt]="s.alt" style="--x:50%;--y:-14%;--h:100%;--r:0deg;transform:translateX(-50%)" width="560" height="1214" loading="lazy" decoding="async" />
-                  </div>
-                }
-                <div class="p-6">
-                  <p class="text-sm font-bold text-brand">0{{ i + 1 }}</p>
-                  <h3 class="mt-1 text-lg">{{ s.title }}</h3>
-                  <p class="mt-2 text-muted">{{ s.text }}</p>
-                </div>
-              </li>
-            }
-          </ol>
+          <nw-section-heading eyebrow="Walkthrough" title="See how it" accent="works" />
+          <div class="mt-12"><nw-product-showcase [product]="p" /></div>
         </div>
       </section>
 
