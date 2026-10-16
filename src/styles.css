@@ -939,6 +939,11 @@
     .showcase-stage {
       order: 2;
     }
+    /* Top-aligned, so opening and closing a step never moves the list or the device. */
+    .showcase-steps {
+      align-self: start;
+      padding-top: clamp(1rem, 7vw, 6rem);
+    }
   }
   .showcase-panel {
     position: relative;
@@ -955,25 +960,31 @@
     border: 0;
     background: radial-gradient(60% 60% at 50% 55%, rgb(var(--glow, 14 116 144) / 0.22), transparent 70%);
   }
+  /*
+   * Screens swap by fading only (no movement, so nothing shakes). The new screen fades in on top
+   * while the old one stays solid underneath, then the old one is hidden once the fade is done.
+   */
   .showcase-phone,
   .showcase-shot {
     position: absolute;
+    z-index: 1;
     opacity: 0;
-    transition:
-      opacity 0.45s ease,
-      transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition: opacity 0s linear 0.5s;
+    backface-visibility: hidden;
+  }
+  .showcase-phone.is-active,
+  .showcase-shot.is-active {
+    z-index: 2;
+    opacity: 1;
+    transition: opacity 0.45s ease;
   }
   .showcase-phone {
     left: 50%;
     bottom: -9%;
     height: 98%;
     width: auto;
-    transform: translateX(-50%) translateY(2.5rem) scale(0.96);
-    filter: drop-shadow(0 26px 30px rgb(4 30 45 / 0.34));
-  }
-  .showcase-phone.is-active {
-    opacity: 1;
     transform: translateX(-50%);
+    filter: drop-shadow(0 26px 30px rgb(4 30 45 / 0.34));
   }
   .showcase-shot {
     inset: 0;
@@ -982,11 +993,6 @@
     border-radius: 1.5rem;
     object-fit: cover;
     box-shadow: var(--shadow-lift);
-    transform: scale(0.97);
-  }
-  .showcase-shot.is-active {
-    opacity: 1;
-    transform: none;
   }
   .showcase-steps {
     display: flex;
@@ -1079,7 +1085,7 @@
     .showcase-phone,
     .showcase-shot,
     .showcase-text {
-      transition: none;
+      transition-duration: 0s;
     }
   }
 
