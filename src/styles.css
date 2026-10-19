@@ -938,6 +938,8 @@
     }
     .showcase-stage {
       order: 2;
+      /* Never centred against the list: its height changes as steps open, and the device must not move. */
+      align-self: start;
     }
     /* Top-aligned, so opening and closing a step never moves the list or the device. */
     .showcase-steps {
@@ -959,6 +961,7 @@
     max-height: none;
     width: 100%;
     padding: 3% 2% 6%;
+    min-height: 22rem;
     overflow: visible;
     border: 0;
     background: radial-gradient(60% 60% at 50% 55%, rgb(var(--glow, 14 116 144) / 0.22), transparent 70%);
@@ -974,6 +977,7 @@
     opacity: 0;
     transition: opacity 0s linear 0.5s;
     backface-visibility: hidden;
+    will-change: opacity;
   }
   .showcase-img.is-active,
   .showcase-shot.is-active {
@@ -1008,13 +1012,15 @@
   /* The laptop is drawn once; only its screen changes. */
   .showcase-laptop {
     width: 100%;
-    filter: drop-shadow(0 26px 30px rgb(4 30 45 / 0.28));
   }
   .showcase-lid {
     padding: 2.2% 2.2% 2.6%;
     border-radius: 1.1rem 1.1rem 0.35rem 0.35rem;
     background: linear-gradient(160deg, #2b3a43, #0b1d26 55%);
-    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.12) inset;
+    /* A box-shadow, not a filter: a filter on the parent is redrawn on every frame of the fade. */
+    box-shadow:
+      0 0 0 1px rgb(255 255 255 / 0.12) inset,
+      0 30px 40px -10px rgb(4 30 45 / 0.3);
   }
   .showcase-laptop .showcase-screen {
     height: auto;

@@ -41,7 +41,7 @@ import { Product } from '../../core/products.config';
                       [attr.aria-hidden]="i === index() ? null : 'true'"
                       width="1120"
                       height="700"
-                      loading="lazy"
+                      loading="eager"
                       decoding="async"
                     />
                   }
@@ -62,7 +62,7 @@ import { Product } from '../../core/products.config';
                     [attr.aria-hidden]="i === index() ? null : 'true'"
                     width="480"
                     height="1040"
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
                   />
                 }
