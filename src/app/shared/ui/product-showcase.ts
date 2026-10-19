@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, ElementRef, afterNextRender, inject, input, signal } from '@angular/core';
 import { Product } from '../../core/products.config';
 
+/** Counter for element ids, so the server-rendered page and the browser agree. */
+let nextId = 0;
+
 /**
  * Interactive walkthrough: a list of steps beside one large device. Choosing a step (or waiting,
  * when the page is in view and the visitor has not chosen one) swaps the screen on the device.
@@ -103,7 +106,7 @@ import { Product } from '../../core/products.config';
 export class ProductShowcase {
   readonly product = input.required<Product>();
 
-  protected readonly uid = `showcase-${Math.random().toString(36).slice(2, 8)}`;
+  protected readonly uid = `showcase-${nextId++}`;
   protected readonly index = signal(0);
   protected readonly paused = signal(false);
   /** True while the steps advance by themselves: in view, motion allowed, nothing chosen yet. The progress bar's animation drives the timing. */

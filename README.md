@@ -50,7 +50,13 @@ or broken structured data.
 
 Add an entry to `PRODUCTS` in `products.config.ts` and put its images in `public/images/story` (cut-out phone
 screens) and `public/images/products` (posters). The product page, listing, footer and sitemap routes follow
-from that entry; add the new URL to `public/sitemap.xml` too.
+from that entry (`sitemap.xml` is generated at build).
+
+The "See how it works" walkthrough shows one fixed phone or laptop and fades only the screen inside it, so it
+needs flat screen images in `public/images/screens`. Generate them with `python scripts/make-screens-phone.py`
+(phone products, from `story`) or `python scripts/make-screens-laptop.py` (laptop products, from the scene images),
+adding the new file names to the script first. For a laptop product whose screens are not 1.6:1, set
+`screenRatio` on the product.
 
 ## Project layout
 
