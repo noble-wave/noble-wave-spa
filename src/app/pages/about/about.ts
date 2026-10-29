@@ -23,7 +23,7 @@ import { TechIcon } from '../../shared/ui/tech-icon';
           </h1>
           <p class="lead mt-6">
             {{ site.name }} is based in {{ site.location }}. We make free apps for everyday needs: working with PDFs,
-            keeping up with daily prayers, managing rentals and helping children learn their letters. We build, host and
+            keeping up with daily prayers, managing rentals, helping children learn their letters and sharing one keyboard and mouse across computers. We build, host and
             support each one ourselves.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
@@ -118,7 +118,7 @@ export class About {
   constructor() {
     inject(SeoService).set({
       title: 'About Noble Wave',
-      description: `${SITE.name} is a small product team in ${SITE.location} that designs, builds and runs the apps we ship: PDF Workshop, Noble Salah Guide, Rentiva and Noble Qaida.`,
+      description: `${SITE.name} is a small product team in ${SITE.location} that designs, builds and runs the apps we ship: PDF Workshop, Noble Salah Guide, Rentiva, Noble Qaida and Noble Relay.`,
       path: '/about',
     });
   }

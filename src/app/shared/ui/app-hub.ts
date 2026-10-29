@@ -9,6 +9,7 @@ const FEATURE_NODES: Record<string, readonly string[]> = {
   'noble-salah': ['Prayer times', 'Qibla', 'Quran'],
   'rentiva': ['Bills', 'Payments', 'Reports'],
   'noble-qaida': ['Letters', 'Audio', 'Streaks'],
+  'noble-relay': ['Mouse', 'Clipboard', 'Files'],
 };
 
 /** One colour per app (r g b) for its glow, its zig-zag link and its small nodes, picked to sit with its icon. */
@@ -17,6 +18,7 @@ const ACCENT: Record<string, string> = {
   'noble-salah': '13 148 136',
   'rentiva': '34 197 94',
   'noble-qaida': '245 158 11',
+  'noble-relay': '99 102 241',
 };
 
 /**
@@ -27,6 +29,7 @@ const ICONS: Record<string, string> = {
   'pdf-workshop': 'images/app-icons/pdf-workshop.svg',
   'noble-salah': 'images/app-icons/noble-salah.png',
   'rentiva': 'images/app-icons/rentiva.png',
+  'noble-relay': 'images/app-icons/noble-relay.png',
 };
 const TILE = 68;
 /** Size of the stand-in glyph on a tile, in picture units. */
@@ -34,9 +37,13 @@ const GLYPH_SIZE = 34;
 const BOOK_PATHS = GLYPHS['book-open'].paths;
 
 const W = 600;
-const H = 500;
+const H = 610;
+/** The small nodes of the outer apps reach past the edges of the 600 x 610 area, so the view starts a little outside it. */
+const VIEW_TOP = -30;
+const VIEW_LEFT = -40;
+const VIEW_W = W - 2 * VIEW_LEFT;
 const CX = W / 2;
-const CY = H / 2;
+const CY = 290;
 const LEAF_RADIUS = 108;
 const LEAF_SPREAD = 0.75;
 /** How far the zig-zag swings away from the straight line, in picture units. */
@@ -61,12 +68,13 @@ function zigzag(x1: number, y1: number, x2: number, y2: number, bends: number, s
   }
   return `${d} L${x2},${y2}`;
 }
-/** Where each app sits, in the order of PRODUCTS (top left, top right, bottom left, bottom right). */
+/** Where each app sits, in the order of PRODUCTS: five points on an oval around the centre, clockwise from the top. */
 const APP_POSITIONS: readonly (readonly [number, number])[] = [
-  [170, 130],
-  [430, 130],
-  [170, 370],
-  [430, 370],
+  [300, 105],
+  [462, 233],
+  [400, 440],
+  [200, 440],
+  [138, 233],
 ];
 
 /** Zig-zag from the edge of the centre circle to the edge of an app tile. */
@@ -121,9 +129,9 @@ interface Branch {
   template: `
     <svg
       class="hub"
-      [attr.viewBox]="'0 0 ' + w + ' ' + h"
+      [attr.viewBox]="viewBox"
       role="group"
-      aria-label="Noble Wave and its four apps: PDF Workshop, Noble Salah Guide, Rentiva and Noble Qaida"
+      [attr.aria-label]="label"
     >
       <defs>
         <clipPath id="hub-tile-clip"><rect x="-34" y="-34" width="68" height="68" rx="20" /></clipPath>
@@ -329,6 +337,8 @@ export class AppHub {
   protected readonly bookPaths = BOOK_PATHS;
   /** Centres the 24 unit book drawing on the tile at GLYPH_SIZE. */
   protected readonly glyphTransform = `translate(${-GLYPH_SIZE / 2} ${-GLYPH_SIZE / 2}) scale(${GLYPH_SIZE / 24})`;
+  protected readonly viewBox = `${VIEW_LEFT} ${VIEW_TOP} ${VIEW_W} ${H}`;
+  protected readonly label = `Noble Wave and its ${PRODUCTS.length} apps: ${PRODUCTS.map((p) => p.name).join(', ')}`;
   protected readonly w = W;
   protected readonly h = H;
   protected readonly cx = CX;

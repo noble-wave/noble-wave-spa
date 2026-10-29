@@ -40,7 +40,7 @@ import { NotFound } from '../not-found/not-found';
               @for (l of p.links; track l.url; let first = $first) {
                 <a [href]="l.url" class="btn" [class.btn-primary]="first" [class.btn-secondary]="!first" target="_blank" rel="noopener noreferrer"
                    [attr.aria-label]="l.label + ' (opens in a new tab)'">
-                  <nw-icon [name]="l.kind === 'play' ? 'play' : 'globe'" />
+                  <nw-icon [name]="l.kind === 'play' ? 'play' : l.kind === 'download' ? 'download' : 'globe'" />
                   {{ l.label }}
                 </a>
               }

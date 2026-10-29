@@ -6,7 +6,7 @@ export const SITE = {
   name: 'Noble Wave',
   tagline: 'Free everyday apps for work, faith and learning',
   description:
-    'Noble Wave builds free apps people use daily: PDF Workshop, Noble Salah Guide, Rentiva and Noble Qaida, for PDFs, prayer, rentals and learning. Made in New Delhi.',
+    'Noble Wave builds free apps people use daily: PDF Workshop, Noble Salah Guide, Rentiva, Noble Qaida and Noble Relay. Made in New Delhi.',
   url: 'https://noble-wave.com',
   email: 'info@noble-wave.com',
   phone: '+918448462846',

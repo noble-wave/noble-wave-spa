@@ -76,3 +76,21 @@ for n in names:
 for n in ('qaida-1','qaida-2','qaida-3'):
     im=Image.open(SRC+n+'.webp').convert('RGB').crop((414,238,1190,692))
     im.resize((1120,round(1120*im.height/im.width)),Image.LANCZOS).save(OUT+n+'-screen.webp','WEBP',quality=82,method=6)
+
+# Noble Relay: two scenes, each with a bright app window inside a dark bezel. Find the window as the connected
+# bright region around a seed point inside it, then straighten it like the PDF screens.
+def quad_bright(im, seed):
+    f=2; w,h=im.size; sw,sh=w//f,h//f
+    px=im.resize((sw,sh),Image.BILINEAR).load()
+    ok=lambda x,y: min(px[x,y])>=232
+    seen=bytearray(sw*sh); stack=[(seed[0]//f,seed[1]//f)]; pts=[]
+    while stack:
+        x,y=stack.pop()
+        if x<0 or y<0 or x>=sw or y>=sh or seen[y*sw+x] or not ok(x,y): continue
+        seen[y*sw+x]=1; pts.append((x,y)); stack+=[(x+1,y),(x-1,y),(x,y+1),(x,y-1)]
+    tl=min(pts,key=lambda p:p[0]+p[1]); br=max(pts,key=lambda p:p[0]+p[1])
+    tr=max(pts,key=lambda p:p[0]-p[1]); bl=min(pts,key=lambda p:p[0]-p[1])
+    return [(x*f,y*f) for x,y in (tl,tr,br,bl)]
+
+for n,seed in (('relay-1',(1042,475)),('relay-2',(1139,332))):
+    im=Image.open(SRC+n+'.webp').convert('RGB'); q=quad_bright(im,seed); print(n,q); warp(im,q,n+'-screen')

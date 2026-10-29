@@ -38,9 +38,9 @@ export class Products {
 
   constructor() {
     inject(SeoService).set({
-      title: 'Our apps: PDF, prayer, rentals and learning',
+      title: 'Our apps: PDF, prayer, rentals, learning and more',
       description:
-        'PDF Workshop, Noble Salah Guide, Rentiva and Noble Qaida: free apps for PDFs, prayer times, rentals and learning letters, built and run by Noble Wave.',
+        'PDF Workshop, Noble Salah Guide, Rentiva, Noble Qaida and Noble Relay: free apps for PDFs, prayer, rentals, learning and multi-computer control, by Noble Wave.',
       path: '/products',
       jsonLd: productListData(),
     });

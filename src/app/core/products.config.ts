@@ -7,7 +7,7 @@ export interface Screenshot {
 }
 
 export interface ProductLink {
-  readonly kind: 'web' | 'play';
+  readonly kind: 'web' | 'play' | 'download';
   readonly label: string;
   readonly url: string;
 }
@@ -219,6 +219,44 @@ export const PRODUCTS: readonly Product[] = [
       { file: 'qaida-m-1', poster: true, alt: 'Noble Qaida Learn screen on a phone with a daily goal, a streak and a Continue button' },
       { file: 'qaida-m-2', poster: true, alt: 'Noble Qaida English Letters screen on a phone with capital letters A to P' },
       { file: 'qaida-m-3', poster: true, alt: 'Noble Qaida Hindi Letters screen on a phone showing Hindi letters' },
+    ],
+  },
+  {
+    id: 'noble-relay',
+    name: 'Noble Relay',
+    device: 'desktop',
+    category: 'UtilitiesApplication',
+    free: true,
+    tagline: 'One keyboard and mouse for all your computers',
+    description:
+      'Noble Relay lets you control several computers with a single keyboard and mouse. Move the pointer off the edge of one screen and it continues on the computer next to it, with a shared clipboard and file transfer. It works on Windows, macOS and Linux over your own network.',
+    platforms: ['Windows', 'macOS', 'Linux'],
+    features: [
+      'Move the pointer off a screen edge to continue on the next computer',
+      'Copy on one computer and paste on another: text, images and files',
+      'Send files and folders, with resume if the connection drops',
+      'Chat, and view another computer’s screen when its owner allows it',
+      'Encrypted and local: paired by a 6-digit code, with no account and no server',
+      'Windows, macOS and Linux, with the same app on every computer',
+    ],
+    faq: [
+      { q: 'What is Noble Relay?', a: 'Noble Relay is a desktop app that lets you control several computers with one keyboard and mouse. Move the pointer off the edge of a screen and it continues on the computer next to it.' },
+      { q: 'Which computers does it work on?', a: 'Windows, macOS and Linux. Install the same app on each computer and they can share their keyboard and mouse with one another.' },
+      { q: 'Do I need an account or the internet?', a: 'No. There is no account and no server. Computers find each other on your local network, and you pair them once with a 6-digit code.' },
+      { q: 'Is it secure?', a: 'Computers only talk to the computers you paired, and all traffic is encrypted. Each paired computer has switches for what it may do, such as use the keyboard, send files or ask to see the screen.' },
+      { q: 'Can I use it to control a computer over the internet?', a: 'No. Noble Relay works between computers on the same local network. Viewing another computer’s screen is watch-only, and its owner approves each request.' },
+      { q: 'Where do I download it?', a: 'Download the installer for each computer from the Noble Relay releases page on GitHub.' },
+    ],
+    glow: '19 120 90',
+    screenRatio: 1.6,
+    story: [
+      { file: 'relay-1', title: 'Pair the computers on your network', text: 'Open Noble Relay on each computer. They find each other in seconds. Press Pair and type the 6-digit code shown on the other one.', alt: 'Noble Relay Computers screen listing this computer and two others on the network, each with a Pair button' },
+      { file: 'relay-2', title: 'Arrange them like your desk', text: 'Drag each computer to where it sits on your desk. The pointer crosses only where screen edges touch, and drops files onto a computer send them.', alt: 'Noble Relay Arrange screen with two computers placed side by side, their touching edge highlighted' },
+    ],
+    links: [{ kind: 'download', label: 'Download for free', url: 'https://github.com/sohail12ali/multi-control-releases/releases/latest' }],
+    screenshots: [
+      { file: 'relay-1', alt: 'Noble Relay on a laptop, with the Computers screen and its main features listed beside it' },
+      { file: 'relay-2', alt: 'Noble Relay Arrange screen on a laptop: one keyboard, multiple computers' },
     ],
   },
 ];

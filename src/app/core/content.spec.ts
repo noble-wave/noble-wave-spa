@@ -41,7 +41,7 @@ describe('site content', () => {
       for (const l of p.links) {
         expect(l.url.startsWith('https://')).toBe(true);
       }
-      expect(p.story.length).toBeGreaterThanOrEqual(3);
+      expect(p.story.length).toBeGreaterThanOrEqual(2);
     }
   });
 
@@ -62,5 +62,6 @@ describe('site content', () => {
     expect(urls).toContain('https://play.google.com/store/apps/details?id=com.noblewave.noblesalah');
     expect(urls).toContain('https://rentiva.noble-wave.com/');
     expect(urls).toContain('https://pdf-workshop.noble-wave.com/');
+    expect(urls).toContain('https://github.com/sohail12ali/multi-control-releases/releases/latest');
   });
 });

@@ -41,7 +41,7 @@ import { ProductVisual } from './product-visual';
               rel="noopener noreferrer"
               [attr.aria-label]="l.label + ' (opens in a new tab)'"
             >
-              <nw-icon [name]="l.kind === 'play' ? 'play' : 'globe'" />
+              <nw-icon [name]="l.kind === 'play' ? 'play' : l.kind === 'download' ? 'download' : 'globe'" />
               {{ l.label }}
             </a>
           }
