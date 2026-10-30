@@ -77,7 +77,7 @@ for n in ('qaida-1','qaida-2','qaida-3'):
     im=Image.open(SRC+n+'.webp').convert('RGB').crop((414,238,1190,692))
     im.resize((1120,round(1120*im.height/im.width)),Image.LANCZOS).save(OUT+n+'-screen.webp','WEBP',quality=82,method=6)
 
-# Noble Relay: two scenes, each with a bright app window inside a dark bezel. Find the window as the connected
+# Noble Relay: five scenes, each with a bright app window inside a dark bezel. Find the window as the connected
 # bright region around a seed point inside it, then straighten it like the PDF screens.
 def quad_bright(im, seed):
     f=2; w,h=im.size; sw,sh=w//f,h//f
@@ -92,5 +92,5 @@ def quad_bright(im, seed):
     tr=max(pts,key=lambda p:p[0]-p[1]); bl=min(pts,key=lambda p:p[0]-p[1])
     return [(x*f,y*f) for x,y in (tl,tr,br,bl)]
 
-for n,seed in (('relay-1',(1042,475)),('relay-2',(1139,332))):
+for n,seed in (('relay-1',(1042,475)),('relay-2',(1139,332)),('relay-3',(1148,474)),('relay-4',(1244,313)),('relay-5',(1148,361))):
     im=Image.open(SRC+n+'.webp').convert('RGB'); q=quad_bright(im,seed); print(n,q); warp(im,q,n+'-screen')

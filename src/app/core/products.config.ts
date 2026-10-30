@@ -252,11 +252,17 @@ export const PRODUCTS: readonly Product[] = [
     story: [
       { file: 'relay-1', title: 'Pair the computers on your network', text: 'Open Noble Relay on each computer. They find each other in seconds. Press Pair and type the 6-digit code shown on the other one.', alt: 'Noble Relay Computers screen listing this computer and two others on the network, each with a Pair button' },
       { file: 'relay-2', title: 'Arrange them like your desk', text: 'Drag each computer to where it sits on your desk. The pointer crosses only where screen edges touch, and drops files onto a computer send them.', alt: 'Noble Relay Arrange screen with two computers placed side by side, their touching edge highlighted' },
+      { file: 'relay-3', title: 'Send files and folders', text: 'Send files from the Computers page, or drop them on a computer in Arrange. Nothing is saved until the other person accepts, and an interrupted transfer can resume.', alt: 'Noble Relay Files screen: send files between computers, with nothing saved until you accept' },
+      { file: 'relay-4', title: 'Chat between computers', text: 'Message whoever is at another computer, or a group of them. Messages wait for a computer that is offline and arrive when it is back.', alt: 'Noble Relay Chat screen listing two computers, with a new group option' },
+      { file: 'relay-5', title: 'See what happened', text: 'A history of who took control, who sent a file or a clipboard, and what permissions blocked. It is kept on your computer only.', alt: 'Noble Relay Activity screen listing events such as took control, sent a file and blocked, with filters' },
     ],
     links: [{ kind: 'download', label: 'Download for free', url: 'https://github.com/sohail12ali/multi-control-releases/releases/latest' }],
     screenshots: [
       { file: 'relay-1', alt: 'Noble Relay on a laptop, with the Computers screen and its main features listed beside it' },
       { file: 'relay-2', alt: 'Noble Relay Arrange screen on a laptop: one keyboard, multiple computers' },
+      { file: 'relay-3', alt: 'Noble Relay Files screen on a laptop: share files between computers' },
+      { file: 'relay-4', alt: 'Noble Relay Chat screen on a laptop: chat between computers' },
+      { file: 'relay-5', alt: 'Noble Relay Activity screen on a laptop: stay in control and know what happened' },
     ],
   },
 ];
